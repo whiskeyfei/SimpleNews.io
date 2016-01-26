@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        jar="/Users/whiskeyfei/gitfork/SimpleNews/app/build/intermediates/exploded-aar/com.github.orhanobut/logger/1.12/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="ecb9f39f775f414b18c7c61b4f71345f2ae8f738">
+        <dex dex="/Users/whiskeyfei/gitfork/SimpleNews/app/build/intermediates/pre-dexed/debug/classes-8657ae3f833fdd707da67104d9a60d416aa86f43.jar" />
+    </item>
+
+</items>

@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="html-textview-1.3">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/app/build/intermediates/exploded-aar/org.sufficientlysecure/html-textview/1.3/jars/classes.jar!/" />
+      <root url="file://$PROJECT_DIR$/app/build/intermediates/exploded-aar/org.sufficientlysecure/html-textview/1.3/res" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.sufficientlysecure/html-textview/1.3/18dd8b48968040e3d526c7945b685e1c8418d154/html-textview-1.3-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
