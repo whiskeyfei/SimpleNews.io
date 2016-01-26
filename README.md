@@ -4,7 +4,10 @@
 ###### gif图
 ![image](https://raw.githubusercontent.com/liuling07/SimpleNews/master/screenshot/example.gif)
 
-### 依赖
+### App设计
+本代码库借鉴了[SimpleNews](https://github.com/liuling07/SimpleNews)，在原来得基础上，修改了数据层和UI层的逻辑，使用RxJava+MVP组合
+
+### 引用库
 
 库名称 | 库信息
 ------- | -------
@@ -16,9 +19,6 @@
 [okhttp](https://github.com/square/okhttp) |  网络请求库
 [circleimageview](https://github.com/hdodenhof/CircleImageView) | 图片操作
 
-# About me
-* Blog:[http://www.liuling123.com](http://www.liuling123.com)
-* Email:[lauren.liuling@gmail.com](mailto:lauren.liuling@gmail.com)、[lauren_liuling@163.com](mailto:lauren_liuling@163.com)
 
 # 参考
 1、[NotRxJava懒人专用指南](http://www.devtf.cn/?p=323)<br/>
@@ -26,7 +26,7 @@
 3、[给 Android 开发者的 RxJava 详解](http://gank.io/post/560e15be2dca930e00da1083#toc_1)<br/>
 
 # License
-Copyright 2015 liuling <br/>
+Copyright 2015 liuling <lauren.liuling@gmail.com><br/>
 Copyright 2015 whiskeyfei <whiskeyfei@gmail.com><br/>
 
 Licensed under the Apache License, Version 2.0 (the "License");
