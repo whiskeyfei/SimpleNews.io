@@ -4,35 +4,25 @@ import android.os.Bundle;
 import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.webkit.WebView;
 import android.widget.ImageView;
-import android.widget.ProgressBar;
 
 import com.lauren.simplenews.R;
-import com.lauren.simplenews.beans.NewsBean;
+import com.lauren.simplenews.beans.NewModel;
 import com.lauren.simplenews.presenter.INewsDetailPresenter;
 import com.lauren.simplenews.presenter.NewsDetailPresenter;
-import com.lauren.simplenews.view.INewsDetailView;
-import com.lauren.simplenews.utils.ToolsUtil;
 import com.lauren.simplenews.utils.ImageLoaderUtils;
-
-import org.sufficientlysecure.htmltextview.HtmlTextView;
+import com.lauren.simplenews.utils.ToolsUtil;
+import com.lauren.simplenews.view.INewsDetailView;
 
 import me.imid.swipebacklayout.lib.SwipeBackLayout;
 import me.imid.swipebacklayout.lib.app.SwipeBackActivity;
 
-/**
- * Description : 新闻详情界面
- * Author : lauren
- * Email  : lauren.liuling@gmail.com
- * Blog   : http://www.liuling123.com
- * Date   : 15/12/19
- */
 public class NewsDetailActivity extends SwipeBackActivity implements INewsDetailView {
 
-    private NewsBean mNews;
-    private HtmlTextView mTVNewsContent;
+    private NewModel mNews;
+    private WebView mWebView;
     private INewsDetailPresenter mNewsDetailPresenter;
-    private ProgressBar mProgressBar;
     private SwipeBackLayout mSwipeBackLayout;
 
     @Override
@@ -40,8 +30,7 @@ public class NewsDetailActivity extends SwipeBackActivity implements INewsDetail
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_news_detail);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        mProgressBar = (ProgressBar) findViewById(R.id.progress);
-        mTVNewsContent = (HtmlTextView) findViewById(R.id.htNewsContent);
+        mWebView = (WebView)findViewById(R.id.webview_content);
 
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -56,7 +45,7 @@ public class NewsDetailActivity extends SwipeBackActivity implements INewsDetail
         mSwipeBackLayout.setEdgeSize(ToolsUtil.getWidthInPx(this));
         mSwipeBackLayout.setEdgeTrackingEnabled(SwipeBackLayout.EDGE_LEFT);
 
-        mNews = (NewsBean) getIntent().getSerializableExtra("news");
+        mNews = (NewModel) getIntent().getSerializableExtra("news");
 
         CollapsingToolbarLayout collapsingToolbar = (CollapsingToolbarLayout) findViewById(R.id.collapsing_toolbar);
         collapsingToolbar.setTitle(mNews.title);
@@ -64,21 +53,24 @@ public class NewsDetailActivity extends SwipeBackActivity implements INewsDetail
         ImageLoaderUtils.display(getApplicationContext(), (ImageView) findViewById(R.id.ivImage), mNews.imageUrl);
 
         mNewsDetailPresenter = new NewsDetailPresenter(this);
-        mNewsDetailPresenter.loadNewsDetail(mNews.docid);
+        mNewsDetailPresenter.init(mWebView);
+        mNewsDetailPresenter.loadUrl(mNews.newUrl);
     }
 
     @Override
-    public void showNewsDetialContent(String newsDetailContent) {
-        mTVNewsContent.setHtmlFromString(newsDetailContent, new HtmlTextView.LocalImageGetter());
+    protected void onPause() {
+        if (mWebView != null) mWebView.onPause();
+        super.onPause();
     }
 
     @Override
-    public void showProgress() {
-        mProgressBar.setVisibility(View.VISIBLE);
+    protected void onDestroy() {
+        if (mWebView != null) mWebView.destroy();
+        super.onDestroy();
     }
 
     @Override
-    public void hideProgress() {
-        mProgressBar.setVisibility(View.GONE);
+    public void showLoadErrorMessage(String description) {
+
     }
 }

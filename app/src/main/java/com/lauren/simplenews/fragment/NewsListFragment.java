@@ -2,7 +2,6 @@ package com.lauren.simplenews.fragment;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.ActivityOptionsCompat;
@@ -17,7 +16,7 @@ import android.view.ViewGroup;
 import com.fei.library.fragment.DPBaseFragment;
 import com.lauren.simplenews.R;
 import com.lauren.simplenews.adapter.NewsAdapter;
-import com.lauren.simplenews.beans.NewsBean;
+import com.lauren.simplenews.beans.NewModel;
 import com.lauren.simplenews.commons.Urls;
 import com.lauren.simplenews.presenter.INewsPresenter;
 import com.lauren.simplenews.presenter.NewsPresenter;
@@ -28,13 +27,6 @@ import com.lauren.simplenews.view.INewsView;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Description : 新闻Fragment
- * Author : lauren
- * Email  : lauren.liuling@gmail.com
- * Blog   : http://www.liuling123.com
- * Date   : 15/12/13
- */
 public class NewsListFragment extends DPBaseFragment implements INewsView, SwipeRefreshLayout.OnRefreshListener {
 
     private static final String TAG = "NewsListFragment";
@@ -43,7 +35,7 @@ public class NewsListFragment extends DPBaseFragment implements INewsView, Swipe
     private RecyclerView mRecyclerView;
     private LinearLayoutManager mLayoutManager;
     private NewsAdapter mAdapter;
-    private List<NewsBean> mData;
+    private List<NewModel> mData;
     private INewsPresenter mNewsPresenter;
 
     private int mType = NewsFragment.NEWS_TYPE_TOP;
@@ -58,17 +50,15 @@ public class NewsListFragment extends DPBaseFragment implements INewsView, Swipe
     }
 
     @Override
-    public void onCreate(@Nullable Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         mNewsPresenter = new NewsPresenter(this);
         mType = getArguments().getInt("type");
     }
 
-    @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_newslist, null);
-
         mSwipeRefreshWidget = (SwipeRefreshLayout) view.findViewById(R.id.swipe_refresh_widget);
         mSwipeRefreshWidget.setColorSchemeResources(R.color.primary,
                 R.color.primary_dark, R.color.primary_light,
@@ -116,7 +106,7 @@ public class NewsListFragment extends DPBaseFragment implements INewsView, Swipe
     private NewsAdapter.OnItemClickListener mOnItemClickListener = new NewsAdapter.OnItemClickListener() {
         @Override
         public void onItemClick(View view, int position) {
-            NewsBean news = mAdapter.getItem(position);
+            NewModel news = mAdapter.getItem(position);
             Intent intent = new Intent(getActivity(), NewsDetailActivity.class);
             intent.putExtra("news", news);
 
@@ -135,14 +125,14 @@ public class NewsListFragment extends DPBaseFragment implements INewsView, Swipe
     }
 
     @Override
-    public void addNews(List<NewsBean> newsList) {
+    public void addNews(List<NewModel> newsList) {
         mAdapter.isShowFooter(true);
         if(mData == null) {
             mData = new ArrayList<>();
         }
         mData.addAll(newsList);
         if(pageIndex == 0) {
-            mAdapter.setmDate(mData);
+            mAdapter.setNewDate(mData);
         } else {
             //如果没有更多数据了,则隐藏footer布局
             if(newsList == null || newsList.size() == 0) {

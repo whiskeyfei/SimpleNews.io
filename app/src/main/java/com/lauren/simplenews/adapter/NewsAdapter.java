@@ -9,7 +9,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.lauren.simplenews.R;
-import com.lauren.simplenews.beans.NewsBean;
+import com.lauren.simplenews.beans.NewModel;
 import com.lauren.simplenews.utils.ImageLoaderUtils;
 
 import java.util.List;
@@ -25,7 +25,7 @@ public class NewsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     private static final int TYPE_ITEM = 0;
     private static final int TYPE_FOOTER = 1;
 
-    private List<NewsBean> mData;
+    private List<NewModel> mData;
     private boolean mShowFooter = true;
     private Context mContext;
 
@@ -35,7 +35,7 @@ public class NewsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
         this.mContext = context;
     }
 
-    public void setmDate(List<NewsBean> data) {
+    public void setNewDate(List<NewModel> data) {
         this.mData = data;
         this.notifyDataSetChanged();
     }
@@ -73,7 +73,7 @@ public class NewsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
         if(holder instanceof ItemViewHolder) {
 
-            NewsBean news = mData.get(position);
+            NewModel news = mData.get(position);
             if(news == null) {
                 return;
             }
@@ -94,7 +94,7 @@ public class NewsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
         return mData.size() + begin;
     }
 
-    public NewsBean getItem(int position) {
+    public NewModel getItem(int position) {
         return mData == null ? null : mData.get(position);
     }
 
@@ -119,7 +119,7 @@ public class NewsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     }
 
     public interface OnItemClickListener {
-        public void onItemClick(View view, int position);
+        void onItemClick(View view, int position);
     }
 
     public class ItemViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {

@@ -15,10 +15,10 @@
     <string name="email">邮箱：lauren.liuling@gmail.com</string>
     <string name="blog">博客：http://www.liuling123.com</string>
 
-    <string name="top">头条</string>
-    <string name="nba">NBA</string>
-    <string name="cars">汽车</string>
-    <string name="jokes">笑话</string>
+    <string name="top">精选</string>
+    <string name="recreation">娱乐</string>
+    <string name="science">科技</string>
+    <string name="health">健康</string>
 
     <string name="jingxuan">精选</string>
     <string name="qutu">趣图</string>

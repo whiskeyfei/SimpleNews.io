@@ -18,7 +18,6 @@ import com.lauren.simplenews.R;
 import com.lauren.simplenews.fragment.AboutFragment;
 import com.lauren.simplenews.fragment.ImageFragment;
 import com.lauren.simplenews.fragment.NewsFragment;
-import com.lauren.simplenews.fragment.WeatherFragment;
 import com.lauren.simplenews.presenter.IMainPresenter;
 import com.lauren.simplenews.presenter.MainPresenterImpl;
 import com.lauren.simplenews.view.IMainView;
@@ -98,8 +97,8 @@ public class MainActivity extends AppCompatActivity implements IMainView,IBaseFr
 
     @Override
     public void switch2Weather() {
-        onSwitchFragment(new WeatherFragment(),null);
-        mToolbar.setTitle(R.string.navigation_weather);
+//        onSwitchFragment(new WeatherFragment(),null);
+//        mToolbar.setTitle(R.string.navigation_weather);
     }
 
     @Override

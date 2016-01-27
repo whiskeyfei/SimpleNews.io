@@ -1,14 +1,10 @@
 package com.lauren.simplenews.presenter;
 
-/**
- * Description :
- * Author : lauren
- * Email  : lauren.liuling@gmail.com
- * Blog   : http://www.liuling123.com
- * Date   : 2015/12/21
- */
+import android.webkit.WebView;
+
 public interface INewsDetailPresenter {
 
-    void loadNewsDetail(String docId);
+    void init(WebView mWebView);
 
+    void loadUrl(String newUrl);
 }
