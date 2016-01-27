@@ -1,6 +1,9 @@
 # SimpleNews.io
 基于Material Design和MVP的新闻客户端,在原来的基础修改使用RxJava+MVP,由于数据请求逻辑改动较大，所以单独拉出来进行更新，最新代码库请查看[SimpleNews.io](https://github.com/whiskeyfei/SimpleNews.io)
 
+######更新 1.17
+修改数据源获取,详情页改成webview查看,关闭天气显示，清理无用代码
+
 ###### gif图
 ![image](https://raw.githubusercontent.com/liuling07/SimpleNews/master/screenshot/example.gif)
 
