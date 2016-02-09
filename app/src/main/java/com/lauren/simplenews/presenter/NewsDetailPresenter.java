@@ -6,18 +6,14 @@ import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
-import com.lauren.simplenews.model.INewsModel;
-import com.lauren.simplenews.model.NewsModelImpl;
 import com.lauren.simplenews.view.INewsDetailView;
 import com.whiskeyfei.mvp.base.BasePresenter;
 
 public class NewsDetailPresenter extends BasePresenter<INewsDetailView> implements INewsDetailPresenter {
-    WebView mWebView;
-    private INewsModel mNewsModel;
+    private WebView mWebView;
 
     public NewsDetailPresenter(INewsDetailView detailView) {
         attachView(detailView);
-        mNewsModel = new NewsModelImpl();
     }
 
     @Override
@@ -37,10 +33,10 @@ public class NewsDetailPresenter extends BasePresenter<INewsDetailView> implemen
         settings.setAppCacheEnabled(true);
         settings.setLayoutAlgorithm(WebSettings.LayoutAlgorithm.SINGLE_COLUMN);
         settings.setSupportZoom(true);
-        mWebView.setWebViewClient(new myWebViewClient());
+        mWebView.setWebViewClient(new mWebViewClient());
     }
 
-    private class myWebViewClient extends WebViewClient {
+    private class mWebViewClient extends WebViewClient {
 
         public boolean shouldOverrideUrlLoading(WebView view, String url) {
             if (TextUtils.isEmpty(url)){

@@ -17,6 +17,7 @@ import com.fei.library.fragment.DPBaseFragment;
 import com.lauren.simplenews.R;
 import com.lauren.simplenews.adapter.NewsAdapter;
 import com.lauren.simplenews.beans.NewModel;
+import com.lauren.simplenews.commons.ApiConstants;
 import com.lauren.simplenews.commons.Urls;
 import com.lauren.simplenews.presenter.INewsPresenter;
 import com.lauren.simplenews.presenter.NewsPresenter;
@@ -108,7 +109,7 @@ public class NewsListFragment extends DPBaseFragment implements INewsView, Swipe
         public void onItemClick(View view, int position) {
             NewModel news = mAdapter.getItem(position);
             Intent intent = new Intent(getActivity(), NewsDetailActivity.class);
-            intent.putExtra("news", news);
+            intent.putExtra(ApiConstants.NEWS_KEY, news);
 
             View transitionView = view.findViewById(R.id.ivNews);
             ActivityOptionsCompat options =

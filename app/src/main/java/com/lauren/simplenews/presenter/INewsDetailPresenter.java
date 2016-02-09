@@ -4,7 +4,7 @@ import android.webkit.WebView;
 
 public interface INewsDetailPresenter {
 
-    void init(WebView mWebView);
+    void init(WebView webView);
 
     void loadUrl(String newUrl);
 }

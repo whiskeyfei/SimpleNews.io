@@ -2,7 +2,6 @@ package com.lauren.simplenews.commons;
 
 public class Urls {
 
-
     public static final int PAZE_SIZE = 20;
 
     // 图片
