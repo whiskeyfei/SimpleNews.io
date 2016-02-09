@@ -5,7 +5,7 @@
 修改数据源获取,详情页改成webview查看,关闭天气显示，清理无用代码
 
 ###### gif图
-![image](https://raw.githubusercontent.com/liuling07/SimpleNews/master/screenshot/example.gif)
+![image](http://7xol9p.com1.z0.glb.clouddn.com/github_news.gif)
 
 ### App设计
 本代码库借鉴了[SimpleNews](https://github.com/liuling07/SimpleNews)，在原来得基础上，修改了数据层和UI层的逻辑，使用RxJava+MVP组合
