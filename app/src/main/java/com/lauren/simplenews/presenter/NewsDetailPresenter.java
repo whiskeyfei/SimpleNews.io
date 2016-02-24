@@ -6,6 +6,7 @@ import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
+import com.lauren.simplenews.event.INewsDetailPresenter;
 import com.lauren.simplenews.view.INewsDetailView;
 import com.whiskeyfei.mvp.base.BasePresenter;
 

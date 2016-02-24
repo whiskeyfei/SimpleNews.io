@@ -7,6 +7,7 @@ import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.lauren.simplenews.beans.ImageBean;
 import com.lauren.simplenews.commons.Urls;
+import com.lauren.simplenews.event.IImageModel;
 import com.lauren.simplenews.utils.OkHttpUtils;
 import com.whiskeyfei.mvp.base.StringUtils;
 

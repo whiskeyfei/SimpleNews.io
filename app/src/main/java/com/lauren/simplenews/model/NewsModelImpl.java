@@ -4,6 +4,7 @@ import com.fei.library.utils.ListUtils;
 import com.google.gson.Gson;
 import com.lauren.simplenews.beans.NewModel;
 import com.lauren.simplenews.beans.NewResultModel;
+import com.lauren.simplenews.event.INewsModel;
 import com.lauren.simplenews.utils.OkHttpUtils;
 import com.orhanobut.logger.Logger;
 import com.whiskeyfei.mvp.base.StringUtils;

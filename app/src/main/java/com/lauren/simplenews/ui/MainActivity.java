@@ -18,7 +18,7 @@ import com.lauren.simplenews.R;
 import com.lauren.simplenews.fragment.AboutFragment;
 import com.lauren.simplenews.fragment.ImageFragment;
 import com.lauren.simplenews.fragment.NewsFragment;
-import com.lauren.simplenews.presenter.IMainPresenter;
+import com.lauren.simplenews.event.IMainPresenter;
 import com.lauren.simplenews.presenter.MainPresenterImpl;
 import com.lauren.simplenews.view.IMainView;
 
@@ -50,7 +50,7 @@ public class MainActivity extends AppCompatActivity implements IMainView,IBaseFr
 
         mMainPresenter = new MainPresenterImpl(this);
 
-        switch2News();
+        switchNews();
     }
 
     @Override
@@ -63,7 +63,7 @@ public class MainActivity extends AppCompatActivity implements IMainView,IBaseFr
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
         if (id == R.id.action_settings) {
-            switch2About();
+            switchAbout();
             return true;
         }
 
@@ -84,25 +84,18 @@ public class MainActivity extends AppCompatActivity implements IMainView,IBaseFr
     }
 
     @Override
-    public void switch2News() {
+    public void switchNews() {
         onSwitchFragment(new NewsFragment(),null);
         mToolbar.setTitle(R.string.navigation_news);
     }
 
-    @Override
-    public void switch2Images() {
+    public void switchImages() {
         onSwitchFragment(new ImageFragment(),null);
         mToolbar.setTitle(R.string.navigation_images);
     }
 
     @Override
-    public void switch2Weather() {
-//        onSwitchFragment(new WeatherFragment(),null);
-//        mToolbar.setTitle(R.string.navigation_weather);
-    }
-
-    @Override
-    public void switch2About() {
+    public void switchAbout() {
         onSwitchFragment(new AboutFragment(),null);
         mToolbar.setTitle(R.string.navigation_about);
     }

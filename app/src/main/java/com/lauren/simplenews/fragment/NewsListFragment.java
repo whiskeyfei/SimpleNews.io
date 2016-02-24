@@ -19,7 +19,7 @@ import com.lauren.simplenews.adapter.NewsAdapter;
 import com.lauren.simplenews.beans.NewModel;
 import com.lauren.simplenews.commons.ApiConstants;
 import com.lauren.simplenews.commons.Urls;
-import com.lauren.simplenews.presenter.INewsPresenter;
+import com.lauren.simplenews.event.INewsPresenter;
 import com.lauren.simplenews.presenter.NewsPresenter;
 import com.lauren.simplenews.ui.NewsDetailActivity;
 import com.lauren.simplenews.utils.LogUtils;

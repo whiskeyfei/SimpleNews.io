@@ -1,4 +1,4 @@
-package com.lauren.simplenews.presenter;
+package com.lauren.simplenews.event;
 
 import android.webkit.WebView;
 

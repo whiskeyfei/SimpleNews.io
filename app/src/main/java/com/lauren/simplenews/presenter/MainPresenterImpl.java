@@ -1,6 +1,7 @@
 package com.lauren.simplenews.presenter;
 
 import com.lauren.simplenews.R;
+import com.lauren.simplenews.event.IMainPresenter;
 import com.whiskeyfei.mvp.base.BasePresenter;
 import com.lauren.simplenews.view.IMainView;
 

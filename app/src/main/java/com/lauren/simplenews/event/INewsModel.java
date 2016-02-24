@@ -1,4 +1,4 @@
-package com.lauren.simplenews.model;
+package com.lauren.simplenews.event;
 
 import rx.Observable;
 

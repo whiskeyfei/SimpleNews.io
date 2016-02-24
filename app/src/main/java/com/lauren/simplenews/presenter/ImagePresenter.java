@@ -1,7 +1,8 @@
 package com.lauren.simplenews.presenter;
 
 import com.lauren.simplenews.beans.ImageBean;
-import com.lauren.simplenews.model.IImageModel;
+import com.lauren.simplenews.event.IImageModel;
+import com.lauren.simplenews.event.IImagePresenter;
 import com.lauren.simplenews.model.ImageModel;
 import com.lauren.simplenews.view.IImageView;
 import com.whiskeyfei.mvp.base.BasePresenter;

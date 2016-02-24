@@ -13,7 +13,7 @@ import com.lauren.simplenews.R;
 import com.lauren.simplenews.app.AppApplication;
 import com.lauren.simplenews.beans.NewModel;
 import com.lauren.simplenews.commons.ApiConstants;
-import com.lauren.simplenews.presenter.INewsDetailPresenter;
+import com.lauren.simplenews.event.INewsDetailPresenter;
 import com.lauren.simplenews.presenter.NewsDetailPresenter;
 import com.lauren.simplenews.utils.ImageLoaderUtils;
 import com.lauren.simplenews.utils.ToolsUtil;

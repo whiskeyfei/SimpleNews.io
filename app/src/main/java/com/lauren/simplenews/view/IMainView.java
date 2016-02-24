@@ -10,8 +10,7 @@ import com.whiskeyfei.mvp.base.IMVPBaseView;
  * Date   : 15/12/13
  */
 public interface IMainView extends IMVPBaseView {
-    void switch2News();
-    void switch2Images();
-    void switch2Weather();
-    void switch2About();
+    void switchNews();
+    void switchImages();
+    void switchAbout();
 }

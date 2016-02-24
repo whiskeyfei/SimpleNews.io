@@ -2,8 +2,9 @@ package com.lauren.simplenews.presenter;
 
 import com.lauren.simplenews.beans.NewModel;
 import com.lauren.simplenews.commons.ApiConstants;
+import com.lauren.simplenews.event.INewsPresenter;
 import com.lauren.simplenews.fragment.NewsFragment;
-import com.lauren.simplenews.model.INewsModel;
+import com.lauren.simplenews.event.INewsModel;
 import com.lauren.simplenews.model.NewsModelImpl;
 import com.lauren.simplenews.view.INewsView;
 import com.orhanobut.logger.Logger;

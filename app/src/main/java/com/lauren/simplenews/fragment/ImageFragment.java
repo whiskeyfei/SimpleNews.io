@@ -15,20 +15,13 @@ import com.fei.library.fragment.DPBaseFragment;
 import com.lauren.simplenews.R;
 import com.lauren.simplenews.adapter.ImageAdapter;
 import com.lauren.simplenews.beans.ImageBean;
-import com.lauren.simplenews.presenter.IImagePresenter;
+import com.lauren.simplenews.event.IImagePresenter;
 import com.lauren.simplenews.presenter.ImagePresenter;
 import com.lauren.simplenews.view.IImageView;
 
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Description :
- * Author : lauren
- * Email  : lauren.liuling@gmail.com
- * Blog   : http://www.liuling123.com
- * Date   : 15/12/22
- */
 public class ImageFragment extends DPBaseFragment implements IImageView, SwipeRefreshLayout.OnRefreshListener {
 
     private static final String TAG = "ImageFragment";
