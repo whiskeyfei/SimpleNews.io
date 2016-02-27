@@ -22,7 +22,6 @@ import com.lauren.simplenews.commons.Urls;
 import com.lauren.simplenews.event.INewsPresenter;
 import com.lauren.simplenews.presenter.NewsPresenter;
 import com.lauren.simplenews.ui.NewsDetailActivity;
-import com.lauren.simplenews.utils.LogUtils;
 import com.lauren.simplenews.view.INewsView;
 
 import java.util.ArrayList;
@@ -31,6 +30,7 @@ import java.util.List;
 public class NewsListFragment extends DPBaseFragment implements INewsView, SwipeRefreshLayout.OnRefreshListener {
 
     private static final String TAG = "NewsListFragment";
+    private static String FRAGMENT_TYPE_KEY = "type";
 
     private SwipeRefreshLayout mSwipeRefreshWidget;
     private RecyclerView mRecyclerView;
@@ -45,7 +45,7 @@ public class NewsListFragment extends DPBaseFragment implements INewsView, Swipe
     public static NewsListFragment newInstance(int type) {
         Bundle args = new Bundle();
         NewsListFragment fragment = new NewsListFragment();
-        args.putInt("type", type);
+        args.putInt(FRAGMENT_TYPE_KEY, type);
         fragment.setArguments(args);
         return fragment;
     }
@@ -54,16 +54,15 @@ public class NewsListFragment extends DPBaseFragment implements INewsView, Swipe
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         mNewsPresenter = new NewsPresenter(this);
-        mType = getArguments().getInt("type");
+        mType = getArguments().getInt(FRAGMENT_TYPE_KEY);
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_newslist, null);
         mSwipeRefreshWidget = (SwipeRefreshLayout) view.findViewById(R.id.swipe_refresh_widget);
-        mSwipeRefreshWidget.setColorSchemeResources(R.color.primary,
-                R.color.primary_dark, R.color.primary_light,
-                R.color.accent);
+        mSwipeRefreshWidget.setColorSchemeResources(R.color.primary,R.color.primary_dark,
+                R.color.primary_light, R.color.accent);
         mSwipeRefreshWidget.setOnRefreshListener(this);
 
         mRecyclerView = (RecyclerView)view.findViewById(R.id.recycle_view);
@@ -98,7 +97,6 @@ public class NewsListFragment extends DPBaseFragment implements INewsView, Swipe
                     && lastVisibleItem + 1 == mAdapter.getItemCount()
                     && mAdapter.isShowFooter()) {
                 //加载更多
-                LogUtils.d(TAG, "loading more data");
                 mNewsPresenter.loadNews(mType, pageIndex + Urls.PAZE_SIZE);
             }
         }

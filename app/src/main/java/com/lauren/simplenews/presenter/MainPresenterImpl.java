@@ -15,19 +15,16 @@ public class MainPresenterImpl extends BasePresenter<IMainView> implements IMain
     public void switchNavigation(int id) {
         switch (id) {
             case R.id.navigation_item_news:
-                getMvpBaseView().switch2News();
+                getMvpBaseView().switchNews();
                 break;
             case R.id.navigation_item_images:
-                getMvpBaseView().switch2Images();
+                getMvpBaseView().switchImages();
                 break;
-//            case R.id.navigation_item_weather:
-//                getMvpBaseView().switch2Weather();
-//                break;
             case R.id.navigation_item_about:
-                getMvpBaseView().switch2About();
+                getMvpBaseView().switchAbout();
                 break;
             default:
-                getMvpBaseView().switch2News();
+                getMvpBaseView().switchNews();
                 break;
         }
     }

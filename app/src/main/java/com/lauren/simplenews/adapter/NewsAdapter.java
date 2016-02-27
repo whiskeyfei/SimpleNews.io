@@ -5,22 +5,13 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.TextView;
 
 import com.lauren.simplenews.R;
 import com.lauren.simplenews.beans.NewModel;
-import com.lauren.simplenews.utils.ImageLoaderUtils;
+import com.lauren.simplenews.widget.NewCardView;
 
 import java.util.List;
 
-/**
- * Description :
- * Author : lauren
- * Email  : lauren.liuling@gmail.com
- * Blog   : http://www.liuling123.com
- * Date   : 15/12/19
- */
 public class NewsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     private static final int TYPE_ITEM = 0;
     private static final int TYPE_FOOTER = 1;
@@ -43,7 +34,7 @@ public class NewsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     @Override
     public int getItemViewType(int position) {
         // 最后一个item设置为footerView
-        if(!mShowFooter) {
+        if (!mShowFooter) {
             return TYPE_ITEM;
         }
         if (position + 1 == getItemCount()) {
@@ -54,15 +45,12 @@ public class NewsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     }
 
     @Override
-    public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent,int viewType) {
-        if(viewType == TYPE_ITEM) {
-            View v = LayoutInflater.from(parent.getContext())
-                    .inflate(R.layout.item_news, parent, false);
-            ItemViewHolder vh = new ItemViewHolder(v);
-            return vh;
+    public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        if (viewType == TYPE_ITEM) {
+            View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_news_card, parent, false);
+            return new ItemViewHolder(v);
         } else {
-            View view = LayoutInflater.from(parent.getContext()).inflate(
-                    R.layout.footer, null);
+            View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.footer, null);
             view.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,
                     ViewGroup.LayoutParams.WRAP_CONTENT));
             return new FooterViewHolder(view);
@@ -71,24 +59,25 @@ public class NewsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
-        if(holder instanceof ItemViewHolder) {
-
+        if (holder instanceof ItemViewHolder) {
             NewModel news = mData.get(position);
-            if(news == null) {
+            if (news == null) {
                 return;
             }
-            ((ItemViewHolder) holder).mTitle.setText(news.title);
-            ((ItemViewHolder) holder).mDesc.setText(news.digest);
-//            Uri uri = Uri.parse(news.getImgsrc());
-//            ((ItemViewHolder) holder).mNewsImg.setImageURI(uri);
-            ImageLoaderUtils.display(mContext, ((ItemViewHolder) holder).mNewsImg, news.imageUrl);
+            NewCardView cardView = ((ItemViewHolder) holder).mNewCardView;
+            if (cardView == null) {
+                return;
+            }
+            cardView.setTitle(news.title);
+            cardView.setContent(news.digest);
+            cardView.setImageURL(news.imageUrl);
         }
     }
 
     @Override
     public int getItemCount() {
-        int begin = mShowFooter?1:0;
-        if(mData == null) {
+        int begin = mShowFooter ? 1 : 0;
+        if (mData == null) {
             return begin;
         }
         return mData.size() + begin;
@@ -123,23 +112,18 @@ public class NewsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     }
 
     public class ItemViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
-
-        public TextView mTitle;
-        public TextView mDesc;
-        public ImageView mNewsImg;
+        public NewCardView mNewCardView;
 
         public ItemViewHolder(View v) {
             super(v);
-            mTitle = (TextView) v.findViewById(R.id.tvTitle);
-            mDesc = (TextView) v.findViewById(R.id.tvDesc);
-            mNewsImg = (ImageView) v.findViewById(R.id.ivNews);
+            mNewCardView = (NewCardView) v.findViewById(R.id.newCard);
             v.setOnClickListener(this);
         }
 
         @Override
         public void onClick(View view) {
-            if(mOnItemClickListener != null) {
-                mOnItemClickListener.onItemClick(view, this.getPosition());
+            if (mOnItemClickListener != null) {
+                mOnItemClickListener.onItemClick(view, this.getAdapterPosition());
             }
         }
     }

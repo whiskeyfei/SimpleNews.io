@@ -16,13 +16,6 @@ import com.lauren.simplenews.utils.ToolsUtil;
 
 import java.util.List;
 
-/**
- * Description :
- * Author : lauren
- * Email  : lauren.liuling@gmail.com
- * Blog   : http://www.liuling123.com
- * Date   : 15/12/19
- */
 public class ImageAdapter extends RecyclerView.Adapter<ImageAdapter.ItemViewHolder> {
 
     private List<ImageBean> mData;
@@ -46,10 +39,8 @@ public class ImageAdapter extends RecyclerView.Adapter<ImageAdapter.ItemViewHold
 
     @Override
     public ImageAdapter.ItemViewHolder onCreateViewHolder(ViewGroup parent,int viewType) {
-        View v = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.item_image, parent, false);
-        ItemViewHolder vh = new ItemViewHolder(v);
-        return vh;
+        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_image, parent, false);
+        return new ItemViewHolder(v);
     }
 
     @Override
