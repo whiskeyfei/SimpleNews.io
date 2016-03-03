@@ -1,10 +1,7 @@
 package com.lauren.simplenews.fragment;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.Snackbar;
-import android.support.v4.app.ActivityCompat;
-import android.support.v4.app.ActivityOptionsCompat;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
@@ -17,11 +14,10 @@ import com.fei.library.fragment.DPBaseFragment;
 import com.lauren.simplenews.R;
 import com.lauren.simplenews.adapter.NewsAdapter;
 import com.lauren.simplenews.beans.NewModel;
-import com.lauren.simplenews.commons.ApiConstants;
 import com.lauren.simplenews.commons.Urls;
 import com.lauren.simplenews.event.INewsPresenter;
 import com.lauren.simplenews.presenter.NewsPresenter;
-import com.lauren.simplenews.ui.NewsDetailActivity;
+import com.lauren.simplenews.utils.ActivityUtils;
 import com.lauren.simplenews.view.INewsView;
 
 import java.util.ArrayList;
@@ -106,15 +102,9 @@ public class NewsListFragment extends DPBaseFragment implements INewsView, Swipe
         @Override
         public void onItemClick(View view, int position) {
             NewModel news = mAdapter.getItem(position);
-            Intent intent = new Intent(getActivity(), NewsDetailActivity.class);
-            intent.putExtra(ApiConstants.NEWS_KEY, news);
-
             View transitionView = view.findViewById(R.id.ivNews);
-            ActivityOptionsCompat options =
-                    ActivityOptionsCompat.makeSceneTransitionAnimation(getActivity(),
-                            transitionView, getString(R.string.transition_news_img));
-
-            ActivityCompat.startActivity(getActivity(), intent, options.toBundle());
+            ActivityUtils.startDetailActivity(getActivity(),news,transitionView);
+//            ActivityCompat.startActivity(getActivity(), intent, options.toBundle());
         }
     };
 

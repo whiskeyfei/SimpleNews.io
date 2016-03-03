@@ -25,6 +25,7 @@ import me.imid.swipebacklayout.lib.app.SwipeBackActivity;
 public class NewsDetailActivity extends SwipeBackActivity implements INewsDetailView {
 
     private NewModel mNews;
+    private ImageView mImageView;
     private WebView mWebView;
     private INewsDetailPresenter mNewsDetailPresenter;
     private SwipeBackLayout mSwipeBackLayout;
@@ -39,6 +40,7 @@ public class NewsDetailActivity extends SwipeBackActivity implements INewsDetail
 
     private void initView() {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        mImageView = (ImageView)findViewById(R.id.ivImage);
         mWebView = (WebView)findViewById(R.id.webview_content);
 
         setSupportActionBar(toolbar);
@@ -57,7 +59,7 @@ public class NewsDetailActivity extends SwipeBackActivity implements INewsDetail
         CollapsingToolbarLayout collapsingToolbar = (CollapsingToolbarLayout) findViewById(R.id.collapsing_toolbar);
         collapsingToolbar.setTitle(mNews.title);
 
-        ImageLoaderUtils.display(AppApplication.get(), (ImageView) findViewById(R.id.ivImage), mNews.imageUrl);
+        ImageLoaderUtils.display(AppApplication.get(), mImageView, mNews.imageUrl);
 
         mNewsDetailPresenter = new NewsDetailPresenter(this);
         mNewsDetailPresenter.init(mWebView);
