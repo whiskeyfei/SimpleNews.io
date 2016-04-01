@@ -2,6 +2,7 @@ package com.lauren.simplenews.app;
 
 
 import android.app.Application;
+import android.content.Context;
 
 import com.orhanobut.logger.Logger;
 
@@ -9,16 +10,18 @@ import com.orhanobut.logger.Logger;
 public class AppApplication extends Application {
 
 
-	private static AppApplication mInstance;
+	private static Context mContext;
 
 	@Override
 	public void onCreate() {
 		super.onCreate();
-		mInstance = this;
-		Logger.init("com.lauren.simplenews.app");
+		mContext = getApplicationContext();
+		Logger.init("simplenews.io");
 	}
-	
-	public static synchronized AppApplication get(){
-		return mInstance;
+
+
+
+	public static Context get(){
+		return mContext;
 	}
 }

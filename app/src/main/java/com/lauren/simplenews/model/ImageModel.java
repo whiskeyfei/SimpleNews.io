@@ -9,7 +9,7 @@ import com.lauren.simplenews.beans.ImageBean;
 import com.lauren.simplenews.commons.Urls;
 import com.lauren.simplenews.event.IImageModel;
 import com.lauren.simplenews.utils.OkHttpUtils;
-import com.whiskeyfei.mvp.base.StringUtils;
+import com.lauren.simplenews.utils.StringUtils;
 
 import java.util.List;
 
@@ -17,13 +17,6 @@ import rx.Observable;
 import rx.Subscriber;
 import rx.functions.Func1;
 
-/**
- * Description :
- * Author : lauren
- * Email  : lauren.liuling@gmail.com
- * Blog   : http://www.liuling123.com
- * Date   : 15/12/22
- */
 public class ImageModel implements IImageModel {
 
     private static final String TAG = "ImageModel";

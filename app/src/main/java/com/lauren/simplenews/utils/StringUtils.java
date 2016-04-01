@@ -1,4 +1,4 @@
-package com.whiskeyfei.mvp.base;
+package com.lauren.simplenews.utils;
 
 /**
  * String method 2014.12.16

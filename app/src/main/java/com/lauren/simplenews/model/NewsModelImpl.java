@@ -7,7 +7,7 @@ import com.lauren.simplenews.beans.NewResultModel;
 import com.lauren.simplenews.event.INewsModel;
 import com.lauren.simplenews.utils.OkHttpUtils;
 import com.orhanobut.logger.Logger;
-import com.whiskeyfei.mvp.base.StringUtils;
+import com.lauren.simplenews.utils.StringUtils;
 
 import java.util.List;
 

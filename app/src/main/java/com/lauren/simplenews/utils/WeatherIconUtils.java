@@ -1,7 +1,6 @@
 package com.lauren.simplenews.utils;
 
 import com.lauren.simplenews.R;
-import com.whiskeyfei.mvp.base.StringUtils;
 
 import java.util.HashMap;
 

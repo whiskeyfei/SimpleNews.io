@@ -32,6 +32,6 @@ public class ResourceUtil {
     }
 
     public static Context getContext() {
-        return AppApplication.get().getApplicationContext();
+        return AppApplication.get();
     }
 }
