@@ -1,76 +1,117 @@
 package com.lauren.simplenews.presenter;
 
+import com.fei.library.utils.ListUtils;
+import com.google.gson.Gson;
 import com.lauren.simplenews.beans.NewModel;
+import com.lauren.simplenews.beans.NewResultModel;
 import com.lauren.simplenews.commons.ApiConstants;
-import com.lauren.simplenews.event.INewsPresenter;
-import com.lauren.simplenews.fragment.NewsFragment;
-import com.lauren.simplenews.event.INewsModel;
-import com.lauren.simplenews.model.NewsModelImpl;
-import com.lauren.simplenews.view.INewsView;
+import com.lauren.simplenews.news.NewsFragment;
+import com.lauren.simplenews.mvp.BaseSchedulerProvider;
+import com.lauren.simplenews.news.NewsContract;
+import com.lauren.simplenews.utils.ActivityUtils;
+import com.lauren.simplenews.utils.OkHttpUtils;
+import com.lauren.simplenews.utils.StringUtils;
 import com.orhanobut.logger.Logger;
-import com.whiskeyfei.mvp.base.BasePresenter;
 
 import java.util.List;
 
+import rx.Observable;
 import rx.Observer;
+import rx.Subscriber;
 import rx.Subscription;
-import rx.android.schedulers.AndroidSchedulers;
-import rx.schedulers.Schedulers;
+import rx.subscriptions.CompositeSubscription;
 
-public class NewsPresenter extends BasePresenter<INewsView> implements INewsPresenter {
+public class NewsPresenter implements NewsContract.Presenter {
 
     private static final String TAG = "NewsPresenter";
 
-    private INewsModel mNewsModel;
-    private Subscription mSubscription;
+    private final NewsContract.View mView;//view接口 用于更新UI
+    private final BaseSchedulerProvider mSchedulerProvider;
+    private CompositeSubscription mSubscriptions;
 
-    public NewsPresenter(INewsView newsView) {
-        attachView(newsView);
-        this.mNewsModel = new NewsModelImpl();
+    public NewsPresenter(NewsContract.View view, BaseSchedulerProvider schedulerProvider) {
+        mView = ActivityUtils.checkNotNull(view, "view cannot be null!");
+        mSchedulerProvider = ActivityUtils.checkNotNull(schedulerProvider, "schedulerProvider cannot be null!");
+        mSubscriptions = new CompositeSubscription();
+        mView.setPresenter(this);
     }
 
-    @Override
-    public void detachView() {
-        super.detachView();
-        if (mSubscription != null){
-            mSubscription.unsubscribe();
-        }
+    private void startTask(String url) {
+        mSubscriptions.clear();
+        Subscription subscription = getObservable(url).subscribe(getSubscriber());
+        mSubscriptions.add(subscription);
     }
 
-    @Override
+    public Observable<List<NewModel>> getObservable(final String url) {
+        return Observable.create(new Observable.OnSubscribe<List<NewModel>>() {
+            @Override
+            public void call(final Subscriber<? super List<NewModel>> subscriber) {
+                OkHttpUtils.ResultCallback<String> loadNewsCallback = new OkHttpUtils.ResultCallback<String>() {
+
+                    @Override
+                    public void onSuccess(String response) {
+                        if (StringUtils.isEmpty(response)) {
+                            Logger.e("response is null");
+                            subscriber.onError(null);
+                            return;
+                        }
+                        Logger.json(response);
+                        NewResultModel model = new Gson().fromJson(response, NewResultModel.class);
+                        if (model == null || ListUtils.isEmpty(model.newModellist)) {
+                            Logger.e("model is null");
+                            subscriber.onError(null);
+                            return;
+                        }
+                        Logger.d(TAG + "getNewList() -> model:" + model);
+                        subscriber.onNext(model.newModellist);
+                        subscriber.onCompleted();
+                    }
+
+                    @Override
+                    public void onFailure(Exception e) {
+                        subscriber.onError(e);
+                    }
+                };
+                OkHttpUtils.get(url, loadNewsCallback);
+            }
+        }).subscribeOn(mSchedulerProvider.io())
+                .observeOn(mSchedulerProvider.ui());
+    }
+
+
     public void loadNews(final int type, final int pageIndex) {
-        checkViewAttached();
         String url = getUrl(type);
-        Logger.d("url###"+url);
+        Logger.d("url###" + url);
         //只有第一页的或者刷新的时候才显示刷新进度条
-        if(pageIndex == 0) {
-            getMvpBaseView().showProgress();
+        if (pageIndex == 0) {
+            mView.showProgress();
         }
-        load(url,type);
+        load(url, type);
     }
 
-    public void load(String url,int type) {
-        mSubscription = mNewsModel.getNewlist(url)
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(new Observer<List<NewModel>>() {
-                    @Override
-                    public void onCompleted() {
-                        getMvpBaseView().hideProgress();
-                    }
+    private Observer<List<NewModel>> getSubscriber() {
+        return new Observer<List<NewModel>>() {
+            @Override
+            public void onCompleted() {
+                mView.hideProgress();
+            }
 
-                    @Override
-                    public void onError(Throwable e) {
-                        getMvpBaseView().hideProgress();
-                        getMvpBaseView().showLoadFailMsg();
-                    }
+            @Override
+            public void onError(Throwable e) {
+                mView.hideProgress();
+                mView.showLoadFailMsg();
+            }
 
-                    @Override
-                    public void onNext(List<NewModel> list) {
-                        getMvpBaseView().addNews(list);
-                    }
-                });
+            @Override
+            public void onNext(List<NewModel> list) {
+                mView.addNews(list);
+            }
+        };
+    }
 
+
+    public void load(String url, int type) {
+        startTask(url);
     }
 
 //    private String getUrl(int type, int pageIndex) {
@@ -96,7 +137,7 @@ public class NewsPresenter extends BasePresenter<INewsView> implements INewsPres
 //        return sb.toString();
 //    }
 
-    private String getUrl(int type){
+    private String getUrl(int type) {
         String url = null;
         switch (type) {
             case NewsFragment.NEWS_TYPE_TOP:
@@ -115,5 +156,15 @@ public class NewsPresenter extends BasePresenter<INewsView> implements INewsPres
                 break;
         }
         return url;
+    }
+
+    @Override
+    public void subscribe() {
+
+    }
+
+    @Override
+    public void unsubscribe() {
+        mSubscriptions.clear();
     }
 }

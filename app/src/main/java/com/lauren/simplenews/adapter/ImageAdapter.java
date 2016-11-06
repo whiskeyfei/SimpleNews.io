@@ -10,7 +10,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.lauren.simplenews.R;
-import com.lauren.simplenews.beans.ImageBean;
+import com.lauren.simplenews.image.ImageBean;
 import com.lauren.simplenews.utils.ImageLoaderUtils;
 import com.lauren.simplenews.utils.ToolsUtil;
 

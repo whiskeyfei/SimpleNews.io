@@ -1,2 +1,2 @@
-include ':app',':swipeback', ':mvp',':library'
+include ':app',':library'
 //包含多个model

@@ -15,14 +15,13 @@ import com.fei.library.fragment.BaseFragment;
 import com.fei.library.fragment.DPBaseFragment;
 import com.fei.library.inter.IBaseFragmentEvent;
 import com.lauren.simplenews.R;
-import com.lauren.simplenews.fragment.AboutFragment;
-import com.lauren.simplenews.fragment.ImageFragment;
-import com.lauren.simplenews.fragment.NewsFragment;
-import com.lauren.simplenews.event.IMainPresenter;
-import com.lauren.simplenews.presenter.MainPresenterImpl;
-import com.lauren.simplenews.view.IMainView;
+import com.lauren.simplenews.about.AboutFragment;
+import com.lauren.simplenews.image.ImageFragment;
+import com.lauren.simplenews.mvp.Injection;
+import com.lauren.simplenews.news.NewsFragment;
+import com.lauren.simplenews.presenter.MainPresenter;
 
-public class MainActivity extends AppCompatActivity implements IMainView,IBaseFragmentEvent {
+public class MainActivity extends AppCompatActivity implements MainContract.View,IBaseFragmentEvent {
 
     private static final String TAG = "MainActivity";
 
@@ -30,7 +29,7 @@ public class MainActivity extends AppCompatActivity implements IMainView,IBaseFr
     private ActionBarDrawerToggle mDrawerToggle;
     private Toolbar mToolbar;
     private NavigationView mNavigationView;
-    private IMainPresenter mMainPresenter;
+    private MainContract.Presenter mMainPresenter;
     private DPBaseFragment mCurrentFragment;
 
     @Override
@@ -48,7 +47,7 @@ public class MainActivity extends AppCompatActivity implements IMainView,IBaseFr
         mNavigationView = (NavigationView) findViewById(R.id.navigation_view);
         setupDrawerContent(mNavigationView);
 
-        mMainPresenter = new MainPresenterImpl(this);
+        mMainPresenter = new MainPresenter(this, Injection.provideSchedulerProvider());
 
         switchNews();
     }
@@ -127,5 +126,10 @@ public class MainActivity extends AppCompatActivity implements IMainView,IBaseFr
         if (mCurrentFragment == fragment) {
             mCurrentFragment = null;
         }
+    }
+
+    @Override
+    public void setPresenter(MainContract.Presenter presenter) {
+        mMainPresenter = presenter;
     }
 }

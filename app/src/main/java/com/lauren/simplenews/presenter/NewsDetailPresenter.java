@@ -6,20 +6,29 @@ import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
-import com.lauren.simplenews.event.INewsDetailPresenter;
-import com.lauren.simplenews.view.INewsDetailView;
-import com.whiskeyfei.mvp.base.BasePresenter;
+import com.lauren.simplenews.detail.DetailContract;
+import com.lauren.simplenews.mvp.BaseSchedulerProvider;
+import com.lauren.simplenews.utils.ActivityUtils;
 
-public class NewsDetailPresenter extends BasePresenter<INewsDetailView> implements INewsDetailPresenter {
+import rx.subscriptions.CompositeSubscription;
+
+public class NewsDetailPresenter implements DetailContract.Presenter{
     private WebView mWebView;
 
-    public NewsDetailPresenter(INewsDetailView detailView) {
-        attachView(detailView);
+
+    private final DetailContract.View mView;//view接口 用于更新UI
+    private final BaseSchedulerProvider mSchedulerProvider;
+    private CompositeSubscription mSubscriptions;
+
+    public NewsDetailPresenter(DetailContract.View view, BaseSchedulerProvider schedulerProvider) {
+        mView = ActivityUtils.checkNotNull(view, "view cannot be null!");
+        mSchedulerProvider = ActivityUtils.checkNotNull(schedulerProvider, "schedulerProvider cannot be null!");
+        mSubscriptions = new CompositeSubscription();
+        mView.setPresenter(this);
     }
 
     @Override
     public void loadUrl(String newUrl) {
-        checkViewAttached();
         if (mWebView != null) {
             mWebView.loadUrl(newUrl);
         }
@@ -35,6 +44,16 @@ public class NewsDetailPresenter extends BasePresenter<INewsDetailView> implemen
         settings.setLayoutAlgorithm(WebSettings.LayoutAlgorithm.SINGLE_COLUMN);
         settings.setSupportZoom(true);
         mWebView.setWebViewClient(new mWebViewClient());
+    }
+
+    @Override
+    public void subscribe() {
+
+    }
+
+    @Override
+    public void unsubscribe() {
+
     }
 
     private class mWebViewClient extends WebViewClient {
@@ -60,7 +79,7 @@ public class NewsDetailPresenter extends BasePresenter<INewsDetailView> implemen
         @Override
         public void onReceivedError(WebView view, int errorCode, String description, String failingUrl) {
             super.onReceivedError(view, errorCode, description, failingUrl);
-            getMvpBaseView().showLoadErrorMessage(description);
+            mView.showLoadErrorMessage(description);
         }
     }
 

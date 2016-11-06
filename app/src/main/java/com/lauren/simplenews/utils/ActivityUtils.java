@@ -11,12 +11,25 @@ import android.view.View;
 import com.lauren.simplenews.R;
 import com.lauren.simplenews.beans.NewModel;
 import com.lauren.simplenews.commons.ApiConstants;
-import com.lauren.simplenews.ui.NewsDetailActivity;
+import com.lauren.simplenews.detail.NewsDetailActivity;
 
 /**
  * Created by whiskeyfei on 16-2-28.
  */
 public class ActivityUtils {
+    public static <T> T checkNotNull(T reference) {
+        if (reference == null) {
+            throw new NullPointerException();
+        }
+        return reference;
+    }
+
+    public static <T> T checkNotNull(T reference, String message) {
+        if (reference == null) {
+            throw new NullPointerException(message);
+        }
+        return reference;
+    }
 
     public static void startActivity(Context context, Intent intent) {
         if (context instanceof Activity) {
@@ -38,11 +51,11 @@ public class ActivityUtils {
         Intent intent = new Intent(context, NewsDetailActivity.class);
         intent.putExtra(ApiConstants.NEWS_KEY, news);
         ActivityOptionsCompat options =
-                ActivityOptionsCompat.makeSceneTransitionAnimation((Activity) context,view, ResourceUtil.getString(R.string.transition_news_img));
-        startActivity(context,intent,options.toBundle());
+                ActivityOptionsCompat.makeSceneTransitionAnimation((Activity) context, view, ResourceUtil.getString(R.string.transition_news_img));
+        startActivity(context, intent, options.toBundle());
     }
 
-    public static void startActivity(Context context,Intent intent,Bundle options){
+    public static void startActivity(Context context, Intent intent, Bundle options) {
         ActivityCompat.startActivity((Activity) context, intent, options);
     }
 }
