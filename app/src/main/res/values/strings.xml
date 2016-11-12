@@ -4,16 +4,15 @@
 
     <string name="navigation_news">新闻</string>
     <string name="navigation_images">图片</string>
-    <string name="navigation_weather">天气</string>
     <string name="navigation_about">关于</string>
     <string name="drawer_open">Open</string>
     <string name="drawer_close">Close</string>
-    <string name="name">Lauren_Liuling</string>
+    <string name="name">Whiskeyfei</string>
     <string name="app_description">本APP用来演示Material Design以及MVP设计模式在项目中的使用</string>
-    <string name="app_github_url">APP地址：https://github.com/liuling07/SimpleNews</string>
-    <string name="author">作者：Lauren</string>
-    <string name="email">邮箱：lauren.liuling@gmail.com</string>
-    <string name="blog">博客：http://www.liuling123.com</string>
+    <string name="app_github_url">Github地址：https://github.com/whiskeyfei/SimpleNews.io</string>
+    <string name="author">作者：Dapeng</string>
+    <string name="email">邮箱：whiskeyfei@gmail.com</string>
+    <string name="blog">博客：http://doraemonyu.me</string>
 
     <string name="top">精选</string>
     <string name="recreation">娱乐</string>
