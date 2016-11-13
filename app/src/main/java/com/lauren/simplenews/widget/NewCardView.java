@@ -3,9 +3,7 @@ package com.lauren.simplenews.widget;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
-import android.view.View;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.lauren.simplenews.R;
@@ -36,13 +34,15 @@ public class NewCardView extends android.support.v7.widget.CardView {
 
     private void init(Context context) {
         mContext = context;
-        LayoutInflater layout = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        View view = layout.inflate(R.layout.item_news, null);
-        LinearLayout mLayout = (LinearLayout) view.findViewById(R.id.main);
-        mImageView = (ImageView) mLayout.findViewById(R.id.ivNews);
-        mTitle = (TextView) mLayout.findViewById(R.id.tvTitle);
-        mDesc = (TextView) mLayout.findViewById(R.id.tvDesc);
-        addView(view);
+        LayoutParams lp = new LayoutParams(LayoutParams.MATCH_PARENT,LayoutParams.WRAP_CONTENT);
+        lp.leftMargin = (int) getResources().getDimension(R.dimen.card_margin);
+        lp.rightMargin = (int) getResources().getDimension(R.dimen.card_margin);
+        lp.bottomMargin = (int) getResources().getDimension(R.dimen.card_margin);
+        setLayoutParams(lp);
+        LayoutInflater.from(mContext).inflate(R.layout.item_news, this, true);
+        mImageView = (ImageView) findViewById(R.id.ivNews);
+        mTitle = (TextView) findViewById(R.id.tvTitle);
+        mDesc = (TextView) findViewById(R.id.tvDesc);
     }
 
     public void setTitle(String string) {
@@ -58,8 +58,8 @@ public class NewCardView extends android.support.v7.widget.CardView {
     }
 
     public void setImageURL(String imageUrl) {
-        if (mImageView != null){
-            ImageLoaderUtils.display(mContext,mImageView,imageUrl);
+        if (mImageView != null) {
+            ImageLoaderUtils.display(mContext, mImageView, imageUrl);
         }
     }
 }

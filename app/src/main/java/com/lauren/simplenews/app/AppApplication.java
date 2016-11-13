@@ -19,8 +19,6 @@ public class AppApplication extends Application {
 		Logger.init("simplenews.io");
 	}
 
-
-
 	public static Context get(){
 		return mContext;
 	}

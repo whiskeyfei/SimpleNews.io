@@ -14,7 +14,7 @@
         android:layout_width="72dp"
         android:layout_height="72dp"
         android:layout_marginTop="20dp"
-        android:src="@drawable/protrait"
+        android:src="@drawable/face"
         app:border_color="@color/primary_light"
         app:border_width="2dp"/>
 

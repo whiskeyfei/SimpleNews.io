@@ -2,6 +2,7 @@ package com.lauren.simplenews.utils;
 
 import android.os.Handler;
 import android.os.Looper;
+import android.util.Log;
 
 import com.google.gson.internal.$Gson$Types;
 import com.squareup.okhttp.Callback;
@@ -80,7 +81,7 @@ public class OkHttpUtils {
                         sendSuccessCallBack(callback, object);
                     }
                 } catch (final Exception e) {
-                    LogUtils.e(TAG, "convert json failure", e);
+                    Log.e(TAG, "convert json failure", e);
                     sendFailCallback(callback, e);
                 }
 

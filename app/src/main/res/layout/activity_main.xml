@@ -12,9 +12,10 @@
         android:id="@+id/main_content"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+
         <include
             android:id="@+id/appbar"
-            layout="@layout/toolbar" />
+            layout="@layout/toolbar"/>
 
 
         <FrameLayout
@@ -22,9 +23,9 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_below="@+id/appbar"
-            android:scrollbars="none"
             android:elevation="5dp"
-            app:layout_behavior="@string/appbar_scrolling_view_behavior" />
+            android:scrollbars="none"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior"/>
 
     </android.support.design.widget.CoordinatorLayout>
 
@@ -34,6 +35,6 @@
         android:layout_height="match_parent"
         android:layout_gravity="start"
         app:headerLayout="@layout/navigation_header"
-        app:menu="@menu/navigation_menu" />
+        app:menu="@menu/navigation_menu"/>
 
 </android.support.v4.widget.DrawerLayout>

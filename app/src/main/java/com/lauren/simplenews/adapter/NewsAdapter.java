@@ -47,8 +47,7 @@ public class NewsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         if (viewType == TYPE_ITEM) {
-            View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_news_card, parent, false);
-            return new ItemViewHolder(v);
+            return new ItemViewHolder(new NewCardView(mContext));
         } else {
             View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.footer, null);
             view.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,
@@ -64,7 +63,7 @@ public class NewsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
             if (news == null) {
                 return;
             }
-            NewCardView cardView = ((ItemViewHolder) holder).mNewCardView;
+            NewCardView cardView = ((ItemViewHolder) holder).itemView;
             if (cardView == null) {
                 return;
             }
@@ -112,11 +111,11 @@ public class NewsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     }
 
     public class ItemViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
-        public NewCardView mNewCardView;
+        public NewCardView itemView;
 
         public ItemViewHolder(View v) {
             super(v);
-            mNewCardView = (NewCardView) v.findViewById(R.id.newCard);
+            itemView = (NewCardView) v;
             v.setOnClickListener(this);
         }
 

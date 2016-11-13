@@ -12,7 +12,8 @@
         android:layout_height="wrap_content"
         android:scrollbars="vertical"
         app:layout_behavior="@string/appbar_scrolling_view_behavior"
-        android:paddingTop="@dimen/card_margin">
+        android:paddingTop="@dimen/card_margin"
+        android:paddingBottom="@dimen/card_margin">
 
     </android.support.v7.widget.RecyclerView>
 
