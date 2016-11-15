@@ -1,19 +1,21 @@
-#### SimpleNews.io
+# SimpleNews.io
 基于 Material Design 和 MVP 的新闻客户端,在原来的基础修改使用 RxJava+MVP,由于数据请求逻辑改动较大，所以单独拉出来进行更新，最新代码库请查看[SimpleNews.io](https://github.com/whiskeyfei/SimpleNews.io)
 
-#### 更新
+### 更新
 
-去除了无用的依赖库
-改用 googlesamples MVP + Rxjava 结构实现
+不间断更新
+使用 googlesamples MVP + Rxjava 结构实现
+清除无用代码及无用的依赖库，合并一些基础工具类
 
-#### 效果图
+### 效果图
 ![image](http://7xol9p.com1.z0.glb.clouddn.com/github_news.gif)
 
-#### App设计
+### App设计
 
 本代码库借鉴了[SimpleNews](https://github.com/liuling07/SimpleNews)，在原来得基础上，修改了数据层和UI层的逻辑，使用RxJava+MVP组合
+目前除了一些 tab 切换及 UI 使用原 SimpleNews 逻辑，其他基本上已经修改。
 
-#### 引用库
+### 引用库
 
 库名称 | 库信息
 ------- | -------
@@ -21,12 +23,11 @@
 [RxJava](https://github.com/ReactiveX/RxJava) | 一个在 Java VM 上使用可观测的序列来组成异步的、基于事件的程序的库
 [RxAndroid](https://github.com/ReactiveX/RxAndroid) | RxAndroid 是 RxJava 的一个针对 Android 平台的扩展
 [logger](https://github.com/orhanobut/logger) | Android日志输出工具
-[fastjson](https://github.com/alibaba/fastjson) | 阿里巴巴json库
 [Gson](https://github.com/google/gson) | Google json库，使用了@SerializedName标签、转对象
 [okhttp](https://github.com/square/okhttp) |  网络请求库
 [circleimageview](https://github.com/hdodenhof/CircleImageView) | 图片操作
 
-#### 参考
+### 参考
 
 * [NotRxJava懒人专用指南](http://www.devtf.cn/?p=323)
 * [深入浅出RxJava(二：操作符)](https://github.com/lzyzsd/Awesome-RxJava?hmsr=toutiao.io&utm_medium=toutiao.io&utm_source=toutiao.io)
