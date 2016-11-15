@@ -1,14 +1,12 @@
-package com.lauren.simplenews.presenter;
+package com.lauren.simplenews.news;
 
-import com.fei.library.utils.ListUtils;
 import com.google.gson.Gson;
 import com.lauren.simplenews.beans.NewModel;
 import com.lauren.simplenews.beans.NewResultModel;
 import com.lauren.simplenews.commons.ApiConstants;
-import com.lauren.simplenews.news.NewsFragment;
 import com.lauren.simplenews.mvp.BaseSchedulerProvider;
-import com.lauren.simplenews.news.NewsContract;
 import com.lauren.simplenews.utils.ActivityUtils;
+import com.lauren.simplenews.utils.ListUtils;
 import com.lauren.simplenews.utils.OkHttpUtils;
 import com.lauren.simplenews.utils.StringUtils;
 import com.orhanobut.logger.Logger;

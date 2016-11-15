@@ -7,12 +7,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.fei.library.fragment.DPBaseFragment;
 import com.lauren.simplenews.R;
 import com.lauren.simplenews.adapter.MyPagerAdapter;
-import com.lauren.simplenews.news.NewsListFragment;
+import com.lauren.simplenews.fragment.BaseFragment;
 
-public class NewsFragment extends DPBaseFragment {
+public class NewsFragment extends BaseFragment {
 
     public static final int NEWS_TYPE_TOP = 0;
     public static final int NEWS_TYPE_RECREATION = 1;

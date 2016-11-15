@@ -1,8 +1,6 @@
-package com.lauren.simplenews.presenter;
+package com.lauren.simplenews.ui;
 
 import com.lauren.simplenews.R;
-import com.lauren.simplenews.mvp.BaseSchedulerProvider;
-import com.lauren.simplenews.ui.MainContract;
 import com.lauren.simplenews.utils.ActivityUtils;
 
 import rx.subscriptions.CompositeSubscription;
@@ -10,12 +8,10 @@ import rx.subscriptions.CompositeSubscription;
 public class MainPresenter implements MainContract.Presenter{
 
     private final MainContract.View mView;//view接口 用于更新UI
-    private final BaseSchedulerProvider mSchedulerProvider;
     private CompositeSubscription mSubscriptions;
 
-    public MainPresenter(MainContract.View view, BaseSchedulerProvider schedulerProvider) {
+    public MainPresenter(MainContract.View view) {
         mView = ActivityUtils.checkNotNull(view, "view cannot be null!");
-        mSchedulerProvider = ActivityUtils.checkNotNull(schedulerProvider, "schedulerProvider cannot be null!");
         mSubscriptions = new CompositeSubscription();
         mView.setPresenter(this);
     }
@@ -45,6 +41,5 @@ public class MainPresenter implements MainContract.Presenter{
 
     @Override
     public void unsubscribe() {
-        mSubscriptions.clear();
     }
 }

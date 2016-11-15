@@ -10,19 +10,18 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.fei.library.fragment.DPBaseFragment;
 import com.lauren.simplenews.R;
 import com.lauren.simplenews.adapter.NewsAdapter;
 import com.lauren.simplenews.beans.NewModel;
 import com.lauren.simplenews.commons.Urls;
+import com.lauren.simplenews.fragment.BaseFragment;
 import com.lauren.simplenews.mvp.Injection;
-import com.lauren.simplenews.presenter.NewsPresenter;
 import com.lauren.simplenews.utils.ActivityUtils;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class NewsListFragment extends DPBaseFragment implements NewsContract.View, SwipeRefreshLayout.OnRefreshListener {
+public class NewsListFragment extends BaseFragment implements NewsContract.View, SwipeRefreshLayout.OnRefreshListener {
 
     private static final String TAG = "NewsListFragment";
     private static String FRAGMENT_TYPE_KEY = "type";

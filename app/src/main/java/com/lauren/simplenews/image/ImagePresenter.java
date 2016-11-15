@@ -2,12 +2,12 @@ package com.lauren.simplenews.image;
 
 import android.util.Log;
 
-import com.fei.library.utils.ListUtils;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.lauren.simplenews.commons.Urls;
 import com.lauren.simplenews.mvp.BaseSchedulerProvider;
 import com.lauren.simplenews.utils.ActivityUtils;
+import com.lauren.simplenews.utils.ListUtils;
 import com.lauren.simplenews.utils.OkHttpUtils;
 import com.lauren.simplenews.utils.StringUtils;
 

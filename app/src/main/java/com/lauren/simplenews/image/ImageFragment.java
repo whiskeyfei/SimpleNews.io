@@ -11,15 +11,15 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.fei.library.fragment.DPBaseFragment;
 import com.lauren.simplenews.R;
 import com.lauren.simplenews.adapter.ImageAdapter;
+import com.lauren.simplenews.fragment.BaseFragment;
 import com.lauren.simplenews.mvp.Injection;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class ImageFragment extends DPBaseFragment implements ImageContract.View, SwipeRefreshLayout.OnRefreshListener {
+public class ImageFragment extends BaseFragment implements ImageContract.View, SwipeRefreshLayout.OnRefreshListener {
 
     private static final String TAG = "ImageFragment";
 

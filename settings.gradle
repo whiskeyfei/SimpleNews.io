@@ -1,2 +1,2 @@
-include ':app',':library'
+include ':app'
 //包含多个model

@@ -1,4 +1,4 @@
-package com.lauren.simplenews.presenter;
+package com.lauren.simplenews.detail;
 
 import android.graphics.Bitmap;
 import android.text.TextUtils;
@@ -6,7 +6,6 @@ import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
-import com.lauren.simplenews.detail.DetailContract;
 import com.lauren.simplenews.mvp.BaseSchedulerProvider;
 import com.lauren.simplenews.utils.ActivityUtils;
 

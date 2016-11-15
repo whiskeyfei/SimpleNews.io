@@ -11,17 +11,14 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 
-import com.fei.library.fragment.BaseFragment;
-import com.fei.library.fragment.DPBaseFragment;
-import com.fei.library.inter.IBaseFragmentEvent;
 import com.lauren.simplenews.R;
 import com.lauren.simplenews.about.AboutFragment;
+import com.lauren.simplenews.fragment.BaseFragment;
+import com.lauren.simplenews.fragment.IBaseEvent;
 import com.lauren.simplenews.image.ImageFragment;
-import com.lauren.simplenews.mvp.Injection;
 import com.lauren.simplenews.news.NewsFragment;
-import com.lauren.simplenews.presenter.MainPresenter;
 
-public class MainActivity extends AppCompatActivity implements MainContract.View,IBaseFragmentEvent {
+public class MainActivity extends AppCompatActivity implements MainContract.View,IBaseEvent {
 
     private static final String TAG = "MainActivity";
 
@@ -30,7 +27,7 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
     private Toolbar mToolbar;
     private NavigationView mNavigationView;
     private MainContract.Presenter mMainPresenter;
-    private DPBaseFragment mCurrentFragment;
+    private BaseFragment mCurrentFragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,7 +44,7 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
         mNavigationView = (NavigationView) findViewById(R.id.navigation_view);
         setupDrawerContent(mNavigationView);
 
-        mMainPresenter = new MainPresenter(this, Injection.provideSchedulerProvider());
+        mMainPresenter = new MainPresenter(this);
 
         switchNews();
     }
@@ -111,18 +108,18 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
     }
 
     @Override
-    public void onSwitchFragment(DPBaseFragment fragment, Bundle bundle) {
+    public void onSwitchFragment(BaseFragment fragment, Bundle bundle) {
         switchFragment(fragment, bundle);
     }
 
     @Override
-    public void onAttachActivity(DPBaseFragment fragment) {
+    public void onAttachActivity(BaseFragment fragment) {
         mCurrentFragment = fragment;
         Log.e(TAG, TAG + "---onAttachActivity()-> mCurrentFragment:"+mCurrentFragment.toString());
     }
 
     @Override
-    public void onDetachActivity(DPBaseFragment fragment) {
+    public void onDetachActivity(BaseFragment fragment) {
         if (mCurrentFragment == fragment) {
             mCurrentFragment = null;
         }
