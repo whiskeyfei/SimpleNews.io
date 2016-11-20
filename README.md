@@ -10,7 +10,7 @@ Change as follows:
 1、I change the data interface.<br/>
 2、I change switch fragment mechanism.<br/>
 3、I change mvc mechanism separate ui and logic.<br/>
-4、I clear the useless code and liarary and ui resortces.<br/>
+4、I clear the useless code and liarary and ui resourses.<br/>
 
 ### UI display
 ![image](http://7xol9p.com1.z0.glb.clouddn.com/github_news.gif)
