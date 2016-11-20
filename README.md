@@ -1,33 +1,33 @@
 # SimpleNews.io
-基于 Material Design 和 MVP 的新闻客户端,在原来的基础修改使用 RxJava+MVP,由于数据请求逻辑改动较大，所以单独拉出来进行更新，最新代码库请查看[SimpleNews.io](https://github.com/whiskeyfei/SimpleNews.io)
 
-### 更新
+SimpleNews.io - A news Android App,based on the Material Design and RxJava 、MVP.Due to changes in the data request logic larger.so,I searate pull out the demo to update, in the original basis to modify the use of RxJava and MVP to rewirete the code starcture.
 
-不间断更新
-使用 googlesamples MVP + Rxjava 结构实现
-清除无用代码及无用的依赖库，合并一些基础工具类
+Original app is [SimpleNews](https://github.com/liuling07/SimpleNews),thanks for provide!
 
-### 效果图
+Change as follows:
+
+1、I change the data interface.<br/>
+2、I change switch fragment mechanism.<br/>
+3、I change mvc mechanism separate ui and logic.<br/>
+4、I clear the useless code and liarary and ui resortces.<br/>
+
+### UI display
 ![image](http://7xol9p.com1.z0.glb.clouddn.com/github_news.gif)
 
-### App设计
 
-本代码库借鉴了[SimpleNews](https://github.com/liuling07/SimpleNews)，在原来得基础上，修改了数据层和UI层的逻辑，使用RxJava+MVP组合
-目前除了一些 tab 切换及 UI 使用原 SimpleNews 逻辑，其他基本上已经修改。
+### Use open source libraries
 
-### 引用库
-
-库名称 | 库信息
+Name | About
 ------- | -------
 [todo-mvp](https://github.com/googlesamples/android-architecture/tree/todo-mvp/)  | Google googlesamples MVP
-[RxJava](https://github.com/ReactiveX/RxJava) | 一个在 Java VM 上使用可观测的序列来组成异步的、基于事件的程序的库
-[RxAndroid](https://github.com/ReactiveX/RxAndroid) | RxAndroid 是 RxJava 的一个针对 Android 平台的扩展
-[logger](https://github.com/orhanobut/logger) | Android日志输出工具
-[Gson](https://github.com/google/gson) | Google json库，使用了@SerializedName标签、转对象
-[okhttp](https://github.com/square/okhttp) |  网络请求库
-[circleimageview](https://github.com/hdodenhof/CircleImageView) | 图片操作
+[RxJava](https://github.com/ReactiveX/RxJava) | RxJava – Reactive Extensions for the JVM – a library for composing asynchronous and event-based programs using observable sequences for the Java VM
+[RxAndroid](https://github.com/ReactiveX/RxAndroid) | RxJava bindings for Android
+[logger](https://github.com/orhanobut/logger) | Android log
+[Gson](https://github.com/google/gson) | Google json
+[okhttp](https://github.com/square/okhttp) |  An HTTP+HTTP/2 client for Android and Java applications
+[circleimageview](https://github.com/hdodenhof/CircleImageView) | circle image
 
-### 参考
+### Reference
 
 * [NotRxJava懒人专用指南](http://www.devtf.cn/?p=323)
 * [深入浅出RxJava(二：操作符)](https://github.com/lzyzsd/Awesome-RxJava?hmsr=toutiao.io&utm_medium=toutiao.io&utm_source=toutiao.io)
