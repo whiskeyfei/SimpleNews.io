@@ -3,6 +3,7 @@
 SimpleNews.io - A news Android App,based on the Material Design and RxJava 、MVP.Due to changes in the data request logic larger.so,I searate pull out the demo to update, in the original basis to modify the use of RxJava and MVP to rewirete the code starcture.
 
 Original app is [SimpleNews](https://github.com/liuling07/SimpleNews),thanks for provide!
+Chinese readme version [README_CN.md](/README_CN.md)
 
 Change as follows:
 
