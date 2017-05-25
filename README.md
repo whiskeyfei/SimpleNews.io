@@ -3,13 +3,14 @@
 SimpleNews.io - A news Android App,based on the Material Design and RxJava 、MVP.Due to changes in the data request logic larger.so,I searate pull out the demo to update, in the original basis to modify the use of RxJava and MVP to rewirete the code starcture.
 
 Original app is [SimpleNews](https://github.com/liuling07/SimpleNews),thanks for provide!
+Chinese readme version [README_CN.md](/README_CN.md)
 
 Change as follows:
 
 1、I change the data interface.<br/>
 2、I change switch fragment mechanism.<br/>
 3、I change mvc mechanism separate ui and logic.<br/>
-4、I clear the useless code and liarary and ui resortces.<br/>
+4、I clear the useless code and liarary and ui resourses.<br/>
 
 ### UI display
 ![image](http://7xol9p.com1.z0.glb.clouddn.com/github_news.gif)
