@@ -1,4 +1,4 @@
-package com.lauren.simplenews.utils;
+package com.library;
 
 /**
  * String method 2014.12.16

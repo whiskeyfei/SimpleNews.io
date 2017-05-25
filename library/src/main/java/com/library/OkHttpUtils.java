@@ -1,7 +1,5 @@
-package com.lauren.simplenews.utils;
+package com.library;
 
-import android.os.Handler;
-import android.os.Looper;
 import android.util.Log;
 
 import com.google.gson.internal.$Gson$Types;
@@ -20,20 +18,12 @@ import java.net.CookiePolicy;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
-/**
- * Description : OkHttp网络连接封装工具类
- * Author : lauren
- * Email  : lauren.liuling@gmail.com
- * Blog   : http://www.liuling123.com
- * Date   : 15/12/17
- */
 public class OkHttpUtils {
 
     private static final String TAG = "OkHttpUtils";
 
     private static OkHttpUtils mInstance;
     private OkHttpClient mOkHttpClient;
-    private Handler mDelivery;
 
     private OkHttpUtils() {
         mOkHttpClient = new OkHttpClient();
@@ -42,7 +32,6 @@ public class OkHttpUtils {
         mOkHttpClient.setReadTimeout(30, TimeUnit.SECONDS);
         //cookie enabled
         mOkHttpClient.setCookieHandler(new CookieManager(null, CookiePolicy.ACCEPT_ORIGINAL_SERVER));
-        mDelivery = new Handler(Looper.getMainLooper());
     }
 
     private synchronized static OkHttpUtils getmInstance() {
@@ -77,7 +66,7 @@ public class OkHttpUtils {
                     if (callback.mType == String.class) {
                         sendSuccessCallBack(callback, str);
                     } else {
-                        Object object = GsonJsonUtils.deserialize(str, callback.mType);
+                        Object object = GsonUtils.deserialize(str, callback.mType);
                         sendSuccessCallBack(callback, object);
                     }
                 } catch (final Exception e) {
@@ -90,25 +79,15 @@ public class OkHttpUtils {
     }
 
     private void sendFailCallback(final ResultCallback callback, final Exception e) {
-        mDelivery.post(new Runnable() {
-            @Override
-            public void run() {
-                if (callback != null) {
-                    callback.onFailure(e);
-                }
-            }
-        });
+        if (callback != null) {
+            callback.onFailure(e);
+        }
     }
 
     private void sendSuccessCallBack(final ResultCallback callback, final Object obj) {
-        mDelivery.post(new Runnable() {
-            @Override
-            public void run() {
-                if (callback != null) {
-                    callback.onSuccess(obj);
-                }
-            }
-        });
+        if (callback != null) {
+            callback.onSuccess(obj);
+        }
     }
 
     private Request buildPostRequest(String url, List<Param> params) {

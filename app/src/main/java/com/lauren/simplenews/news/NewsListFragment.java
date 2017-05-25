@@ -13,7 +13,7 @@ import android.view.ViewGroup;
 import com.lauren.simplenews.R;
 import com.lauren.simplenews.adapter.NewsAdapter;
 import com.lauren.simplenews.beans.NewModel;
-import com.lauren.simplenews.commons.Urls;
+import com.lauren.simplenews.commons.ApiConstants;
 import com.lauren.simplenews.fragment.BaseFragment;
 import com.lauren.simplenews.mvp.Injection;
 import com.lauren.simplenews.utils.ActivityUtils;
@@ -91,7 +91,7 @@ public class NewsListFragment extends BaseFragment implements NewsContract.View,
                     && lastVisibleItem + 1 == mAdapter.getItemCount()
                     && mAdapter.isShowFooter()) {
                 //加载更多
-                mNewsPresenter.loadNews(mType, pageIndex + Urls.PAZE_SIZE);
+                mNewsPresenter.loadNews(mType, pageIndex + ApiConstants.PAZE_SIZE);
             }
         }
     };
@@ -102,7 +102,6 @@ public class NewsListFragment extends BaseFragment implements NewsContract.View,
             NewModel news = mAdapter.getItem(position);
             View transitionView = view.findViewById(R.id.ivNews);
             ActivityUtils.startDetailActivity(getActivity(),news,transitionView);
-//            ActivityCompat.startActivity(getActivity(), intent, options.toBundle());
         }
     };
 
@@ -127,7 +126,7 @@ public class NewsListFragment extends BaseFragment implements NewsContract.View,
             }
             mAdapter.notifyDataSetChanged();
         }
-        pageIndex += Urls.PAZE_SIZE;
+        pageIndex += ApiConstants.PAZE_SIZE;
     }
 
 

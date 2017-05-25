@@ -4,12 +4,12 @@ import android.util.Log;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
-import com.lauren.simplenews.commons.Urls;
-import com.lauren.simplenews.mvp.BaseSchedulerProvider;
+import com.lauren.simplenews.commons.ApiConstants;
+import com.lauren.simplenews.mvp.ISchedulerProvider;
 import com.lauren.simplenews.utils.ActivityUtils;
-import com.lauren.simplenews.utils.ListUtils;
-import com.lauren.simplenews.utils.OkHttpUtils;
-import com.lauren.simplenews.utils.StringUtils;
+import com.library.ListUtils;
+import com.library.OkHttpUtils;
+import com.library.StringUtils;
 
 import java.util.List;
 
@@ -23,10 +23,10 @@ public class ImagePresenter implements ImageContract.Presenter {
     private static final String TAG = "ImagePresenter";
 
     private final ImageContract.View mView;//view接口 用于更新UI
-    private final BaseSchedulerProvider mSchedulerProvider;
+    private final ISchedulerProvider mSchedulerProvider;
     private CompositeSubscription mSubscriptions;
 
-    public ImagePresenter(ImageContract.View statisticsView,BaseSchedulerProvider schedulerProvider) {
+    public ImagePresenter(ImageContract.View statisticsView,ISchedulerProvider schedulerProvider) {
         mView = ActivityUtils.checkNotNull(statisticsView, "StatisticsView cannot be null!");
         mSchedulerProvider = ActivityUtils.checkNotNull(schedulerProvider,"schedulerProvider cannot be null!");
         mSubscriptions = new CompositeSubscription();
@@ -41,7 +41,7 @@ public class ImagePresenter implements ImageContract.Presenter {
 
 
     public Observable<List<ImageBean>> getObservable() {
-        return Observable.just(Urls.IMAGES_URL).flatMap(new Func1<String, Observable<List<ImageBean>>>() {
+        return Observable.just(ApiConstants.IMAGES_URL).flatMap(new Func1<String, Observable<List<ImageBean>>>() {
             @Override
             public Observable<List<ImageBean>> call(final String url) {
                 //可以拼接url

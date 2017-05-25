@@ -6,7 +6,7 @@ import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
-import com.lauren.simplenews.mvp.BaseSchedulerProvider;
+import com.lauren.simplenews.mvp.ISchedulerProvider;
 import com.lauren.simplenews.utils.ActivityUtils;
 
 import rx.subscriptions.CompositeSubscription;
@@ -16,10 +16,10 @@ public class NewsDetailPresenter implements DetailContract.Presenter{
 
 
     private final DetailContract.View mView;//view接口 用于更新UI
-    private final BaseSchedulerProvider mSchedulerProvider;
+    private final ISchedulerProvider mSchedulerProvider;
     private CompositeSubscription mSubscriptions;
 
-    public NewsDetailPresenter(DetailContract.View view, BaseSchedulerProvider schedulerProvider) {
+    public NewsDetailPresenter(DetailContract.View view, ISchedulerProvider schedulerProvider) {
         mView = ActivityUtils.checkNotNull(view, "view cannot be null!");
         mSchedulerProvider = ActivityUtils.checkNotNull(schedulerProvider, "schedulerProvider cannot be null!");
         mSubscriptions = new CompositeSubscription();

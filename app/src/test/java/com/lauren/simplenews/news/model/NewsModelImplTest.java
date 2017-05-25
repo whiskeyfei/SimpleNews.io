@@ -1,6 +1,6 @@
 package com.lauren.simplenews.news.model;
 
-import com.lauren.simplenews.utils.OkHttpUtils;
+import com.library.OkHttpUtils;
 
 import org.junit.Test;
 

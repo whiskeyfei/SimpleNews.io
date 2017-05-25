@@ -1,18 +1,7 @@
-package com.lauren.simplenews.utils;
+package com.library;
 
 import android.content.Context;
-import android.net.ConnectivityManager;
-import android.net.NetworkInfo;
 
-import com.lauren.simplenews.app.AppApplication;
-
-/**
- * Description :
- * Author : lauren
- * Email  : lauren.liuling@gmail.com
- * Blog   : http://www.liuling123.com
- * Date   : 15/12/21
- */
 public class ToolsUtil {
 
 	public static final int getHeightInPx(Context context) {
@@ -23,18 +12,6 @@ public class ToolsUtil {
 	public static final int getWidthInPx(Context context) {
 		final int width = context.getResources().getDisplayMetrics().widthPixels;
 		return width;
-	}
-
-	public static final int getHeightInDp(Context context) {
-		final float height = context.getResources().getDisplayMetrics().heightPixels;
-		int heightInDp = px2dip(context, height);
-		return heightInDp;
-	}
-
-	public static final int getWidthInDp(Context context) {
-		final float width = context.getResources().getDisplayMetrics().widthPixels;
-		int widthInDp = px2dip(context, width);
-		return widthInDp;
 	}
 
 	public static int dip2px(Context context, float dpValue) {
@@ -76,28 +53,6 @@ public class ToolsUtil {
 			e.printStackTrace();
 		}
 		return statusHeight;
-	}
-
-	/**
-	 * 判断网络是否可用
-	 * @return
-	 */
-	public static boolean isNetworkAvailable() {
-		ConnectivityManager cm = (ConnectivityManager) AppApplication.get()
-				.getSystemService(Context.CONNECTIVITY_SERVICE);
-		if (cm != null) {
-			//如果仅仅是用来判断网络连接
-			//则可以使用 cm.getActiveNetworkInfo().isAvailable();
-			NetworkInfo[] info = cm.getAllNetworkInfo();
-			if (info != null) {
-				for (int i = 0; i < info.length; i++) {
-					if (info[i].getState() == NetworkInfo.State.CONNECTED) {
-						return true;
-					}
-				}
-			}
-		}
-		return false;
 	}
 
 }

@@ -7,7 +7,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.lauren.simplenews.R;
-import com.lauren.simplenews.utils.ImageLoaderUtils;
+import com.library.ImageLoaderUtils;
 
 /**
  * Created by whiskeyfei on 16-2-27.
@@ -59,7 +59,7 @@ public class NewCardView extends android.support.v7.widget.CardView {
 
     public void setImageURL(String imageUrl) {
         if (mImageView != null) {
-            ImageLoaderUtils.display(mContext, mImageView, imageUrl);
+            ImageLoaderUtils.display(mContext, mImageView, imageUrl,R.drawable.ic_image_loading, R.drawable.ic_image_loadfail);
         }
     }
 }

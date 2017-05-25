@@ -4,11 +4,11 @@ import com.google.gson.Gson;
 import com.lauren.simplenews.beans.NewModel;
 import com.lauren.simplenews.beans.NewResultModel;
 import com.lauren.simplenews.commons.ApiConstants;
-import com.lauren.simplenews.mvp.BaseSchedulerProvider;
+import com.lauren.simplenews.mvp.ISchedulerProvider;
 import com.lauren.simplenews.utils.ActivityUtils;
-import com.lauren.simplenews.utils.ListUtils;
-import com.lauren.simplenews.utils.OkHttpUtils;
-import com.lauren.simplenews.utils.StringUtils;
+import com.library.ListUtils;
+import com.library.OkHttpUtils;
+import com.library.StringUtils;
 import com.orhanobut.logger.Logger;
 
 import java.util.List;
@@ -24,10 +24,10 @@ public class NewsPresenter implements NewsContract.Presenter {
     private static final String TAG = "NewsPresenter";
 
     private final NewsContract.View mView;//view接口 用于更新UI
-    private final BaseSchedulerProvider mSchedulerProvider;
+    private final ISchedulerProvider mSchedulerProvider;
     private CompositeSubscription mSubscriptions;
 
-    public NewsPresenter(NewsContract.View view, BaseSchedulerProvider schedulerProvider) {
+    public NewsPresenter(NewsContract.View view, ISchedulerProvider schedulerProvider) {
         mView = ActivityUtils.checkNotNull(view, "view cannot be null!");
         mSchedulerProvider = ActivityUtils.checkNotNull(schedulerProvider, "schedulerProvider cannot be null!");
         mSubscriptions = new CompositeSubscription();

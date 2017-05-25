@@ -11,8 +11,8 @@ import android.widget.TextView;
 
 import com.lauren.simplenews.R;
 import com.lauren.simplenews.image.ImageBean;
-import com.lauren.simplenews.utils.ImageLoaderUtils;
-import com.lauren.simplenews.utils.ToolsUtil;
+import com.library.ImageLoaderUtils;
+import com.library.ToolsUtil;
 
 import java.util.List;
 
@@ -56,7 +56,7 @@ public class ImageAdapter extends RecyclerView.Adapter<ImageAdapter.ItemViewHold
             height = mMaxHeight;
         }
         holder.mImage.setLayoutParams(new LinearLayout.LayoutParams(mMaxWidth, height));
-        ImageLoaderUtils.display(mContext, holder.mImage, imageBean.thumbUrl);
+        ImageLoaderUtils.display(mContext, holder.mImage, imageBean.thumbUrl, R.drawable.ic_image_loading, R.drawable.ic_image_loadfail);
     }
 
     @Override

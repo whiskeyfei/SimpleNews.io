@@ -11,11 +11,11 @@ import android.webkit.WebView;
 import android.widget.ImageView;
 
 import com.lauren.simplenews.R;
-import com.lauren.simplenews.app.AppApplication;
 import com.lauren.simplenews.beans.NewModel;
 import com.lauren.simplenews.commons.ApiConstants;
 import com.lauren.simplenews.mvp.Injection;
-import com.lauren.simplenews.utils.ImageLoaderUtils;
+import com.library.ImageLoaderUtils;
+import com.library.AppRun;
 
 public class NewsDetailActivity extends AppCompatActivity implements DetailContract.View {
 
@@ -49,7 +49,7 @@ public class NewsDetailActivity extends AppCompatActivity implements DetailContr
         CollapsingToolbarLayout collapsingToolbar = (CollapsingToolbarLayout) findViewById(R.id.collapsing_toolbar);
         collapsingToolbar.setTitle(mNews.title);
 
-        ImageLoaderUtils.display(AppApplication.get(), mImageView, mNews.imageUrl);
+        ImageLoaderUtils.display(AppRun.get().getApplicationContext(), mImageView, mNews.imageUrl,R.drawable.ic_image_loading, R.drawable.ic_image_loadfail);
 
         mNewsDetailPresenter = new NewsDetailPresenter(this, Injection.provideSchedulerProvider());
         mNewsDetailPresenter.init(mWebView);

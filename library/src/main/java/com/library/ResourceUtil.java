@@ -1,10 +1,8 @@
-package com.lauren.simplenews.utils;
+package com.library;
 
 import android.content.Context;
 import android.content.res.Resources;
 import android.graphics.drawable.Drawable;
-
-import com.lauren.simplenews.app.AppApplication;
 
 /**
  * Created by whiskeyfei on 16-2-28.
@@ -32,6 +30,6 @@ public class ResourceUtil {
     }
 
     public static Context getContext() {
-        return AppApplication.get();
+        return AppRun.get().getApplicationContext();
     }
 }

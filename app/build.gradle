@@ -2,16 +2,16 @@ apply plugin: 'com.android.application'
 //该 model 为一个 com.android.application 程序，也就是应用程序，如果你的 Model 是一个库，那么自然也就是apply plugin: 'com.android.library'
 
 android {
-    compileSdkVersion ANDROID_BUILD_COMPILE_SDK_VERSION as int
-    buildToolsVersion ANDROID_BUILD_TOOLS_VERSION
+    compileSdkVersion rootProject.ext.android.compileSdkVersion
+    buildToolsVersion rootProject.ext.android.buildToolsVersion
 
     //默认配置
     defaultConfig {
-        applicationId "com.lauren.simplenews"
-        minSdkVersion MIN_SDK_VERSION as int
-        targetSdkVersion ANDROID_BUILD_TARGET_SDK_VERSION as int
-        versionCode VERSION_CODE as int
-        versionName VERSION_NAME
+        applicationId rootProject.ext.android.applicationId
+        minSdkVersion rootProject.ext.android.minSdkVersion
+        targetSdkVersion rootProject.ext.android.targetSdkVersion
+        versionCode rootProject.ext.android.versionCode
+        versionName rootProject.ext.android.versionName
     }
     buildTypes {
         release {
@@ -33,15 +33,10 @@ repositories {
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     testCompile 'junit:junit:4.12'
-    compile 'com.android.support:appcompat-v7:23.1.1'
-    compile 'com.android.support:design:23.1.1'
-    compile 'com.android.support:cardview-v7:23.1.1'
-    compile 'com.squareup.okhttp:okhttp:2.7.0'
-    compile 'com.google.code.gson:gson:2.2.4'
-    compile 'de.hdodenhof:circleimageview:1.3.0'
-    compile 'com.github.bumptech.glide:glide:3.6.1'
-    compile 'org.sufficientlysecure:html-textview:1.3'
-    compile 'com.github.orhanobut:logger:1.12'
-    compile 'io.reactivex:rxandroid:1.1.0'
-
+    compile project(':library')
+    compile rootProject.ext.dependencies.design
+    compile rootProject.ext.dependencies.cardview
+    compile rootProject.ext.dependencies.circleimageview
+    compile rootProject.ext.dependencies.sufficientlysecure
+    compile rootProject.ext.dependencies.logger
 }

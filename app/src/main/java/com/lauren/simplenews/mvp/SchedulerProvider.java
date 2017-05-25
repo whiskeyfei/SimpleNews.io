@@ -7,15 +7,14 @@ import rx.schedulers.Schedulers;
 /**
  * Provides different types of schedulers.
  */
-public class SchedulerProvider implements BaseSchedulerProvider {
+public class SchedulerProvider implements ISchedulerProvider {
 
     private static SchedulerProvider INSTANCE;
 
-    // Prevent direct instantiation.
     private SchedulerProvider() {
     }
 
-    public static synchronized SchedulerProvider getInstance() {
+    public static synchronized ISchedulerProvider getInstance() {
         if (INSTANCE == null) {
             INSTANCE = new SchedulerProvider();
         }

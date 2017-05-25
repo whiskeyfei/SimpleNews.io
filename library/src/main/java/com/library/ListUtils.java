@@ -1,4 +1,4 @@
-package com.lauren.simplenews.utils;
+package com.library;
 
 import android.util.SparseArray;
 
