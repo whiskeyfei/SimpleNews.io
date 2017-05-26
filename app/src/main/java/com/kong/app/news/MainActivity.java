@@ -3,10 +3,12 @@ package com.kong.app.news;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
 
@@ -24,7 +26,8 @@ public class MainActivity extends BaseActivity implements MainContract.View,IBas
     private DrawerLayout mDrawerLayout;
     private ActionBarDrawerToggle mDrawerToggle;
     private Toolbar mToolbar;
-    private NavigationView mNavigationView;
+    private NavigationView mNavigationLeftView;
+
     private MainContract.Presenter mMainPresenter;
     private BaseFragment mCurrentFragment;
 
@@ -39,12 +42,35 @@ public class MainActivity extends BaseActivity implements MainContract.View,IBas
         mDrawerToggle = new ActionBarDrawerToggle(this, mDrawerLayout, mToolbar, R.string.drawer_open, R.string.drawer_close);
         mDrawerToggle.syncState();
         mDrawerLayout.setDrawerListener(mDrawerToggle);
-        mNavigationView = (NavigationView) findViewById(R.id.navigation_view);
-        setupDrawerContent(mNavigationView);
-
+        initNavigationLeft();
         mMainPresenter = new MainPresenter(this);
 
         switchNews();
+    }
+
+    private void initNavigationLeft() {
+        mNavigationLeftView = (NavigationView) findViewById(R.id.navigation_view);
+        mNavigationLeftView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(MenuItem item) {
+                mMainPresenter.switchNavigation(item.getItemId());
+                item.setChecked(true);
+                mDrawerLayout.closeDrawers();
+                return true;
+            }
+        });
+    }
+
+    @Override
+    public boolean dispatchKeyEvent(KeyEvent event) {
+        if (event.getAction() != KeyEvent.ACTION_UP) {
+            return super.dispatchKeyEvent(event);
+        }
+        if (event.getKeyCode() == KeyEvent.KEYCODE_BACK && mDrawerLayout.isDrawerOpen(GravityCompat.START)){
+            mDrawerLayout.closeDrawers();
+            return true;
+        }
+        return super.dispatchKeyEvent(event);
     }
 
     @Override
@@ -62,19 +88,6 @@ public class MainActivity extends BaseActivity implements MainContract.View,IBas
         }
 
         return super.onOptionsItemSelected(item);
-    }
-
-    private void setupDrawerContent(NavigationView navigationView) {
-        navigationView.setNavigationItemSelectedListener(
-                new NavigationView.OnNavigationItemSelectedListener() {
-                    @Override
-                    public boolean onNavigationItemSelected(MenuItem menuItem) {
-                        mMainPresenter.switchNavigation(menuItem.getItemId());
-                        menuItem.setChecked(true);
-                        mDrawerLayout.closeDrawers();
-                        return true;
-                    }
-                });
     }
 
     @Override

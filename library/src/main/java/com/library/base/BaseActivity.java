@@ -38,7 +38,7 @@ public class BaseActivity extends AppCompatActivity {
 
     @Override
     public boolean dispatchKeyEvent(KeyEvent event) {
-        if (event.getAction() != KeyEvent.ACTION_DOWN) {
+        if (event.getAction() != KeyEvent.ACTION_UP) {
             return super.dispatchKeyEvent(event);
         }
         int keyCode = event.getKeyCode();
