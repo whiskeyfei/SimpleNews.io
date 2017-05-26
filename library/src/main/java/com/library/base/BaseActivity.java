@@ -41,10 +41,10 @@ public class BaseActivity extends AppCompatActivity {
         if (event.getAction() != KeyEvent.ACTION_UP) {
             return super.dispatchKeyEvent(event);
         }
-        int keyCode = event.getKeyCode();
-        if (keyCode == KeyEvent.KEYCODE_BACK || keyCode == KeyEvent.KEYCODE_ESCAPE){
-            EventBus.getDefault().post(new AppExitEvent());
-        }
+//        int keyCode = event.getKeyCode();
+//        if (keyCode == KeyEvent.KEYCODE_BACK || keyCode == KeyEvent.KEYCODE_ESCAPE){
+//            EventBus.getDefault().post(new AppExitEvent());
+//        }
         return super.dispatchKeyEvent(event);
     }
 
