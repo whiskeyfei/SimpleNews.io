@@ -7,9 +7,9 @@ import com.google.gson.reflect.TypeToken;
 import com.lauren.simplenews.commons.ApiConstants;
 import com.lauren.simplenews.mvp.ISchedulerProvider;
 import com.lauren.simplenews.utils.ActivityUtils;
-import com.library.ListUtils;
-import com.library.OkHttpUtils;
-import com.library.StringUtils;
+import com.library.utils.ListUtils;
+import com.library.utils.OkHttpUtils;
+import com.library.utils.StringUtils;
 
 import java.util.List;
 

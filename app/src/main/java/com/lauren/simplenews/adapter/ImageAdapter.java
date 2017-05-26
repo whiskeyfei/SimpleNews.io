@@ -11,8 +11,8 @@ import android.widget.TextView;
 
 import com.lauren.simplenews.R;
 import com.lauren.simplenews.image.ImageBean;
-import com.library.ImageLoaderUtils;
-import com.library.ToolsUtil;
+import com.library.utils.ImageLoaderUtils;
+import com.library.utils.ToolsUtil;
 
 import java.util.List;
 

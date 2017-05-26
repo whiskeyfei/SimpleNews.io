@@ -27,6 +27,7 @@ Name | About
 [Gson](https://github.com/google/gson) | Google json
 [okhttp](https://github.com/square/okhttp) |  An HTTP+HTTP/2 client for Android and Java applications
 [circleimageview](https://github.com/hdodenhof/CircleImageView) | circle image
+[glide](https://github.com/bumptech/glide) | An image loading and caching library for Android focused on smooth scrolling.
 
 ### Reference
 

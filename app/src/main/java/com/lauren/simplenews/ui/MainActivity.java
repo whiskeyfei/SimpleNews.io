@@ -5,7 +5,6 @@ import android.support.design.widget.NavigationView;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Menu;
@@ -17,8 +16,9 @@ import com.lauren.simplenews.fragment.BaseFragment;
 import com.lauren.simplenews.fragment.IBaseEvent;
 import com.lauren.simplenews.image.ImageFragment;
 import com.lauren.simplenews.news.NewsFragment;
+import com.library.base.BaseActivity;
 
-public class MainActivity extends AppCompatActivity implements MainContract.View,IBaseEvent {
+public class MainActivity extends BaseActivity implements MainContract.View,IBaseEvent {
 
     private static final String TAG = "MainActivity";
 

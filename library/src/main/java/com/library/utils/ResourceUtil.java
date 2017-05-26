@@ -1,8 +1,10 @@
-package com.library;
+package com.library.utils;
 
 import android.content.Context;
 import android.content.res.Resources;
 import android.graphics.drawable.Drawable;
+
+import com.library.AppRun;
 
 /**
  * Created by whiskeyfei on 16-2-28.

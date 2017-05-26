@@ -15,8 +15,8 @@ android {
     }
     buildTypes {
         release {
-            // 是否进行混淆
-            minifyEnabled false
+            minifyEnabled true //是否启动混淆
+            shrinkResources true //是否移除无用资源文件，shrinkResources依赖于minifyEnabled
             // 混淆文件的位置
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
@@ -38,5 +38,4 @@ dependencies {
     compile rootProject.ext.dependencies.cardview
     compile rootProject.ext.dependencies.circleimageview
     compile rootProject.ext.dependencies.sufficientlysecure
-    compile rootProject.ext.dependencies.logger
 }

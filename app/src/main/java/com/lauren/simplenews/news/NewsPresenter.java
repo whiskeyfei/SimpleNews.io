@@ -1,15 +1,16 @@
 package com.lauren.simplenews.news;
 
+import android.util.Log;
+
 import com.google.gson.Gson;
 import com.lauren.simplenews.beans.NewModel;
 import com.lauren.simplenews.beans.NewResultModel;
 import com.lauren.simplenews.commons.ApiConstants;
 import com.lauren.simplenews.mvp.ISchedulerProvider;
 import com.lauren.simplenews.utils.ActivityUtils;
-import com.library.ListUtils;
-import com.library.OkHttpUtils;
-import com.library.StringUtils;
-import com.orhanobut.logger.Logger;
+import com.library.utils.ListUtils;
+import com.library.utils.OkHttpUtils;
+import com.library.utils.StringUtils;
 
 import java.util.List;
 
@@ -49,18 +50,17 @@ public class NewsPresenter implements NewsContract.Presenter {
                     @Override
                     public void onSuccess(String response) {
                         if (StringUtils.isEmpty(response)) {
-                            Logger.e("response is null");
+                            Log.e(TAG,"response is null");
                             subscriber.onError(null);
                             return;
                         }
-                        Logger.json(response);
                         NewResultModel model = new Gson().fromJson(response, NewResultModel.class);
                         if (model == null || ListUtils.isEmpty(model.newModellist)) {
-                            Logger.e("model is null");
+                            Log.e(TAG,"model is null");
                             subscriber.onError(null);
                             return;
                         }
-                        Logger.d(TAG + "getNewList() -> model:" + model);
+                        Log.e(TAG,"getNewList() -> model:" + model);
                         subscriber.onNext(model.newModellist);
                         subscriber.onCompleted();
                     }
@@ -79,7 +79,7 @@ public class NewsPresenter implements NewsContract.Presenter {
 
     public void loadNews(final int type, final int pageIndex) {
         String url = getUrl(type);
-        Logger.d("url###" + url);
+        Log.e(TAG,"url###" + url);
         //只有第一页的或者刷新的时候才显示刷新进度条
         if (pageIndex == 0) {
             mView.showProgress();

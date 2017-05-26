@@ -7,7 +7,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.lauren.simplenews.R;
-import com.library.ImageLoaderUtils;
+import com.library.utils.ImageLoaderUtils;
 
 /**
  * Created by whiskeyfei on 16-2-27.

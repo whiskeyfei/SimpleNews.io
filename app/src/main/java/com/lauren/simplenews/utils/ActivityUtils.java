@@ -12,7 +12,7 @@ import com.lauren.simplenews.R;
 import com.lauren.simplenews.beans.NewModel;
 import com.lauren.simplenews.commons.ApiConstants;
 import com.lauren.simplenews.detail.NewsDetailActivity;
-import com.library.ResourceUtil;
+import com.library.utils.ResourceUtil;
 
 /**
  * Created by whiskeyfei on 16-2-28.

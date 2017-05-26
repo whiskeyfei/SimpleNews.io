@@ -14,7 +14,7 @@ import com.lauren.simplenews.R;
 import com.lauren.simplenews.beans.NewModel;
 import com.lauren.simplenews.commons.ApiConstants;
 import com.lauren.simplenews.mvp.Injection;
-import com.library.ImageLoaderUtils;
+import com.library.utils.ImageLoaderUtils;
 import com.library.AppRun;
 
 public class NewsDetailActivity extends AppCompatActivity implements DetailContract.View {

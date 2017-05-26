@@ -1,4 +1,4 @@
-package com.library;
+package com.library.utils;
 
 /**
  * String method 2014.12.16
