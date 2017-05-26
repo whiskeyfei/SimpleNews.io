@@ -17,6 +17,9 @@ import com.kong.app.news.image.ImageFragment;
 import com.kong.lib.share.common.fragment.BaseFragment;
 import com.kong.lib.share.common.fragment.IBaseEvent;
 import com.library.base.BaseActivity;
+import com.library.event.AppExitEvent;
+
+import org.greenrobot.eventbus.EventBus;
 
 public class MainActivity extends BaseActivity implements MainContract.View,IBaseEvent {
 
@@ -65,12 +68,18 @@ public class MainActivity extends BaseActivity implements MainContract.View,IBas
         if (event.getAction() != KeyEvent.ACTION_UP) {
             return super.dispatchKeyEvent(event);
         }
+        int keyCode = event.getKeyCode();
         if (event.getKeyCode() == KeyEvent.KEYCODE_BACK && mDrawerLayout.isDrawerOpen(GravityCompat.START)){
             mDrawerLayout.closeDrawers();
             return true;
         }
+        if (keyCode == KeyEvent.KEYCODE_BACK || keyCode == KeyEvent.KEYCODE_ESCAPE){
+            EventBus.getDefault().post(new AppExitEvent());
+        }
         return super.dispatchKeyEvent(event);
     }
+
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -140,4 +149,5 @@ public class MainActivity extends BaseActivity implements MainContract.View,IBas
     public void setPresenter(MainContract.Presenter presenter) {
         mMainPresenter = presenter;
     }
+
 }
