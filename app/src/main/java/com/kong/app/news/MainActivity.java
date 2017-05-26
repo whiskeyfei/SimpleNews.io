@@ -13,7 +13,6 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import com.kong.R;
-import com.kong.app.news.about.AboutFragment;
 import com.kong.app.news.image.ImageFragment;
 import com.kong.lib.share.common.fragment.BaseFragment;
 import com.kong.lib.share.common.fragment.IBaseEvent;
@@ -83,7 +82,7 @@ public class MainActivity extends BaseActivity implements MainContract.View,IBas
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
         if (id == R.id.action_settings) {
-            switchAbout();
+            ActionUtils.startAbout(MainActivity.this);
             return true;
         }
 
@@ -103,8 +102,7 @@ public class MainActivity extends BaseActivity implements MainContract.View,IBas
 
     @Override
     public void switchAbout() {
-        switchFragment(AboutFragment.newInstance());
-        mToolbar.setTitle(R.string.navigation_about);
+        ActionUtils.startAbout(MainActivity.this);
     }
 
     private void switchFragment(BaseFragment fragment){

@@ -28,7 +28,13 @@
         <activity
             android:name="com.kong.app.news.detail.NewsDetailActivity"
             android:label="@string/title_activity_news_detail"
-            android:theme="@style/AppTheme.NoActionBar.Translucent"></activity>
+            android:theme="@style/AppTheme.NoActionBar.Translucent"/>
+
+        <activity
+            android:name=".app.news.AboutActivity"
+            android:theme="@style/AppTheme.NoActionBar.Translucent"
+            android:screenOrientation="portrait"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenSize" />
     </application>
 
 </manifest>

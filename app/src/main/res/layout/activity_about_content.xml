@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/btn_version"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="string/current_version"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/tv_version"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:textSize="14sp"
+            android:maxLines="1"
+            android:text="string/current_version"/>
+
+    </LinearLayout>
+
+    <View style="@style/AppWidget.DeepLine" />
+
+    <LinearLayout
+        android:id="@+id/btn_open_source_url"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="string/open_source_url"
+            android:textSize="16sp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="string/open_source_url_content"
+            android:textSize="14sp"
+            android:maxLines="1" />
+
+    </LinearLayout>
+
+    <View style="@style/AppWidget.DeepLine" />
+
+    <LinearLayout
+        android:id="@+id/btn_about_cnode"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="string/about_cnode"
+            android:textSize="16sp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="string/about_cnode_content"
+            android:textSize="14sp"
+            android:maxLines="1" />
+
+    </LinearLayout>
+
+    <View style="@style/AppWidget.DeepLine" />
+
+    <LinearLayout
+        android:id="@+id/btn_about_author"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="string/about_author"
+            android:textSize="16sp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="string/about_author_content"
+            android:textSize="14sp"
+            android:maxLines="1" />
+
+    </LinearLayout>
+
+    <View style="@style/AppWidget.ShadowGap" />
+
+    <LinearLayout
+        android:id="@+id/btn_open_in_market"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="string/open_in_market"
+            android:textSize="16sp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="string/open_in_market_content"
+            android:textSize="14sp"
+            android:maxLines="1" />
+
+    </LinearLayout>
+
+    <View style="@style/AppWidget.DeepLine" />
+
+    <LinearLayout
+        android:id="@+id/btn_advice_feedback"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="string/advice_feedback"
+            android:textSize="16sp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="string/advice_feedback_content"
+            android:textSize="14sp"
+            android:maxLines="1" />
+
+    </LinearLayout>
+
+    <View style="@style/AppWidget.ShadowGap" />
+
+    <TextView
+        android:id="@+id/btn_open_source_license"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp"
+        android:text="string/open_source_license"
+        android:textSize="16sp" />
+
+    <View style="@style/AppWidget.ShadowGap" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:padding="8dp"
+        android:text="string/about_copyright"
+        android:textSize="12sp"
+        android:gravity="center" />
+
+</LinearLayout>
