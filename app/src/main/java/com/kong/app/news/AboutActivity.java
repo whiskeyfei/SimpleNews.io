@@ -2,6 +2,7 @@ package com.kong.app.news;
 
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.view.View;
 
 import com.kong.R;
 import com.library.base.BaseActivity;
@@ -23,12 +24,11 @@ public class AboutActivity extends BaseActivity {
         mToolbar = (Toolbar) findViewById(R.id.about_toolbar);
         setSupportActionBar(mToolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setDisplayShowHomeEnabled(true);
-    }
-
-    @Override
-    public boolean onSupportNavigateUp() {
-        onBackPressed();
-        return true;
+        mToolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                onBackPressed();
+            }
+        });
     }
 }
