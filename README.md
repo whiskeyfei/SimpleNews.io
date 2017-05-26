@@ -1,4 +1,4 @@
-# SimpleNews.io
+''# SimpleNews.io
 
 SimpleNews.io - A news Android App,based on the Material Design and RxJava 、MVP.Due to changes in the data request logic larger.so,I searate pull out the demo to update, in the original basis to modify the use of RxJava and MVP to rewirete the code starcture.
 
@@ -7,10 +7,11 @@ Chinese readme version [README_CN.md](/README_CN.md)
 
 Change as follows:
 
-1、I change the data interface.<br/>
-2、I change switch fragment mechanism.<br/>
-3、I change mvc mechanism separate ui and logic.<br/>
-4、I clear the useless code and liarary and ui resourses.<br/>
+* change the data interface.
+* change switch fragment mechanism.
+* change mvc mechanism separate ui and logic.
+* clear the useless code and liarary and ui resourses.
+* change construction for Android Component & Module
 
 ### UI display
 ![image](http://7xol9p.com1.z0.glb.clouddn.com/github_news.gif)
@@ -23,7 +24,6 @@ Name | About
 [todo-mvp](https://github.com/googlesamples/android-architecture/tree/todo-mvp/)  | Google googlesamples MVP
 [RxJava](https://github.com/ReactiveX/RxJava) | RxJava – Reactive Extensions for the JVM – a library for composing asynchronous and event-based programs using observable sequences for the Java VM
 [RxAndroid](https://github.com/ReactiveX/RxAndroid) | RxJava bindings for Android
-[logger](https://github.com/orhanobut/logger) | Android log
 [Gson](https://github.com/google/gson) | Google json
 [okhttp](https://github.com/square/okhttp) |  An HTTP+HTTP/2 client for Android and Java applications
 [circleimageview](https://github.com/hdodenhof/CircleImageView) | circle image

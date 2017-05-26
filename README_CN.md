@@ -3,9 +3,10 @@
 
 ### 更新
 
-不间断更新
-使用 googlesamples MVP + Rxjava 结构实现
-清除无用代码及无用的依赖库，合并一些基础工具类
+* 不间断更新
+* 使用 googlesamples MVP + Rxjava 结构实现
+* 清除无用代码及无用的依赖库，合并一些基础工具类
+* 为了之后的 Android 组件化做了结构调整 2017.5.26
 
 ### 效果图
 ![image](http://7xol9p.com1.z0.glb.clouddn.com/github_news.gif)
@@ -22,7 +23,6 @@
 [todo-mvp](https://github.com/googlesamples/android-architecture/tree/todo-mvp/)  | Google googlesamples MVP
 [RxJava](https://github.com/ReactiveX/RxJava) | 一个在 Java VM 上使用可观测的序列来组成异步的、基于事件的程序的库
 [RxAndroid](https://github.com/ReactiveX/RxAndroid) | RxAndroid 是 RxJava 的一个针对 Android 平台的扩展
-[logger](https://github.com/orhanobut/logger) | Android日志输出工具
 [Gson](https://github.com/google/gson) | Google json库，使用了@SerializedName标签、转对象
 [okhttp](https://github.com/square/okhttp) |  网络请求库
 [circleimageview](https://github.com/hdodenhof/CircleImageView) | 图片操作
