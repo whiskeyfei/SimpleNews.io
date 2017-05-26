@@ -1,4 +1,4 @@
-''# SimpleNews.io
+# SimpleNews.io
 
 SimpleNews.io - A news Android App,based on the Material Design and RxJava 、MVP.Due to changes in the data request logic larger.so,I searate pull out the demo to update, in the original basis to modify the use of RxJava and MVP to rewirete the code starcture.
 
