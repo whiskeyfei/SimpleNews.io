@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.kong.R;
+import com.kong.app.news.NewsFragment;
 import com.kong.app.news.adapter.NewsAdapter;
 import com.kong.app.news.beans.NewModel;
 import com.kong.app.news.commons.ApiConstants;

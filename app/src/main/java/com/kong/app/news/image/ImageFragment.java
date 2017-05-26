@@ -30,6 +30,13 @@ public class ImageFragment extends BaseFragment implements ImageContract.View, S
     private List<ImageBean> mData;
     private ImageContract.Presenter mImagePresenter;
 
+    public static ImageFragment newInstance() {
+        Bundle args = new Bundle();
+        ImageFragment fragment = new ImageFragment();
+        fragment.setArguments(args);
+        return fragment;
+    }
+
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

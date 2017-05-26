@@ -3,6 +3,7 @@ package com.kong.app.news.list;
 import android.util.Log;
 
 import com.google.gson.Gson;
+import com.kong.app.news.NewsFragment;
 import com.kong.app.news.beans.NewModel;
 import com.kong.app.news.beans.NewResultModel;
 import com.kong.app.news.commons.ApiConstants;

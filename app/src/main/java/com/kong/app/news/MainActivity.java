@@ -13,7 +13,6 @@ import android.view.MenuItem;
 import com.kong.R;
 import com.kong.app.news.about.AboutFragment;
 import com.kong.app.news.image.ImageFragment;
-import com.kong.app.news.list.NewsFragment;
 import com.kong.lib.share.common.fragment.BaseFragment;
 import com.kong.lib.share.common.fragment.IBaseEvent;
 import com.library.base.BaseActivity;
@@ -37,8 +36,7 @@ public class MainActivity extends BaseActivity implements MainContract.View,IBas
         setSupportActionBar(mToolbar);
 
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
-        mDrawerToggle = new ActionBarDrawerToggle(this, mDrawerLayout, mToolbar, R.string.drawer_open,
-                R.string.drawer_close);
+        mDrawerToggle = new ActionBarDrawerToggle(this, mDrawerLayout, mToolbar, R.string.drawer_open, R.string.drawer_close);
         mDrawerToggle.syncState();
         mDrawerLayout.setDrawerListener(mDrawerToggle);
         mNavigationView = (NavigationView) findViewById(R.id.navigation_view);
@@ -81,25 +79,28 @@ public class MainActivity extends BaseActivity implements MainContract.View,IBas
 
     @Override
     public void switchNews() {
-        onSwitchFragment(new NewsFragment(),null);
+        switchFragment(NewsFragment.newInstance());
         mToolbar.setTitle(R.string.navigation_news);
     }
 
     public void switchImages() {
-        onSwitchFragment(new ImageFragment(),null);
+        switchFragment(ImageFragment.newInstance());
         mToolbar.setTitle(R.string.navigation_images);
     }
 
     @Override
     public void switchAbout() {
-        onSwitchFragment(new AboutFragment(),null);
+        switchFragment(AboutFragment.newInstance());
         mToolbar.setTitle(R.string.navigation_about);
+    }
+
+    private void switchFragment(BaseFragment fragment){
+        onSwitchFragment(fragment,null);
     }
 
     private void switchFragment(BaseFragment fragment, Bundle bundle) {
         Log.e(TAG, "switchFragment() -> fragment:" + fragment.toString());
         if (mCurrentFragment == fragment) {
-            Log.e(TAG, TAG + "---switchFragment() -> mCurrentFragment eques fragment");
             return;
         }
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
@@ -115,7 +116,6 @@ public class MainActivity extends BaseActivity implements MainContract.View,IBas
     @Override
     public void onAttachActivity(BaseFragment fragment) {
         mCurrentFragment = fragment;
-        Log.e(TAG, TAG + "---onAttachActivity()-> mCurrentFragment:"+mCurrentFragment.toString());
     }
 
     @Override

@@ -1,4 +1,4 @@
-package com.kong.app.news.list;
+package com.kong.app.news;
 
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
@@ -9,7 +9,9 @@ import android.view.ViewGroup;
 
 import com.kong.R;
 import com.kong.app.news.adapter.MyPagerAdapter;
+import com.kong.app.news.list.NewsListFragment;
 import com.kong.lib.share.common.fragment.BaseFragment;
+import com.library.utils.ResourceUtil;
 
 public class NewsFragment extends BaseFragment {
 
@@ -20,6 +22,13 @@ public class NewsFragment extends BaseFragment {
 
     private TabLayout mTablayout;
     private ViewPager mViewPager;
+
+    public static NewsFragment newInstance() {
+        Bundle args = new Bundle();
+        NewsFragment fragment = new NewsFragment();
+        fragment.setArguments(args);
+        return fragment;
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -39,7 +48,7 @@ public class NewsFragment extends BaseFragment {
     private void setupViewPager(ViewPager mViewPager) {
         //Fragment中嵌套使用Fragment一定要使用getChildFragmentManager(),否则会有问题
         MyPagerAdapter adapter = new MyPagerAdapter(getChildFragmentManager());
-        adapter.addFragment(NewsListFragment.newInstance(NEWS_TYPE_TOP), getString(R.string.top));
+        adapter.addFragment(NewsListFragment.newInstance(NEWS_TYPE_TOP), ResourceUtil.getString(R.string.top));
         adapter.addFragment(NewsListFragment.newInstance(NEWS_TYPE_RECREATION), getString(R.string.recreation));
         adapter.addFragment(NewsListFragment.newInstance(NEWS_TYPE_SCIENCE), getString(R.string.science));
         adapter.addFragment(NewsListFragment.newInstance(NEWS_TYPE_HEALTH), getString(R.string.health));
