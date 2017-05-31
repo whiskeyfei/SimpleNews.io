@@ -22,11 +22,11 @@ Change as follows:
 Name | About
 ------- | -------
 [todo-mvp](https://github.com/googlesamples/android-architecture/tree/todo-mvp/)  | Google googlesamples MVP
-[RxJava](https://github.com/ReactiveX/RxJava) | RxJava – Reactive Extensions for the JVM – a library for composing asynchronous and event-based programs using observable sequences for the Java VM
-[RxAndroid](https://github.com/ReactiveX/RxAndroid) | RxJava bindings for Android
-[Gson](https://github.com/google/gson) | Google json
-[okhttp](https://github.com/square/okhttp) |  An HTTP+HTTP/2 client for Android and Java applications
-[circleimageview](https://github.com/hdodenhof/CircleImageView) | circle image
+[RxJava](https://github.com/ReactiveX/RxJava) | RxJava – Reactive Extensions for the JVM – a library for composing asynchronous and event-based programs using observable sequences for the Java VM.
+[RxAndroid](https://github.com/ReactiveX/RxAndroid) | RxJava bindings for Android.
+[Gson](https://github.com/google/gson) | A Java serialization/deserialization library to convert Java Objects into JSON and back.
+[okhttp](https://github.com/square/okhttp) |  An HTTP+HTTP/2 client for Android and Java applications.
+[circleimageview](https://github.com/hdodenhof/CircleImageView) | A circular ImageView for Android.
 [glide](https://github.com/bumptech/glide) | An image loading and caching library for Android focused on smooth scrolling.
 
 ### Reference

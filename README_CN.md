@@ -21,11 +21,13 @@
 库名称 | 库信息
 ------- | -------
 [todo-mvp](https://github.com/googlesamples/android-architecture/tree/todo-mvp/)  | Google googlesamples MVP
-[RxJava](https://github.com/ReactiveX/RxJava) | 一个在 Java VM 上使用可观测的序列来组成异步的、基于事件的程序的库
-[RxAndroid](https://github.com/ReactiveX/RxAndroid) | RxAndroid 是 RxJava 的一个针对 Android 平台的扩展
-[Gson](https://github.com/google/gson) | Google json库，使用了@SerializedName标签、转对象
-[okhttp](https://github.com/square/okhttp) |  网络请求库
-[circleimageview](https://github.com/hdodenhof/CircleImageView) | 图片操作
+[RxJava](https://github.com/ReactiveX/RxJava) | 一个在 Java VM 上使用可观测的序列来组成异步的、基于事件的程序的库.
+[RxAndroid](https://github.com/ReactiveX/RxAndroid) | RxAndroid 是 RxJava 的一个针对 Android 平台的扩展.
+[Gson](https://github.com/google/gson) | Google json库，使用了@SerializedName标签、转对象.
+[okhttp](https://github.com/square/okhttp) |  网络请求库.
+[circleimageview](https://github.com/hdodenhof/CircleImageView) | 圆形图片操作.
+[glide](https://github.com/bumptech/glide) | 图片加载.
+
 
 ### 参考
 

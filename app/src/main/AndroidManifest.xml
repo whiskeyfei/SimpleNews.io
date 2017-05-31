@@ -25,6 +25,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".app.news.StartActivity"
+                  android:theme="@style/AppTheme.NoActionBar.Translucent"/>
         <activity
             android:name="com.kong.app.news.detail.NewsDetailActivity"
             android:theme="@style/AppTheme.NoActionBar.Translucent"/>
