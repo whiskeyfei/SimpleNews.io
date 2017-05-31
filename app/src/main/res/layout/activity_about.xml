@@ -57,7 +57,7 @@
         android:layout_height="wrap_content"
         android:background="#01000000"
         android:elevation="16dp"
-        app:title="@string/navigation_about"
+        app:title="@string/about"
         android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
         app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
 

@@ -15,17 +15,17 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="string/current_version"
-            android:textSize="16sp" />
+            android:text="@string/about_version"
+            style="@style/AboutColor_title"/>
 
         <TextView
             android:id="@+id/tv_version"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
-            android:textSize="14sp"
+            style="@style/AboutColor_desc"
             android:maxLines="1"
-            android:text="string/current_version"/>
+            android:text="1.0"/>
 
     </LinearLayout>
 
@@ -41,15 +41,15 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="string/open_source_url"
-            android:textSize="16sp" />
+            android:text="@string/about_des"
+            style="@style/AboutColor_title"/>
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
-            android:text="string/open_source_url_content"
-            android:textSize="14sp"
+            android:text="@string/description"
+            style="@style/AboutColor_desc"
             android:maxLines="1" />
 
     </LinearLayout>
@@ -66,15 +66,15 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="string/about_cnode"
-            android:textSize="16sp" />
+            android:text="@string/about_github"
+            style="@style/AboutColor_title"/>
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
-            android:text="string/about_cnode_content"
-            android:textSize="14sp"
+            android:text="@string/github_url"
+            style="@style/AboutColor_desc"
             android:maxLines="1" />
 
     </LinearLayout>
@@ -91,15 +91,15 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="string/about_author"
-            android:textSize="16sp" />
+            android:text="@string/about_name"
+            style="@style/AboutColor_title"/>
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
-            android:text="string/about_author_content"
-            android:textSize="14sp"
+            android:text="@string/author"
+            style="@style/AboutColor_desc"
             android:maxLines="1" />
 
     </LinearLayout>
@@ -116,15 +116,15 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="string/open_in_market"
-            android:textSize="16sp" />
+            android:text="@string/about_blog"
+            style="@style/AboutColor_title" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
-            android:text="string/open_in_market_content"
-            android:textSize="14sp"
+            android:text="@string/blog"
+            style="@style/AboutColor_desc"
             android:maxLines="1" />
 
     </LinearLayout>
@@ -141,28 +141,18 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="string/advice_feedback"
-            android:textSize="16sp" />
+            android:text="@string/about_email"
+            style="@style/AboutColor_title"/>
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
-            android:text="string/advice_feedback_content"
-            android:textSize="14sp"
+            android:text="@string/email"
+            style="@style/AboutColor_desc"
             android:maxLines="1" />
 
     </LinearLayout>
-
-    <View style="@style/AppWidget.ShadowGap" />
-
-    <TextView
-        android:id="@+id/btn_open_source_license"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="16dp"
-        android:text="string/open_source_license"
-        android:textSize="16sp" />
 
     <View style="@style/AppWidget.ShadowGap" />
 
@@ -171,7 +161,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
         android:padding="8dp"
-        android:text="string/about_copyright"
+        android:text="@string/about_copyright"
         android:textSize="12sp"
         android:gravity="center" />
 

@@ -1,31 +1,38 @@
 <resources>
     <string name="app_name">SimpleNews</string>
-    <string name="action_settings">Settings</string>
-
+    <string name="name">无名</string>
+    <!-- Left Menu-->
     <string name="navigation_news">新闻</string>
     <string name="navigation_images">图片</string>
-    <string name="navigation_about">关于</string>
-    <string name="drawer_open">Open</string>
-    <string name="drawer_close">Close</string>
-    <string name="name">Whiskeyfei</string>
-    <string name="app_description">本APP用来演示Material Design以及MVP设计模式在项目中的使用</string>
-    <string name="app_github_url">Github地址：https://github.com/whiskeyfei/SimpleNews.io</string>
-    <string name="author">作者：Dapeng</string>
-    <string name="email">邮箱：whiskeyfei@gmail.com</string>
-    <string name="blog">博客：http://doraemonyu.me</string>
 
+    <!-- tab bar-->
     <string name="top">精选</string>
     <string name="recreation">娱乐</string>
     <string name="science">科技</string>
     <string name="health">健康</string>
 
-    <string name="jingxuan">精选</string>
-    <string name="qutu">趣图</string>
-    <string name="meitu">美图</string>
-    <string name="story">故事</string>
+    <!-- about-->
+    <string name="about">关于</string>
+
+    <string name="about_version">版本</string>
+    <string name="about_github">Github</string>
+    <string name="about_name">作者</string>
+    <string name="about_email">邮箱</string>
+    <string name="about_blog">博客</string>
+    <string name="about_des">描述</string>
+    <string name="about_copyright">Copyright © 2016&#8211;2017 無名</string>
+
+    <string name="author">无名</string>
+    <string name="description">本APP用来演示Material Design以及MVP设计模式在项目中的使用</string>
+    <string name="github_url">Github地址：https://github.com/whiskeyfei/SimpleNews.io</string>
+    <string name="email">whiskeyfei@gmail.com</string>
+    <string name="blog">http://doraemonyu.me</string>
+
+
+
+    <string name="drawer_open">Open</string>
+    <string name="drawer_close">Close</string>
 
     <string name="load_fail">加载数据失败!</string>
-    <string name="title_activity_news_detail">NewsDetailActivity</string>
-
     <string name="image_hit">一次只加载20条，查看更多内容请刷新哦。</string>
 </resources>

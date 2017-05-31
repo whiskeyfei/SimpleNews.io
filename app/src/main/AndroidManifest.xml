@@ -27,7 +27,6 @@
         </activity>
         <activity
             android:name="com.kong.app.news.detail.NewsDetailActivity"
-            android:label="@string/title_activity_news_detail"
             android:theme="@style/AppTheme.NoActionBar.Translucent"/>
 
         <activity

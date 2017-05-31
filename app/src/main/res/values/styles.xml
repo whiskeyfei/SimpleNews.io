@@ -17,9 +17,9 @@
         <item name="android:windowIsTranslucent">true</item>
     </style>
 
-    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar"/>
 
-    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light"/>
 
     <style name="weacher_title">
         <item name="android:textSize">21.0sp</item>
@@ -36,17 +36,30 @@
         <item name="android:textColor">@color/icons</item>
     </style>
 
-    <style name="AppWidget" parent="Theme.AppCompat.Light" />
+    <style name="AppWidget" parent="Theme.AppCompat.Light"/>
 
     <style name="AppWidget.DeepLine">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">2dp</item>
         <item name="android:background">?android:attr/listDivider</item>
     </style>
+
     <style name="AppWidget.ShadowGap">
         <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">2dp</item>
+        <item name="android:layout_height">1dp</item>
         <item name="android:layout_marginBottom">6dp</item>
         <item name="android:background">@drawable/gap_shadow</item>
     </style>
+
+    <style name="AboutColor_title">
+        <item name="android:textColor">@color/primary_text</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+    <style name="AboutColor_desc">
+        <item name="android:textColor">@color/secondary_text</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+
+
+
 </resources>
