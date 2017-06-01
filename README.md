@@ -7,11 +7,11 @@ Chinese readme version [README_CN.md](/README_CN.md)
 
 Change as follows:
 
-* change the data interface.
-* change switch fragment mechanism.
-* change mvc mechanism separate ui and logic.
-* clear the useless code and liarary and ui resourses.
-* change construction for Android Component & Module
+- [x] 单元测试 change the data interface.
+- [x] change switch fragment mechanism.
+- [x] change mvc mechanism separate ui and logic.
+- [x] clear the useless code and liarary and ui resourses.
+- [ ] change construction for Android Component & Module
 
 ### UI display
 ![image](http://7xol9p.com1.z0.glb.clouddn.com/github_news.gif)

@@ -49,7 +49,7 @@ public class NewsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
         if (viewType == TYPE_ITEM) {
             return new ItemViewHolder(new NewCardView(mContext));
         } else {
-            View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.footer, null);
+            View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.footer_loading_view, null);
             view.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,
                     ViewGroup.LayoutParams.WRAP_CONTENT));
             return new FooterViewHolder(view);
