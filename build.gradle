@@ -9,15 +9,20 @@ buildscript {
         jcenter()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:2.3.2'
+        classpath 'com.android.tools.build:gradle:2.3.2'//使用gradle:2.3.2版本build
 
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
         //不要再这里添加依赖，在各自的module build.gradle中添加依赖
     }
 }
+//为所有的工程的repositories配置为jcenters，JCenter类似maven库，不需要任何额外的配置
 allprojects {
     repositories {
         jcenter()
     }
 }
+
+//buildscript 方法是定义了全局的相关属性，repositories定义了jcenter作为仓库。一个仓库代表着你的依赖包的来源，
+// 例如maven仓库。dependencies用来定义构建过程。这意味着你不应该在该方法体内定义子模块的依赖包，你仅仅需要定义默认的Android插件就可以了，
+// 因为该插件可以让你执行相关Android的tasks。

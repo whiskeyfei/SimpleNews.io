@@ -1,18 +1,19 @@
 apply plugin: 'com.android.application'
-//该 model 为一个 com.android.application 程序，也就是应用程序，如果你的 Model 是一个库，那么自然也就是apply plugin: 'com.android.library'
+//该 plugin 为一个 com.android.application 程序，也就是应用程序，如果你的 plugin 是一个库，那么自然也就是apply plugin: 'com.android.library'
 
 android {
-    compileSdkVersion rootProject.ext.android.compileSdkVersion
-    buildToolsVersion rootProject.ext.android.buildToolsVersion
+    compileSdkVersion rootProject.ext.android.compileSdkVersion //编译的 SDK API 版本
+    buildToolsVersion rootProject.ext.android.buildToolsVersion //构建工具版本
 
-    //默认配置
+    //默认配置&核心属性，该属性会重写在AndroidManifest.xml中的对应属性
     defaultConfig {
-        applicationId rootProject.ext.android.applicationId
-        minSdkVersion rootProject.ext.android.minSdkVersion
+        applicationId rootProject.ext.android.applicationId//配置包名的
+        minSdkVersion rootProject.ext.android.minSdkVersion //支持最小的 SDK 版本
         targetSdkVersion rootProject.ext.android.targetSdkVersion
-        versionCode rootProject.ext.android.versionCode
-        versionName rootProject.ext.android.versionName
+        versionCode rootProject.ext.android.versionCode//版本号
+        versionName rootProject.ext.android.versionName//版本名称
     }
+    //构建类型，常用的有release和debug两种
     buildTypes {
         release {
             minifyEnabled true //是否启动混淆
@@ -23,17 +24,21 @@ android {
     }
 }
 
-//add for logger
 repositories {
     jcenter()
     maven { url "https://jitpack.io" }
 }
 
-//依赖管理 可以添加远程依赖 和 本地依赖libs等
+//依赖管理,可以添加远程依赖 和 本地依赖libs等
 dependencies {
+    //将libs文件夹中所有的jar文件视为依赖包。
     compile fileTree(dir: 'libs', include: ['*.jar'])
     testCompile 'junit:junit:4.12'
+
+    //添加依赖包
     compile project(':library')
+
+    //依赖远程仓库
     compile rootProject.ext.dependencies.design
     compile rootProject.ext.dependencies.cardview
     compile rootProject.ext.dependencies.circleimageview
