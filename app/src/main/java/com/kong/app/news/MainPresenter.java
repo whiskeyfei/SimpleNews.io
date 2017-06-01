@@ -3,16 +3,14 @@ package com.kong.app.news;
 import com.kong.R;
 import com.kong.lib.framework.utils.ActivityUtils;
 
-import rx.subscriptions.CompositeSubscription;
-
 public class MainPresenter implements MainContract.Presenter{
 
     private final MainContract.View mView;//view接口 用于更新UI
-    private CompositeSubscription mSubscriptions;
+//    private CompositeSubscription mSubscriptions;
 
     public MainPresenter(MainContract.View view) {
         mView = ActivityUtils.checkNotNull(view, "view cannot be null!");
-        mSubscriptions = new CompositeSubscription();
+//        mSubscriptions = new CompositeSubscription();
         mView.setPresenter(this);
     }
 

@@ -8,7 +8,12 @@ import android.content.Intent;
  */
 
 public class ActionUtils {
+
     public static void startAbout(Context context){
         context.startActivity(new Intent(context,AboutActivity.class));
+    }
+
+    public static void startMain(Context context){
+        context.startActivity(new Intent(context,MainActivity.class));
     }
 }

@@ -1,4 +1,4 @@
-package com.kong.app.news;
+package com.kong.home;
 
 import android.os.Bundle;
 

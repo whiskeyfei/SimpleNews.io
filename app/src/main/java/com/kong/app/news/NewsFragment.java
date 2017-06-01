@@ -45,14 +45,14 @@ public class NewsFragment extends BaseFragment {
         return view;
     }
 
-    private void setupViewPager(ViewPager mViewPager) {
+    private void setupViewPager(ViewPager viewPager) {
         //Fragment中嵌套使用Fragment一定要使用getChildFragmentManager(),否则会有问题
         MyPagerAdapter adapter = new MyPagerAdapter(getChildFragmentManager());
         adapter.addFragment(NewsListFragment.newInstance(NEWS_TYPE_TOP), ResourceUtil.getString(R.string.top));
         adapter.addFragment(NewsListFragment.newInstance(NEWS_TYPE_RECREATION), getString(R.string.recreation));
         adapter.addFragment(NewsListFragment.newInstance(NEWS_TYPE_SCIENCE), getString(R.string.science));
         adapter.addFragment(NewsListFragment.newInstance(NEWS_TYPE_HEALTH), getString(R.string.health));
-        mViewPager.setAdapter(adapter);
+        viewPager.setAdapter(adapter);
     }
 
 }
