@@ -11,6 +11,7 @@ import com.kong.lib.share.app.news.INewsEntry;
 
 /**
  * Created by CaoPengfei on 17/5/26.
+ *
  * News 所有跳转入口
  * 为了方便以后拆分，暂时写成接口形式
  */
@@ -27,12 +28,14 @@ public class NewsEntry implements INewsEntry {
 
     @Override
     public void startAbout(Context context) {
-        context.startActivity(new Intent(context, AboutActivity.class));
+        Intent intent = new Intent(context, AboutActivity.class);
+        ActivityUtils.startActivity(context,intent);
     }
 
     @Override
     public void startMain(Context context) {
-        context.startActivity(new Intent(context, MainActivity.class));
+        Intent intent = new Intent(context, MainActivity.class);
+        ActivityUtils.startActivity(context,intent);
     }
 
     @Override

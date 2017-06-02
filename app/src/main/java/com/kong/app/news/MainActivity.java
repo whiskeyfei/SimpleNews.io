@@ -79,8 +79,6 @@ public class MainActivity extends BaseActivity implements MainContract.View,IBas
         return super.dispatchKeyEvent(event);
     }
 
-
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_main, menu);

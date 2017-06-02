@@ -1,7 +1,7 @@
 package com.kong.app.news.image;
 
 
-import com.kong.lib.share.common.mvp.BasePresenter;
+import com.kong.lib.share.common.mvp.BaseSubPresenter;
 import com.kong.lib.share.common.mvp.BaseView;
 
 import java.util.List;
@@ -17,6 +17,6 @@ public interface ImageContract {
 		void showLoadFailMsg();
 	}
 
-	interface Presenter extends BasePresenter {
+	interface Presenter extends BaseSubPresenter {
 	}
 }

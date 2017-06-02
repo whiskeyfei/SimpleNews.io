@@ -51,7 +51,7 @@ public class NewsDetailActivity extends BaseActivity implements DetailContract.V
 
         ImageLoaderUtils.display(AppRun.get().getApplicationContext(), mImageView, mNews.imageUrl,R.drawable.ic_image_loading, R.drawable.ic_image_loadfail);
 
-        mNewsDetailPresenter = new NewsDetailPresenter(this, Injection.provideSchedulerProvider());
+        mNewsDetailPresenter = new NewsDetailPresenter(this);
         mNewsDetailPresenter.init(mWebView);
         mNewsDetailPresenter.loadUrl(mNews.newUrl);
     }

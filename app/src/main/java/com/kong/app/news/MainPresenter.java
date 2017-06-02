@@ -3,14 +3,12 @@ package com.kong.app.news;
 import com.kong.R;
 import com.kong.lib.framework.utils.ActivityUtils;
 
-public class MainPresenter implements MainContract.Presenter{
+public class MainPresenter implements MainContract.Presenter {
 
-    private final MainContract.View mView;//view接口 用于更新UI
-//    private CompositeSubscription mSubscriptions;
+    private final MainContract.View mView;
 
     public MainPresenter(MainContract.View view) {
         mView = ActivityUtils.checkNotNull(view, "view cannot be null!");
-//        mSubscriptions = new CompositeSubscription();
         mView.setPresenter(this);
     }
 
@@ -33,11 +31,7 @@ public class MainPresenter implements MainContract.Presenter{
     }
 
     @Override
-    public void subscribe() {
+    public void start() {
 
-    }
-
-    @Override
-    public void unsubscribe() {
     }
 }

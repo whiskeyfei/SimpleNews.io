@@ -7,11 +7,12 @@ Chinese readme version [README_CN.md](/README_CN.md)
 
 Change as follows:
 
-- [x] 单元测试 change the data interface.
+- [x] change the data interface.
 - [x] change switch fragment mechanism.
 - [x] change mvc mechanism separate ui and logic.
 - [x] clear the useless code and liarary and ui resourses.
 - [ ] change construction for Android Component & Module
+- [x] add BaseActivity for eventBus.
 
 ### UI display
 ![image](http://7xol9p.com1.z0.glb.clouddn.com/github_news.gif)
@@ -36,7 +37,7 @@ Name | About
 * [给 Android 开发者的 RxJava 详解](http://gank.io/post/560e15be2dca930e00da1083#toc_1)
 * [android-architecture](https://github.com/googlesamples/android-architecture) 
 * [todo-mvp](https://github.com/googlesamples/android-architecture/tree/todo-mvp/) 
-* [todo-mvp-rxjava/](https://github.com/googlesamples/android-architecture/tree/todo-mvp-rxjava/)
+* [todo-mvp-rxjava](https://github.com/googlesamples/android-architecture/tree/todo-mvp-rxjava/)
 * [android-architecture](https://github.com/googlesamples/android-architecture)
 
 # License

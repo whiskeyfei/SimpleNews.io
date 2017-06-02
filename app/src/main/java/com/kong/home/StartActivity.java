@@ -8,7 +8,6 @@ import com.library.base.BaseActivity;
 
 public class StartActivity extends BaseActivity {
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

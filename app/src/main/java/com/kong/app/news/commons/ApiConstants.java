@@ -10,7 +10,6 @@ public class ApiConstants {
     // 图片
     public static final String IMAGES_URL = "http://api.laifudao.com/open/tupian.json";
 
-
     //intent key
     public static final String NEWS_KEY = "news";
 

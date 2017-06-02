@@ -25,7 +25,7 @@ public class NewsPresenter implements NewsContract.Presenter {
 
     private static final String TAG = "NewsPresenter";
 
-    private final NewsContract.View mView;//view接口 用于更新UI
+    private final NewsContract.View mView;
     private final ISchedulerProvider mSchedulerProvider;
     private CompositeSubscription mSubscriptions;
 
@@ -113,29 +113,6 @@ public class NewsPresenter implements NewsContract.Presenter {
         startTask(url);
     }
 
-//    private String getUrl(int type, int pageIndex) {
-//        StringBuffer sb = new StringBuffer();
-//        switch (type) {
-//            case NewsFragment.NEWS_TYPE_TOP:
-//                sb.append(Urls.TOP_URL).append(Urls.TOP_ID);
-//                break;
-//            case NewsFragment.NEWS_TYPE_RECREATION:
-//                sb.append(Urls.COMMON_URL).append(Urls.NBA_ID);
-//                break;
-//            case NewsFragment.NEWS_TYPE_SCIENCE:
-//                sb.append(Urls.COMMON_URL).append(Urls.CAR_ID);
-//                break;
-//            case NewsFragment.NEWS_TYPE_HEALTH:
-//                sb.append(Urls.COMMON_URL).append(Urls.JOKE_ID);
-//                break;
-//            default:
-//                sb.append(Urls.TOP_URL).append(Urls.TOP_ID);
-//                break;
-//        }
-//        sb.append("/").append(pageIndex).append(Urls.END_URL);
-//        return sb.toString();
-//    }
-
     private String getUrl(int type) {
         String url = null;
         switch (type) {
@@ -155,6 +132,11 @@ public class NewsPresenter implements NewsContract.Presenter {
                 break;
         }
         return url;
+    }
+
+    @Override
+    public void start() {
+
     }
 
     @Override

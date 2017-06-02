@@ -107,6 +107,11 @@ public class ImagePresenter implements ImageContract.Presenter {
     }
 
     @Override
+    public void start() {
+
+    }
+
+    @Override
     public void subscribe() {
         startTask();
     }

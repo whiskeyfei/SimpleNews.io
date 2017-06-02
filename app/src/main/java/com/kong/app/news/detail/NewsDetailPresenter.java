@@ -7,22 +7,15 @@ import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
 import com.kong.lib.framework.utils.ActivityUtils;
-import com.kong.lib.share.common.mvp.ISchedulerProvider;
-
-import rx.subscriptions.CompositeSubscription;
 
 public class NewsDetailPresenter implements DetailContract.Presenter{
     private WebView mWebView;
 
 
-    private final DetailContract.View mView;//view接口 用于更新UI
-    private final ISchedulerProvider mSchedulerProvider;
-    private CompositeSubscription mSubscriptions;
+    private final DetailContract.View mView;
 
-    public NewsDetailPresenter(DetailContract.View view, ISchedulerProvider schedulerProvider) {
+    public NewsDetailPresenter(DetailContract.View view) {
         mView = ActivityUtils.checkNotNull(view, "view cannot be null!");
-        mSchedulerProvider = ActivityUtils.checkNotNull(schedulerProvider, "schedulerProvider cannot be null!");
-        mSubscriptions = new CompositeSubscription();
         mView.setPresenter(this);
     }
 
@@ -46,12 +39,7 @@ public class NewsDetailPresenter implements DetailContract.Presenter{
     }
 
     @Override
-    public void subscribe() {
-
-    }
-
-    @Override
-    public void unsubscribe() {
+    public void start() {
 
     }
 
