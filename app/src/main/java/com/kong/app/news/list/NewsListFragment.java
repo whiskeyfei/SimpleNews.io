@@ -11,11 +11,11 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.kong.R;
+import com.kong.app.news.NewsEntry;
 import com.kong.app.news.NewsFragment;
 import com.kong.app.news.adapter.NewsAdapter;
 import com.kong.app.news.beans.NewModel;
 import com.kong.app.news.commons.ApiConstants;
-import com.kong.lib.framework.utils.ActivityUtils;
 import com.kong.lib.share.common.fragment.BaseFragment;
 import com.kong.lib.share.common.mvp.Injection;
 
@@ -99,11 +99,11 @@ public class NewsListFragment extends BaseFragment implements NewsContract.View,
     };
 
     private NewsAdapter.OnItemClickListener mOnItemClickListener = new NewsAdapter.OnItemClickListener() {
+
         @Override
         public void onItemClick(View view, int position) {
             NewModel news = mAdapter.getItem(position);
-            View transitionView = view.findViewById(R.id.ivNews);
-            ActivityUtils.startDetailActivity(getActivity(),news,transitionView);
+            NewsEntry.get().startDetailActivity(getActivity(),news);
         }
     };
 

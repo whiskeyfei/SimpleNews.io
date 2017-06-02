@@ -91,7 +91,7 @@ public class MainActivity extends BaseActivity implements MainContract.View,IBas
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
         if (id == R.id.action_settings) {
-            ActionUtils.startAbout(MainActivity.this);
+            NewsEntry.get().startAbout(MainActivity.this);
             return true;
         }
 
@@ -111,7 +111,7 @@ public class MainActivity extends BaseActivity implements MainContract.View,IBas
 
     @Override
     public void switchAbout() {
-        ActionUtils.startAbout(MainActivity.this);
+        NewsEntry.get().startAbout(MainActivity.this);
     }
 
     private void switchFragment(BaseFragment fragment){

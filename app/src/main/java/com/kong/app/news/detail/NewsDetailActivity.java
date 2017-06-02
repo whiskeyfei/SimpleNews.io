@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.design.widget.Snackbar;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.webkit.WebView;
@@ -15,9 +14,10 @@ import com.kong.app.news.beans.NewModel;
 import com.kong.app.news.commons.ApiConstants;
 import com.kong.lib.share.common.mvp.Injection;
 import com.library.AppRun;
+import com.library.base.BaseActivity;
 import com.library.utils.ImageLoaderUtils;
 
-public class NewsDetailActivity extends AppCompatActivity implements DetailContract.View {
+public class NewsDetailActivity extends BaseActivity implements DetailContract.View {
 
     private NewModel mNews;
     private ImageView mImageView;
