@@ -143,7 +143,7 @@ public class NewsListFragment extends BaseFragment implements NewsContract.View,
             mAdapter.isShowFooter(false);
             mAdapter.notifyDataSetChanged();
         }
-        View view = getActivity() == null ? mRecyclerView.getRootView() : getActivity().findViewById(R.id.drawer_layout);
+        View view = getActivity() == null ? mRecyclerView.getRootView() : getActivity().findViewById(R.id.main_drawer_layout);
         Snackbar.make(view, getString(R.string.load_fail), Snackbar.LENGTH_SHORT).show();
     }
 

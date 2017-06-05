@@ -23,7 +23,7 @@
             android:maxLines="1"/>
 
         <ImageView
-            android:id="@+id/ivImage"
+            android:id="@+id/tvImage"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:scaleType="centerCrop"/>

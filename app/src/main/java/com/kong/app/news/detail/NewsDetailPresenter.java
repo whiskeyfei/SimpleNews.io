@@ -9,9 +9,8 @@ import android.webkit.WebViewClient;
 import com.library.utils.ActivityUtils;
 
 public class NewsDetailPresenter implements DetailContract.Presenter{
+
     private WebView mWebView;
-
-
     private final DetailContract.View mView;
 
     public NewsDetailPresenter(DetailContract.View view) {

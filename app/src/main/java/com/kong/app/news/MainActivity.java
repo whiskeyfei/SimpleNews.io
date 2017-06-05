@@ -25,13 +25,12 @@ public class MainActivity extends BaseActivity implements MainContract.View,IBas
 
     private static final String TAG = "MainActivity";
 
-    private DrawerLayout mDrawerLayout;
-    private ActionBarDrawerToggle mDrawerToggle;
     private Toolbar mToolbar;
-    private NavigationView mNavigationLeftView;
-
-    private MainContract.Presenter mMainPresenter;
+    private DrawerLayout mDrawerLayout;
     private BaseFragment mCurrentFragment;
+    private NavigationView mNavigationLeftView;
+    private ActionBarDrawerToggle mDrawerToggle;
+    private MainContract.Presenter mMainPresenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,18 +39,17 @@ public class MainActivity extends BaseActivity implements MainContract.View,IBas
         mToolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(mToolbar);
 
-        mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
+        mDrawerLayout = (DrawerLayout) findViewById(R.id.main_drawer_layout);
         mDrawerToggle = new ActionBarDrawerToggle(this, mDrawerLayout, mToolbar, R.string.drawer_open, R.string.drawer_close);
         mDrawerToggle.syncState();
         mDrawerLayout.setDrawerListener(mDrawerToggle);
         initNavigationLeft();
         mMainPresenter = new MainPresenter(this);
-
         switchNews();
     }
 
     private void initNavigationLeft() {
-        mNavigationLeftView = (NavigationView) findViewById(R.id.navigation_view);
+        mNavigationLeftView = (NavigationView) findViewById(R.id.main_navigation_view);
         mNavigationLeftView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(MenuItem item) {

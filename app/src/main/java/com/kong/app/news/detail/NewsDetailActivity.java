@@ -12,7 +12,6 @@ import android.widget.ImageView;
 import com.kong.R;
 import com.kong.app.news.beans.NewModel;
 import com.kong.app.news.commons.ApiConstants;
-import com.kong.lib.share.common.mvp.Injection;
 import com.library.AppRun;
 import com.library.base.BaseActivity;
 import com.library.utils.ImageLoaderUtils;
@@ -33,9 +32,9 @@ public class NewsDetailActivity extends BaseActivity implements DetailContract.V
     }
 
     private void initView() {
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        mImageView = (ImageView)findViewById(R.id.ivImage);
-        mWebView = (WebView)findViewById(R.id.webview_content);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.detail_toolbar);
+        mImageView = (ImageView)findViewById(R.id.detail_image);
+        mWebView = (WebView)findViewById(R.id.detail_webview_content);
 
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -46,7 +45,7 @@ public class NewsDetailActivity extends BaseActivity implements DetailContract.V
             }
         });
 
-        CollapsingToolbarLayout collapsingToolbar = (CollapsingToolbarLayout) findViewById(R.id.collapsing_toolbar);
+        CollapsingToolbarLayout collapsingToolbar = (CollapsingToolbarLayout) findViewById(R.id.detail_collapsing_toolbar_id);
         collapsingToolbar.setTitle(mNews.title);
 
         ImageLoaderUtils.display(AppRun.get().getApplicationContext(), mImageView, mNews.imageUrl,R.drawable.ic_image_loading, R.drawable.ic_image_loadfail);

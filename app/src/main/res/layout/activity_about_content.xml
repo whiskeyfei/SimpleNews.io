@@ -6,7 +6,7 @@
     android:orientation="vertical">
 
     <LinearLayout
-        android:id="@+id/btn_version"
+        android:id="@+id/about_btn_version"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="16dp"
@@ -19,7 +19,7 @@
             style="@style/AboutColor_title"/>
 
         <TextView
-            android:id="@+id/tv_version"
+            android:id="@+id/about_tv_version"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
@@ -32,7 +32,7 @@
     <View style="@style/AppWidget.DeepLine" />
 
     <LinearLayout
-        android:id="@+id/btn_open_source_url"
+        android:id="@+id/about_btn_open_source"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="16dp"
@@ -57,7 +57,7 @@
     <View style="@style/AppWidget.DeepLine" />
 
     <LinearLayout
-        android:id="@+id/btn_about_cnode"
+        android:id="@+id/about_btn_github"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="16dp"
@@ -82,7 +82,7 @@
     <View style="@style/AppWidget.DeepLine" />
 
     <LinearLayout
-        android:id="@+id/btn_about_author"
+        android:id="@+id/about_btn_author"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="16dp"
@@ -107,7 +107,7 @@
     <View style="@style/AppWidget.ShadowGap" />
 
     <LinearLayout
-        android:id="@+id/btn_open_in_market"
+        android:id="@+id/about_btn_blog"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="16dp"
@@ -132,7 +132,7 @@
     <View style="@style/AppWidget.DeepLine" />
 
     <LinearLayout
-        android:id="@+id/btn_advice_feedback"
+        android:id="@+id/about_btn_feedback"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="16dp"

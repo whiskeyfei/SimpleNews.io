@@ -83,7 +83,7 @@ public class ImageFragment extends BaseFragment implements ImageContract.View, S
             if (newState == RecyclerView.SCROLL_STATE_IDLE
                     && lastVisibleItem + 1 == mAdapter.getItemCount() ) {
                 //加载更多
-                Snackbar.make(getActivity().findViewById(R.id.drawer_layout), getString(R.string.image_hit), Snackbar.LENGTH_SHORT).show();
+                Snackbar.make(getActivity().findViewById(R.id.main_drawer_layout), getString(R.string.image_hit), Snackbar.LENGTH_SHORT).show();
             }
         }
     };
@@ -117,7 +117,7 @@ public class ImageFragment extends BaseFragment implements ImageContract.View, S
 
     @Override
     public void showLoadFailMsg() {
-        View view = getActivity() == null ? mRecyclerView.getRootView() : getActivity().findViewById(R.id.drawer_layout);
+        View view = getActivity() == null ? mRecyclerView.getRootView() : getActivity().findViewById(R.id.main_drawer_layout);
         Snackbar.make(view, getString(R.string.load_fail), Snackbar.LENGTH_SHORT).show();
     }
 

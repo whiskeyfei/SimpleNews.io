@@ -49,14 +49,14 @@ public class ImageAdapter extends RecyclerView.Adapter<ImageAdapter.ItemViewHold
         if(imageBean == null) {
             return;
         }
-        holder.mTitle.setText(imageBean.title);
+        holder.title.setText(imageBean.title);
         float scale = (float)imageBean.width / (float) mMaxWidth;
         int height = (int)(imageBean.height / scale);
         if(height > mMaxHeight) {
             height = mMaxHeight;
         }
-        holder.mImage.setLayoutParams(new LinearLayout.LayoutParams(mMaxWidth, height));
-        ImageLoaderUtils.display(mContext, holder.mImage, imageBean.thumbUrl, R.drawable.ic_image_loading, R.drawable.ic_image_loadfail);
+        holder.image.setLayoutParams(new LinearLayout.LayoutParams(mMaxWidth, height));
+        ImageLoaderUtils.display(mContext, holder.image, imageBean.thumbUrl, R.drawable.ic_image_loading, R.drawable.ic_image_loadfail);
     }
 
     @Override
@@ -81,13 +81,13 @@ public class ImageAdapter extends RecyclerView.Adapter<ImageAdapter.ItemViewHold
 
     public class ItemViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
-        public TextView mTitle;
-        public ImageView mImage;
+        public TextView title;
+        public ImageView image;
 
         public ItemViewHolder(View v) {
             super(v);
-            mTitle = (TextView) v.findViewById(R.id.tvTitle);
-            mImage = (ImageView) v.findViewById(R.id.ivImage);
+            title = (TextView) v.findViewById(R.id.tvTitle);
+            image = (ImageView) v.findViewById(R.id.tvImage);
             v.setOnClickListener(this);
         }
 
