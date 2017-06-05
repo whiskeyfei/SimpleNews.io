@@ -6,7 +6,7 @@ import android.content.Intent;
 import com.kong.app.news.beans.NewModel;
 import com.kong.app.news.commons.ApiConstants;
 import com.kong.app.news.detail.NewsDetailActivity;
-import com.kong.lib.framework.utils.ActivityUtils;
+import com.library.utils.ActivityUtils;
 import com.kong.lib.share.app.news.INewsEntry;
 
 /**

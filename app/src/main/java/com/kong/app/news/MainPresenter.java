@@ -1,7 +1,7 @@
 package com.kong.app.news;
 
 import com.kong.R;
-import com.kong.lib.framework.utils.ActivityUtils;
+import com.library.utils.ActivityUtils;
 
 public class MainPresenter implements MainContract.Presenter {
 

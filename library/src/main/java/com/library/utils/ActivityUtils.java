@@ -1,4 +1,4 @@
-package com.kong.lib.framework.utils;
+package com.library.utils;
 
 import android.app.Activity;
 import android.content.Context;

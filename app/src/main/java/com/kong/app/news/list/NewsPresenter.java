@@ -7,7 +7,7 @@ import com.kong.app.news.NewsFragment;
 import com.kong.app.news.beans.NewModel;
 import com.kong.app.news.beans.NewResultModel;
 import com.kong.app.news.commons.ApiConstants;
-import com.kong.lib.framework.utils.ActivityUtils;
+import com.library.utils.ActivityUtils;
 import com.kong.lib.share.common.mvp.ISchedulerProvider;
 import com.library.utils.ListUtils;
 import com.library.utils.OkHttpUtils;
