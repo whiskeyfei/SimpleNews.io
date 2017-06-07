@@ -1,2 +1,2 @@
-include ':app', ':library'
+include ':app', ':lib.utils', ':lib.style'
 //包含多个模块即多个module
