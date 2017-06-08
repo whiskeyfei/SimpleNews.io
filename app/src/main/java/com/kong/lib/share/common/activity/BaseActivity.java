@@ -1,4 +1,4 @@
-package com.library.base;
+package com.kong.lib.share.common.activity;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;

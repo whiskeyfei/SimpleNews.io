@@ -2,11 +2,11 @@ package com.kong.app.news.image;
 
 import android.util.Log;
 
-import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.kong.app.news.commons.ApiConstants;
-import com.library.utils.ActivityUtils;
 import com.kong.lib.share.common.mvp.ISchedulerProvider;
+import com.library.utils.ActivityUtils;
+import com.library.utils.GsonUtils;
 import com.library.utils.ListUtils;
 import com.library.utils.OkHttpUtils;
 import com.library.utils.StringUtils;
@@ -57,8 +57,7 @@ public class ImagePresenter implements ImageContract.Presenter {
                                     subscriber.onError(null);
                                     return;
                                 }
-                                Gson gson = new Gson();
-                                List<ImageBean> iamgeBeanList = gson.fromJson(response, new TypeToken<List<ImageBean>>() {}.getType());
+                                List<ImageBean> iamgeBeanList = GsonUtils.deserialize(response,new TypeToken<List<ImageBean>>() {}.getType());
                                 if(ListUtils.isEmpty(iamgeBeanList)){
                                     subscriber.onError(null);
                                     return;

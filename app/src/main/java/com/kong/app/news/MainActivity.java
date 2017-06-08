@@ -16,7 +16,7 @@ import com.kong.R;
 import com.kong.app.news.image.ImageFragment;
 import com.kong.lib.share.common.fragment.BaseFragment;
 import com.kong.lib.share.common.fragment.IBaseEvent;
-import com.library.base.BaseActivity;
+import com.kong.lib.share.common.activity.BaseActivity;
 import com.library.event.AppExitEvent;
 
 import org.greenrobot.eventbus.EventBus;

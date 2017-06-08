@@ -4,7 +4,7 @@ import android.os.Bundle;
 
 import com.kong.R;
 import com.kong.app.news.NewsEntry;
-import com.library.base.BaseActivity;
+import com.kong.lib.share.common.activity.BaseActivity;
 
 
 public class StartActivity extends BaseActivity {

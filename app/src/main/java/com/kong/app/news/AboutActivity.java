@@ -5,7 +5,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 
 import com.kong.R;
-import com.library.base.BaseActivity;
+import com.kong.lib.share.common.activity.BaseActivity;
 
 /**
  * Created by CaoPengfei on 17/5/26.
