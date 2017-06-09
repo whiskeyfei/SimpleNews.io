@@ -3,6 +3,7 @@ package com.kong.app.news;
 import android.content.Context;
 import android.content.Intent;
 
+import com.kong.app.demo.DemoActivity;
 import com.kong.app.news.beans.NewModel;
 import com.kong.app.news.commons.ApiConstants;
 import com.kong.app.news.detail.NewsDetailActivity;
@@ -29,6 +30,12 @@ public class NewsEntry implements INewsEntry {
     @Override
     public void startAbout(Context context) {
         Intent intent = new Intent(context, AboutActivity.class);
+        ActivityUtils.startActivity(context,intent);
+    }
+
+    @Override
+    public void startDemo(Context context) {
+        Intent intent = new Intent(context, DemoActivity.class);
         ActivityUtils.startActivity(context,intent);
     }
 

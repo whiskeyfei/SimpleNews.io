@@ -1,6 +1,8 @@
 package com.kong.app.news;
 
 
+import android.view.MenuItem;
+
 import com.kong.lib.share.common.mvp.BasePresenter;
 import com.kong.lib.share.common.mvp.BaseView;
 
@@ -9,13 +11,15 @@ import com.kong.lib.share.common.mvp.BaseView;
  */
 
 public interface MainContract {
+
     interface View extends BaseView<Presenter> {
         void switchNews();
         void switchImages();
         void switchAbout();
+        void switchDemo();
     }
 
     interface Presenter extends BasePresenter {
-        void switchNavigation(int id);
+        void switchNavigation(MenuItem item);
     }
 }

@@ -16,7 +16,7 @@ import com.kong.R;
 import com.kong.app.news.image.ImageFragment;
 import com.kong.lib.share.common.fragment.BaseFragment;
 import com.kong.lib.share.common.fragment.IBaseEvent;
-import com.kong.lib.share.common.activity.BaseActivity;
+import com.library.BaseActivity;
 import com.library.event.AppExitEvent;
 
 import org.greenrobot.eventbus.EventBus;
@@ -53,8 +53,7 @@ public class MainActivity extends BaseActivity implements MainContract.View,IBas
         mNavigationLeftView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(MenuItem item) {
-                mMainPresenter.switchNavigation(item.getItemId());
-                item.setChecked(true);
+                mMainPresenter.switchNavigation(item);
                 mDrawerLayout.closeDrawers();
                 return true;
             }
@@ -108,6 +107,11 @@ public class MainActivity extends BaseActivity implements MainContract.View,IBas
     @Override
     public void switchAbout() {
         NewsEntry.get().startAbout(MainActivity.this);
+    }
+
+    @Override
+    public void switchDemo() {
+        NewsEntry.get().startDemo(MainActivity.this);
     }
 
     private void switchFragment(BaseFragment fragment){

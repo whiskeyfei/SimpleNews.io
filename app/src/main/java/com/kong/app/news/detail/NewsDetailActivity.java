@@ -13,7 +13,7 @@ import com.kong.R;
 import com.kong.app.news.beans.NewModel;
 import com.kong.app.news.commons.ApiConstants;
 import com.library.AppRun;
-import com.kong.lib.share.common.activity.BaseActivity;
+import com.library.BaseActivity;
 import com.library.utils.ImageLoaderUtils;
 
 public class NewsDetailActivity extends BaseActivity implements DetailContract.View {

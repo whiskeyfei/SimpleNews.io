@@ -11,6 +11,8 @@ import com.kong.app.news.beans.NewModel;
 public interface INewsEntry {
     void startAbout(Context context);
 
+    void startDemo(Context context);
+
     void startMain(Context context);
 
     void startDetailActivity(Context context, NewModel news);

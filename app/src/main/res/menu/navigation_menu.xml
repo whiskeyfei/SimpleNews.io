@@ -17,5 +17,9 @@
             android:id="@+id/navigation_item_about"
             android:icon="@drawable/ic_portrait_white_24dp"
             android:title="@string/about"/>
+        <item
+            android:id="@+id/navigation_item_demo"
+            android:icon="@drawable/ic_portrait_white_24dp"
+            android:title="@string/demo"/>
     </group>
 </menu>
