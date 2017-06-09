@@ -13,6 +13,16 @@ android {
         versionCode rootProject.ext.android.versionCode//版本号
         versionName rootProject.ext.android.versionName//版本名称
     }
+    //打包签名
+    signingConfigs {
+        releaseConfig {
+            keyAlias ''
+            keyPassword ''
+//            storeFile file('')
+            storePassword ''
+        }
+    }
+
     //构建类型，常用的有release和debug两种
     buildTypes {
         release {
@@ -20,8 +30,10 @@ android {
             shrinkResources true //是否移除无用资源文件，shrinkResources依赖于minifyEnabled
             // 混淆文件的位置
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.releaseConfig
         }
     }
+
 }
 
 repositories {
