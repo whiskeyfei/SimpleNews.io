@@ -10,6 +10,14 @@ ext {
             versionName      : "1.0"
     ]
 
+    releaseConfig = [
+            keyAlias     : 'simple',
+            keyPassword  : 'qwertyui',
+            storeFile    : '/Users/whiskeyfei/Development/jks/simplenews.jks',
+            storePassword: 'qwertyui'
+    ]
+
+
     dependencies = [
             appcompat         : 'com.android.support:appcompat-v7:23.1.1',
             design            : 'com.android.support:design:23.1.1',
