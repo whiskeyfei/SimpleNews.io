@@ -4,7 +4,6 @@ android {
     compileSdkVersion rootProject.ext.android.compileSdkVersion
     buildToolsVersion rootProject.ext.android.buildToolsVersion
 
-
     defaultConfig {
         minSdkVersion rootProject.ext.android.minSdkVersion
         targetSdkVersion rootProject.ext.android.targetSdkVersion
@@ -13,8 +12,8 @@ android {
     }
     buildTypes {
         release {
-            minifyEnabled false //是否启动混淆
-            shrinkResources true //是否移除无用资源文件，shrinkResources依赖于minifyEnabled
+            minifyEnabled false
+            shrinkResources true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
