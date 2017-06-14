@@ -10,6 +10,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="16dp"
+        android:descendantFocusability="beforeDescendants"
         android:orientation="vertical">
 
         <TextView
@@ -132,7 +133,7 @@
     <View style="@style/AppWidget.DeepLine" />
 
     <LinearLayout
-        android:id="@+id/about_btn_feedback"
+        android:id="@+id/about_btn_email"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="16dp"

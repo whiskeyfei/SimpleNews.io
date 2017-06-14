@@ -37,16 +37,25 @@
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar.Translucent"/>
+
+        <activity
+            android:name=".app.news.AboutActivity2"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar.Translucent"/>
+
         <activity
             android:name=".app.demo.DemoActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar.Translucent"/>
+
         <activity
             android:name=".app.demo.NoteActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar.Translucent"/>
+
         <meta-data
             android:name="PRODUCT_CHANNEL"
             android:value="${PRODUCT_CHANNEL_VALUE}" />

@@ -29,7 +29,8 @@ public class DemoActivity extends BaseActivity {
     private static final int [] sId = {R.raw.demo};
     private static final String [] sNostLists = {"TabLayoutDemo"};
     private List<NoteModel> mNoteModels;
-    DemoAdapter mAdapter;
+    private DemoAdapter mAdapter;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
