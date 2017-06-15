@@ -2,8 +2,10 @@ package com.library;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.KeyEvent;
+import android.view.View;
 
 import com.library.event.AppExitEvent;
 
@@ -42,6 +44,20 @@ public class BaseActivity extends AppCompatActivity {
             return super.dispatchKeyEvent(event);
         }
         return super.dispatchKeyEvent(event);
+    }
+
+    public void initToolBar(Toolbar toolbar) {
+        if (null != toolbar) {
+            setSupportActionBar(toolbar);
+            getSupportActionBar().setDisplayShowHomeEnabled(false);
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+            toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    onBackPressed();
+                }
+            });
+        }
     }
 
 }

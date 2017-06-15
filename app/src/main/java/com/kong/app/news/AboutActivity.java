@@ -4,10 +4,10 @@ import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 
-import com.kong.BuildConfig;
 import com.kong.R;
 import com.library.AppRun;
 import com.library.BaseActivity;
+import com.library.utils.ResourceUtil;
 import com.library.utils.ToolsUtil;
 
 /**
@@ -17,7 +17,7 @@ import com.library.utils.ToolsUtil;
  */
 
 public class AboutActivity extends BaseActivity implements View.OnClickListener {
-    public static final String VERSION_TEXT = BuildConfig.VERSION_NAME + "-build-" + BuildConfig.VERSION_CODE;
+
     private Toolbar mToolbar;
 
     @Override
@@ -25,14 +25,8 @@ public class AboutActivity extends BaseActivity implements View.OnClickListener 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_about);
         mToolbar = (Toolbar) findViewById(R.id.about_toolbar);
-        setSupportActionBar(mToolbar);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        mToolbar.setNavigationOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                onBackPressed();
-            }
-        });
+        mToolbar.setTitle(ResourceUtil.getString(R.string.about));
+        initToolBar(mToolbar);
         findViewById(R.id.about_btn_version).setOnClickListener(this);
         findViewById(R.id.about_btn_open_source).setOnClickListener(this);
         findViewById(R.id.about_btn_github).setOnClickListener(this);

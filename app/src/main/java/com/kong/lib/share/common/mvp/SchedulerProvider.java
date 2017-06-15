@@ -1,7 +1,5 @@
 package com.kong.lib.share.common.mvp;
 
-import com.kong.lib.share.common.mvp.ISchedulerProvider;
-
 import rx.Scheduler;
 import rx.android.schedulers.AndroidSchedulers;
 import rx.schedulers.Schedulers;

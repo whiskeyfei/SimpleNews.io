@@ -37,6 +37,11 @@
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar.Translucent"/>
+        <activity
+            android:name=".app.news.BrowserActivity"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar.Translucent"/>
 
         <activity
             android:name=".app.news.AboutActivity2"

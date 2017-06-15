@@ -23,12 +23,10 @@
     <string name="about_copyright">Copyright © 2016&#8211;2017 無名</string>
 
     <string name="author">无名</string>
-    <string name="description">本APP用来演示Material Design以及MVP设计模式在项目中的使用</string>
+    <string name="description">本APP用来实践 Material Design 和 MVP 等设计框架</string>
     <string name="github_url">Github地址：https://github.com/whiskeyfei/SimpleNews.io</string>
     <string name="email">whiskeyfei@gmail.com</string>
     <string name="blog">http://doraemonyu.me</string>
-
-
 
     <string name="drawer_open">Open</string>
     <string name="drawer_close">Close</string>

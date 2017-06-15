@@ -3,13 +3,12 @@ package com.kong.app.news;
 import android.content.Context;
 import android.content.Intent;
 
-import com.kong.app.demo.DemoActivity;
 import com.kong.app.demo.NoteActivity;
 import com.kong.app.news.beans.NewModel;
 import com.kong.app.news.commons.ApiConstants;
 import com.kong.app.news.detail.NewsDetailActivity;
-import com.library.utils.ActivityUtils;
 import com.kong.lib.share.app.news.INewsEntry;
+import com.library.utils.ActivityUtils;
 
 /**
  * Created by CaoPengfei on 17/5/26.
@@ -29,6 +28,12 @@ public class NewsEntry implements INewsEntry {
     }
 
     @Override
+    public void startCommon(Context context, Class<?> cls) {
+        Intent intent = new Intent(context, cls);
+        ActivityUtils.startActivity(context,intent);
+    }
+
+    @Override
     public void startAbout(Context context) {
         Intent intent = new Intent(context, AboutActivity.class);
         ActivityUtils.startActivity(context,intent);
@@ -36,7 +41,8 @@ public class NewsEntry implements INewsEntry {
 
     @Override
     public void startDemo(Context context) {
-        Intent intent = new Intent(context, DemoActivity.class);
+//        Intent intent = new Intent(context, DemoActivity.class);
+        Intent intent = new Intent(context, BrowserActivity.class);
         ActivityUtils.startActivity(context,intent);
     }
 

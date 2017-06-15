@@ -41,14 +41,7 @@ public class DemoActivity extends BaseActivity {
 
     private void initBar() {
         mToolbar = (Toolbar) findViewById(R.id.demo_toolbar);
-        setSupportActionBar(mToolbar);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        mToolbar.setNavigationOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                onBackPressed();
-            }
-        });
+        initToolBar(mToolbar);
     }
 
     private void initList() {

@@ -10,6 +10,8 @@ import com.kong.app.news.beans.NewModel;
  */
 
 public interface INewsEntry {
+    void startCommon(Context context, Class<?> cls);
+
     void startAbout(Context context);
 
     void startDemo(Context context);
