@@ -41,7 +41,7 @@ public class DemoActivity extends BaseActivity {
 
     private void initBar() {
         mToolbar = (Toolbar) findViewById(R.id.demo_toolbar);
-        initToolBar(mToolbar);
+        initToolBar(mToolbar,R.string.demo);
     }
 
     private void initList() {

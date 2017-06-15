@@ -8,6 +8,7 @@ import android.view.KeyEvent;
 import android.view.View;
 
 import com.library.event.AppExitEvent;
+import com.library.utils.ResourceUtil;
 
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
@@ -57,6 +58,13 @@ public class BaseActivity extends AppCompatActivity {
                     onBackPressed();
                 }
             });
+        }
+    }
+
+    public void initToolBar(Toolbar toolbar,int resId) {
+        if (null != toolbar) {
+            toolbar.setTitle(ResourceUtil.getString(resId));
+            initToolBar(toolbar);
         }
     }
 
