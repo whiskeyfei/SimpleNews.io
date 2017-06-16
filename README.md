@@ -13,6 +13,7 @@ Change as follows:
 - [x] clear the useless code and liarary and ui resourses.
 - [ ] change construction for Android Component & Module
 - [x] add BaseActivity for eventBus.
+- [x] clear toolBar code.
 
 ### UI display
 ![image](http://7xol9p.com1.z0.glb.clouddn.com/github_news.gif)
