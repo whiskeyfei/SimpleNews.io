@@ -2,6 +2,10 @@ package com.kong.app.news;
 
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.view.View;
+import android.webkit.WebChromeClient;
+import android.webkit.WebView;
+import android.widget.ProgressBar;
 
 import com.kong.R;
 import com.library.BaseActivity;
@@ -13,12 +17,36 @@ import com.library.BaseActivity;
 public class BrowserActivity extends BaseActivity {
 
     private Toolbar mToolbar;
+    private WebView mWebView;
+    private ProgressBar mProgressBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_browser);
         mToolbar = (Toolbar) findViewById(R.id.browser_toolbar);
-        initToolBar(mToolbar);
+        initToolBar(mToolbar, R.string.demo);
+
+        mWebView = (WebView) findViewById(R.id.browser_webView);
+        mProgressBar = (ProgressBar) findViewById(R.id.browser_progress);
+
+        mWebView.setWebChromeClient(new WebChromeClient(){
+
+            @Override
+            public void onProgressChanged(WebView view, int newProgress) {
+                mProgressBar.setProgress(newProgress);
+                if (newProgress == 100) {
+                    mProgressBar.setVisibility(View.GONE);
+                } else {
+                    mProgressBar.setVisibility(View.VISIBLE);
+                }
+            }
+
+            @Override
+            public void onReceivedTitle(WebView view, String title) {
+                super.onReceivedTitle(view, title);
+            }
+        });
+        mWebView.loadUrl("https://github.com/whiskeyfei");
     }
 }

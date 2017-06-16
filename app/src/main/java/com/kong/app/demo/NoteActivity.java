@@ -4,7 +4,6 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
 import android.support.v7.widget.Toolbar;
-import android.view.View;
 import android.widget.TextView;
 
 import com.kong.R;
@@ -28,15 +27,7 @@ public class NoteActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_note);
         mToolbar = (Toolbar) findViewById(R.id.note_toolbar);
-        setSupportActionBar(mToolbar);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        mToolbar.setNavigationOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                onBackPressed();
-            }
-        });
-
+        initToolBar(mToolbar,R.string.note);
         mTextView = (TextView) findViewById(R.id.tv_note);
         mHandler.post(new Runnable() {
             @Override

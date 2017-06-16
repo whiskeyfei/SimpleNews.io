@@ -87,7 +87,7 @@ public class MainActivity extends BaseActivity implements MainContract.View,IBas
         int id = item.getItemId();
         if (id == R.id.action_settings) {
             NewsEntry.get().startAbout(MainActivity.this);
-//            NewsEntry.get().startDemo(MainActivity.this);
+//            NewsEntry.get().startCommon(MainActivity.this,BrowserActivity.class);
             return true;
         }
 

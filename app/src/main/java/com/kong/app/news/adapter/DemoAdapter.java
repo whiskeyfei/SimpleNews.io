@@ -33,7 +33,7 @@ public class DemoAdapter extends RecyclerView.Adapter<DemoAdapter.ItemViewHolder
 
     @Override
     public DemoAdapter.ItemViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(mContext).inflate(R.layout.demo_content_item, null);
+        View view = LayoutInflater.from(mContext).inflate(R.layout.demo_content_item, parent,false);
         return new ItemViewHolder(view);
     }
 

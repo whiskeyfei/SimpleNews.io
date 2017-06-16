@@ -1,169 +1,174 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:orientation="vertical">
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:orientation="vertical">
 
     <LinearLayout
         android:id="@+id/about_btn_version"
+        style="@style/Item_backgorund"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="16dp"
         android:descendantFocusability="beforeDescendants"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:padding="16dp">
 
         <TextView
+            style="@style/AboutColor_title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/about_version"
-            style="@style/AboutColor_title"/>
+            android:text="@string/about_version"/>
 
         <TextView
             android:id="@+id/about_tv_version"
+            style="@style/AboutColor_desc"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
-            style="@style/AboutColor_desc"
             android:maxLines="1"
             android:text="1.0"/>
 
     </LinearLayout>
 
-    <View style="@style/AppWidget.DeepLine" />
+    <View style="@style/AppWidget.DeepLine"/>
 
     <LinearLayout
         android:id="@+id/about_btn_open_source"
+        style="@style/Item_backgorund"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="16dp"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:padding="16dp">
 
         <TextView
+            style="@style/AboutColor_title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/about_des"
-            style="@style/AboutColor_title"/>
+            android:text="@string/about_des"/>
 
         <TextView
+            style="@style/AboutColor_desc"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
-            android:text="@string/description"
-            style="@style/AboutColor_desc"
-            android:maxLines="1" />
+            android:maxLines="1"
+            android:text="@string/description"/>
 
     </LinearLayout>
 
-    <View style="@style/AppWidget.DeepLine" />
+    <View style="@style/AppWidget.DeepLine"/>
 
     <LinearLayout
         android:id="@+id/about_btn_github"
+        style="@style/Item_backgorund"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="16dp"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:padding="16dp">
 
         <TextView
+            style="@style/AboutColor_title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/about_github"
-            style="@style/AboutColor_title"/>
+            android:text="@string/about_github"/>
 
         <TextView
+            style="@style/AboutColor_desc"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
-            android:text="@string/github_url"
-            style="@style/AboutColor_desc"
-            android:maxLines="1" />
+            android:maxLines="1"
+            android:text="@string/github_url"/>
 
     </LinearLayout>
 
-    <View style="@style/AppWidget.DeepLine" />
+    <View style="@style/AppWidget.DeepLine"/>
 
     <LinearLayout
         android:id="@+id/about_btn_author"
+        style="@style/Item_backgorund"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="16dp"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:padding="16dp">
 
         <TextView
+            style="@style/AboutColor_title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/about_name"
-            style="@style/AboutColor_title"/>
+            android:text="@string/about_name"/>
 
         <TextView
+            style="@style/AboutColor_desc"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
-            android:text="@string/author"
-            style="@style/AboutColor_desc"
-            android:maxLines="1" />
+            android:maxLines="1"
+            android:text="@string/author"/>
 
     </LinearLayout>
 
-    <View style="@style/AppWidget.ShadowGap" />
+    <View style="@style/AppWidget.DeepLine"/>
 
     <LinearLayout
         android:id="@+id/about_btn_blog"
+        style="@style/Item_backgorund"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="16dp"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:padding="16dp">
 
         <TextView
+            style="@style/AboutColor_title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/about_blog"
-            style="@style/AboutColor_title" />
+            android:text="@string/about_blog"/>
 
         <TextView
+            style="@style/AboutColor_desc"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
-            android:text="@string/blog"
-            style="@style/AboutColor_desc"
-            android:maxLines="1" />
+            android:maxLines="1"
+            android:text="@string/blog"/>
 
     </LinearLayout>
 
-    <View style="@style/AppWidget.DeepLine" />
+    <View style="@style/AppWidget.DeepLine"/>
 
     <LinearLayout
         android:id="@+id/about_btn_email"
+        style="@style/Item_backgorund"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="16dp"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:padding="16dp">
 
         <TextView
+            style="@style/AboutColor_title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/about_email"
-            style="@style/AboutColor_title"/>
+            android:text="@string/about_email"/>
 
         <TextView
+            style="@style/AboutColor_desc"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
-            android:text="@string/email"
-            style="@style/AboutColor_desc"
-            android:maxLines="1" />
+            android:maxLines="1"
+            android:text="@string/email"/>
 
     </LinearLayout>
 
-    <View style="@style/AppWidget.ShadowGap" />
+    <View style="@style/AppWidget.ShadowGap"/>
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
+        android:gravity="center"
         android:padding="8dp"
         android:text="@string/about_copyright"
-        android:textSize="12sp"
-        android:gravity="center" />
+        android:textSize="12sp"/>
 
 </LinearLayout>
