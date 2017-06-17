@@ -1,5 +1,6 @@
 package com.kong.app.news;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
@@ -9,6 +10,7 @@ import android.widget.ProgressBar;
 
 import com.kong.R;
 import com.library.BaseActivity;
+import com.library.utils.StringUtils;
 
 /**
  * Created by CaoPengfei on 17/6/14.
@@ -16,9 +18,11 @@ import com.library.BaseActivity;
 
 public class BrowserActivity extends BaseActivity {
 
+    public static final String BWO_KEY = "bwo_key";
     private Toolbar mToolbar;
     private WebView mWebView;
     private ProgressBar mProgressBar;
+    private String mUrl;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,6 +51,15 @@ public class BrowserActivity extends BaseActivity {
                 super.onReceivedTitle(view, title);
             }
         });
-        mWebView.loadUrl("https://github.com/whiskeyfei");
+
+        Intent intent = getIntent();
+        if (intent != null){
+            mUrl = intent.getStringExtra(BWO_KEY);
+        }
+        if (!StringUtils.isEmpty(mUrl)){
+            mWebView.loadUrl(mUrl);
+        }else{
+
+        }
     }
 }

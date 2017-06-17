@@ -5,10 +5,8 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 
 import com.kong.R;
-import com.library.AppRun;
 import com.library.BaseActivity;
 import com.library.utils.ResourceUtil;
-import com.library.utils.ToolsUtil;
 
 /**
  * Created by CaoPengfei on 17/5/26.
@@ -47,18 +45,18 @@ public class AboutActivity extends BaseActivity implements View.OnClickListener 
                 break;
 
             case R.id.about_btn_github:
-                ToolsUtil.intentToUrl(AppRun.get().getApplicationContext(), "https://github.com/whiskeyfei");
+                NewsEntry.get().startBrowser(AboutActivity.this, "https://github.com/whiskeyfei");
                 break;
 
             case R.id.about_btn_author:
-                ToolsUtil.intentToUrl(AppRun.get().getApplicationContext(), "http://www.jianshu.com/u/fa272f63280a");
+                NewsEntry.get().startBrowser(AboutActivity.this, "http://www.jianshu.com/u/fa272f63280a");
                 break;
 
             case R.id.about_btn_email:
                 break;
 
             case R.id.about_btn_blog:
-                ToolsUtil.intentToUrl(AppRun.get().getApplicationContext(), "http://doraemonyu.me/");
+                NewsEntry.get().startBrowser(AboutActivity.this, "http://doraemonyu.me/");
                 break;
         }
     }

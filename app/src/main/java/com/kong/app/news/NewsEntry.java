@@ -65,6 +65,13 @@ public class NewsEntry implements INewsEntry {
     }
 
     @Override
+    public void startBrowser(Context context, String url) {
+        Intent intent = new Intent(context, BrowserActivity.class);
+        intent.putExtra(BrowserActivity.BWO_KEY,url);
+        ActivityUtils.startActivity(context,intent);
+    }
+
+    @Override
     public void startDetailActivity(Context context, NewModel news) {
         Intent intent = new Intent(context, NewsDetailActivity.class);
         intent.putExtra(ApiConstants.NEWS_KEY, news);
