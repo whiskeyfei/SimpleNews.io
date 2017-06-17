@@ -10,7 +10,7 @@ import android.support.annotation.Nullable;
 
 import com.afollestad.materialdialogs.color.ColorChooserDialog;
 import com.kong.R;
-import com.kong.app.news.SettingActivity;
+import com.kong.app.news.ui.SettingActivity;
 import com.kong.app.news.utils.SettingsUtil;
 import com.library.AppRun;
 import com.library.utils.ToolsUtil;

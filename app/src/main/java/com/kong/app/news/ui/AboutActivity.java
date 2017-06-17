@@ -1,10 +1,11 @@
-package com.kong.app.news;
+package com.kong.app.news.ui;
 
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 
 import com.kong.R;
+import com.kong.app.news.NewsEntry;
 import com.kong.app.news.base.ThemeActivity;
 import com.library.utils.ResourceUtil;
 

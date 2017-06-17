@@ -1,4 +1,4 @@
-package com.kong.app.news;
+package com.kong.app.news.ui;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -30,7 +30,6 @@ public class BrowserActivity extends ThemeActivity {
         setContentView(R.layout.activity_browser);
         mToolbar = (Toolbar) findViewById(R.id.browser_toolbar);
         initToolBar(mToolbar, R.string.demo);
-
         mWebView = (WebView) findViewById(R.id.browser_webView);
         mProgressBar = (ProgressBar) findViewById(R.id.browser_progress);
 

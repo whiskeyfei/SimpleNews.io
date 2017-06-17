@@ -41,6 +41,7 @@ public class NewCardView extends android.support.v7.widget.CardView {
         lp.leftMargin = (int) getResources().getDimension(R.dimen.card_margin);
         lp.rightMargin = (int) getResources().getDimension(R.dimen.card_margin);
         lp.bottomMargin = (int) getResources().getDimension(R.dimen.card_margin);
+        lp.topMargin = (int) getResources().getDimension(R.dimen.card_margin);
         setLayoutParams(lp);
         LayoutInflater.from(AppRun.get().getApplicationContext()).inflate(R.layout.item_news, this, true);
         mImageView = (ImageView) findViewById(R.id.ivNews);

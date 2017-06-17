@@ -39,6 +39,7 @@
 * [todo-mvp](https://github.com/googlesamples/android-architecture/tree/todo-mvp/) 
 * [todo-mvp-rxjava/](https://github.com/googlesamples/android-architecture/tree/todo-mvp-rxjava/)
 * [android-architecture](https://github.com/googlesamples/android-architecture)
+* [FakeWeather](https://github.com/li-yu/FakeWeather)
 
 # License
 Copyright 2015 liuling <lauren.liuling@gmail.com><br/>

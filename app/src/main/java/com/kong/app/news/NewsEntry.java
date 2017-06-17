@@ -8,6 +8,9 @@ import com.kong.app.demo.NoteActivity;
 import com.kong.app.news.beans.NewModel;
 import com.kong.app.news.commons.ApiConstants;
 import com.kong.app.news.detail.NewsDetailActivity;
+import com.kong.app.news.ui.AboutActivity;
+import com.kong.app.news.ui.BrowserActivity;
+import com.kong.app.news.ui.SettingActivity;
 import com.kong.lib.share.app.news.INewsEntry;
 import com.library.utils.ActivityUtils;
 

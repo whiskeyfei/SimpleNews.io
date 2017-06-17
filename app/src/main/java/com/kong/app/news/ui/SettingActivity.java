@@ -1,4 +1,4 @@
-package com.kong.app.news;
+package com.kong.app.news.ui;
 
 import android.content.Context;
 import android.content.res.TypedArray;

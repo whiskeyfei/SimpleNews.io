@@ -30,20 +30,20 @@
             android:name="com.kong.app.news.detail.NewsDetailActivity"/>
 
         <activity
-            android:name=".app.news.AboutActivity"
+            android:name=".app.news.ui.AboutActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
             android:screenOrientation="portrait"/>
         <activity
-            android:name=".app.news.SettingActivity"
+            android:name=".app.news.ui.SettingActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
             android:screenOrientation="portrait"/>
         <activity
-            android:name=".app.news.BrowserActivity"
+            android:name=".app.news.ui.BrowserActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
             android:screenOrientation="portrait"/>
 
         <activity
-            android:name=".app.news.AboutActivity2"
+            android:name=".app.news.ui.AboutActivity2"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
             android:screenOrientation="portrait"/>
 
