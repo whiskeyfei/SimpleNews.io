@@ -85,6 +85,9 @@ dependencies {
 
     compile project(':lib.utils')
     compile project(':lib.style')
+
+    compile 'com.afollestad.material-dialogs:core:0.9.1.0'
+    compile 'com.afollestad.material-dialogs:commons:0.9.1.0'
 }
 
 def releaseTime() {

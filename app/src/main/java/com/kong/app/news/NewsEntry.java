@@ -47,6 +47,12 @@ public class NewsEntry implements INewsEntry {
     }
 
     @Override
+    public void startSetting(Context context) {
+        Intent intent = new Intent(context, SettingActivity.class);
+        ActivityUtils.startActivity(context,intent);
+    }
+
+    @Override
     public void startNote(Context context) {
         Intent intent = new Intent(context, NoteActivity.class);
         ActivityUtils.startActivity(context,intent);

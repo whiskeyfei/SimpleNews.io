@@ -31,6 +31,9 @@ public class MainPresenter implements MainContract.Presenter {
             case R.id.navigation_item_demo:
                 mView.switchDemo();
                 break;
+            case R.id.navigation_item_settings:
+                mView.switchSetting();
+                break;
             default:
                 mView.switchNews();
                 item.setChecked(true);

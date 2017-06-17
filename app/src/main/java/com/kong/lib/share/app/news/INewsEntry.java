@@ -16,6 +16,8 @@ public interface INewsEntry {
 
     void startDemo(Context context);
 
+    void startSetting(Context context);
+
     void startNote(Context context);
 
     void startNote(Context context, Intent intent);

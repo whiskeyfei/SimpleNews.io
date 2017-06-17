@@ -7,7 +7,9 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.kong.R;
+import com.library.AppRun;
 import com.library.utils.ImageLoaderUtils;
+import com.library.utils.ResourceUtil;
 
 /**
  * Created by whiskeyfei on 16-2-27.
@@ -33,13 +35,14 @@ public class NewCardView extends android.support.v7.widget.CardView {
     }
 
     private void init(Context context) {
+        setBackgroundColor(ResourceUtil.getColor(R.color.white));
         mContext = context;
         LayoutParams lp = new LayoutParams(LayoutParams.MATCH_PARENT,LayoutParams.WRAP_CONTENT);
         lp.leftMargin = (int) getResources().getDimension(R.dimen.card_margin);
         lp.rightMargin = (int) getResources().getDimension(R.dimen.card_margin);
         lp.bottomMargin = (int) getResources().getDimension(R.dimen.card_margin);
         setLayoutParams(lp);
-        LayoutInflater.from(mContext).inflate(R.layout.item_news, this, true);
+        LayoutInflater.from(AppRun.get().getApplicationContext()).inflate(R.layout.item_news, this, true);
         mImageView = (ImageView) findViewById(R.id.ivNews);
         mTitle = (TextView) findViewById(R.id.tvTitle);
         mDesc = (TextView) findViewById(R.id.tvDesc);

@@ -7,7 +7,7 @@ import android.support.v7.widget.Toolbar;
 import android.widget.TextView;
 
 import com.kong.R;
-import com.library.BaseActivity;
+import com.kong.app.news.base.ThemeActivity;
 import com.library.utils.ResourceUtil;
 
 import java.io.IOException;
@@ -16,7 +16,7 @@ import java.io.IOException;
  * Created by CaoPengfei on 17/6/9.
  */
 
-public class NoteActivity extends BaseActivity {
+public class NoteActivity extends ThemeActivity {
 
     private Toolbar mToolbar;
     private TextView mTextView;

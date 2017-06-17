@@ -17,6 +17,7 @@ public interface MainContract {
         void switchImages();
         void switchAbout();
         void switchDemo();
+        void switchSetting();
     }
 
     interface Presenter extends BasePresenter {

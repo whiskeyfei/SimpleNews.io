@@ -1,13 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <color name="primary">#F44336</color>
-    <color name="primary_dark">#D32F2F</color>
+    <color name="primary">@color/core</color>
+    <color name="primary_dark">@color/core</color>
+    <color name="accent">@color/core</color>
+    <color name="core">#F44336</color>
+
     <color name="primary_light">#FFCDD2</color>
-    <color name="accent">#CDDC39</color>
     <color name="primary_text">#212121</color>
     <color name="secondary_text">#727272</color>
-    <color name="icons">#FFFFFF</color>
+    <color name="white">#FFFFFF</color>
     <color name="divider">#B6B6B6</color>
 
+    <color name="lapis_blue">#014284</color>
+    <color name="pale_dogwood">#ECCAC0</color>
+    <color name="greenery">#7DA743</color>
+    <color name="primrose_yellow">#F1C84C</color>
+    <color name="flame">#F44727</color>
+    <color name="island_paradise">#8AD9E0</color>
+    <color name="kale">#4E673F</color>
+    <color name="pink_yarrow">#C72B6C</color>
+    <color name="niagara">#4C829E</color>
+
+    <array name="colors">
+        <item>@color/lapis_blue</item>
+        <item>@color/pale_dogwood</item>
+        <item>@color/greenery</item>
+        <item>@color/primrose_yellow</item>
+        <item>@color/flame</item>
+        <item>@color/island_paradise</item>
+        <item>@color/kale</item>
+        <item>@color/pink_yarrow</item>
+        <item>@color/niagara</item>
+    </array>
 </resources>

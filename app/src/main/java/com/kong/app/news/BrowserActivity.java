@@ -9,14 +9,14 @@ import android.webkit.WebView;
 import android.widget.ProgressBar;
 
 import com.kong.R;
-import com.library.BaseActivity;
+import com.kong.app.news.base.ThemeActivity;
 import com.library.utils.StringUtils;
 
 /**
  * Created by CaoPengfei on 17/6/14.
  */
 
-public class BrowserActivity extends BaseActivity {
+public class BrowserActivity extends ThemeActivity {
 
     public static final String BWO_KEY = "bwo_key";
     private Toolbar mToolbar;

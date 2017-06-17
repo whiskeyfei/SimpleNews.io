@@ -10,6 +10,7 @@
     <string name="recreation">娱乐</string>
     <string name="science">科技</string>
     <string name="health">健康</string>
+    <string name="tools">功能</string>
 
     <!-- about-->
     <string name="about">关于</string>
@@ -36,4 +37,22 @@
 
     <string name="demo">Demo</string>
     <string name="note">README</string>
+    <string name="settings">设置</string>>
+
+    <string name="theme">主题</string>
+    <string name="done">确定</string>
+    <string name="cancel">取消</string>
+
+
+    <string-array name="SettingColorNames">
+        <item>青石色</item>
+        <item>山茱萸</item>
+        <item>绿篱</item>
+        <item>樱草黄</item>
+        <item>烈焰红</item>
+        <item>天堂岛</item>
+        <item>甘蓝</item>
+        <item>粉蓍草</item>
+        <item>尼亚加拉</item>
+    </string-array>
 </resources>

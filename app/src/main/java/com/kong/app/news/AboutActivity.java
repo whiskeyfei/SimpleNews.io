@@ -5,7 +5,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 
 import com.kong.R;
-import com.library.BaseActivity;
+import com.kong.app.news.base.ThemeActivity;
 import com.library.utils.ResourceUtil;
 
 /**
@@ -14,7 +14,7 @@ import com.library.utils.ResourceUtil;
  * https://stackoverflow.com/questions/26651602/display-back-arrow-on-toolbar-android
  */
 
-public class AboutActivity extends BaseActivity implements View.OnClickListener {
+public class AboutActivity extends ThemeActivity implements View.OnClickListener {
 
     private Toolbar mToolbar;
 

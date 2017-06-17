@@ -9,11 +9,11 @@ import android.view.View;
 
 import com.kong.R;
 import com.kong.app.news.NewsEntry;
+import com.kong.app.news.base.ThemeActivity;
 import com.kong.app.news.adapter.DemoAdapter;
 import com.kong.app.news.adapter.OnItemClickListener;
 import com.kong.app.news.beans.NoteModel;
 import com.library.AppRun;
-import com.library.BaseActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,7 +22,7 @@ import java.util.List;
  * Created by CaoPengfei on 17/6/9.
  */
 
-public class DemoActivity extends BaseActivity {
+public class DemoActivity extends ThemeActivity {
 
     private Toolbar mToolbar;
     private RecyclerView mRecyclerView;

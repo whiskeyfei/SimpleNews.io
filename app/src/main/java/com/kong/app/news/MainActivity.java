@@ -13,15 +13,19 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import com.kong.R;
+import com.kong.app.news.base.ThemeActivity;
+import com.kong.app.news.event.ThemeChangedEvent;
 import com.kong.app.news.image.ImageFragment;
 import com.kong.lib.share.common.fragment.BaseFragment;
 import com.kong.lib.share.common.fragment.IBaseEvent;
-import com.library.BaseActivity;
 import com.library.event.AppExitEvent;
+import com.library.utils.ToolsUtil;
 
 import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
+import org.greenrobot.eventbus.ThreadMode;
 
-public class MainActivity extends BaseActivity implements MainContract.View,IBaseEvent {
+public class MainActivity extends ThemeActivity implements MainContract.View,IBaseEvent {
 
     private static final String TAG = "MainActivity";
 
@@ -115,6 +119,11 @@ public class MainActivity extends BaseActivity implements MainContract.View,IBas
         NewsEntry.get().startDemo(MainActivity.this);
     }
 
+    @Override
+    public void switchSetting() {
+        NewsEntry.get().startSetting(MainActivity.this);
+    }
+
     private void switchFragment(BaseFragment fragment){
         onSwitchFragment(fragment,null);
     }
@@ -149,6 +158,12 @@ public class MainActivity extends BaseActivity implements MainContract.View,IBas
     @Override
     public void setPresenter(MainContract.Presenter presenter) {
         mMainPresenter = presenter;
+    }
+
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    public void onThemeChanged(ThemeChangedEvent event) {
+        this.recreate();
+        ToolsUtil.showToast("ThemeChangedEvent");
     }
 
 }
