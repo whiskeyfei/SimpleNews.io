@@ -36,6 +36,8 @@
     <string name="image_hit">一次只加载20条，查看更多内容请刷新哦。</string>
 
     <string name="demo">Demo</string>
+    <string name="descover">Descover</string>
+    <string name="person">Person</string>
     <string name="note">README</string>
     <string name="settings">设置</string>>
 

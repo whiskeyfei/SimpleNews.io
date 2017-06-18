@@ -13,16 +13,6 @@ import me.drakeet.multitype.ItemViewBinder;
 
 public class TextItemViewBinder extends ItemViewBinder<TextViewItem, TextItemViewBinder.TextHolder> {
 
-    static class TextHolder extends RecyclerView.ViewHolder {
-
-        private final TextView text;
-
-        TextHolder(@NonNull View itemView) {
-            super(itemView);
-            this.text = (TextView) itemView.findViewById(R.id.item_textview_id);
-        }
-    }
-
     @NonNull
     @Override
     protected TextHolder onCreateViewHolder(@NonNull LayoutInflater inflater, @NonNull ViewGroup parent) {
@@ -33,5 +23,15 @@ public class TextItemViewBinder extends ItemViewBinder<TextViewItem, TextItemVie
     @Override
     protected void onBindViewHolder(@NonNull TextHolder holder, @NonNull TextViewItem textItem) {
         holder.text.setText(textItem.text);
+    }
+
+    static class TextHolder extends RecyclerView.ViewHolder {
+
+        private final TextView text;
+
+        TextHolder(@NonNull View itemView) {
+            super(itemView);
+            this.text = (TextView) itemView.findViewById(R.id.item_textview_id);
+        }
     }
 }

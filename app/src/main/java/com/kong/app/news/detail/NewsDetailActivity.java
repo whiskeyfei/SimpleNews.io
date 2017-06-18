@@ -10,13 +10,13 @@ import android.webkit.WebView;
 import android.widget.ImageView;
 
 import com.kong.R;
+import com.kong.app.news.base.ThemeActivity;
 import com.kong.app.news.beans.NewModel;
 import com.kong.app.news.commons.ApiConstants;
 import com.library.AppRun;
-import com.library.BaseActivity;
 import com.library.utils.ImageLoaderUtils;
 
-public class NewsDetailActivity extends BaseActivity implements DetailContract.View {
+public class NewsDetailActivity extends ThemeActivity implements DetailContract.View {
 
     private NewModel mNews;
     private ImageView mImageView;

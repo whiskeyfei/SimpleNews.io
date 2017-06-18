@@ -30,6 +30,7 @@ Name | About
 [okhttp](https://github.com/square/okhttp) |  An HTTP+HTTP/2 client for Android and Java applications.
 [circleimageview](https://github.com/hdodenhof/CircleImageView) | A circular ImageView for Android.
 [glide](https://github.com/bumptech/glide) | An image loading and caching library for Android focused on smooth scrolling.
+[MultiType](https://github.com/drakeet/MultiType) | An Android library to create multiple item types list views easily and flexibly.
 
 ### Reference
 

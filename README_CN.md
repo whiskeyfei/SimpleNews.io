@@ -29,7 +29,7 @@
 [okhttp](https://github.com/square/okhttp) |  网络请求库.
 [circleimageview](https://github.com/hdodenhof/CircleImageView) | 圆形图片操作.
 [glide](https://github.com/bumptech/glide) | 图片加载.
-
+[MultiType](https://github.com/drakeet/MultiType) | An Android library to create multiple item types list views easily and flexibly.
 
 ### 参考
 

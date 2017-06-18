@@ -6,11 +6,14 @@ import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 
 import com.kong.R;
-import com.kong.app.demo.note.NoteActivity;
-import com.kong.app.news.base.ThemeActivity;
-import com.kong.app.news.beans.ItemModel;
 import com.kong.app.demo.about.AboutActivity2;
 import com.kong.app.demo.about.AboutActivity3;
+import com.kong.app.demo.descover.DescoverActivity;
+import com.kong.app.demo.me.MeActivity;
+import com.kong.app.demo.note.NoteActivity;
+import com.kong.app.demo.person.PersonActivity;
+import com.kong.app.news.base.ThemeActivity;
+import com.kong.app.news.beans.ItemModel;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -69,6 +72,24 @@ public class DemoActivity extends ThemeActivity {
         model2.name = "About3Demo";
         model2.type = ItemModel.TYPE_OTHERCLASS;
         mNoteModels.add(model2);
+
+        ItemModel model3 = new ItemModel();
+        model3.cls = DescoverActivity.class;
+        model3.name = "DescoverDemo";
+        model3.type = ItemModel.TYPE_OTHERCLASS;
+        mNoteModels.add(model3);
+
+        ItemModel model4 = new ItemModel();
+        model4.cls = MeActivity.class;
+        model4.name = "MeDemo";
+        model4.type = ItemModel.TYPE_OTHERCLASS;
+        mNoteModels.add(model4);
+
+        ItemModel model5 = new ItemModel();
+        model5.cls = PersonActivity.class;
+        model5.name = "PersonDemo";
+        model5.type = ItemModel.TYPE_OTHERCLASS;
+        mNoteModels.add(model5);
 
         mAdapter.setItems(mNoteModels);
         mAdapter.notifyDataSetChanged();

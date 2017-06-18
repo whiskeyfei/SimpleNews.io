@@ -49,7 +49,6 @@ public class ThemeActivity extends BaseActivity {
             case 8:
                 setTheme(R.style.NiagaraTheme);
                 break;
-
         }
     }
 }

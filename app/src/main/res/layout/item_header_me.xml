@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+    <ImageView
+        android:id="@+id/avatar_icon"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_centerVertical="true"
+        android:scaleType="centerCrop"
+        android:src="@drawable/face"/>
+
+    <TextView
+        android:id="@+id/avatar_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/avatar_icon"
+        android:maxLines="1"
+        android:paddingLeft="20dp"
+        android:paddingTop="10dp"
+        android:text="name"
+        android:textColor="@color/primary_text"
+        android:textSize="@dimen/sn_16sp"/>
+
+    <TextView
+        android:id="@+id/avatar_account"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/avatar_name"
+        android:layout_toRightOf="@+id/avatar_icon"
+        android:maxLines="2"
+        android:paddingLeft="20dp"
+        android:paddingTop="20dp"
+        android:text="account"
+        android:textColor="@color/secondary_text"
+        android:textSize="@dimen/sn_12sp"/>
+
+    <ImageView
+        android:id="@+id/avatar_in"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginRight="10dp"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:scaleType="centerCrop"
+        android:src="@drawable/face"/>
+
+</RelativeLayout>

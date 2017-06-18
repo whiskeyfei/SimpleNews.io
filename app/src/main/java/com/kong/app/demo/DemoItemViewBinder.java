@@ -20,7 +20,6 @@ import me.drakeet.multitype.ItemViewBinder;
 
 public class DemoItemViewBinder extends ItemViewBinder<ItemModel,DemoItemViewBinder.ViewHolder> {
 
-    @NonNull
     @Override
     protected ViewHolder onCreateViewHolder(@NonNull LayoutInflater inflater, @NonNull ViewGroup parent) {
         View view = inflater.inflate(R.layout.demo_content_item, parent,false);
@@ -29,8 +28,7 @@ public class DemoItemViewBinder extends ItemViewBinder<ItemModel,DemoItemViewBin
 
     @Override
     protected void onBindViewHolder(@NonNull ViewHolder holder, @NonNull ItemModel item) {
-//        holder.title.setText(item.name);
-        holder.setItemModel(item);
+        holder.setData(item);
     }
 
     static class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener,View.OnLongClickListener {
@@ -44,7 +42,7 @@ public class DemoItemViewBinder extends ItemViewBinder<ItemModel,DemoItemViewBin
             v.setOnLongClickListener(this);
         }
 
-        public void setItemModel(ItemModel itemModel) {
+        public void setData(ItemModel itemModel) {
             mItemModel = itemModel;
             mTextView.setText(mItemModel.name);
         }
