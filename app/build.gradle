@@ -88,6 +88,8 @@ dependencies {
 
     compile 'com.afollestad.material-dialogs:core:0.9.1.0'
     compile 'com.afollestad.material-dialogs:commons:0.9.1.0'
+
+    compile 'me.drakeet.multitype:multitype:3.1.0-beta1'
 }
 
 def releaseTime() {

@@ -1,4 +1,4 @@
-package com.kong.app.news.ui;
+package com.kong.app.demo.about;
 
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;

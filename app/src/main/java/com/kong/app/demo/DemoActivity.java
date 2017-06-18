@@ -1,22 +1,21 @@
 package com.kong.app.demo;
 
-import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
-import android.view.View;
 
 import com.kong.R;
-import com.kong.app.news.NewsEntry;
+import com.kong.app.demo.note.NoteActivity;
 import com.kong.app.news.base.ThemeActivity;
-import com.kong.app.news.adapter.DemoAdapter;
-import com.kong.app.news.adapter.OnItemClickListener;
-import com.kong.app.news.beans.NoteModel;
-import com.library.AppRun;
+import com.kong.app.news.beans.ItemModel;
+import com.kong.app.demo.about.AboutActivity2;
+import com.kong.app.demo.about.AboutActivity3;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import me.drakeet.multitype.MultiTypeAdapter;
 
 /**
  * Created by CaoPengfei on 17/6/9.
@@ -26,10 +25,9 @@ public class DemoActivity extends ThemeActivity {
 
     private Toolbar mToolbar;
     private RecyclerView mRecyclerView;
-    private static final int [] sId = {R.raw.demo};
-    private static final String [] sNostLists = {"TabLayoutDemo"};
-    private List<NoteModel> mNoteModels;
-    private DemoAdapter mAdapter;
+    private static final int[] sId = {R.raw.demo};
+    private List<ItemModel> mNoteModels;
+    private MultiTypeAdapter mAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,35 +39,38 @@ public class DemoActivity extends ThemeActivity {
 
     private void initBar() {
         mToolbar = (Toolbar) findViewById(R.id.demo_toolbar);
-        initToolBar(mToolbar,R.string.demo);
+        initToolBar(mToolbar, R.string.demo);
     }
 
     private void initList() {
         mRecyclerView = (RecyclerView) findViewById(R.id.note_recycle_view);
-        LinearLayoutManager mLayoutManager = new LinearLayoutManager(AppRun.get().getApplicationContext());
-        mRecyclerView.setLayoutManager(mLayoutManager);
-        mNoteModels = new ArrayList<NoteModel>();
+        mRecyclerView.addItemDecoration(new DividerItemDecoration(this, DividerItemDecoration.VERTICAL));
+        mAdapter = new MultiTypeAdapter();
+        mAdapter.register(ItemModel.class, new DemoItemViewBinder());
+        mRecyclerView.setAdapter(mAdapter);
+        mNoteModels = new ArrayList<ItemModel>();
         mNoteModels.clear();
 
-        for (int i = 0; i < sNostLists.length; i++) {
-            NoteModel model = new NoteModel();
-            model.id = sId[i];
-            model.name = sNostLists[i];
-            mNoteModels.add(model);
-        }
-        mAdapter = new DemoAdapter(AppRun.get().getApplicationContext());
-        mAdapter.setOnItemClickListener(mOnItemClickListener);
-        mAdapter.setDate(mNoteModels);
-        mRecyclerView.setAdapter(mAdapter);
+        ItemModel model = new ItemModel();
+        model.cls = AboutActivity2.class;
+        model.name = "About2Demo";
+        model.type = ItemModel.TYPE_OTHERCLASS;
+        mNoteModels.add(model);
+
+        ItemModel model1 = new ItemModel();
+        model1.cls = NoteActivity.class;
+        model1.name = "TabLayoutDemo";
+        model.id = R.raw.demo;
+        model1.type = ItemModel.TYPE_NOTE;
+        mNoteModels.add(model1);
+
+        ItemModel model2 = new ItemModel();
+        model2.cls = AboutActivity3.class;
+        model2.name = "About3Demo";
+        model2.type = ItemModel.TYPE_OTHERCLASS;
+        mNoteModels.add(model2);
+
+        mAdapter.setItems(mNoteModels);
+        mAdapter.notifyDataSetChanged();
     }
-
-    private OnItemClickListener mOnItemClickListener = new OnItemClickListener() {
-
-        @Override
-        public void onItemClick(View view, int position) {
-            Intent intent = new Intent(DemoActivity.this,NoteActivity.class);
-            intent.putExtra("key",mNoteModels.get(position));
-            NewsEntry.get().startNote(DemoActivity.this,intent);
-        }
-    };
 }

@@ -1,4 +1,4 @@
-package com.kong.app.demo;
+package com.kong.app.demo.note;
 
 import android.os.Bundle;
 import android.os.Handler;

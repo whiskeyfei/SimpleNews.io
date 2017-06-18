@@ -4,7 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 
 import com.kong.app.demo.DemoActivity;
-import com.kong.app.demo.NoteActivity;
+import com.kong.app.demo.note.NoteActivity;
 import com.kong.app.news.beans.NewModel;
 import com.kong.app.news.commons.ApiConstants;
 import com.kong.app.news.detail.NewsDetailActivity;

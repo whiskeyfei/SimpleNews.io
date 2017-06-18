@@ -43,7 +43,11 @@
             android:screenOrientation="portrait"/>
 
         <activity
-            android:name=".app.news.ui.AboutActivity2"
+            android:name=".app.demo.about.AboutActivity2"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".app.demo.about.AboutActivity3"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
             android:screenOrientation="portrait"/>
 
@@ -53,7 +57,7 @@
             android:screenOrientation="portrait"/>
 
         <activity
-            android:name=".app.demo.NoteActivity"
+            android:name=".app.demo.note.NoteActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
             android:screenOrientation="portrait"/>
 

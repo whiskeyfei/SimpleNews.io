@@ -2,6 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
               android:layout_width="match_parent"
               android:layout_height="match_parent"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
               android:orientation="vertical">
 
     <include
@@ -12,7 +13,7 @@
         android:id="@+id/note_recycle_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingTop="@dimen/card_margin"
+        app:layoutManager="LinearLayoutManager"
         android:scrollbars="vertical"/>
 
 </LinearLayout>

@@ -8,7 +8,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.kong.R;
-import com.kong.app.news.beans.NoteModel;
+import com.kong.app.news.beans.ItemModel;
 import com.library.utils.ListUtils;
 
 import java.util.List;
@@ -20,13 +20,13 @@ import java.util.List;
 public class DemoAdapter extends RecyclerView.Adapter<DemoAdapter.ItemViewHolder> {
 
     private Context mContext;
-    private List<NoteModel> mNoteModels;
+    private List<ItemModel> mNoteModels;
 
     public DemoAdapter(Context context) {
         this.mContext = context;
     }
 
-    public void setDate(List<NoteModel> data) {
+    public void setDate(List<ItemModel> data) {
         this.mNoteModels = data;
         this.notifyDataSetChanged();
     }
@@ -45,7 +45,7 @@ public class DemoAdapter extends RecyclerView.Adapter<DemoAdapter.ItemViewHolder
         if (ListUtils.isEmpty(mNoteModels)) {
             return;
         }
-        NoteModel model = mNoteModels.get(position);
+        ItemModel model = mNoteModels.get(position);
         if (model != null) {
             holder.mTextView.setText(model.name);
         }

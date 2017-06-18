@@ -10,7 +10,7 @@
         android:id="@+id/demo_item_text"
         style="@style/AboutColor_title"
         android:layout_width="match_parent"
-        android:layout_height="40dp"
+        android:layout_height="60dp"
         android:gravity="center_vertical"
         android:padding="8dp"
         android:text="@string/about_version"/>
