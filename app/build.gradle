@@ -1,11 +1,9 @@
 apply plugin: 'com.android.application'
-//该 plugin 为一个 com.android.application 程序，也就是应用程序，如果你的 plugin 是一个库，那么自然也就是apply plugin: 'com.android.library'
 
 android {
     compileSdkVersion rootProject.ext.android.compileSdkVersion //编译的 SDK API 版本
     buildToolsVersion rootProject.ext.android.buildToolsVersion //构建工具版本
 
-    //默认配置&核心属性，该属性会重写在AndroidManifest.xml中的对应属性
     defaultConfig {
         applicationId rootProject.ext.android.applicationId//配置包名的
         minSdkVersion rootProject.ext.android.minSdkVersion //支持最小的 SDK 版本

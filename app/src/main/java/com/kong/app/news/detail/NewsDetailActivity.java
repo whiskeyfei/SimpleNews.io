@@ -2,24 +2,19 @@ package com.kong.app.news.detail;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.design.widget.Snackbar;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.webkit.WebView;
-import android.widget.ImageView;
 
 import com.kong.R;
 import com.kong.app.news.base.ThemeActivity;
 import com.kong.app.news.beans.NewModel;
 import com.kong.app.news.commons.ApiConstants;
-import com.library.AppRun;
-import com.library.utils.ImageLoaderUtils;
 
 public class NewsDetailActivity extends ThemeActivity implements DetailContract.View {
 
     private NewModel mNews;
-    private ImageView mImageView;
     private WebView mWebView;
     private DetailContract.Presenter mNewsDetailPresenter;
 
@@ -33,22 +28,8 @@ public class NewsDetailActivity extends ThemeActivity implements DetailContract.
 
     private void initView() {
         Toolbar toolbar = (Toolbar) findViewById(R.id.detail_toolbar);
-        mImageView = (ImageView)findViewById(R.id.detail_image);
+        initToolBar(toolbar,mNews.title);
         mWebView = (WebView)findViewById(R.id.detail_webview_content);
-
-        setSupportActionBar(toolbar);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                onBackPressed();
-            }
-        });
-
-        CollapsingToolbarLayout collapsingToolbar = (CollapsingToolbarLayout) findViewById(R.id.detail_collapsing_toolbar_id);
-        collapsingToolbar.setTitle(mNews.title);
-
-        ImageLoaderUtils.display(AppRun.get().getApplicationContext(), mImageView, mNews.imageUrl,R.drawable.ic_image_loading, R.drawable.ic_image_loadfail);
 
         mNewsDetailPresenter = new NewsDetailPresenter(this);
         mNewsDetailPresenter.init(mWebView);

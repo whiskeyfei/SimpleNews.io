@@ -35,7 +35,7 @@ public class BaseActivity extends AppCompatActivity {
 
     @Subscribe(threadMode = ThreadMode.MAIN)
     public void onMessageEvent(AppExitEvent event) {
-        Log.i(TAG,"onMessageEvent:" + event);
+        Log.i(TAG, "onMessageEvent:" + event);
         finish();
     }
 
@@ -61,11 +61,17 @@ public class BaseActivity extends AppCompatActivity {
         }
     }
 
-    public void initToolBar(Toolbar toolbar,int resId) {
+    public void initToolBar(Toolbar toolbar, int resId) {
         if (null != toolbar) {
             toolbar.setTitle(ResourceUtil.getString(resId));
             initToolBar(toolbar);
         }
     }
+
+    public void initToolBar(Toolbar toolbar, String title) {
+        toolbar.setTitle(title);
+        initToolBar(toolbar);
+    }
+
 
 }
