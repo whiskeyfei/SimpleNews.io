@@ -16,10 +16,10 @@ android {
 
     signingConfigs {
         releaseConfig {
-            keyAlias rootProject.ext.releaseConfig.keyAlias
-            keyPassword rootProject.ext.releaseConfig.keyPassword
-            storeFile file(rootProject.ext.releaseConfig.storeFile)
-            storePassword rootProject.ext.releaseConfig.storePassword
+//            keyAlias rootProject.ext.releaseConfig.keyAlias
+//            keyPassword rootProject.ext.releaseConfig.keyPassword
+//            storeFile file(rootProject.ext.releaseConfig.storeFile)
+//            storePassword rootProject.ext.releaseConfig.storePassword
         }
     }
 
@@ -36,7 +36,7 @@ android {
             minifyEnabled true //是否启动混淆
             shrinkResources true //是否移除无用资源文件，shrinkResources依赖于minifyEnabled
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-            signingConfig signingConfigs.releaseConfig
+//            signingConfig signingConfigs.releaseConfig
 
             android.applicationVariants.all { variant ->
                     variant.outputs.each { output ->
