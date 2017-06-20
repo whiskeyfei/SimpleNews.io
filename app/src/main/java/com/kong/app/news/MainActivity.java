@@ -28,6 +28,7 @@ import org.greenrobot.eventbus.ThreadMode;
 public class MainActivity extends ThemeActivity implements MainContract.View,IBaseEvent {
 
     private static final String TAG = "MainActivity";
+    private long firstBackPressedTime = 0;
 
     private Toolbar mToolbar;
     private DrawerLayout mDrawerLayout;
@@ -75,7 +76,15 @@ public class MainActivity extends ThemeActivity implements MainContract.View,IBa
             return true;
         }
         if (keyCode == KeyEvent.KEYCODE_BACK || keyCode == KeyEvent.KEYCODE_ESCAPE){
-            EventBus.getDefault().post(new AppExitEvent());
+            long secondBackPressedTime = System.currentTimeMillis();
+            if (secondBackPressedTime - firstBackPressedTime > 2000) {
+                ToolsUtil.showToast(R.string.back_again_exit);
+                firstBackPressedTime = secondBackPressedTime;
+                return true;
+            } else {
+                EventBus.getDefault().post(new AppExitEvent());
+                return super.dispatchKeyEvent(event);
+            }
         }
         return super.dispatchKeyEvent(event);
     }
@@ -91,7 +100,6 @@ public class MainActivity extends ThemeActivity implements MainContract.View,IBa
         int id = item.getItemId();
         if (id == R.id.action_settings) {
             NewsEntry.get().startAbout(MainActivity.this);
-//            NewsEntry.get().startCommon(MainActivity.this,BrowserActivity.class);
             return true;
         }
 
@@ -163,7 +171,8 @@ public class MainActivity extends ThemeActivity implements MainContract.View,IBa
     @Subscribe(threadMode = ThreadMode.MAIN)
     public void onThemeChanged(ThemeChangedEvent event) {
         this.recreate();
-        ToolsUtil.showToast("ThemeChangedEvent");
     }
+
+
 
 }

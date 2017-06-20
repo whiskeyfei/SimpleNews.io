@@ -20,7 +20,3 @@ allprojects {
         jcenter()
     }
 }
-
-//buildscript 方法是定义了全局的相关属性，repositories 定义了jcenter 作为仓库。
-// 一个仓库代表着你的依赖包的来源，例如 maven仓库。
-// dependencies用来定义构建过程。这意味着你不应该在该方法体内定义子模块的依赖包
