@@ -1,5 +1,5 @@
 # SimpleNews.io
-[![Build Status](https://travis-ci.org/whiskeyfei/SimpleNews.io.svg?branch=master)](https://travis-ci.org/whiskeyfei/SimpleNews.io)
+[![Build Status](https://travis-ci.org/whiskeyfei/SimpleNews.io.svg?branch=master)](https://travis-ci.org/whiskeyfei/SimpleNews.io)[![](https://jitpack.io/v/whiskeyfei/SimpleNews.io.svg)](https://jitpack.io/#whiskeyfei/SimpleNews.io)
 
 SimpleNews.io - A news Android App,based on the Material Design and RxJava 、MVP.Due to changes in the data request logic larger.so,I searate pull out the demo to update, in the original basis to modify the use of RxJava and MVP to rewirete the code starcture.
 
