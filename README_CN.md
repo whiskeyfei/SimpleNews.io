@@ -1,4 +1,6 @@
 # SimpleNews.io
+[![Build Status](https://travis-ci.org/whiskeyfei/SimpleNews.io.svg?branch=master)](https://travis-ci.org/whiskeyfei/SimpleNews.io)
+
 基于 Material Design 和 MVP 的新闻客户端,在原来的基础修改使用 RxJava+MVP,由于数据请求逻辑改动较大，所以单独拉出来进行更新，最新代码库请查看[SimpleNews.io](https://github.com/whiskeyfei/SimpleNews.io)
 
 ### 更新
