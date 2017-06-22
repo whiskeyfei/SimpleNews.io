@@ -13,6 +13,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import com.kong.R;
+import com.kong.app.blog.BlogFragment;
 import com.kong.app.news.base.ThemeActivity;
 import com.kong.app.news.event.ThemeChangedEvent;
 import com.kong.app.news.image.ImageFragment;
@@ -33,8 +34,6 @@ public class MainActivity extends ThemeActivity implements MainContract.View,IBa
     private Toolbar mToolbar;
     private DrawerLayout mDrawerLayout;
     private BaseFragment mCurrentFragment;
-    private NavigationView mNavigationLeftView;
-    private ActionBarDrawerToggle mDrawerToggle;
     private MainContract.Presenter mMainPresenter;
 
     @Override
@@ -45,17 +44,18 @@ public class MainActivity extends ThemeActivity implements MainContract.View,IBa
         setSupportActionBar(mToolbar);
 
         mDrawerLayout = (DrawerLayout) findViewById(R.id.main_drawer_layout);
-        mDrawerToggle = new ActionBarDrawerToggle(this, mDrawerLayout, mToolbar, R.string.drawer_open, R.string.drawer_close);
-        mDrawerToggle.syncState();
-        mDrawerLayout.setDrawerListener(mDrawerToggle);
+        ActionBarDrawerToggle drawerToggle = new ActionBarDrawerToggle(this, mDrawerLayout, mToolbar, R.string.drawer_open, R.string.drawer_close);
+        drawerToggle.syncState();
+        mDrawerLayout.setDrawerListener(drawerToggle);
         initNavigationLeft();
         mMainPresenter = new MainPresenter(this);
         switchNews();
     }
 
     private void initNavigationLeft() {
-        mNavigationLeftView = (NavigationView) findViewById(R.id.main_navigation_view);
-        mNavigationLeftView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+        NavigationView navigationLeftView = (NavigationView) findViewById(R.id.main_navigation_view);
+        navigationLeftView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+
             @Override
             public boolean onNavigationItemSelected(MenuItem item) {
                 mMainPresenter.switchNavigation(item);
@@ -112,6 +112,7 @@ public class MainActivity extends ThemeActivity implements MainContract.View,IBa
         mToolbar.setTitle(R.string.navigation_news);
     }
 
+    @Override
     public void switchImages() {
         switchFragment(ImageFragment.newInstance());
         mToolbar.setTitle(R.string.navigation_images);
@@ -125,6 +126,12 @@ public class MainActivity extends ThemeActivity implements MainContract.View,IBa
     @Override
     public void switchDemo() {
         NewsEntry.get().startDemo(MainActivity.this);
+    }
+
+    @Override
+    public void switchBlog() {
+        switchFragment(BlogFragment.newInstance());
+        mToolbar.setTitle(R.string.navigation_blog);
     }
 
     @Override

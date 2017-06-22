@@ -30,6 +30,8 @@ public class MainPresenter implements MainContract.Presenter {
                 break;
             case R.id.navigation_item_demo:
                 mView.switchDemo();
+            case R.id.navigation_item_blog:
+                mView.switchBlog();
                 break;
             case R.id.navigation_item_settings:
                 mView.switchSetting();

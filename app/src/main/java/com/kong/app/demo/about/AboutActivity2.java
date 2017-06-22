@@ -15,14 +15,12 @@ import com.library.utils.ResourceUtil;
 
 public class AboutActivity2 extends ThemeActivity {
 
-    private Toolbar mToolbar;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_about2);
-        mToolbar = (Toolbar) findViewById(R.id.about2_toolbar);
-        mToolbar.setTitle(ResourceUtil.getString(R.string.about));
-        initToolBar(mToolbar);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.about2_toolbar);
+        toolbar.setTitle(ResourceUtil.getString(R.string.about));
+        initToolBar(toolbar);
     }
 }

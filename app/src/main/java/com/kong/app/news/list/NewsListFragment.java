@@ -49,7 +49,7 @@ public class NewsListFragment extends BaseFragment implements NewsContract.View,
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        mNewsPresenter = new NewsPresenter(this, Injection.provideSchedulerProvider());
+        new NewsPresenter(this, Injection.provideSchedulerProvider());
         mType = getArguments().getInt(FRAGMENT_TYPE_KEY);
     }
 

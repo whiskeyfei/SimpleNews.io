@@ -17,15 +17,13 @@ import com.library.utils.ResourceUtil;
 
 public class AboutActivity extends ThemeActivity implements View.OnClickListener {
 
-    private Toolbar mToolbar;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_about);
-        mToolbar = (Toolbar) findViewById(R.id.about_toolbar);
-        mToolbar.setTitle(ResourceUtil.getString(R.string.about));
-        initToolBar(mToolbar);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.about_toolbar);
+        toolbar.setTitle(ResourceUtil.getString(R.string.about));
+        initToolBar(toolbar);
         findViewById(R.id.about_btn_version).setOnClickListener(this);
         findViewById(R.id.about_btn_open_source).setOnClickListener(this);
         findViewById(R.id.about_btn_github).setOnClickListener(this);

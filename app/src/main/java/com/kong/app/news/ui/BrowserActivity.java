@@ -19,7 +19,6 @@ import com.library.utils.StringUtils;
 public class BrowserActivity extends ThemeActivity {
 
     public static final String BWO_KEY = "bwo_key";
-    private Toolbar mToolbar;
     private WebView mWebView;
     private ProgressBar mProgressBar;
     private String mUrl;
@@ -28,8 +27,8 @@ public class BrowserActivity extends ThemeActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_browser);
-        mToolbar = (Toolbar) findViewById(R.id.browser_toolbar);
-        initToolBar(mToolbar, R.string.demo);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.browser_toolbar);
+        initToolBar(toolbar, R.string.demo);
         mWebView = (WebView) findViewById(R.id.browser_webView);
         mProgressBar = (ProgressBar) findViewById(R.id.browser_progress);
 

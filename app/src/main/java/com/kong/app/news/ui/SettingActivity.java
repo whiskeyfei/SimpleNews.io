@@ -51,31 +51,31 @@ public class SettingActivity extends ThemeActivity implements ColorChooserDialog
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             getWindow().setStatusBarColor(selectedColor);
         }
-        if (selectedColor == getResources().getColor(R.color.lapis_blue)) {
+        if (selectedColor == ResourceUtil.getColor(R.color.lapis_blue)) {
             setTheme(R.style.LapisBlueTheme);
             SettingsUtil.setThemeIndex(0);
-        } else if (selectedColor == getResources().getColor(R.color.pale_dogwood)) {
+        } else if (selectedColor == ResourceUtil.getColor(R.color.pale_dogwood)) {
             setTheme(R.style.PaleDogwoodTheme);
             SettingsUtil.setThemeIndex(1);
-        } else if (selectedColor == getResources().getColor(R.color.greenery)) {
+        } else if (selectedColor == ResourceUtil.getColor(R.color.greenery)) {
             setTheme(R.style.GreeneryTheme);
             SettingsUtil.setThemeIndex(2);
-        } else if (selectedColor == getResources().getColor(R.color.primrose_yellow)) {
+        } else if (selectedColor == ResourceUtil.getColor(R.color.primrose_yellow)) {
             setTheme(R.style.PrimroseYellowTheme);
             SettingsUtil.setThemeIndex(3);
-        } else if (selectedColor == getResources().getColor(R.color.flame)) {
+        } else if (selectedColor == ResourceUtil.getColor(R.color.flame)) {
             setTheme(R.style.FlameTheme);
             SettingsUtil.setThemeIndex(4);
-        } else if (selectedColor == getResources().getColor(R.color.island_paradise)) {
+        } else if (selectedColor == ResourceUtil.getColor(R.color.island_paradise)) {
             setTheme(R.style.IslandParadiseTheme);
             SettingsUtil.setThemeIndex(5);
-        } else if (selectedColor == getResources().getColor(R.color.kale)) {
+        } else if (selectedColor == ResourceUtil.getColor(R.color.kale)) {
             setTheme(R.style.KaleTheme);
             SettingsUtil.setThemeIndex(6);
         } else if (selectedColor == getResources().getColor(R.color.pink_yarrow)) {
             setTheme(R.style.PinkYarrowTheme);
             SettingsUtil.setThemeIndex(7);
-        } else if (selectedColor == getResources().getColor(R.color.niagara)) {
+        } else if (selectedColor == ResourceUtil.getColor(R.color.niagara)) {
             setTheme(R.style.NiagaraTheme);
             SettingsUtil.setThemeIndex(8);
         }

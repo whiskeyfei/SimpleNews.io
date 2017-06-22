@@ -22,10 +22,6 @@ import me.drakeet.multitype.MultiTypeAdapter;
 
 public class AboutActivity3 extends ThemeActivity {
 
-    private Toolbar mToolbar;
-    private RecyclerView mRecyclerView;
-    private MultiTypeAdapter mAdapter;
-
     private static int[][] title = {
             {R.string.about_version, R.string.about_version},
             {R.string.about_des, R.string.description},
@@ -41,19 +37,19 @@ public class AboutActivity3 extends ThemeActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_about3);
-        mToolbar = (Toolbar) findViewById(R.id.about3_toolbar);
-        mToolbar.setTitle(ResourceUtil.getString(R.string.about));
-        initToolBar(mToolbar);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.about3_toolbar);
+        toolbar.setTitle(ResourceUtil.getString(R.string.about));
+        initToolBar(toolbar);
         initContent();
     }
 
     private void initContent() {
-        mRecyclerView = (RecyclerView) findViewById(R.id.about3_recycle_view);
-        mRecyclerView.addItemDecoration(new DividerItemDecoration(this, DividerItemDecoration.VERTICAL));
-        mAdapter = new MultiTypeAdapter();
-        mAdapter.register(ContentModel.class, new About3ItemViewBinder());
-        mAdapter.register(TextViewItem.class, new TextItemViewBinder());
-        mRecyclerView.setAdapter(mAdapter);
+        RecyclerView recyclerView = (RecyclerView) findViewById(R.id.about3_recycle_view);
+        recyclerView.addItemDecoration(new DividerItemDecoration(this, DividerItemDecoration.VERTICAL));
+        MultiTypeAdapter adapter = new MultiTypeAdapter();
+        adapter.register(ContentModel.class, new About3ItemViewBinder());
+        adapter.register(TextViewItem.class, new TextItemViewBinder());
+        recyclerView.setAdapter(adapter);
 
         for (int i = 0; i < title.length; i++) {
             ContentModel model = new ContentModel();
@@ -66,7 +62,7 @@ public class AboutActivity3 extends ThemeActivity {
         item.text = ResourceUtil.getString(R.string.about_copyright);
         mObjectList.add(item);
 
-        mAdapter.setItems(mObjectList);
-        mAdapter.notifyDataSetChanged();
+        adapter.setItems(mObjectList);
+        adapter.notifyDataSetChanged();
     }
 }

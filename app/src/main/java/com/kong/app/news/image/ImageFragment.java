@@ -40,7 +40,7 @@ public class ImageFragment extends BaseFragment implements ImageContract.View, S
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        mImagePresenter = new ImagePresenter(this, Injection.provideSchedulerProvider());
+        new ImagePresenter(this, Injection.provideSchedulerProvider());
     }
 
     @Nullable

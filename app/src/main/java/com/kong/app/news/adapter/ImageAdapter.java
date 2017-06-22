@@ -28,8 +28,7 @@ public class ImageAdapter extends RecyclerView.Adapter<ImageAdapter.ItemViewHold
     public ImageAdapter(Context context) {
         this.mContext = context;
         mMaxWidth = ToolsUtil.getWidthInPx(mContext) - 20;
-        mMaxHeight = ToolsUtil.getHeightInPx(mContext) - ToolsUtil.getStatusHeight(mContext) -
-                ToolsUtil.dip2px(mContext, 96);
+        mMaxHeight = ToolsUtil.getHeightInPx(mContext) - ToolsUtil.dip2px(mContext, 96);
     }
 
     public void setDate(List<ImageBean> data) {
@@ -94,7 +93,7 @@ public class ImageAdapter extends RecyclerView.Adapter<ImageAdapter.ItemViewHold
         @Override
         public void onClick(View view) {
             if(mOnItemClickListener != null) {
-                mOnItemClickListener.onItemClick(view, this.getPosition());
+                mOnItemClickListener.onItemClick(view, this.getLayoutPosition());
             }
         }
     }

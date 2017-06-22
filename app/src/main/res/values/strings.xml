@@ -4,6 +4,7 @@
     <!-- Left Menu-->
     <string name="navigation_news">新闻</string>
     <string name="navigation_images">图片</string>
+    <string name="navigation_blog">博客</string>
 
     <!-- tab bar-->
     <string name="top">精选</string>

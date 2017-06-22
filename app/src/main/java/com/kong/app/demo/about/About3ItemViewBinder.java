@@ -51,7 +51,7 @@ public class About3ItemViewBinder extends ItemViewBinder<ContentModel,About3Item
         @Override
         public void onClick(View v) {
             if (mModel == null){
-                return;
+
             }
         }
 
