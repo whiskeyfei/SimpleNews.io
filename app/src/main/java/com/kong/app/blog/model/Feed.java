@@ -116,6 +116,16 @@ public class Feed {
             private String author;
             private String description;
 
+            public String getCover() {
+                return cover;
+            }
+
+            public void setCover(String cover) {
+                this.cover = cover;
+            }
+
+            private String cover;
+
             public String getDescription() {
                 return description;
             }

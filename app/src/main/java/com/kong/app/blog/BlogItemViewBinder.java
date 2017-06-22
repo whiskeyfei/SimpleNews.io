@@ -12,6 +12,7 @@ import android.widget.TextView;
 import com.kong.R;
 import com.kong.app.blog.model.Feed;
 import com.kong.app.news.NewsEntry;
+import com.library.utils.StringUtils;
 
 import me.drakeet.multitype.ItemViewBinder;
 
@@ -25,11 +26,14 @@ public class BlogItemViewBinder extends ItemViewBinder<Feed.PostsBean.ItemsBean,
 
     @Override
     protected ViewHolder onCreateViewHolder(@NonNull LayoutInflater inflater, @NonNull ViewGroup parent) {
-        return new ViewHolder(inflater.inflate(R.layout.item_blog, parent, false));
+        return new ViewHolder(inflater.inflate(R.layout.item_blog2, parent, false));
     }
 
     @Override
     protected void onBindViewHolder(@NonNull ViewHolder holder, @NonNull Feed.PostsBean.ItemsBean item) {
+        if (getPosition(holder) == getAdapter().getItemCount() -1){
+            holder.line.setVisibility(View.GONE);
+        }
         holder.setData(item);
     }
 
@@ -45,7 +49,8 @@ public class BlogItemViewBinder extends ItemViewBinder<Feed.PostsBean.ItemsBean,
     }
 
     static class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
-
+        private View line;
+        private TextView name;
         private TextView title;
         private TextView info;
         private ImageView icon;
@@ -53,19 +58,31 @@ public class BlogItemViewBinder extends ItemViewBinder<Feed.PostsBean.ItemsBean,
 
         public ViewHolder(View v) {
             super(v);
+            line = v.findViewById(R.id.item_bolg_line);
             icon = (ImageView) v.findViewById(R.id.item_blog_icon);
             title = (TextView) v.findViewById(R.id.item_blog_title_id);
+            name = (TextView) v.findViewById(R.id.item_blog_name_id);
             info = (TextView) v.findViewById(R.id.item_blog_info_id);
             v.setOnClickListener(this);
         }
 
         public void setData(Feed.PostsBean.ItemsBean itemModel) {
             mItemModel = itemModel;
-            if (mItemModel == null){
+            if (itemModel == null){
                 return;
             }
+            if (StringUtils.isEmpty(itemModel.getAuthor())){
+                itemModel.setAuthor("Tom");
+            }
+            name.setText(itemModel.getAuthor() + "  " + itemModel.getDate_published().substring(0,10));
             title.setText(itemModel.getTitle());
-            info.setText(itemModel.getKeywords() + " " +itemModel.getAuthor());
+            if (StringUtils.isEmpty(itemModel.getKeywords())){
+                itemModel.setKeywords("Android");
+            }
+            info.setText("Keywords: " + itemModel.getKeywords());
+            if (!StringUtils.isEmpty(itemModel.getCover())){
+                icon.setVisibility(View.GONE);
+            }
         }
 
         @Override
