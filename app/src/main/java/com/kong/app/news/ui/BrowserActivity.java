@@ -1,11 +1,13 @@
 package com.kong.app.news.ui;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.webkit.WebChromeClient;
 import android.webkit.WebView;
+import android.webkit.WebViewClient;
 import android.widget.ProgressBar;
 
 import com.kong.R;
@@ -28,7 +30,7 @@ public class BrowserActivity extends ThemeActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_browser);
         Toolbar toolbar = (Toolbar) findViewById(R.id.browser_toolbar);
-        initToolBar(toolbar, R.string.demo);
+        initToolBar(toolbar,"");
         mWebView = (WebView) findViewById(R.id.browser_webView);
         mProgressBar = (ProgressBar) findViewById(R.id.browser_progress);
 
@@ -48,6 +50,21 @@ public class BrowserActivity extends ThemeActivity {
             public void onReceivedTitle(WebView view, String title) {
                 super.onReceivedTitle(view, title);
             }
+
+
+        });
+
+        mWebView.setWebViewClient(new WebViewClient(){
+
+            @Override
+            public void onPageStarted(WebView view, String url, Bitmap favicon) {
+
+            }
+
+            @Override
+            public void onPageFinished(WebView view, String url) {
+                showResult();
+            }
         });
 
         Intent intent = getIntent();
@@ -57,7 +74,17 @@ public class BrowserActivity extends ThemeActivity {
         if (!StringUtils.isEmpty(mUrl)){
             mWebView.loadUrl(mUrl);
         }else{
-
+            showError();
         }
+    }
+
+    public void showResult(){
+        mWebView.setVisibility(View.VISIBLE);
+        mProgressBar.setVisibility(View.GONE);
+    }
+
+    public void showError(){
+        mWebView.setVisibility(View.GONE);
+        mProgressBar.setVisibility(View.GONE);
     }
 }

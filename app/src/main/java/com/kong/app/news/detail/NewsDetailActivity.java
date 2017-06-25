@@ -9,12 +9,15 @@ import android.webkit.WebView;
 
 import com.kong.R;
 import com.kong.app.news.base.ThemeActivity;
-import com.kong.app.news.beans.NewModel;
-import com.kong.app.news.commons.ApiConstants;
 
 public class NewsDetailActivity extends ThemeActivity implements DetailContract.View {
 
-    private NewModel mNews;
+    public static final String URL = "key_url";
+    public static final String TITLE = "key_title";
+
+    private String mTitle;
+    private String mUrl;
+
     private WebView mWebView;
     private DetailContract.Presenter mNewsDetailPresenter;
 
@@ -28,21 +31,19 @@ public class NewsDetailActivity extends ThemeActivity implements DetailContract.
 
     private void initView() {
         Toolbar toolbar = (Toolbar) findViewById(R.id.detail_toolbar);
-        initToolBar(toolbar,mNews.title);
+        initToolBar(toolbar,mTitle);
         mWebView = (WebView)findViewById(R.id.detail_webview_content);
 
         mNewsDetailPresenter = new NewsDetailPresenter(this);
         mNewsDetailPresenter.init(mWebView);
-        mNewsDetailPresenter.loadUrl(mNews.newUrl);
+        mNewsDetailPresenter.loadUrl(mUrl);
     }
 
     private void initData() {
         Intent intent = getIntent();
         if (intent != null){
-            mNews = (NewModel) intent.getSerializableExtra(ApiConstants.NEWS_KEY);
-            if (mNews == null){
-                mNews = new NewModel();
-            }
+            mTitle = intent.getStringExtra(TITLE);
+            mUrl = intent.getStringExtra(URL);
         }
     }
 

@@ -6,7 +6,6 @@ import android.content.Intent;
 import com.kong.app.demo.DemoActivity;
 import com.kong.app.demo.note.NoteActivity;
 import com.kong.app.news.beans.NewModel;
-import com.kong.app.news.commons.ApiConstants;
 import com.kong.app.news.detail.NewsDetailActivity;
 import com.kong.app.news.ui.AboutActivity;
 import com.kong.app.news.ui.BrowserActivity;
@@ -83,7 +82,8 @@ public class NewsEntry implements INewsEntry {
     @Override
     public void startDetailActivity(Context context, NewModel news) {
         Intent intent = new Intent(context, NewsDetailActivity.class);
-        intent.putExtra(ApiConstants.NEWS_KEY, news);
+        intent.putExtra(NewsDetailActivity.TITLE,news.title);
+        intent.putExtra(NewsDetailActivity.URL,news.newUrl);
         ActivityUtils.startActivity(context, intent);
     }
 }

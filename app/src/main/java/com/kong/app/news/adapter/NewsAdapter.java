@@ -5,10 +5,12 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.kong.R;
 import com.kong.app.news.beans.NewModel;
-import com.kong.app.news.widget.NewCardView;
+import com.library.utils.ImageLoaderUtils;
 
 import java.util.List;
 
@@ -46,10 +48,12 @@ public class NewsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        View view;
         if (viewType == TYPE_ITEM) {
-            return new ItemViewHolder(new NewCardView(mContext));
+            view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_news, null);
+            return new ItemViewHolder(view);
         } else {
-            View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.footer_loading_view, null);
+            view = LayoutInflater.from(parent.getContext()).inflate(R.layout.footer_loading_view, null);
             view.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,
                     ViewGroup.LayoutParams.WRAP_CONTENT));
             return new FooterViewHolder(view);
@@ -63,13 +67,9 @@ public class NewsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
             if (news == null) {
                 return;
             }
-            NewCardView cardView = ((ItemViewHolder) holder).itemView;
-            if (cardView == null) {
-                return;
-            }
-            cardView.setTitle(news.title);
-            cardView.setContent(news.digest);
-            cardView.setImageURL(news.imageUrl);
+            ((ItemViewHolder) holder).mTitle.setText(news.title);
+            ((ItemViewHolder) holder).mDesc.setText(news.digest);
+            ImageLoaderUtils.display(mContext, ((ItemViewHolder) holder).mImageView, news.imageUrl,R.drawable.ic_image_loading, R.drawable.ic_image_loadfail);
         }
     }
 
@@ -111,11 +111,14 @@ public class NewsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     }
 
     public class ItemViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
-        public NewCardView itemView;
+        public ImageView mImageView;
+        public TextView mTitle, mDesc;
 
         public ItemViewHolder(View v) {
             super(v);
-            itemView = (NewCardView) v;
+            mImageView = (ImageView) v.findViewById(R.id.ivNews);
+            mTitle = (TextView) v.findViewById(R.id.tvTitle);
+            mDesc = (TextView) v.findViewById(R.id.tvDesc);
             v.setOnClickListener(this);
         }
 

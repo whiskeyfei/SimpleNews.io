@@ -23,6 +23,7 @@ public interface INewsEntry {
     void startNote(Context context, Intent intent);
 
     void startMain(Context context);
+
     void startBrowser(Context context,String url);
 
     void startDetailActivity(Context context, NewModel news);

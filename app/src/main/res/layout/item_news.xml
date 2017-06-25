@@ -1,32 +1,53 @@
 <?xml version="1.0" encoding="utf-8"?>
-<merge xmlns:android="http://schemas.android.com/apk/res/android">
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:orientation="vertical"
+              android:padding="1dp">
 
-    <ImageView
-        android:id="@+id/ivNews"
-        android:layout_width="86dp"
-        android:layout_height="60dp"
-        android:scaleType="centerCrop"/>
-
-    <TextView
-        android:id="@+id/tvTitle"
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="94dp"
-        android:maxLines="1"
-        android:textColor="@color/primary_text"
-        android:textSize="@dimen/sn_16sp"/>
+        android:padding="14dp">
 
-    <TextView
-        android:id="@+id/tvDesc"
+        <ImageView
+            android:id="@+id/ivNews"
+            android:layout_width="86dp"
+            android:layout_height="60dp"
+            android:padding="2dp"
+            android:scaleType="centerCrop"/>
+
+        <TextView
+            android:id="@+id/tvTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/ivNews"
+            android:text="xxxxxxxxxxxxxxxxsssssssssxxxxxxxxxx"
+            android:textColor="@color/primary_text"
+            android:maxLines="2"
+            android:paddingLeft="4dp"
+            android:textSize="@dimen/sn_16sp"/>
+
+        <TextView
+            android:id="@+id/tvDesc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/ivNews"
+            android:layout_toRightOf="@+id/ivNews"
+            android:maxLines="1"
+            android:paddingLeft="4dp"
+            android:text="xxxxxxx"
+            android:textColor="@color/secondary_text"
+            android:textSize="@dimen/sn_12sp"/>
+
+    </RelativeLayout>
+
+    <View
+        android:id="@+id/item_bolg_line"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/tvTitle"
-        android:layout_marginLeft="94dp"
-        android:layout_marginTop="25dp"
-        android:layout_toRightOf="@+id/ivNews"
-        android:maxLines="2"
-        android:textColor="@color/secondary_text"
-        android:textSize="@dimen/sn_12sp"/>
-
-
-</merge>
+        android:layout_height="1dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginLeft="14dp"
+        android:layout_marginRight="14dp"
+        android:background="?android:attr/listDivider"/>
+</LinearLayout>

@@ -12,6 +12,7 @@ import android.widget.TextView;
 import com.kong.R;
 import com.kong.app.blog.model.Feed;
 import com.kong.app.news.NewsEntry;
+import com.kong.app.news.beans.NewModel;
 import com.library.utils.StringUtils;
 
 import me.drakeet.multitype.ItemViewBinder;
@@ -90,7 +91,11 @@ public class BlogItemViewBinder extends ItemViewBinder<Feed.PostsBean.ItemsBean,
             if (mItemModel == null){
                 return;
             }
-            NewsEntry.get().startBrowser(v.getContext(),mItemModel.getUrl());
+            NewModel model = new NewModel();
+            model.newUrl = mItemModel.getUrl();
+            model.title = mItemModel.getTitle();
+            NewsEntry.get().startDetailActivity(v.getContext(),model);
+//            NewsEntry.get().startBrowser(v.getContext(),mItemModel.getUrl());
         }
 
     }

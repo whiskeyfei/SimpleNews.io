@@ -16,7 +16,6 @@
             android:id="@+id/detail_toolbar"
             layout="@layout/base_toolbar_layout"/>
 
-
     </android.support.design.widget.AppBarLayout>
 
     <android.support.v4.widget.NestedScrollView

@@ -19,6 +19,7 @@ import org.greenrobot.eventbus.ThreadMode;
  */
 
 public class BaseActivity extends AppCompatActivity {
+
     private static final String TAG = "BaseActivity";
 
     @Override
@@ -72,6 +73,5 @@ public class BaseActivity extends AppCompatActivity {
         toolbar.setTitle(title);
         initToolBar(toolbar);
     }
-
 
 }
