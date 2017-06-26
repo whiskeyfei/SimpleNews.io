@@ -27,7 +27,7 @@ public class BlogItemViewBinder extends ItemViewBinder<Feed.PostsBean.ItemsBean,
 
     @Override
     protected ViewHolder onCreateViewHolder(@NonNull LayoutInflater inflater, @NonNull ViewGroup parent) {
-        return new ViewHolder(inflater.inflate(R.layout.item_blog2, parent, false));
+        return new ViewHolder(inflater.inflate(R.layout.item_blog, parent, false));
     }
 
     @Override

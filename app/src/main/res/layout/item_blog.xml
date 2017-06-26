@@ -1,57 +1,65 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              xmlns:app="http://schemas.android.com/apk/res-auto"
               android:layout_width="match_parent"
               android:layout_height="wrap_content"
               android:orientation="vertical"
-              android:paddingLeft="3dp"
-              android:paddingRight="3dp"
-              android:paddingTop="3dp">
+              android:padding="3dp">
 
-    <android.support.v7.widget.CardView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:cardCornerRadius="4dp"
-        app:cardUseCompatPadding="true">
+        android:orientation="horizontal"
+        android:padding="15dp">
 
         <LinearLayout
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:padding="15dp">
+            android:layout_weight="8"
+            android:orientation="vertical">
 
-            <LinearLayout
-                android:layout_width="0dp"
+            <TextView
+                android:id="@+id/item_blog_name_id"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="8"
-                android:orientation="vertical">
+                android:lines="1"
+                android:text="name"/>
 
-                <TextView
-                    android:id="@+id/item_blog_title_id"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginRight="16dp"
-                    android:textSize="16sp"/>
+            <TextView
+                android:id="@+id/item_blog_title_id"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="16dp"
+                android:layout_marginTop="4dp"
+                android:textColor="@color/primary_text"
+                android:text="XXXXXXXXXXXXXXX"
+                android:textSize="16sp"/>
 
-                <TextView
-                    android:id="@+id/item_blog_info_id"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="4dp"
-                    android:textSize="12sp"/>
-            </LinearLayout>
-
-            <ImageView
-                android:id="@+id/item_blog_icon"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_gravity="center"
-                android:layout_weight="1"
-                android:scaleType="fitCenter"
-                android:src="@drawable/face"/>
-
+            <TextView
+                android:id="@+id/item_blog_info_id"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="XXXXXXXXXXXXXXXXXXXXXX"
+                android:textSize="12sp"/>
         </LinearLayout>
 
-    </android.support.v7.widget.CardView>
+        <ImageView
+            android:id="@+id/item_blog_icon"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:scaleType="fitCenter"
+            android:src="@drawable/face"/>
+
+    </LinearLayout>
+
+    <View
+        android:id="@+id/item_bolg_line"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:background="?android:attr/listDivider"/>
 
 </LinearLayout>

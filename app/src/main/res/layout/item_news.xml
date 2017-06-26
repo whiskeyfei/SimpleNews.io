@@ -2,8 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
               android:layout_width="match_parent"
               android:layout_height="wrap_content"
-              android:orientation="vertical"
-              android:padding="1dp">
+              android:orientation="vertical">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -25,7 +24,7 @@
             android:text="xxxxxxxxxxxxxxxxsssssssssxxxxxxxxxx"
             android:textColor="@color/primary_text"
             android:maxLines="2"
-            android:paddingLeft="4dp"
+            android:layout_marginLeft="5dp"
             android:textSize="@dimen/sn_16sp"/>
 
         <TextView
@@ -35,7 +34,7 @@
             android:layout_alignBottom="@+id/ivNews"
             android:layout_toRightOf="@+id/ivNews"
             android:maxLines="1"
-            android:paddingLeft="4dp"
+            android:layout_marginLeft="5dp"
             android:text="xxxxxxx"
             android:textColor="@color/secondary_text"
             android:textSize="@dimen/sn_12sp"/>
@@ -44,10 +43,8 @@
 
     <View
         android:id="@+id/item_bolg_line"
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
         android:layout_alignParentBottom="true"
-        android:layout_marginLeft="14dp"
-        android:layout_marginRight="14dp"
-        android:background="?android:attr/listDivider"/>
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        style="@style/AppWidget.DeepLine"/>
 </LinearLayout>

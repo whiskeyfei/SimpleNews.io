@@ -1,20 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:id="@+id/demo_item_main"
-              android:layout_width="match_parent"
-              android:layout_height="wrap_content"
-              android:background="?android:attr/selectableItemBackground"
-              android:orientation="vertical">
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:id="@+id/demo_item_main"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="?android:attr/selectableItemBackground">
 
     <TextView
         android:id="@+id/demo_item_text"
         style="@style/AboutColor_title"
         android:layout_width="match_parent"
-        android:layout_height="60dp"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
         android:gravity="center_vertical"
-        android:padding="8dp"
+        android:padding="16dp"
         android:text="@string/about_version"/>
 
-    <View style="@style/AppWidget.DeepLine" />
+    <View
+        style="@style/AppWidget.DeepLine"
+        android:layout_alignParentBottom="true"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"/>
 
-</LinearLayout>
+</RelativeLayout>

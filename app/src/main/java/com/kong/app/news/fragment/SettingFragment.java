@@ -1,6 +1,5 @@
 package com.kong.app.news.fragment;
 
-import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.Preference;
@@ -12,7 +11,6 @@ import com.afollestad.materialdialogs.color.ColorChooserDialog;
 import com.kong.R;
 import com.kong.app.news.ui.SettingActivity;
 import com.kong.app.news.utils.SettingsUtil;
-import com.library.AppRun;
 import com.library.utils.ToolsUtil;
 
 /**
@@ -73,13 +71,4 @@ public class SettingFragment extends PreferenceFragment implements Preference.On
         return true;
     }
 
-    public static int getThemeIndex() {
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(AppRun.get().getApplicationContext());
-        return prefs.getInt("ThemeIndex", 0);
-    }
-
-    public static void setThemeIndex(Context context, int index) {
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-        prefs.edit().putInt("ThemeIndex", index).apply();
-    }
 }

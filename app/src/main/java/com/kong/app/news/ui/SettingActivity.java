@@ -84,6 +84,6 @@ public class SettingActivity extends ThemeActivity implements ColorChooserDialog
     }
 
     private void replace(){
-        getFragmentManager().beginTransaction().replace(R.id.settings_content, new SettingFragment()).commit();
+        getFragmentManager().beginTransaction().replace(R.id.settings_content, SettingFragment.newInstance()).commit();
     }
 }

@@ -1,7 +1,6 @@
 package com.kong.app.demo;
 
 import android.os.Bundle;
-import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 
@@ -47,7 +46,6 @@ public class DemoActivity extends ThemeActivity {
 
     private void initList() {
         mRecyclerView = (RecyclerView) findViewById(R.id.note_recycle_view);
-        mRecyclerView.addItemDecoration(new DividerItemDecoration(this, DividerItemDecoration.VERTICAL));
         mAdapter = new MultiTypeAdapter();
         mAdapter.register(ItemModel.class, new DemoItemViewBinder());
         mRecyclerView.setAdapter(mAdapter);
