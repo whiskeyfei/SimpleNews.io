@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,8 +13,15 @@ import android.widget.RelativeLayout;
 
 import com.kong.R;
 import com.kong.app.blog.model.Feed;
+import com.kong.app.blog.tool.OnRCVScollListener;
+import com.kong.app.demo.about.TextItemViewBinder;
+import com.kong.app.demo.about.TextViewItem;
 import com.kong.lib.share.common.fragment.BaseFragment;
 import com.library.utils.ListUtils;
+import com.library.utils.ResourceUtil;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import me.drakeet.multitype.MultiTypeAdapter;
 
@@ -21,14 +29,17 @@ import me.drakeet.multitype.MultiTypeAdapter;
  * Created by CaoPengfei on 17/6/21.
  */
 
-public class BlogListFragment extends BaseFragment {
+public class BlogListFragment extends BaseFragment implements OnRCVScollListener.OnLoadListener{
 
+    public static final String TAG = "BlogListFragment";
     public static final String FRAGMENT_TYPE_KEY = "bean";
 
     private RecyclerView mRecyclerView;
     private Feed.PostsBean mPostsBeans;
     private RelativeLayout mLoadingView;
     private LinearLayout mErrorView;
+    private MultiTypeAdapter mAdapter;
+    private List<Object> mObjectList = new ArrayList<Object>();
 
     public static BlogListFragment newInstance(Feed.PostsBean bean) {
         Bundle args = new Bundle();
@@ -53,15 +64,28 @@ public class BlogListFragment extends BaseFragment {
         mRecyclerView.setHasFixedSize(true);
         LinearLayoutManager layoutManager = new LinearLayoutManager(getActivity());
         mRecyclerView.setLayoutManager(layoutManager);
+        mRecyclerView.addOnScrollListener(new OnRCVScollListener(layoutManager,this));
         mRecyclerView.setItemAnimator(new DefaultItemAnimator());
-        MultiTypeAdapter adapter = new MultiTypeAdapter();
-        adapter.register(Feed.PostsBean.ItemsBean.class, new BlogItemViewBinder());
-        mRecyclerView.setAdapter(adapter);
-        if (mPostsBeans != null && !ListUtils.isEmpty(mPostsBeans.getItems())) {
-            adapter.setItems(mPostsBeans.getItems());
-            adapter.notifyDataSetChanged();
+        mAdapter = new MultiTypeAdapter();
+        mAdapter.register(Feed.PostsBean.ItemsBean.class, new BlogItemViewBinder());
+        mAdapter.register(TextViewItem.class, new TextItemViewBinder());
+
+        mRecyclerView.setAdapter(mAdapter);
+
+        if (mPostsBeans == null) {
+            showError();
+            return;
+        }
+        List<Feed.PostsBean.ItemsBean> list = mPostsBeans.getItems();
+        if (!ListUtils.isEmpty(list)) {
+            for (Feed.PostsBean.ItemsBean bean : list) {
+                mObjectList.add(bean);
+            }
+//            mObjectList.add(item);
+            mAdapter.setItems(mObjectList);
+            mAdapter.notifyDataSetChanged();
             showResult();
-        }else{
+        } else {
             showError();
         }
     }
@@ -90,4 +114,26 @@ public class BlogListFragment extends BaseFragment {
         mErrorView.setVisibility(View.GONE);
     }
 
+    @Override
+    public void load() {
+        if (!isEnd()){
+            Log.i(TAG, "load more");
+            TextViewItem item = new TextViewItem();
+            item.text = ResourceUtil.getString(R.string.blog_end);
+            mObjectList.add(item);
+            mAdapter.notifyDataSetChanged();
+            setEnd(true);
+        }
+
+    }
+
+    private boolean isEnd;
+
+    private boolean isEnd(){
+        return isEnd;
+    }
+
+    public void setEnd(boolean end) {
+        isEnd = end;
+    }
 }

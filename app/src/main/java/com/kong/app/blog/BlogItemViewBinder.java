@@ -13,6 +13,8 @@ import com.kong.R;
 import com.kong.app.blog.model.Feed;
 import com.kong.app.news.NewsEntry;
 import com.kong.app.news.beans.NewModel;
+import com.library.AppRun;
+import com.library.utils.ImageLoaderUtils;
 import com.library.utils.StringUtils;
 
 import me.drakeet.multitype.ItemViewBinder;
@@ -32,9 +34,9 @@ public class BlogItemViewBinder extends ItemViewBinder<Feed.PostsBean.ItemsBean,
 
     @Override
     protected void onBindViewHolder(@NonNull ViewHolder holder, @NonNull Feed.PostsBean.ItemsBean item) {
-        if (getPosition(holder) == getAdapter().getItemCount() -1){
-            holder.line.setVisibility(View.GONE);
-        }
+//        if (getPosition(holder) == getAdapter().getItemCount() -1){
+//            holder.line.setVisibility(View.GONE);
+//        }
         holder.setData(item);
     }
 
@@ -82,7 +84,8 @@ public class BlogItemViewBinder extends ItemViewBinder<Feed.PostsBean.ItemsBean,
             }
             info.setText("Keywords: " + itemModel.getKeywords());
             if (!StringUtils.isEmpty(itemModel.getCover())){
-                icon.setVisibility(View.GONE);
+                icon.setVisibility(View.VISIBLE);
+                ImageLoaderUtils.display(AppRun.get().getApplicationContext(), icon, itemModel.getCover(),R.drawable.ic_image_loading, R.drawable.ic_image_loadfail);
             }
         }
 
