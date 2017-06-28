@@ -160,7 +160,7 @@
 
     </LinearLayout>
 
-    <View style="@style/AppWidget.ShadowGap"/>
+    <View style="@style/AppWidget.DeepLine"/>
 
     <TextView
         android:layout_width="match_parent"

@@ -10,6 +10,7 @@ import android.widget.TextView;
 
 import com.kong.R;
 import com.kong.app.news.beans.NewModel;
+import com.kong.app.news.utils.TimeUtils;
 import com.library.utils.ImageLoaderUtils;
 
 import java.util.List;
@@ -35,7 +36,6 @@ public class NewsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
     @Override
     public int getItemViewType(int position) {
-        // 最后一个item设置为footerView
         if (!mShowFooter) {
             return TYPE_ITEM;
         }
@@ -68,7 +68,7 @@ public class NewsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
                 return;
             }
             ((ItemViewHolder) holder).mTitle.setText(news.title);
-            ((ItemViewHolder) holder).mDesc.setText(news.digest);
+            ((ItemViewHolder) holder).mDesc.setText(TimeUtils.getGapTime(news.time) +" "+ news.digest);
             ImageLoaderUtils.display(mContext, ((ItemViewHolder) holder).mImageView, news.imageUrl,R.drawable.ic_image_loading, R.drawable.ic_image_loadfail);
         }
     }

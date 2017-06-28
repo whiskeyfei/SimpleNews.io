@@ -9,10 +9,12 @@ import java.io.Serializable;
  */
 public class NewModel implements Serializable {
 
-    @SerializedName("hottime")
+    @SerializedName("ctime")
     public String time;
 
+    @SerializedName("title")
     public String title;
+
     @SerializedName("description")
     public String digest;
 
@@ -21,4 +23,15 @@ public class NewModel implements Serializable {
 
     @SerializedName("url")
     public String newUrl;
+
+    @Override
+    public String toString() {
+        return "NewModel{" +
+                "time='" + time + '\'' +
+                ", title='" + title + '\'' +
+                ", digest='" + digest + '\'' +
+                ", imageUrl='" + imageUrl + '\'' +
+                ", newUrl='" + newUrl  +
+                '}'+ '\n';
+    }
 }

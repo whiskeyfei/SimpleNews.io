@@ -19,4 +19,12 @@ public class NewResultModel implements Serializable {
     @SerializedName("newslist")
     public List<NewModel> newModellist;
 
+    @Override
+    public String toString() {
+        return "NewResultModel{" +
+                "resultCode=" + resultCode +
+                ", resultMsg='" + resultMsg + '\'' +
+                ", newModellist=" + newModellist +
+                '}';
+    }
 }

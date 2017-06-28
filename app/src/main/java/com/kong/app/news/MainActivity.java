@@ -180,6 +180,4 @@ public class MainActivity extends ThemeActivity implements MainContract.View,IBa
         this.recreate();
     }
 
-
-
 }

@@ -4,7 +4,6 @@ import android.os.Bundle;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -81,7 +80,6 @@ public class BlogListFragment extends BaseFragment implements OnRCVScollListener
             for (Feed.PostsBean.ItemsBean bean : list) {
                 mObjectList.add(bean);
             }
-//            mObjectList.add(item);
             mAdapter.setItems(mObjectList);
             mAdapter.notifyDataSetChanged();
             showResult();
@@ -117,14 +115,12 @@ public class BlogListFragment extends BaseFragment implements OnRCVScollListener
     @Override
     public void load() {
         if (!isEnd()){
-            Log.i(TAG, "load more");
             TextViewItem item = new TextViewItem();
             item.text = ResourceUtil.getString(R.string.blog_end);
             mObjectList.add(item);
             mAdapter.notifyDataSetChanged();
             setEnd(true);
         }
-
     }
 
     private boolean isEnd;

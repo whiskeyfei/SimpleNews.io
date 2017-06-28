@@ -7,24 +7,24 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="14dp">
+        android:padding="@dimen/item_view_margin_left">
 
         <ImageView
             android:id="@+id/ivNews"
             android:layout_width="86dp"
             android:layout_height="60dp"
-            android:padding="2dp"
+            android:padding="1dp"
             android:scaleType="centerCrop"/>
 
         <TextView
             android:id="@+id/tvTitle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
             android:layout_toRightOf="@+id/ivNews"
+            android:maxLines="2"
             android:text="xxxxxxxxxxxxxxxxsssssssssxxxxxxxxxx"
             android:textColor="@color/primary_text"
-            android:maxLines="2"
-            android:layout_marginLeft="5dp"
             android:textSize="@dimen/sn_16sp"/>
 
         <TextView
@@ -32,9 +32,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignBottom="@+id/ivNews"
+            android:layout_marginLeft="5dp"
             android:layout_toRightOf="@+id/ivNews"
             android:maxLines="1"
-            android:layout_marginLeft="5dp"
             android:text="xxxxxxx"
             android:textColor="@color/secondary_text"
             android:textSize="@dimen/sn_12sp"/>
@@ -43,8 +43,6 @@
 
     <View
         android:id="@+id/item_bolg_line"
-        android:layout_alignParentBottom="true"
-        android:layout_marginLeft="16dp"
-        android:layout_marginRight="16dp"
-        style="@style/AppWidget.DeepLine"/>
+        style="@style/AppWidget.DeepLine"
+        android:layout_alignParentBottom="true"/>
 </LinearLayout>
