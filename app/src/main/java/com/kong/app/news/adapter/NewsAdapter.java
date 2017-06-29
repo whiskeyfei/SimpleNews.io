@@ -68,7 +68,7 @@ public class NewsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
                 return;
             }
             ((ItemViewHolder) holder).mTitle.setText(news.title);
-            ((ItemViewHolder) holder).mDesc.setText(TimeUtils.getGapTime(news.time) +" "+ news.digest);
+            ((ItemViewHolder) holder).mDesc.setText(new StringBuilder(TimeUtils.getGapTime(news.time)).append(" ").append(news.digest).toString());
             ImageLoaderUtils.display(mContext, ((ItemViewHolder) holder).mImageView, news.imageUrl,R.drawable.ic_image_loading, R.drawable.ic_image_loadfail);
         }
     }

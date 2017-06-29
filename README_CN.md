@@ -13,7 +13,7 @@
 
 ### 效果图
 
-<img src="screenshot/simple_6.jpg" width=216/><img src="screenshot/simple_7.jpg" width=216/><img src="screenshot/simple_8.jpg" width=216/><img src="screenshot/simple_9.jpg" width=216/><img src="screenshot/simple_1.jpg" width=216/><img src="screenshot/simple_2.jpg" width=216/><img src="screenshot/simple_3.jpg" width=216/><img src="screenshot/simple_4.jpg" width=216/><img src="screenshot/simple_5.jpg" width=216/><img src="screenshot/simple_10.jpg" width=216/><img src="screenshot/simple_11.jpg" width=216/>
+<img src="screenshot/simple_6.png" width=216/><img src="screenshot/simple_7.png" width=216/><img src="screenshot/simple_8.png" width=216/><img src="screenshot/simple_9.png" width=216/><img src="screenshot/simple_1.png" width=216/><img src="screenshot/simple_2.png" width=216/><img src="screenshot/simple_3.png" width=216/><img src="screenshot/simple_4.png" width=216/><img src="screenshot/simple_5.png" width=216/><img src="screenshot/simple_10.png" width=216/><img src="screenshot/simple_11.png" width=216/>
 
 ### App设计
 

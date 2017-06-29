@@ -1,5 +1,7 @@
 package com.kong.app.news.utils;
 
+import com.kong.R;
+import com.library.utils.ResourceUtil;
 import com.library.utils.StringUtils;
 
 import java.text.ParseException;
@@ -16,6 +18,7 @@ public class TimeUtils {
     private static java.util.Date sNowTime = new Date();
     private static long nd = 1000 * 24 * 60 * 60;
     private static long nh = 1000 * 60 * 60;
+    private static String day = ResourceUtil.getString(R.string.today);
 
     public static Date parse(String strDate) throws ParseException {
         return sSimpleDateFormat.parse(strDate);
@@ -27,7 +30,7 @@ public class TimeUtils {
      * @return
      */
     public static String getGapTime(String toTime) {
-        String time = "今天";
+        String time = day;
         if (StringUtils.isEmpty(toTime)) {
             return time;
         }
@@ -42,10 +45,10 @@ public class TimeUtils {
         long day = gap / nd;
         int hours = (int) (gap / nh);
         if (day > 1) {
-            return day + "天前";
+            return day + ResourceUtil.getString(R.string.before_day);
         }
         if (hours > 0 && hours < 24) {
-            return hours + "小时前";
+            return hours + ResourceUtil.getString(R.string.before_hours);
         }
         return time;
     }

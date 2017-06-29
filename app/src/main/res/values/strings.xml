@@ -47,6 +47,9 @@
     <string name="done">确定</string>
     <string name="cancel">取消</string>
     <string name="back_again_exit">再按一次退出</string>
+    <string name="today">今天</string>
+    <string name="before_day">天前</string>
+    <string name="before_hours">小时前</string>
 
     <string-array name="SettingColorNames">
         <item>青石色</item>
@@ -59,4 +62,5 @@
         <item>粉蓍草</item>
         <item>尼亚加拉</item>
     </string-array>
+
 </resources>
