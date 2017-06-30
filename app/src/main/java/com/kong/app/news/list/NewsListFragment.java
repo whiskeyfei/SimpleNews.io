@@ -15,9 +15,9 @@ import com.kong.app.news.NewsEntry;
 import com.kong.app.news.NewsFragment;
 import com.kong.app.news.adapter.NewsAdapter;
 import com.kong.app.news.beans.NewModel;
-import com.kong.app.news.commons.ApiConstants;
 import com.kong.lib.share.common.fragment.BaseFragment;
 import com.kong.lib.share.common.mvp.Injection;
+import com.library.utils.ListUtils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -36,7 +36,7 @@ public class NewsListFragment extends BaseFragment implements NewsContract.View,
     private NewsContract.Presenter mNewsPresenter;
 
     private int mType = NewsFragment.NEWS_TYPE_TOP;
-    private int pageIndex = 0;
+    private int pageIndex = 1;
 
     public static NewsListFragment newInstance(int type) {
         Bundle args = new Bundle();
@@ -89,11 +89,10 @@ public class NewsListFragment extends BaseFragment implements NewsContract.View,
         @Override
         public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
             super.onScrollStateChanged(recyclerView, newState);
-            if (newState == RecyclerView.SCROLL_STATE_IDLE
-                    && lastVisibleItem + 1 == mAdapter.getItemCount()
+            if (newState == RecyclerView.SCROLL_STATE_IDLE && lastVisibleItem + 1 == mAdapter.getItemCount()
                     && mAdapter.isShowFooter()) {
-                //加载更多
-                mNewsPresenter.loadNews(mType, pageIndex + ApiConstants.PAZE_SIZE);
+                pageIndex+=1;
+                mNewsPresenter.loadNews(mType, pageIndex);
             }
         }
     };
@@ -119,16 +118,14 @@ public class NewsListFragment extends BaseFragment implements NewsContract.View,
             mData = new ArrayList<>();
         }
         mData.addAll(newsList);
-        if(pageIndex == 0) {
+        if(pageIndex == 1) {
             mAdapter.setNewDate(mData);
         } else {
-            //如果没有更多数据了,则隐藏footer布局
-            if(newsList == null || newsList.size() == 0) {
+            if(ListUtils.isEmpty(mData)) {
                 mAdapter.isShowFooter(false);
             }
             mAdapter.notifyDataSetChanged();
         }
-        pageIndex += ApiConstants.PAZE_SIZE;
     }
 
 
@@ -139,7 +136,7 @@ public class NewsListFragment extends BaseFragment implements NewsContract.View,
 
     @Override
     public void showLoadFailMsg() {
-        if(pageIndex == 0) {
+        if(pageIndex == 1) {
             mAdapter.isShowFooter(false);
             mAdapter.notifyDataSetChanged();
         }
@@ -147,9 +144,23 @@ public class NewsListFragment extends BaseFragment implements NewsContract.View,
         Snackbar.make(view, getString(R.string.load_fail), Snackbar.LENGTH_SHORT).show();
     }
 
+    private boolean isEnd = false;
+
+    @Override
+    public void setEnd(boolean isEnd) {
+        this.isEnd = isEnd;
+        if (this.isEnd){
+            mAdapter.isShowFooter(false);
+            mAdapter.notifyDataSetChanged();
+            View view = getActivity() == null ? mRecyclerView.getRootView() : getActivity().findViewById(R.id.main_drawer_layout);
+            Snackbar.make(view, getString(R.string.load_end), Snackbar.LENGTH_SHORT).show();
+        }
+    }
+
+
     @Override
     public void onRefresh() {
-        pageIndex = 0;
+        pageIndex = 1;
         if(mData != null) {
             mData.clear();
         }

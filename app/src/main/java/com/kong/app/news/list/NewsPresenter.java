@@ -21,6 +21,8 @@ import rx.Subscriber;
 import rx.Subscription;
 import rx.subscriptions.CompositeSubscription;
 
+import static com.kong.app.news.commons.ApiConstants.MAX_PAGE;
+
 public class NewsPresenter implements NewsContract.Presenter {
 
     private static final String TAG = "NewsPresenter";
@@ -61,7 +63,7 @@ public class NewsPresenter implements NewsContract.Presenter {
                             subscriber.onError(null);
                             return;
                         }
-                        Log.e(TAG,"getNewList() -> model:" + model);
+//                        Log.e(TAG,"getNewList() -> model:" + model);
                         subscriber.onNext(model.newModellist);
                         subscriber.onCompleted();
                     }
@@ -77,15 +79,20 @@ public class NewsPresenter implements NewsContract.Presenter {
                 .observeOn(mSchedulerProvider.ui());
     }
 
-
+    @Override
     public void loadNews(final int type, final int pageIndex) {
-        String url = getUrl(type);
-        Log.e(TAG,"url###" + url);
-        //只有第一页的或者刷新的时候才显示刷新进度条
-        if (pageIndex == 0) {
+        if (pageIndex >= MAX_PAGE){
+            mView.setEnd(true);
+            return;
+        }
+
+        String url = getUrl(type) + "&page=" + pageIndex;
+//        Log.e(TAG,"loadNews url:" + url);
+        if (pageIndex == 1) {
             mView.showProgress();
         }
-        load(url, type);
+        startTask(url);
+//        load(url, type);
     }
 
     private Observer<List<NewModel>> getSubscriber() {
@@ -108,10 +115,9 @@ public class NewsPresenter implements NewsContract.Presenter {
         };
     }
 
-
-    public void load(String url, int type) {
-        startTask(url);
-    }
+//    public void load(String url, int type) {
+//        startTask(url);
+//    }
 
     private String getUrl(int type) {
         String url = null;

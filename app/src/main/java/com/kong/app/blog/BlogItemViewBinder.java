@@ -2,7 +2,6 @@ package com.kong.app.blog;
 
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -34,25 +33,22 @@ public class BlogItemViewBinder extends ItemViewBinder<Feed.PostsBean.ItemsBean,
 
     @Override
     protected void onBindViewHolder(@NonNull ViewHolder holder, @NonNull Feed.PostsBean.ItemsBean item) {
-//        if (getPosition(holder) == getAdapter().getItemCount() -1){
-//            holder.line.setVisibility(View.GONE);
-//        }
         holder.setData(item);
     }
 
     @Override
     protected void onViewRecycled(@NonNull ViewHolder holder) {
-        Log.i(TAG,"onViewRecycled"+holder.itemView);
+//        Log.i(TAG,"onViewRecycled"+holder.itemView);
     }
 
     @Override
     protected boolean onFailedToRecycleView(@NonNull ViewHolder holder) {
-        Log.i(TAG,"onFailedToRecycleView"+holder.itemView);
+//        Log.i(TAG,"onFailedToRecycleView"+holder.itemView);
         return true;
     }
 
     static class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
-        private View line;
+//        private View line;
         private TextView name;
         private TextView title;
         private TextView info;
@@ -61,7 +57,7 @@ public class BlogItemViewBinder extends ItemViewBinder<Feed.PostsBean.ItemsBean,
 
         public ViewHolder(View v) {
             super(v);
-            line = v.findViewById(R.id.item_bolg_line);
+//            line = v.findViewById(R.id.item_bolg_line);
             icon = (ImageView) v.findViewById(R.id.item_blog_icon);
             title = (TextView) v.findViewById(R.id.item_blog_title_id);
             name = (TextView) v.findViewById(R.id.item_blog_name_id);

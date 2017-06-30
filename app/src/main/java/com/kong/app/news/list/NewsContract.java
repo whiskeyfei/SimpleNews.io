@@ -20,6 +20,8 @@ public interface NewsContract {
         void hideProgress();
 
         void showLoadFailMsg();
+
+        void setEnd(boolean isEnd);
     }
 
     interface Presenter extends BaseSubPresenter {

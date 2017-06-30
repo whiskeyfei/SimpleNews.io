@@ -5,14 +5,11 @@ package com.kong.app.news.commons;
  */
 public class ApiConstants {
 
-    public static final int PAZE_SIZE = 20;
-
     // 图片
     public static final String IMAGES_URL = "http://api.laifudao.com/open/tupian.json";
     public static final String BLOGS_URL = "http://doraemonyu.me/feed0.json";
 
-    //intent key
-    public static final String NEWS_KEY = "news";
+    public static final int MAX_PAGE = 10;
 
     //微信精选
     public static final String HOST_WEIXIN = "http://api.huceo.com/wxnew/other/?key=650c60bee449d7d0acd166963939faf1&num=20";
