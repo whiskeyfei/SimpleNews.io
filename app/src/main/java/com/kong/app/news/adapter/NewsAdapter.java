@@ -39,11 +39,7 @@ public class NewsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
         if (!mShowFooter) {
             return TYPE_ITEM;
         }
-        if (position + 1 == getItemCount()) {
-            return TYPE_FOOTER;
-        } else {
-            return TYPE_ITEM;
-        }
+        return (position + 1 == getItemCount()) ? TYPE_FOOTER : TYPE_ITEM;
     }
 
     @Override
