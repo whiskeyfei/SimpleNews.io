@@ -56,10 +56,6 @@
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
             android:screenOrientation="portrait"/>
         <activity
-            android:name=".app.demo.descover.DescoverActivity"
-            android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
-            android:screenOrientation="portrait"/>
-        <activity
             android:name=".app.demo.person.PersonActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
             android:screenOrientation="portrait"/>
@@ -72,10 +68,14 @@
             android:name=".app.demo.note.NoteActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
             android:screenOrientation="portrait"/>
+        <activity
+            android:name=".app.badminton.PlayersActivity"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
+            android:screenOrientation="portrait"/>
 
         <meta-data
             android:name="PRODUCT_CHANNEL"
-            android:value="${PRODUCT_CHANNEL_VALUE}" />
+            android:value="${PRODUCT_CHANNEL_VALUE}"/>
     </application>
 
 </manifest>

@@ -2,6 +2,7 @@ package com.kong.app.demo.descover;
 
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,6 +10,9 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.kong.R;
+import com.kong.app.badminton.Players;
+import com.library.AppRun;
+import com.library.utils.ImageLoaderUtils;
 import com.library.utils.ToolsUtil;
 
 import me.drakeet.multitype.ItemViewBinder;
@@ -18,7 +22,9 @@ import me.drakeet.multitype.ItemViewBinder;
  * Created by CaoPengfei on 17/6/18.
  */
 
-public class GridItemViewBinder extends ItemViewBinder<GridItem, GridItemViewBinder.ViewHolder> {
+public class GridItemViewBinder extends ItemViewBinder<Players.PlayerBean, GridItemViewBinder.ViewHolder> {
+
+    private static final String TAG = "GridItemViewBinder";
 
     @Override
     protected ViewHolder onCreateViewHolder(@NonNull LayoutInflater inflater, @NonNull ViewGroup parent) {
@@ -27,14 +33,25 @@ public class GridItemViewBinder extends ItemViewBinder<GridItem, GridItemViewBin
     }
 
     @Override
-    protected void onBindViewHolder(@NonNull ViewHolder holder, @NonNull GridItem item) {
+    protected void onBindViewHolder(@NonNull ViewHolder holder, @NonNull Players.PlayerBean item) {
         holder.setData(item);
+    }
+
+    @Override
+    protected void onViewRecycled(@NonNull ViewHolder holder) {
+        holder.icon.setImageResource(R.drawable.ic_image_loading);
+    }
+
+    @Override
+    protected boolean onFailedToRecycleView(@NonNull ViewHolder holder) {
+        Log.i(TAG, "onFailedToRecycleView" + holder.itemView);
+        return true;
     }
 
     static class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
         public ImageView icon;
         public TextView title;
-        private GridItem mData;
+        private Players.PlayerBean mData;
 
         public ViewHolder(View itemView) {
             super(itemView);
@@ -45,12 +62,13 @@ public class GridItemViewBinder extends ItemViewBinder<GridItem, GridItemViewBin
 
         @Override
         public void onClick(View v) {
-            ToolsUtil.showToast("GridView position:"+getAdapterPosition());
+            ToolsUtil.showToast("GridView position:" + getAdapterPosition());
         }
 
-        public void setData(GridItem data) {
+        public void setData(Players.PlayerBean data) {
             mData = data;
-            title.setText(data.title);
+            title.setText(data.getName());
+            ImageLoaderUtils.display(AppRun.get().getApplicationContext(), icon, mData.getImg(),R.drawable.ic_image_loading, R.drawable.ic_image_loadfail);
         }
     }
 }

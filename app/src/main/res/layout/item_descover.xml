@@ -9,11 +9,10 @@
 
     <ImageView
         android:id="@+id/descover_icon"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
         android:layout_gravity="center"
-        android:scaleType="centerCrop"
-        android:src="@drawable/face"/>
+        android:scaleType="centerCrop"/>
 
     <TextView
         android:id="@+id/descover_title"
