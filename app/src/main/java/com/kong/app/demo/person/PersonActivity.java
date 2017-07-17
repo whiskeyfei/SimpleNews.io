@@ -39,7 +39,7 @@ public class PersonActivity extends ThemeActivity {
     }
 
     private void initBar() {
-        mToolbar = (Toolbar) findViewById(R.id.person_toolbar);
+        mToolbar = (Toolbar) findViewById(R.id.base_toolbar);
         initToolBar(mToolbar, R.string.descover);
     }
 

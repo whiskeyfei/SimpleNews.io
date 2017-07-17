@@ -43,7 +43,7 @@ public class PlayersActivity extends ThemeActivity implements PlayerContract.Vie
     }
 
     private void initBar() {
-        mToolbar = (Toolbar) findViewById(R.id.descover_toolbar);
+        mToolbar = (Toolbar) findViewById(R.id.base_toolbar);
         initToolBar(mToolbar, "球星");
     }
 

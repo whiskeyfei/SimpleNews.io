@@ -26,7 +26,7 @@ public class NoteActivity extends ThemeActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_note);
-        mToolbar = (Toolbar) findViewById(R.id.note_toolbar);
+        mToolbar = (Toolbar) findViewById(R.id.base_toolbar);
         initToolBar(mToolbar,R.string.note);
         mTextView = (TextView) findViewById(R.id.tv_note);
         mHandler.post(new Runnable() {

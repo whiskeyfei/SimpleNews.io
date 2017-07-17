@@ -27,7 +27,6 @@ public class DemoActivity extends ThemeActivity {
 
     private Toolbar mToolbar;
     private RecyclerView mRecyclerView;
-    private static final int[] sId = {R.raw.demo};
     private List<ItemModel> mNoteModels;
     private MultiTypeAdapter mAdapter;
 
@@ -40,7 +39,7 @@ public class DemoActivity extends ThemeActivity {
     }
 
     private void initBar() {
-        mToolbar = (Toolbar) findViewById(R.id.demo_toolbar);
+        mToolbar = (Toolbar) findViewById(R.id.base_toolbar);
         initToolBar(mToolbar, R.string.demo);
     }
 

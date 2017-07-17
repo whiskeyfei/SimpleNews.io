@@ -21,7 +21,7 @@ public class AboutActivity extends ThemeActivity implements View.OnClickListener
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_about);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.about_toolbar);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.base_toolbar);
         toolbar.setTitle(ResourceUtil.getString(R.string.about));
         initToolBar(toolbar);
         findViewById(R.id.about_btn_version).setOnClickListener(this);

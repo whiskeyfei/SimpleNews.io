@@ -29,12 +29,12 @@ public class BrowserActivity extends ThemeActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_browser);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.browser_toolbar);
-        initToolBar(toolbar,"");
+        Toolbar toolbar = (Toolbar) findViewById(R.id.base_toolbar);
+        initToolBar(toolbar, "");
         mWebView = (WebView) findViewById(R.id.browser_webView);
         mProgressBar = (ProgressBar) findViewById(R.id.browser_progress);
 
-        mWebView.setWebChromeClient(new WebChromeClient(){
+        mWebView.setWebChromeClient(new WebChromeClient() {
 
             @Override
             public void onProgressChanged(WebView view, int newProgress) {
@@ -54,7 +54,7 @@ public class BrowserActivity extends ThemeActivity {
 
         });
 
-        mWebView.setWebViewClient(new WebViewClient(){
+        mWebView.setWebViewClient(new WebViewClient() {
 
             @Override
             public void onPageStarted(WebView view, String url, Bitmap favicon) {
@@ -68,22 +68,22 @@ public class BrowserActivity extends ThemeActivity {
         });
 
         Intent intent = getIntent();
-        if (intent != null){
+        if (intent != null) {
             mUrl = intent.getStringExtra(BWO_KEY);
         }
-        if (!StringUtils.isEmpty(mUrl)){
+        if (!StringUtils.isEmpty(mUrl)) {
             mWebView.loadUrl(mUrl);
-        }else{
+        } else {
             showError();
         }
     }
 
-    public void showResult(){
+    public void showResult() {
         mWebView.setVisibility(View.VISIBLE);
         mProgressBar.setVisibility(View.GONE);
     }
 
-    public void showError(){
+    public void showError() {
         mWebView.setVisibility(View.GONE);
         mProgressBar.setVisibility(View.GONE);
     }

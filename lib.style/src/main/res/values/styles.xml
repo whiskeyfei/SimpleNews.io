@@ -67,7 +67,7 @@
         <item name="android:background">?android:attr/selectableItemBackground</item>
     </style>
 
-<!-- -->
+    <!-- -->
 
     <style name="LapisBlueTheme" parent="BaseTheme">
         <item name="colorPrimary">@color/lapis_blue</item>

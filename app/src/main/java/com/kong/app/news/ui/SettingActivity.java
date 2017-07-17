@@ -30,7 +30,7 @@ public class SettingActivity extends ThemeActivity implements ColorChooserDialog
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings);
-        mToolbar = (Toolbar) findViewById(R.id.settings_toolbar);
+        mToolbar = (Toolbar) findViewById(R.id.base_toolbar);
         mToolbar.setTitle(ResourceUtil.getString(R.string.settings));
         initToolBar(mToolbar);
         replace();

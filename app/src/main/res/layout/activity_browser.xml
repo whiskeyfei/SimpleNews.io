@@ -5,9 +5,7 @@
               android:layout_height="match_parent"
               android:orientation="vertical">
 
-    <include
-        android:id="@+id/browser_toolbar"
-        layout="@layout/base_toolbar_layout"/>
+    <include layout="@layout/base_toolbar_layout"/>
 
     <android.support.v4.widget.NestedScrollView
         android:layout_width="match_parent"

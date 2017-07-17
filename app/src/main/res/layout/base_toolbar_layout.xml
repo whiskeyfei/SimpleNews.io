@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.v7.widget.Toolbar xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/apk/res-auto"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:background="?attr/colorPrimary"
-    android:minHeight="?attr/actionBarSize"
-    tools:popupTheme="@style/ThemeOverlay.AppCompat.Light"
-    tools:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"/>
+                                   xmlns:tools="http://schemas.android.com/apk/res-auto"
+                                   android:id="@+id/base_toolbar"
+                                   android:layout_width="match_parent"
+                                   android:layout_height="wrap_content"
+                                   android:background="?attr/colorPrimary"
+                                   android:minHeight="?attr/actionBarSize"
+                                   tools:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+                                   tools:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"/>

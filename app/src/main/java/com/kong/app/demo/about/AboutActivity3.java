@@ -37,7 +37,7 @@ public class AboutActivity3 extends ThemeActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_about3);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.about3_toolbar);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.base_toolbar);
         toolbar.setTitle(ResourceUtil.getString(R.string.about));
         initToolBar(toolbar);
         initContent();

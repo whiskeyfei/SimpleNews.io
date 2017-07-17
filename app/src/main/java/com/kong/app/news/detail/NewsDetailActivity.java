@@ -30,7 +30,7 @@ public class NewsDetailActivity extends ThemeActivity implements DetailContract.
     }
 
     private void initView() {
-        Toolbar toolbar = (Toolbar) findViewById(R.id.detail_toolbar);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.base_toolbar);
         initToolBar(toolbar,mTitle);
         mWebView = (WebView)findViewById(R.id.detail_webview_content);
 
