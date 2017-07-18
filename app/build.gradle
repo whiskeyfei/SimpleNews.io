@@ -16,16 +16,15 @@ android {
 
     signingConfigs {
         releaseConfig {
-//            keyAlias rootProject.ext.releaseConfig.keyAlias
-//            keyPassword rootProject.ext.releaseConfig.keyPassword
+            keyAlias rootProject.ext.releaseConfig.keyAlias
+            keyPassword rootProject.ext.releaseConfig.keyPassword
 //            storeFile file(rootProject.ext.releaseConfig.storeFile)
-//            storePassword rootProject.ext.releaseConfig.storePassword
+            storePassword rootProject.ext.releaseConfig.storePassword
         }
     }
 
     buildTypes {
         debug {
-            applicationIdSuffix ".debug"
             minifyEnabled false
             zipAlignEnabled false
             shrinkResources false
@@ -59,9 +58,9 @@ android {
         product1 {
             manifestPlaceholders.put("PRODUCT_CHANNEL_VALUE", 'product1')
         }
-        product2 {
-            manifestPlaceholders.put("PRODUCT_CHANNEL_VALUE", 'product2')
-        }
+//        product2 {
+//            manifestPlaceholders.put("PRODUCT_CHANNEL_VALUE", 'product2')
+//        }
     }
 
 }

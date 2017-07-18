@@ -34,7 +34,6 @@ public class MainActivity extends ThemeActivity implements MainContract.View,IBa
     private Toolbar mToolbar;
     private DrawerLayout mDrawerLayout;
     private BaseFragment mCurrentFragment;
-    private MainContract.Presenter mMainPresenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,9 +45,8 @@ public class MainActivity extends ThemeActivity implements MainContract.View,IBa
         mDrawerLayout = (DrawerLayout) findViewById(R.id.main_drawer_layout);
         ActionBarDrawerToggle drawerToggle = new ActionBarDrawerToggle(this, mDrawerLayout, mToolbar, R.string.drawer_open, R.string.drawer_close);
         drawerToggle.syncState();
-        mDrawerLayout.setDrawerListener(drawerToggle);
+        mDrawerLayout.addDrawerListener(drawerToggle);
         initNavigationLeft();
-        mMainPresenter = new MainPresenter(this);
         switchNews();
     }
 
@@ -58,7 +56,7 @@ public class MainActivity extends ThemeActivity implements MainContract.View,IBa
 
             @Override
             public boolean onNavigationItemSelected(MenuItem item) {
-                mMainPresenter.switchNavigation(item);
+                switchNavigation(item);
                 mDrawerLayout.closeDrawers();
                 return true;
             }
@@ -139,6 +137,35 @@ public class MainActivity extends ThemeActivity implements MainContract.View,IBa
         NewsEntry.get().startSetting(MainActivity.this);
     }
 
+    @Override
+    public void switchNavigation(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.navigation_item_news:
+                switchNews();
+                item.setChecked(true);
+                break;
+            case R.id.navigation_item_images:
+                switchImages();
+                item.setChecked(true);
+                break;
+            case R.id.navigation_item_about:
+                switchAbout();
+                break;
+            case R.id.navigation_item_demo:
+                switchDemo();
+            case R.id.navigation_item_blog:
+                switchBlog();
+                break;
+            case R.id.navigation_item_settings:
+                switchSetting();
+                break;
+            default:
+                switchNews();
+                item.setChecked(true);
+                break;
+        }
+    }
+
     private void switchFragment(BaseFragment fragment){
         onSwitchFragment(fragment,null);
     }
@@ -168,11 +195,6 @@ public class MainActivity extends ThemeActivity implements MainContract.View,IBa
         if (mCurrentFragment == fragment) {
             mCurrentFragment = null;
         }
-    }
-
-    @Override
-    public void setPresenter(MainContract.Presenter presenter) {
-        mMainPresenter = presenter;
     }
 
     @Subscribe(threadMode = ThreadMode.MAIN)

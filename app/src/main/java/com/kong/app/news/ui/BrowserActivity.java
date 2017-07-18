@@ -51,7 +51,6 @@ public class BrowserActivity extends ThemeActivity {
                 super.onReceivedTitle(view, title);
             }
 
-
         });
 
         mWebView.setWebViewClient(new WebViewClient() {
