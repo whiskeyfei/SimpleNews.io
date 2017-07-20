@@ -2,7 +2,6 @@ package com.kong.app.demo;
 
 import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.Toolbar;
 
 import com.kong.R;
 import com.kong.app.badminton.PlayersActivity;
@@ -11,7 +10,7 @@ import com.kong.app.demo.about.AboutActivity3;
 import com.kong.app.demo.me.MeActivity;
 import com.kong.app.demo.note.NoteActivity;
 import com.kong.app.demo.person.PersonActivity;
-import com.kong.app.news.base.ThemeActivity;
+import com.kong.app.news.base.ToolBarActivity;
 import com.kong.app.news.beans.ItemModel;
 
 import java.util.ArrayList;
@@ -23,24 +22,22 @@ import me.drakeet.multitype.MultiTypeAdapter;
  * Created by CaoPengfei on 17/6/9.
  */
 
-public class DemoActivity extends ThemeActivity {
+public class DemoActivity extends ToolBarActivity {
 
-    private Toolbar mToolbar;
     private RecyclerView mRecyclerView;
     private List<ItemModel> mNoteModels;
     private MultiTypeAdapter mAdapter;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_demo);
-        initBar();
-        initList();
+    protected int getLayoutId() {
+        return R.layout.activity_demo;
     }
 
-    private void initBar() {
-        mToolbar = (Toolbar) findViewById(R.id.base_toolbar);
-        initToolBar(mToolbar, R.string.demo);
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setTitle(R.string.demo);
+        initList();
     }
 
     private void initList() {

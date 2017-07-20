@@ -6,11 +6,10 @@ import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.ColorInt;
 import android.support.annotation.NonNull;
-import android.support.v7.widget.Toolbar;
 
 import com.afollestad.materialdialogs.color.ColorChooserDialog;
 import com.kong.R;
-import com.kong.app.news.base.ThemeActivity;
+import com.kong.app.news.base.ToolBarActivity;
 import com.kong.app.news.event.ThemeChangedEvent;
 import com.kong.app.news.fragment.SettingFragment;
 import com.kong.app.news.utils.SettingsUtil;
@@ -22,18 +21,18 @@ import org.greenrobot.eventbus.EventBus;
  * Created by CaoPengfei on 17/6/17.
  */
 
-public class SettingActivity extends ThemeActivity implements ColorChooserDialog.ColorCallback{
-
-    private Toolbar mToolbar;
+public class SettingActivity extends ToolBarActivity implements ColorChooserDialog.ColorCallback{
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_settings);
-        mToolbar = (Toolbar) findViewById(R.id.base_toolbar);
-        mToolbar.setTitle(ResourceUtil.getString(R.string.settings));
-        initToolBar(mToolbar);
+        setTitle(ResourceUtil.getString(R.string.settings));
         replace();
+    }
+
+    @Override
+    protected int getLayoutId() {
+        return R.layout.activity_settings;
     }
 
     public static int getThemeColor(Context context, int attrRes) {
@@ -47,7 +46,7 @@ public class SettingActivity extends ThemeActivity implements ColorChooserDialog
     public void onColorSelection(@NonNull ColorChooserDialog dialog, @ColorInt int selectedColor) {
         if (selectedColor == getThemeColor(this, R.attr.colorPrimary))
             return;
-        mToolbar.setBackgroundColor(selectedColor);
+        getToolbar().setBackgroundColor(selectedColor);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             getWindow().setStatusBarColor(selectedColor);
         }

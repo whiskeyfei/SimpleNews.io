@@ -3,10 +3,9 @@ package com.kong.app.demo.about;
 import android.os.Bundle;
 import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.Toolbar;
 
 import com.kong.R;
-import com.kong.app.news.base.ThemeActivity;
+import com.kong.app.news.base.ToolBarActivity;
 import com.library.utils.ResourceUtil;
 
 import java.util.ArrayList;
@@ -20,7 +19,7 @@ import me.drakeet.multitype.MultiTypeAdapter;
  * https://stackoverflow.com/questions/26651602/display-back-arrow-on-toolbar-android
  */
 
-public class AboutActivity3 extends ThemeActivity {
+public class AboutActivity3 extends ToolBarActivity {
 
     private static int[][] title = {
             {R.string.about_version, R.string.about_version},
@@ -36,11 +35,13 @@ public class AboutActivity3 extends ThemeActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_about3);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.base_toolbar);
-        toolbar.setTitle(ResourceUtil.getString(R.string.about));
-        initToolBar(toolbar);
+        setTitle(ResourceUtil.getString(R.string.about));
         initContent();
+    }
+
+    @Override
+    protected int getLayoutId() {
+        return R.layout.activity_about3;
     }
 
     private void initContent() {

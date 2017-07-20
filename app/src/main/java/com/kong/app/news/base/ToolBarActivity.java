@@ -4,12 +4,13 @@ import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 
 import com.kong.R;
+import com.library.utils.ResourceUtil;
 
 /**
  * Created by CaoPengfei on 17/7/17.
  */
 
-public abstract class ActionBarActivity extends ThemeActivity {
+public abstract class ToolBarActivity extends ThemeActivity {
 
     private Toolbar mToolbar;
 
@@ -33,11 +34,13 @@ public abstract class ActionBarActivity extends ThemeActivity {
     @Override
     public void setTitle(int titleId) {
         if (mToolbar != null) {
-            mToolbar.setTitle(titleId);
+            mToolbar.setTitle(ResourceUtil.getString(titleId));
         }
     }
 
     public Toolbar getToolbar() {
         return mToolbar;
     }
+
+
 }

@@ -6,7 +6,6 @@ import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
-import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.Menu;
@@ -14,7 +13,7 @@ import android.view.MenuItem;
 
 import com.kong.R;
 import com.kong.app.blog.BlogFragment;
-import com.kong.app.news.base.ThemeActivity;
+import com.kong.app.news.base.ToolBarActivity;
 import com.kong.app.news.event.ThemeChangedEvent;
 import com.kong.app.news.image.ImageFragment;
 import com.kong.lib.share.common.fragment.BaseFragment;
@@ -26,28 +25,29 @@ import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
 import org.greenrobot.eventbus.ThreadMode;
 
-public class MainActivity extends ThemeActivity implements MainContract.View,IBaseEvent {
+public class MainActivity extends ToolBarActivity implements MainContract.View,IBaseEvent {
 
     private static final String TAG = "MainActivity";
     private long firstBackPressedTime = 0;
 
-    private Toolbar mToolbar;
     private DrawerLayout mDrawerLayout;
     private BaseFragment mCurrentFragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        mToolbar = (Toolbar) findViewById(R.id.base_toolbar);
-        setSupportActionBar(mToolbar);
 
         mDrawerLayout = (DrawerLayout) findViewById(R.id.main_drawer_layout);
-        ActionBarDrawerToggle drawerToggle = new ActionBarDrawerToggle(this, mDrawerLayout, mToolbar, R.string.drawer_open, R.string.drawer_close);
+        ActionBarDrawerToggle drawerToggle = new ActionBarDrawerToggle(this, mDrawerLayout, getToolbar(), R.string.drawer_open, R.string.drawer_close);
         drawerToggle.syncState();
         mDrawerLayout.addDrawerListener(drawerToggle);
         initNavigationLeft();
         switchNews();
+    }
+
+    @Override
+    protected int getLayoutId() {
+        return R.layout.activity_main;
     }
 
     private void initNavigationLeft() {
@@ -107,13 +107,13 @@ public class MainActivity extends ThemeActivity implements MainContract.View,IBa
     @Override
     public void switchNews() {
         switchFragment(NewsFragment.newInstance());
-        mToolbar.setTitle(R.string.navigation_news);
+        setTitle(R.string.navigation_news);
     }
 
     @Override
     public void switchImages() {
         switchFragment(ImageFragment.newInstance());
-        mToolbar.setTitle(R.string.navigation_images);
+        setTitle(R.string.navigation_images);
     }
 
     @Override
@@ -129,7 +129,7 @@ public class MainActivity extends ThemeActivity implements MainContract.View,IBa
     @Override
     public void switchBlog() {
         switchFragment(BlogFragment.newInstance());
-        mToolbar.setTitle(R.string.navigation_blog);
+        setTitle(R.string.navigation_blog);
     }
 
     @Override

@@ -1,10 +1,9 @@
 package com.kong.app.demo.about;
 
 import android.os.Bundle;
-import android.support.v7.widget.Toolbar;
 
 import com.kong.R;
-import com.kong.app.news.base.ThemeActivity;
+import com.kong.app.news.base.ToolBarActivity;
 import com.library.utils.ResourceUtil;
 
 /**
@@ -13,14 +12,16 @@ import com.library.utils.ResourceUtil;
  * https://stackoverflow.com/questions/26651602/display-back-arrow-on-toolbar-android
  */
 
-public class AboutActivity2 extends ThemeActivity {
+public class AboutActivity2 extends ToolBarActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_about2);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.base_toolbar);
-        toolbar.setTitle(ResourceUtil.getString(R.string.about));
-        initToolBar(toolbar);
+        setTitle(ResourceUtil.getString(R.string.about));
+    }
+
+    @Override
+    protected int getLayoutId() {
+        return R.layout.activity_about2;
     }
 }

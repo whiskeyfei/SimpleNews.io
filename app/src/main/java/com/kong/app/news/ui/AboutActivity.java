@@ -1,12 +1,11 @@
 package com.kong.app.news.ui;
 
 import android.os.Bundle;
-import android.support.v7.widget.Toolbar;
 import android.view.View;
 
 import com.kong.R;
 import com.kong.app.news.NewsEntry;
-import com.kong.app.news.base.ThemeActivity;
+import com.kong.app.news.base.ToolBarActivity;
 import com.library.utils.ResourceUtil;
 
 /**
@@ -15,15 +14,12 @@ import com.library.utils.ResourceUtil;
  * https://stackoverflow.com/questions/26651602/display-back-arrow-on-toolbar-android
  */
 
-public class AboutActivity extends ThemeActivity implements View.OnClickListener {
+public class AboutActivity extends ToolBarActivity implements View.OnClickListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_about);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.base_toolbar);
-        toolbar.setTitle(ResourceUtil.getString(R.string.about));
-        initToolBar(toolbar);
+        setTitle(ResourceUtil.getString(R.string.about));
         findViewById(R.id.about_btn_version).setOnClickListener(this);
         findViewById(R.id.about_btn_open_source).setOnClickListener(this);
         findViewById(R.id.about_btn_github).setOnClickListener(this);
@@ -31,6 +27,11 @@ public class AboutActivity extends ThemeActivity implements View.OnClickListener
         findViewById(R.id.about_btn_author).setOnClickListener(this);
         findViewById(R.id.about_btn_blog).setOnClickListener(this);
         findViewById(R.id.about_btn_email).setOnClickListener(this);
+    }
+
+    @Override
+    protected int getLayoutId() {
+        return R.layout.activity_about;
     }
 
     @Override

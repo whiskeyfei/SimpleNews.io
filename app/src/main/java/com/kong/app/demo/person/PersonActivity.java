@@ -11,7 +11,7 @@ import com.kong.app.demo.about.TextItemViewBinder;
 import com.kong.app.demo.about.TextViewItem;
 import com.kong.app.demo.me.SettingImgTvItem;
 import com.kong.app.demo.me.SettingImgTvItemViewBinder;
-import com.kong.app.news.base.ThemeActivity;
+import com.kong.app.news.base.ToolBarActivity;
 import com.library.utils.ResourceUtil;
 
 import java.util.ArrayList;
@@ -23,7 +23,7 @@ import me.drakeet.multitype.MultiTypeAdapter;
  * Created by CaoPengfei on 17/6/18.
  */
 
-public class PersonActivity extends ThemeActivity {
+public class PersonActivity extends ToolBarActivity {
 
     private Toolbar mToolbar;
     private RecyclerView mRecyclerView;
@@ -33,14 +33,13 @@ public class PersonActivity extends ThemeActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_person);
-        initBar();
+        setTitle(R.string.descover);
         init();
     }
 
-    private void initBar() {
-        mToolbar = (Toolbar) findViewById(R.id.base_toolbar);
-        initToolBar(mToolbar, R.string.descover);
+    @Override
+    protected int getLayoutId() {
+        return R.layout.activity_person;
     }
 
     private void init() {

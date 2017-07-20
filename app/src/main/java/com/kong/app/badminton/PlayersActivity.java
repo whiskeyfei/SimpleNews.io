@@ -3,7 +3,6 @@ package com.kong.app.badminton;
 import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.Toolbar;
 import android.util.Log;
 
 import com.kong.R;
@@ -11,7 +10,7 @@ import com.kong.app.blog.tool.OnGridViewScollListener;
 import com.kong.app.demo.descover.GridItemViewBinder;
 import com.kong.app.demo.descover.Header;
 import com.kong.app.demo.descover.HeadertemViewBinder;
-import com.kong.app.news.base.ThemeActivity;
+import com.kong.app.news.base.ToolBarActivity;
 import com.library.utils.ListUtils;
 
 import java.util.ArrayList;
@@ -23,10 +22,9 @@ import me.drakeet.multitype.MultiTypeAdapter;
  * Created by CaoPengfei on 17/6/18.
  */
 
-public class PlayersActivity extends ThemeActivity implements PlayerContract.View, OnGridViewScollListener.OnLoadListener{
+public class PlayersActivity extends ToolBarActivity implements PlayerContract.View, OnGridViewScollListener.OnLoadListener{
 
     private static final String TAG = "PlayersActivity";
-    private Toolbar mToolbar;
     private RecyclerView mRecyclerView;
     private MultiTypeAdapter mAdapter;
     private List<Object> mObjectList = new ArrayList<Object>();
@@ -37,14 +35,13 @@ public class PlayersActivity extends ThemeActivity implements PlayerContract.Vie
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_descover);
-        initBar();
+        setTitle("球星");
         init();
     }
 
-    private void initBar() {
-        mToolbar = (Toolbar) findViewById(R.id.base_toolbar);
-        initToolBar(mToolbar, "球星");
+    @Override
+    protected int getLayoutId() {
+        return R.layout.activity_descover;
     }
 
     private void init() {
