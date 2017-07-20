@@ -42,5 +42,4 @@ public abstract class ToolBarActivity extends ThemeActivity {
         return mToolbar;
     }
 
-
 }

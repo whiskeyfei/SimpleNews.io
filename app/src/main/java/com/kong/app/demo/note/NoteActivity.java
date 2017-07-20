@@ -23,7 +23,6 @@ public class NoteActivity extends ToolBarActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_note);
         setTitle(R.string.note);
         mTextView = (TextView) findViewById(R.id.tv_note);
         mHandler.post(new Runnable() {

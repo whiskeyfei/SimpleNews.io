@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.design.widget.Snackbar;
 import android.view.View;
 import android.webkit.WebView;
+import android.widget.LinearLayout;
 
 import com.kong.R;
 import com.kong.app.news.base.ToolBarActivity;
@@ -17,6 +18,7 @@ public class NewsDetailActivity extends ToolBarActivity implements DetailContrac
     private String mTitle;
     private String mUrl;
 
+    private LinearLayout mLinearLayout;
     private WebView mWebView;
     private DetailContract.Presenter mNewsDetailPresenter;
 
@@ -34,6 +36,7 @@ public class NewsDetailActivity extends ToolBarActivity implements DetailContrac
 
     private void initView() {
         setTitle(mTitle);
+        mLinearLayout = (LinearLayout) findViewById(R.id.detail_webview_root);
         mWebView = (WebView)findViewById(R.id.detail_webview_content);
 
         mNewsDetailPresenter = new NewsDetailPresenter(this);
@@ -57,12 +60,13 @@ public class NewsDetailActivity extends ToolBarActivity implements DetailContrac
 
     @Override
     protected void onDestroy() {
-        super.onDestroy();
+        mLinearLayout.removeView(mWebView);
         if (mWebView != null) {
             mWebView.removeAllViews();
             mWebView.destroy();
         }
         mWebView = null;
+        super.onDestroy();
     }
 
     @Override
