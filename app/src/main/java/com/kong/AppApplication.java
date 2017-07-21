@@ -12,5 +12,6 @@ public class AppApplication extends Application {
 	public void onCreate() {
 		super.onCreate();
 		AppRun.get().init(getApplicationContext());
+		LifecycleImpl.init(this);
 	}
 }
