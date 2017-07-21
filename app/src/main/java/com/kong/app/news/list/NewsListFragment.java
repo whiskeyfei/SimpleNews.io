@@ -14,6 +14,7 @@ import com.kong.R;
 import com.kong.app.news.NewsEntry;
 import com.kong.app.news.NewsFragment;
 import com.kong.app.news.adapter.NewsAdapter;
+import com.kong.app.news.adapter.OnItemClickListener;
 import com.kong.app.news.beans.NewModel;
 import com.kong.lib.share.common.fragment.BaseFragment;
 import com.kong.lib.share.common.mvp.Injection;
@@ -97,7 +98,7 @@ public class NewsListFragment extends BaseFragment implements NewsContract.View,
         }
     };
 
-    private NewsAdapter.OnItemClickListener mOnItemClickListener = new NewsAdapter.OnItemClickListener() {
+    private OnItemClickListener mOnItemClickListener = new OnItemClickListener() {
 
         @Override
         public void onItemClick(View view, int position) {

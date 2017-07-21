@@ -74,10 +74,6 @@ public class ImageAdapter extends RecyclerView.Adapter<ImageAdapter.ItemViewHold
         this.mOnItemClickListener = onItemClickListener;
     }
 
-    public interface OnItemClickListener {
-        void onItemClick(View view, int position);
-    }
-
     public class ItemViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
         public TextView title;

@@ -76,7 +76,7 @@ public class Feed {
                 '}';
     }
 
-    public static class PostsBean implements Serializable{
+    public static class PostsBean implements Serializable {
 
         @Override
         public String toString() {
@@ -105,7 +105,7 @@ public class Feed {
             this.items = items;
         }
 
-        public static class ItemsBean implements Serializable{
+        public static class ItemsBean implements Serializable {
 
             private String id;
             private String keywords;

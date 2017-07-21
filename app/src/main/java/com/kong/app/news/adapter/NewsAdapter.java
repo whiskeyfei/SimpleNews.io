@@ -102,10 +102,6 @@ public class NewsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
     }
 
-    public interface OnItemClickListener {
-        void onItemClick(View view, int position);
-    }
-
     public class ItemViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         public ImageView mImageView;
         public TextView mTitle, mDesc;
