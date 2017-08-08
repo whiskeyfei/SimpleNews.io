@@ -25,6 +25,6 @@ public interface NewsContract {
     }
 
     interface Presenter extends BaseSubPresenter {
-        void loadNews(int type, int page);
+        void loadNews(String url, int page);
     }
 }

@@ -10,6 +10,7 @@ import com.kong.app.news.detail.NewsDetailActivity;
 import com.kong.app.news.ui.AboutActivity;
 import com.kong.app.news.ui.BrowserActivity;
 import com.kong.app.news.ui.SettingActivity;
+import com.kong.home.HomeActivity;
 import com.kong.lib.share.app.news.INewsEntry;
 import com.library.utils.ActivityUtils;
 
@@ -68,7 +69,7 @@ public class NewsEntry implements INewsEntry {
 
     @Override
     public void startMain(Context context) {
-        Intent intent = new Intent(context, MainActivity.class);
+        Intent intent = new Intent(context, HomeActivity.class);
         ActivityUtils.startActivity(context,intent);
     }
 
@@ -76,6 +77,14 @@ public class NewsEntry implements INewsEntry {
     public void startBrowser(Context context, String url) {
         Intent intent = new Intent(context, BrowserActivity.class);
         intent.putExtra(BrowserActivity.BWO_KEY,url);
+        ActivityUtils.startActivity(context,intent);
+    }
+
+    @Override
+    public void startBrowser(Context context, String url, String title) {
+        Intent intent = new Intent(context, BrowserActivity.class);
+        intent.putExtra(BrowserActivity.BWO_KEY,url);
+        intent.putExtra(BrowserActivity.BWO_TITLE,title);
         ActivityUtils.startActivity(context,intent);
     }
 

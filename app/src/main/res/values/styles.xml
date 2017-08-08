@@ -1,4 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <style name="Toolbar.TitleText" parent="TextAppearance.Widget.AppCompat.Toolbar.Title">
+        <item name="android:textSize">14sp</item>
+    </style>
 
     <style name="BaseTheme" parent="Theme.AppCompat.Light.NoActionBar">
     </style>
@@ -6,7 +10,7 @@
     <style name="AppTheme" parent="BaseTheme">
         <item name="colorPrimary">@color/primary</item>
         <item name="colorPrimaryDark">@color/primary_dark</item>
-        <item name="colorAccent">@color/accent</item>
+        <item name="colorAccent">@color/white</item>
     </style>
 
     <style name="AppTheme.NoActionBar">
@@ -72,55 +76,60 @@
     <style name="LapisBlueTheme" parent="BaseTheme">
         <item name="colorPrimary">@color/lapis_blue</item>
         <item name="colorPrimaryDark">@color/lapis_blue</item>
-        <item name="colorAccent">@color/lapis_blue</item>
+        <item name="colorAccent">@color/white</item>
     </style>
 
     <style name="PaleDogwoodTheme" parent="BaseTheme">
         <item name="colorPrimary">@color/pale_dogwood</item>
         <item name="colorPrimaryDark">@color/pale_dogwood</item>
-        <item name="colorAccent">@color/pale_dogwood</item>
+        <item name="colorAccent">@color/tab_focus</item>
     </style>
 
     <style name="GreeneryTheme" parent="BaseTheme">
         <item name="colorPrimary">@color/greenery</item>
         <item name="colorPrimaryDark">@color/greenery</item>
-        <item name="colorAccent">@color/greenery</item>
+        <item name="colorAccent">@color/white</item>
     </style>
 
     <style name="PrimroseYellowTheme" parent="BaseTheme">
         <item name="colorPrimary">@color/primrose_yellow</item>
         <item name="colorPrimaryDark">@color/primrose_yellow</item>
-        <item name="colorAccent">@color/primrose_yellow</item>
+        <item name="colorAccent">@color/white</item>
     </style>
 
     <style name="FlameTheme" parent="BaseTheme">
         <item name="colorPrimary">@color/flame</item>
         <item name="colorPrimaryDark">@color/flame</item>
-        <item name="colorAccent">@color/flame</item>
+        <item name="colorAccent">@color/white</item>
     </style>
 
     <style name="IslandParadiseTheme" parent="BaseTheme">
         <item name="colorPrimary">@color/island_paradise</item>
         <item name="colorPrimaryDark">@color/island_paradise</item>
-        <item name="colorAccent">@color/island_paradise</item>
+        <item name="colorAccent">@color/white</item>
     </style>
 
     <style name="KaleTheme" parent="BaseTheme">
         <item name="colorPrimary">@color/kale</item>
         <item name="colorPrimaryDark">@color/kale</item>
-        <item name="colorAccent">@color/kale</item>
+        <item name="colorAccent">@color/white</item>
     </style>
 
     <style name="PinkYarrowTheme" parent="BaseTheme">
         <item name="colorPrimary">@color/pink_yarrow</item>
         <item name="colorPrimaryDark">@color/pink_yarrow</item>
-        <item name="colorAccent">@color/pink_yarrow</item>
+        <item name="colorAccent">@color/white</item>
     </style>
 
     <style name="NiagaraTheme" parent="BaseTheme">
         <item name="colorPrimary">@color/niagara</item>
         <item name="colorPrimaryDark">@color/niagara</item>
-        <item name="colorAccent">@color/niagara</item>
+        <item name="colorAccent">@color/white</item>
     </style>
 
+    <style name="WhiteTheme" parent="BaseTheme">
+        <item name="colorPrimary">@color/white</item>
+        <item name="colorPrimaryDark">@color/black</item>
+        <item name="colorAccent">@color/tab_focus</item>
+    </style>
 </resources>

@@ -2,10 +2,8 @@ package com.kong.app.news.list;
 
 import android.util.Log;
 
-import com.kong.app.news.NewsFragment;
 import com.kong.app.news.beans.NewModel;
 import com.kong.app.news.beans.NewResultModel;
-import com.kong.app.news.commons.ApiConstants;
 import com.kong.lib.share.common.mvp.ISchedulerProvider;
 import com.library.utils.ActivityUtils;
 import com.library.utils.GsonUtils;
@@ -39,6 +37,7 @@ public class NewsPresenter implements NewsContract.Presenter {
     }
 
     private void startTask(String url) {
+        Log.i(TAG, "startTask url" + url);
         mSubscriptions.clear();
         Subscription subscription = getObservable(url).subscribe(getSubscriber());
         mSubscriptions.add(subscription);
@@ -53,13 +52,13 @@ public class NewsPresenter implements NewsContract.Presenter {
                     @Override
                     public void onSuccess(String response) {
                         if (StringUtils.isEmpty(response)) {
-                            Log.e(TAG,"response is null");
+                            Log.e(TAG, "response is null");
                             subscriber.onError(null);
                             return;
                         }
                         NewResultModel model = GsonUtils.deserialize(response, NewResultModel.class);
                         if (model == null || ListUtils.isEmpty(model.newModellist)) {
-                            Log.e(TAG,"model is null");
+                            Log.e(TAG, "model is null");
                             subscriber.onError(null);
                             return;
                         }
@@ -80,19 +79,17 @@ public class NewsPresenter implements NewsContract.Presenter {
     }
 
     @Override
-    public void loadNews(final int type, final int pageIndex) {
-        if (pageIndex >= MAX_PAGE){
+    public void loadNews(final String url, final int pageIndex) {
+        if (pageIndex >= MAX_PAGE) {
             mView.setEnd(true);
             return;
         }
 
-        String url = getUrl(type) + "&page=" + pageIndex;
-//        Log.e(TAG,"loadNews url:" + url);
+        String currentUrl = url + "&page=" + pageIndex;
         if (pageIndex == 1) {
             mView.showProgress();
         }
-        startTask(url);
-//        load(url, type);
+        startTask(currentUrl);
     }
 
     private Observer<List<NewModel>> getSubscriber() {
@@ -113,31 +110,6 @@ public class NewsPresenter implements NewsContract.Presenter {
                 mView.addNews(list);
             }
         };
-    }
-
-//    public void load(String url, int type) {
-//        startTask(url);
-//    }
-
-    private String getUrl(int type) {
-        String url = null;
-        switch (type) {
-            case NewsFragment.NEWS_TYPE_TOP:
-                url = ApiConstants.HOST_WEIXIN;
-                break;
-            case NewsFragment.NEWS_TYPE_RECREATION:
-                url = ApiConstants.HOST_YULE;
-                break;
-            case NewsFragment.NEWS_TYPE_SCIENCE:
-                url = ApiConstants.HOST_KEJI;
-                break;
-            case NewsFragment.NEWS_TYPE_HEALTH:
-                url = ApiConstants.HOST_JIANKANG;
-                break;
-            default:
-                break;
-        }
-        return url;
     }
 
     @Override

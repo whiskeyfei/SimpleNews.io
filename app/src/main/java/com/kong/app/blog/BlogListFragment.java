@@ -7,7 +7,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.LinearLayout;
+import android.view.ViewStub;
 import android.widget.RelativeLayout;
 
 import com.kong.R;
@@ -36,9 +36,10 @@ public class BlogListFragment extends BaseFragment implements OnRCVScollListener
     private RecyclerView mRecyclerView;
     private Feed.PostsBean mPostsBeans;
     private RelativeLayout mLoadingView;
-    private LinearLayout mErrorView;
+    private View mErrorView;
     private MultiTypeAdapter mAdapter;
     private List<Object> mObjectList = new ArrayList<Object>();
+    private View mView;
 
     public static BlogListFragment newInstance(Feed.PostsBean bean) {
         Bundle args = new Bundle();
@@ -50,12 +51,12 @@ public class BlogListFragment extends BaseFragment implements OnRCVScollListener
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_blog_list, null);
+        mView = inflater.inflate(R.layout.fragment_blog_list, null);
         mPostsBeans = (Feed.PostsBean) getArguments().getSerializable(FRAGMENT_TYPE_KEY);
-        initView(view);
+        initView(mView);
         startLoading();
         setAdapter();
-        return view;
+        return mView;
     }
 
     private void setAdapter() {
@@ -91,25 +92,33 @@ public class BlogListFragment extends BaseFragment implements OnRCVScollListener
     private void initView(View view) {
         mRecyclerView = (RecyclerView) view.findViewById(R.id.blog_recycle_view_id);
         mLoadingView = (RelativeLayout) view.findViewById(R.id.blog_loading_view_id);
-        mErrorView = (LinearLayout) view.findViewById(R.id.blog_error_view_id);
     }
 
     private void startLoading() {
         mRecyclerView.setVisibility(View.GONE);
         mLoadingView.setVisibility(View.VISIBLE);
-        mErrorView.setVisibility(View.GONE);
     }
 
     private void showError() {
         mRecyclerView.setVisibility(View.GONE);
         mLoadingView.setVisibility(View.GONE);
-        mErrorView.setVisibility(View.VISIBLE);
+        getErrorView().setVisibility(View.VISIBLE);
     }
 
     private void showResult() {
         mRecyclerView.setVisibility(View.VISIBLE);
         mLoadingView.setVisibility(View.GONE);
-        mErrorView.setVisibility(View.GONE);
+        if (mErrorView != null && mErrorView.getVisibility() == View.VISIBLE){
+            mErrorView.setVisibility(View.GONE);
+        }
+    }
+
+    private View getErrorView(){
+        ViewStub stub = (ViewStub) mView.findViewById(R.id.blog_error_view_id);
+        if (mErrorView == null){
+            mErrorView = stub.inflate();
+        }
+        return mErrorView;
     }
 
     @Override

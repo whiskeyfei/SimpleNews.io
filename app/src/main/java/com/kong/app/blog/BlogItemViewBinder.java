@@ -93,8 +93,8 @@ public class BlogItemViewBinder extends ItemViewBinder<Feed.PostsBean.ItemsBean,
             NewModel model = new NewModel();
             model.newUrl = mItemModel.getUrl();
             model.title = mItemModel.getTitle();
-            NewsEntry.get().startDetailActivity(v.getContext(),model);
-//            NewsEntry.get().startBrowser(v.getContext(),mItemModel.getUrl());
+//            NewsEntry.get().startDetailActivity(v.getContext(),model);
+            NewsEntry.get().startBrowser(v.getContext(),mItemModel.getUrl(),mItemModel.getTitle());
         }
 
     }

@@ -4,13 +4,14 @@ import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 
 import com.kong.R;
+import com.library.BaseActivity;
 import com.library.utils.ResourceUtil;
 
 /**
  * Created by CaoPengfei on 17/7/17.
  */
 
-public abstract class ToolBarActivity extends ThemeActivity {
+public abstract class ToolBarActivity extends BaseActivity {
 
     private Toolbar mToolbar;
 

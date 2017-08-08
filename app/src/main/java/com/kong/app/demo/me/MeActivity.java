@@ -62,6 +62,5 @@ public class MeActivity extends ToolBarActivity {
         mAdapter.setItems(list);
         mAdapter.notifyDataSetChanged();
         mRecyclerView.setAdapter(mAdapter);
-
     }
 }

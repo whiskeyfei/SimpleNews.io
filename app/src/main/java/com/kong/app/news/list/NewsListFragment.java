@@ -2,7 +2,6 @@ package com.kong.app.news.list;
 
 import android.os.Bundle;
 import android.support.design.widget.Snackbar;
-import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -12,10 +11,10 @@ import android.view.ViewGroup;
 
 import com.kong.R;
 import com.kong.app.news.NewsEntry;
-import com.kong.app.news.NewsFragment;
 import com.kong.app.news.adapter.NewsAdapter;
 import com.kong.app.news.adapter.OnItemClickListener;
 import com.kong.app.news.beans.NewModel;
+import com.kong.app.news.beans.TabCategory;
 import com.kong.lib.share.common.fragment.BaseFragment;
 import com.kong.lib.share.common.mvp.Injection;
 import com.library.utils.ListUtils;
@@ -24,25 +23,25 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class NewsListFragment extends BaseFragment implements NewsContract.View, SwipeRefreshLayout.OnRefreshListener {
+public class NewsListFragment extends BaseFragment implements NewsContract.View {
 
     private static final String TAG = "NewsListFragment";
-    private static String FRAGMENT_TYPE_KEY = "type";
+    private static String FRAGMENT_MODEL = "model";
 
-    private SwipeRefreshLayout mSwipeRefreshWidget;
     private RecyclerView mRecyclerView;
     private LinearLayoutManager mLayoutManager;
     private NewsAdapter mAdapter;
     private List<NewModel> mData;
     private NewsContract.Presenter mNewsPresenter;
 
-    private int mType = NewsFragment.NEWS_TYPE_TOP;
     private int pageIndex = 1;
 
-    public static NewsListFragment newInstance(int type) {
+    private TabCategory mTabCategory;
+
+    public static NewsListFragment newInstance(TabCategory tabCategory) {
         Bundle args = new Bundle();
         NewsListFragment fragment = new NewsListFragment();
-        args.putInt(FRAGMENT_TYPE_KEY, type);
+        args.putSerializable(FRAGMENT_MODEL, tabCategory);
         fragment.setArguments(args);
         return fragment;
     }
@@ -51,18 +50,13 @@ public class NewsListFragment extends BaseFragment implements NewsContract.View,
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         new NewsPresenter(this, Injection.provideSchedulerProvider());
-        mType = getArguments().getInt(FRAGMENT_TYPE_KEY);
+        mTabCategory = (TabCategory) getArguments().getSerializable(FRAGMENT_MODEL);
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_newslist, null);
-        mSwipeRefreshWidget = (SwipeRefreshLayout) view.findViewById(R.id.swipe_refresh_widget);
-        mSwipeRefreshWidget.setColorSchemeResources(R.color.primary,R.color.primary_dark,
-                R.color.primary_light, R.color.accent);
-        mSwipeRefreshWidget.setOnRefreshListener(this);
-
-        mRecyclerView = (RecyclerView)view.findViewById(R.id.recycle_view);
+        mRecyclerView = (RecyclerView)view.findViewById(R.id.news_recycle_view_id);
         mRecyclerView.setHasFixedSize(true);
 
         mLayoutManager = new LinearLayoutManager(getActivity());
@@ -93,7 +87,7 @@ public class NewsListFragment extends BaseFragment implements NewsContract.View,
             if (newState == RecyclerView.SCROLL_STATE_IDLE && lastVisibleItem + 1 == mAdapter.getItemCount()
                     && mAdapter.isShowFooter()) {
                 pageIndex+=1;
-                mNewsPresenter.loadNews(mType, pageIndex);
+                mNewsPresenter.loadNews(mTabCategory.url, pageIndex);
             }
         }
     };
@@ -103,13 +97,12 @@ public class NewsListFragment extends BaseFragment implements NewsContract.View,
         @Override
         public void onItemClick(View view, int position) {
             NewModel news = mAdapter.getItem(position);
-            NewsEntry.get().startDetailActivity(getActivity(),news);
+            NewsEntry.get().startBrowser(getActivity(),news.newUrl,news.title);
         }
     };
 
     @Override
     public void showProgress() {
-        mSwipeRefreshWidget.setRefreshing(true);
     }
 
     @Override
@@ -132,7 +125,6 @@ public class NewsListFragment extends BaseFragment implements NewsContract.View,
 
     @Override
     public void hideProgress() {
-        mSwipeRefreshWidget.setRefreshing(false);
     }
 
     @Override
@@ -159,13 +151,12 @@ public class NewsListFragment extends BaseFragment implements NewsContract.View,
     }
 
 
-    @Override
     public void onRefresh() {
         pageIndex = 1;
         if(mData != null) {
             mData.clear();
         }
-        mNewsPresenter.loadNews(mType, pageIndex);
+        mNewsPresenter.loadNews(mTabCategory.url, pageIndex);
     }
 
     @Override

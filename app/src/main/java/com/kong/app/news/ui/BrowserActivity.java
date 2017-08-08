@@ -11,26 +11,35 @@ import android.webkit.WebViewClient;
 import android.widget.ProgressBar;
 
 import com.kong.R;
-import com.kong.app.news.base.ThemeActivity;
+import com.library.BaseActivity;
 import com.library.utils.StringUtils;
 
 /**
  * Created by CaoPengfei on 17/6/14.
  */
 
-public class BrowserActivity extends ThemeActivity {
+public class BrowserActivity extends BaseActivity {
 
     public static final String BWO_KEY = "bwo_key";
+    public static final String BWO_TITLE = "bwo_title";
     private WebView mWebView;
     private ProgressBar mProgressBar;
     private String mUrl;
+    private String mTitle;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_browser);
         Toolbar toolbar = (Toolbar) findViewById(R.id.base_toolbar);
-        initToolBar(toolbar, "");
+        Intent intent = getIntent();
+        if (intent != null) {
+            mUrl = intent.getStringExtra(BWO_KEY);
+            mTitle = intent.getStringExtra(BWO_TITLE);
+            setTitle(mTitle);
+        }
+
+        initToolBar(toolbar, mTitle);
         mWebView = (WebView) findViewById(R.id.browser_webView);
         mProgressBar = (ProgressBar) findViewById(R.id.browser_progress);
 
@@ -66,10 +75,7 @@ public class BrowserActivity extends ThemeActivity {
             }
         });
 
-        Intent intent = getIntent();
-        if (intent != null) {
-            mUrl = intent.getStringExtra(BWO_KEY);
-        }
+
         if (!StringUtils.isEmpty(mUrl)) {
             mWebView.loadUrl(mUrl);
         } else {

@@ -37,5 +37,6 @@ public class ActivityUtils {
         } else {
             a.startActivity(intent);
         }
+        a.overridePendingTransition(0, 0);
     }
 }

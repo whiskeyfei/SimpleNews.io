@@ -14,10 +14,12 @@
         android:icon="@drawable/icon"
         android:label="@string/app_name"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
+        android:theme="@style/WhiteTheme">
         <activity
-            android:name="com.kong.app.news.MainActivity"
-            android:label="@string/app_name">
+
+            android:name=".home.StartActivity"
+            android:label="@string/app_name"
+            android:theme="@android:style/Theme.Black.NoTitleBar.Fullscreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
@@ -25,7 +27,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".home.StartActivity"/>
+            android:name=".home.HomeActivity"/>
         <activity
             android:name="com.kong.app.news.detail.NewsDetailActivity"/>
 

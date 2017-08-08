@@ -71,12 +71,15 @@ public class SettingActivity extends ToolBarActivity implements ColorChooserDial
         } else if (selectedColor == ResourceUtil.getColor(R.color.kale)) {
             setTheme(R.style.KaleTheme);
             SettingsUtil.setThemeIndex(6);
-        } else if (selectedColor == getResources().getColor(R.color.pink_yarrow)) {
+        } else if (selectedColor == ResourceUtil.getColor(R.color.pink_yarrow)) {
             setTheme(R.style.PinkYarrowTheme);
             SettingsUtil.setThemeIndex(7);
         } else if (selectedColor == ResourceUtil.getColor(R.color.niagara)) {
             setTheme(R.style.NiagaraTheme);
             SettingsUtil.setThemeIndex(8);
+        } else if (selectedColor == ResourceUtil.getColor(R.color.white)) {
+            setTheme(R.style.WhiteTheme);
+            SettingsUtil.setThemeIndex(9);
         }
         EventBus.getDefault().post(new ThemeChangedEvent(selectedColor));
         replace();

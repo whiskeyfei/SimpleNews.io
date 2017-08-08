@@ -4,23 +4,24 @@
               android:layout_height="wrap_content"
               android:background="?android:attr/selectableItemBackground"
               android:orientation="horizontal"
-              android:padding="5dp">
+              android:paddingBottom="10dp"
+              android:paddingLeft="10dp"
+              android:paddingTop="10dp">
 
     <ImageView
         android:id="@+id/setting_item_h_icon"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:scaleType="centerCrop"
-        android:src="@drawable/face"/>
+        android:scaleType="centerCrop"/>
 
     <TextView
         android:id="@+id/setting_item_h_title"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:paddingLeft="10dp"
         android:gravity="center_vertical"
-        android:textColor="@android:color/black"
-        android:text="title"/>
+        android:paddingLeft="10dp"
+        android:text="title"
+        android:textColor="@android:color/black"/>
 
 </LinearLayout>

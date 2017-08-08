@@ -5,5 +5,7 @@ package com.kong.app.demo.me;
  */
 
 public class SettingImgTvItem {
+    public int type;
     public String title;
+    public int icon;
 }

@@ -4,4 +4,6 @@
 
     <dimen name="sn_16sp">16sp</dimen>
     <dimen name="sn_12sp">12sp</dimen>
+    <dimen name="tab_layout_height">44dp</dimen>
+
 </resources>

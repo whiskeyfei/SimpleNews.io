@@ -11,6 +11,7 @@
     <string name="recreation">娱乐</string>
     <string name="science">科技</string>
     <string name="health">健康</string>
+    <string name="sport">体育</string>
     <string name="tools">功能</string>
 
     <!-- about-->
@@ -35,7 +36,7 @@
     <string name="drawer_close">Close</string>
 
     <string name="load_fail">加载数据失败!</string>
-    <string name="load_end">客观已经没有更多的数据了！</string>
+    <string name="load_end">已经没有更多的数据了！</string>
     <string name="image_hit">一次只加载20条，查看更多内容请刷新哦。</string>
 
     <string name="demo">Demo</string>
@@ -63,5 +64,15 @@
         <item>粉蓍草</item>
         <item>尼亚加拉</item>
     </string-array>
+
+    <declare-styleable name="PageBottomTabLayout">
+        <attr name="tabPaddingTop" format="dimension"/>
+        <attr name="tabPaddingBottom" format="dimension"/>
+    </declare-styleable>
+
+    <string name="tab_home">首页</string>
+    <string name="tab_rec">推荐</string>
+    <string name="tab_blog">博客</string>
+    <string name="tab_me">我的</string>
 
 </resources>

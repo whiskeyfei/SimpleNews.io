@@ -41,6 +41,7 @@ public class BlogFragment extends BaseFragment implements BlogContract.View {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_news, null);
         mTablayout = (TabLayout) view.findViewById(R.id.tab_layout);
+        mTablayout.setVisibility(View.GONE);
         mViewPager = (ViewPager) view.findViewById(R.id.viewpager);
         mPresenter.start();
         return view;
@@ -66,6 +67,7 @@ public class BlogFragment extends BaseFragment implements BlogContract.View {
         mViewPager.setOffscreenPageLimit(mViewPager.getAdapter().getCount());
         mTablayout.setupWithViewPager(mViewPager);
         mTablayout.setTabMode(TabLayout.MODE_SCROLLABLE);
+        mTablayout.setVisibility(View.VISIBLE);
     }
 
     @Override

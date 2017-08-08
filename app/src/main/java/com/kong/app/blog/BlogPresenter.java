@@ -77,7 +77,7 @@ public class BlogPresenter implements BlogContract.Presenter {
                 });
             }
         }) .subscribeOn(mSchedulerProvider.io())
-                .observeOn(mSchedulerProvider.ui());
+           .observeOn(mSchedulerProvider.ui());
     }
 
     private Subscriber<Feed> getSubscriber() {

@@ -36,7 +36,6 @@ public class MainActivity extends ToolBarActivity implements MainContract.View,I
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         mDrawerLayout = (DrawerLayout) findViewById(R.id.main_drawer_layout);
         ActionBarDrawerToggle drawerToggle = new ActionBarDrawerToggle(this, mDrawerLayout, getToolbar(), R.string.drawer_open, R.string.drawer_close);
         drawerToggle.syncState();

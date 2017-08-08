@@ -9,16 +9,16 @@ import android.view.ViewGroup;
 
 import com.kong.R;
 import com.kong.app.news.adapter.MyPagerAdapter;
+import com.kong.app.news.beans.TabCategory;
+import com.kong.app.news.commons.ApiConstants;
 import com.kong.app.news.list.NewsListFragment;
 import com.kong.lib.share.common.fragment.BaseFragment;
 import com.library.utils.ResourceUtil;
 
-public class NewsFragment extends BaseFragment {
+import java.util.ArrayList;
+import java.util.List;
 
-    public static final int NEWS_TYPE_TOP = 0;
-    public static final int NEWS_TYPE_RECREATION = 1;
-    public static final int NEWS_TYPE_SCIENCE = 2;
-    public static final int NEWS_TYPE_HEALTH = 3;
+public class NewsFragment extends BaseFragment {
 
     private TabLayout mTablayout;
     private ViewPager mViewPager;
@@ -37,10 +37,6 @@ public class NewsFragment extends BaseFragment {
         mViewPager = (ViewPager) view.findViewById(R.id.viewpager);
         mViewPager.setOffscreenPageLimit(3);
         setupViewPager(mViewPager);
-        mTablayout.addTab(mTablayout.newTab().setText(R.string.top));
-        mTablayout.addTab(mTablayout.newTab().setText(R.string.recreation));
-        mTablayout.addTab(mTablayout.newTab().setText(R.string.science));
-        mTablayout.addTab(mTablayout.newTab().setText(R.string.health));
         mTablayout.setupWithViewPager(mViewPager);
         return view;
     }
@@ -48,11 +44,23 @@ public class NewsFragment extends BaseFragment {
     private void setupViewPager(ViewPager viewPager) {
         //Fragment中嵌套使用Fragment一定要使用getChildFragmentManager(),否则会有问题
         MyPagerAdapter adapter = new MyPagerAdapter(getChildFragmentManager());
-        adapter.addFragment(NewsListFragment.newInstance(NEWS_TYPE_TOP), ResourceUtil.getString(R.string.top));
-        adapter.addFragment(NewsListFragment.newInstance(NEWS_TYPE_RECREATION), getString(R.string.recreation));
-        adapter.addFragment(NewsListFragment.newInstance(NEWS_TYPE_SCIENCE), getString(R.string.science));
-        adapter.addFragment(NewsListFragment.newInstance(NEWS_TYPE_HEALTH), getString(R.string.health));
+        int len = TabCategorys.size();
+        for (int i = 0; i < len; i++) {
+            TabCategory category = TabCategorys.get(i);
+            adapter.addFragment(NewsListFragment.newInstance(category),category.categoryName);
+        }
         viewPager.setAdapter(adapter);
+    }
+
+    //TODO
+    private final static List<TabCategory> TabCategorys = new ArrayList<>();
+
+    static {
+        TabCategorys.add(new TabCategory(ApiConstants.HOST_WEIXIN, ResourceUtil.getString(R.string.top), 0));
+        TabCategorys.add(new TabCategory(ApiConstants.HOST_YULE, ResourceUtil.getString(R.string.recreation), 1));
+        TabCategorys.add(new TabCategory(ApiConstants.HOST_KEJI, ResourceUtil.getString(R.string.science), 2));
+        TabCategorys.add(new TabCategory(ApiConstants.HOST_JIANKANG, ResourceUtil.getString(R.string.health), 3));
+        TabCategorys.add(new TabCategory(ApiConstants.HOST_SPORTS, ResourceUtil.getString(R.string.sport), 4));
     }
 
 }

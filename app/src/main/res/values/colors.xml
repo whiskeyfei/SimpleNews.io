@@ -10,6 +10,7 @@
     <color name="primary_text">#212121</color>
     <color name="secondary_text">#727272</color>
     <color name="white">#FFFFFF</color>
+    <color name="black">#000000</color>
     <color name="divider">#B6B6B6</color>
 
     <color name="lapis_blue">#014284</color>
@@ -32,5 +33,9 @@
         <item>@color/kale</item>
         <item>@color/pink_yarrow</item>
         <item>@color/niagara</item>
+        <item>@color/white</item>
     </array>
+
+    <color name="tab_normal">#707070</color>
+    <color name="tab_focus">#2c2c2c</color>
 </resources>

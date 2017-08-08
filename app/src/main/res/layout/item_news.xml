@@ -42,7 +42,6 @@
     </RelativeLayout>
 
     <View
-        android:id="@+id/item_bolg_line"
         style="@style/AppWidget.DeepLine"
         android:layout_alignParentBottom="true"/>
 </LinearLayout>

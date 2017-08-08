@@ -24,7 +24,9 @@ public interface INewsEntry {
 
     void startMain(Context context);
 
-    void startBrowser(Context context,String url);
+    void startBrowser(Context context, String url);
+
+    void startBrowser(Context context, String url, String title);
 
     void startDetailActivity(Context context, NewModel news);
 }
