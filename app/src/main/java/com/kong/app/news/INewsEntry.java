@@ -1,4 +1,4 @@
-package com.kong.lib.share.app.news;
+package com.kong.app.news;
 
 import android.content.Context;
 import android.content.Intent;

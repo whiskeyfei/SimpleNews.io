@@ -1,4 +1,4 @@
-package com.kong.lib.share.common.mvp;
+package com.kong.lib.mvp;
 
 /**
  * 考虑使用 RxJava 时，订阅关系

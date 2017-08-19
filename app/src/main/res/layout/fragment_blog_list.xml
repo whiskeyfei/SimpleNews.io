@@ -17,7 +17,6 @@
         android:visibility="gone">
 
         <ProgressBar
-            android:id="@+id/blog_progress_bar_id"
             style="@android:style/Widget.ProgressBar.Inverse"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

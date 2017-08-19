@@ -48,7 +48,6 @@ public class BlogItemViewBinder extends ItemViewBinder<Feed.PostsBean.ItemsBean,
     }
 
     static class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
-//        private View line;
         private TextView name;
         private TextView title;
         private TextView info;
@@ -57,7 +56,6 @@ public class BlogItemViewBinder extends ItemViewBinder<Feed.PostsBean.ItemsBean,
 
         public ViewHolder(View v) {
             super(v);
-//            line = v.findViewById(R.id.item_bolg_line);
             icon = (ImageView) v.findViewById(R.id.item_blog_icon);
             title = (TextView) v.findViewById(R.id.item_blog_title_id);
             name = (TextView) v.findViewById(R.id.item_blog_name_id);
@@ -78,10 +76,9 @@ public class BlogItemViewBinder extends ItemViewBinder<Feed.PostsBean.ItemsBean,
             if (StringUtils.isEmpty(itemModel.getKeywords())){
                 itemModel.setKeywords("Android");
             }
-            info.setText("Keywords: " + itemModel.getKeywords() +itemModel.getCover());
+            info.setText("Keywords: " + itemModel.getKeywords());
             if (!StringUtils.isEmpty(itemModel.getCover())){
                 icon.setVisibility(View.VISIBLE);
-
                 ImageLoaderUtils.display(AppRun.get().getApplicationContext(), icon, itemModel.getCover(),R.drawable.ic_image_loading, R.drawable.ic_image_loadfail);
             }
         }

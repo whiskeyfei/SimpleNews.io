@@ -34,6 +34,7 @@ public class HomeActivity extends BaseActivity {
         mBottomTabLayout = (BottomTabLayout) findViewById(R.id.home_tablayout);
         mBottomTabAdapter = new BottomTabAdapter(getApplicationContext(), HomeFactory.mTabItems);
         mViewPager.setAdapter(new MyViewPagerAdapter(getSupportFragmentManager(), HomeFactory.mTabFragment));
+        mViewPager.setOffscreenPageLimit(HomeFactory.mTabFragment.size());
         mBottomTabLayout.setAdapter(mBottomTabAdapter);
         mBottomTabLayout.setViewPager(mViewPager);
     }

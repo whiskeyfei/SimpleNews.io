@@ -2,8 +2,8 @@ package com.kong.app.news.detail;
 
 import android.webkit.WebView;
 
-import com.kong.lib.share.common.mvp.BasePresenter;
-import com.kong.lib.share.common.mvp.BaseView;
+import com.kong.lib.mvp.BasePresenter;
+import com.kong.lib.mvp.BaseView;
 
 
 /**

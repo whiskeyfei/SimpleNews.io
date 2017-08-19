@@ -7,22 +7,12 @@
 
     <include layout="@layout/base_toolbar_layout"/>
 
-    <android.support.v4.widget.NestedScrollView
+    <LinearLayout
+        android:id="@+id/detail_webview_root"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+    </LinearLayout>
 
-        <LinearLayout
-            android:id="@+id/detail_webview_root"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
-
-            <WebView
-                android:id="@+id/detail_webview_content"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"/>
-        </LinearLayout>
-
-    </android.support.v4.widget.NestedScrollView>
 
 </LinearLayout>

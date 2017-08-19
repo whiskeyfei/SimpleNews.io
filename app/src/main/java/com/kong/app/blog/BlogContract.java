@@ -2,8 +2,8 @@ package com.kong.app.blog;
 
 
 import com.kong.app.blog.model.Feed;
-import com.kong.lib.share.common.mvp.BasePresenter;
-import com.kong.lib.share.common.mvp.BaseView;
+import com.kong.lib.mvp.BasePresenter;
+import com.kong.lib.mvp.BaseView;
 
 /**
  * Created by whiskeyfei on 16/11/6.

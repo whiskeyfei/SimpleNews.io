@@ -49,8 +49,7 @@
             android:layout_height="match_parent"
             android:layout_gravity="center"
             android:layout_weight="2"
-            android:scaleType="fitCenter"
-            android:src="@drawable/face"/>
+            android:scaleType="fitCenter"/>
 
     </LinearLayout>
 

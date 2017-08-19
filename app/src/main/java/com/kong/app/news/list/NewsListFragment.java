@@ -1,13 +1,13 @@
 package com.kong.app.news.list;
 
 import android.os.Bundle;
-import android.support.design.widget.Snackbar;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.kong.R;
 import com.kong.app.news.NewsEntry;
@@ -15,8 +15,8 @@ import com.kong.app.news.adapter.NewsAdapter;
 import com.kong.app.news.adapter.OnItemClickListener;
 import com.kong.app.news.beans.NewModel;
 import com.kong.app.news.beans.TabCategory;
-import com.kong.lib.share.common.fragment.BaseFragment;
-import com.kong.lib.share.common.mvp.Injection;
+import com.kong.lib.fragment.BaseFragment;
+import com.kong.lib.mvp.Injection;
 import com.library.utils.ListUtils;
 
 import java.util.ArrayList;
@@ -133,8 +133,7 @@ public class NewsListFragment extends BaseFragment implements NewsContract.View 
             mAdapter.isShowFooter(false);
             mAdapter.notifyDataSetChanged();
         }
-        View view = getActivity() == null ? mRecyclerView.getRootView() : getActivity().findViewById(R.id.main_drawer_layout);
-        Snackbar.make(view, getString(R.string.load_fail), Snackbar.LENGTH_SHORT).show();
+        Toast.makeText(getContext(),getString(R.string.load_fail),Toast.LENGTH_SHORT).show();
     }
 
     private boolean isEnd = false;
@@ -145,11 +144,9 @@ public class NewsListFragment extends BaseFragment implements NewsContract.View 
         if (this.isEnd){
             mAdapter.isShowFooter(false);
             mAdapter.notifyDataSetChanged();
-            View view = getActivity() == null ? mRecyclerView.getRootView() : getActivity().findViewById(R.id.main_drawer_layout);
-            Snackbar.make(view, getString(R.string.load_end), Snackbar.LENGTH_SHORT).show();
+            Toast.makeText(getContext(),getString(R.string.load_end),Toast.LENGTH_SHORT).show();
         }
     }
-
 
     public void onRefresh() {
         pageIndex = 1;

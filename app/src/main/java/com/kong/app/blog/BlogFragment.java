@@ -12,7 +12,7 @@ import android.view.ViewGroup;
 import com.kong.R;
 import com.kong.app.blog.model.Feed;
 import com.kong.app.news.adapter.MyPagerAdapter;
-import com.kong.lib.share.common.fragment.BaseFragment;
+import com.kong.lib.fragment.BaseFragment;
 
 import java.util.List;
 

@@ -1,4 +1,4 @@
-package com.kong.lib.share.common.mvp;
+package com.kong.lib.mvp;
 
 public interface BaseView<T> {
 

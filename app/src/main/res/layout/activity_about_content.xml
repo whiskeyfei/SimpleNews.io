@@ -20,7 +20,6 @@
             android:text="@string/about_version"/>
 
         <TextView
-            android:id="@+id/about_tv_version"
             style="@style/AboutColor_desc"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

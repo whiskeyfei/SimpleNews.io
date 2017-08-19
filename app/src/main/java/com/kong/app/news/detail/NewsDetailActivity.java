@@ -2,13 +2,14 @@ package com.kong.app.news.detail;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.Snackbar;
 import android.view.View;
 import android.webkit.WebView;
 import android.widget.LinearLayout;
+import android.widget.Toast;
 
 import com.kong.R;
 import com.kong.app.news.base.ToolBarActivity;
+import com.library.AppRun;
 
 public class NewsDetailActivity extends ToolBarActivity implements DetailContract.View {
 
@@ -37,8 +38,10 @@ public class NewsDetailActivity extends ToolBarActivity implements DetailContrac
     private void initView() {
         setTitle(mTitle);
         mLinearLayout = (LinearLayout) findViewById(R.id.detail_webview_root);
-        mWebView = (WebView)findViewById(R.id.detail_webview_content);
-
+        mWebView = new WebView(AppRun.get().getApplicationContext());
+        mWebView.setScrollBarStyle(WebView.SCROLLBARS_INSIDE_OVERLAY);
+        LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT);
+        mLinearLayout.addView(mWebView, lp);
         mNewsDetailPresenter = new NewsDetailPresenter(this);
         mNewsDetailPresenter.init(mWebView);
         mNewsDetailPresenter.loadUrl(mUrl);
@@ -46,7 +49,7 @@ public class NewsDetailActivity extends ToolBarActivity implements DetailContrac
 
     private void initData() {
         Intent intent = getIntent();
-        if (intent != null){
+        if (intent != null) {
             mTitle = intent.getStringExtra(TITLE);
             mUrl = intent.getStringExtra(URL);
         }
@@ -72,7 +75,7 @@ public class NewsDetailActivity extends ToolBarActivity implements DetailContrac
     @Override
     public void showLoadErrorMessage(String description) {
         mWebView.setVisibility(View.GONE);
-        Snackbar.make(mWebView,R.string.load_fail,Snackbar.LENGTH_SHORT).show();
+        Toast.makeText(NewsDetailActivity.this, getString(R.string.load_fail), Toast.LENGTH_SHORT).show();
     }
 
     @Override

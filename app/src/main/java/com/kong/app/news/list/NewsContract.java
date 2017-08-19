@@ -2,8 +2,8 @@ package com.kong.app.news.list;
 
 
 import com.kong.app.news.beans.NewModel;
-import com.kong.lib.share.common.mvp.BaseSubPresenter;
-import com.kong.lib.share.common.mvp.BaseView;
+import com.kong.lib.mvp.BaseSubPresenter;
+import com.kong.lib.mvp.BaseView;
 
 import java.util.List;
 

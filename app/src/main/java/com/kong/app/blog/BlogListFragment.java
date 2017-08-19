@@ -15,7 +15,7 @@ import com.kong.app.blog.model.Feed;
 import com.kong.app.blog.tool.OnRCVScollListener;
 import com.kong.app.demo.about.TextItemViewBinder;
 import com.kong.app.demo.about.TextViewItem;
-import com.kong.lib.share.common.fragment.BaseFragment;
+import com.kong.lib.fragment.BaseFragment;
 import com.library.utils.ListUtils;
 import com.library.utils.ResourceUtil;
 

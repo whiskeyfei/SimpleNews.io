@@ -5,7 +5,7 @@ import com.kong.app.blog.BlogFragment;
 import com.kong.app.gank.GankDate;
 import com.kong.app.gank.GankFragment;
 import com.kong.app.news.NewsFragment;
-import com.kong.lib.share.common.fragment.BaseFragment;
+import com.kong.lib.fragment.BaseFragment;
 import com.library.utils.ResourceUtil;
 
 import java.util.ArrayList;

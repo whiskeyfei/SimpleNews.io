@@ -16,7 +16,7 @@ import com.kong.app.demo.me.AvatarItem;
 import com.kong.app.demo.me.AvatarItemViewBinder;
 import com.kong.app.demo.me.SettingImgTvItem;
 import com.kong.app.demo.me.SettingImgTvItemViewBinder;
-import com.kong.lib.share.common.fragment.BaseFragment;
+import com.kong.lib.fragment.BaseFragment;
 import com.library.utils.ResourceUtil;
 
 import java.util.ArrayList;

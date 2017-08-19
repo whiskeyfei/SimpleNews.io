@@ -4,7 +4,7 @@ import android.util.Log;
 
 import com.kong.app.news.beans.NewModel;
 import com.kong.app.news.beans.NewResultModel;
-import com.kong.lib.share.common.mvp.ISchedulerProvider;
+import com.kong.lib.mvp.ISchedulerProvider;
 import com.library.utils.ActivityUtils;
 import com.library.utils.GsonUtils;
 import com.library.utils.ListUtils;

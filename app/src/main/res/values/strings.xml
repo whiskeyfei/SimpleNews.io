@@ -1,10 +1,6 @@
 <resources>
     <string name="app_name">SimpleNews</string>
-    <string name="name">无名</string>
     <!-- Left Menu-->
-    <string name="navigation_news">新闻</string>
-    <string name="navigation_images">图片</string>
-    <string name="navigation_blog">博客</string>
 
     <!-- tab bar-->
     <string name="top">精选</string>
@@ -12,7 +8,6 @@
     <string name="science">科技</string>
     <string name="health">健康</string>
     <string name="sport">体育</string>
-    <string name="tools">功能</string>
 
     <!-- about-->
     <string name="about">关于</string>
@@ -32,16 +27,12 @@
     <string name="email">whiskeyfei@gmail.com</string>
     <string name="blog">http://doraemonyu.me</string>
 
-    <string name="drawer_open">Open</string>
-    <string name="drawer_close">Close</string>
-
     <string name="load_fail">加载数据失败!</string>
     <string name="load_end">已经没有更多的数据了！</string>
     <string name="image_hit">一次只加载20条，查看更多内容请刷新哦。</string>
 
     <string name="demo">Demo</string>
     <string name="descover">Descover</string>
-    <string name="person">Person</string>
     <string name="note">README</string>
     <string name="settings">设置</string>>
 
@@ -73,6 +64,5 @@
     <string name="tab_home">首页</string>
     <string name="tab_rec">推荐</string>
     <string name="tab_blog">博客</string>
-    <string name="tab_me">我的</string>
 
 </resources>

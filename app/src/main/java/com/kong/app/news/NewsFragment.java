@@ -14,7 +14,7 @@ import com.kong.app.news.adapter.MyPagerAdapter;
 import com.kong.app.news.beans.TabCategory;
 import com.kong.app.news.commons.ApiConstants;
 import com.kong.app.news.list.NewsListFragment;
-import com.kong.lib.share.common.fragment.BaseFragment;
+import com.kong.lib.fragment.BaseFragment;
 import com.library.utils.ResourceUtil;
 
 import java.util.ArrayList;

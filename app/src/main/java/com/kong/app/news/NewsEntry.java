@@ -11,7 +11,6 @@ import com.kong.app.news.ui.AboutActivity;
 import com.kong.app.news.ui.BrowserActivity;
 import com.kong.app.news.ui.SettingActivity;
 import com.kong.home.HomeActivity;
-import com.kong.lib.share.app.news.INewsEntry;
 import com.library.utils.ActivityUtils;
 
 /**

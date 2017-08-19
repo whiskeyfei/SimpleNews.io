@@ -3,8 +3,8 @@ package com.kong.app.badminton;
 import android.util.Log;
 
 import com.kong.app.news.commons.ApiConstants;
-import com.kong.lib.share.common.mvp.ISchedulerProvider;
-import com.kong.lib.share.common.mvp.Injection;
+import com.kong.lib.mvp.ISchedulerProvider;
+import com.kong.lib.mvp.Injection;
 import com.library.utils.GsonUtils;
 import com.library.utils.ListUtils;
 import com.library.utils.OkHttpUtils;

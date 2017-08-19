@@ -26,21 +26,6 @@
 
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light"/>
 
-    <style name="weacher_title">
-        <item name="android:textSize">21.0sp</item>
-        <item name="android:textColor">@color/white</item>
-    </style>
-
-    <style name="weacher_temp">
-        <item name="android:textSize">18.0sp</item>
-        <item name="android:textColor">@color/white</item>
-    </style>
-
-    <style name="weacher_weather">
-        <item name="android:textSize">16.0sp</item>
-        <item name="android:textColor">@color/white</item>
-    </style>
-
     <style name="AppWidget" parent="Theme.AppCompat.Light"/>
 
     <style name="AppWidget.DeepLine">

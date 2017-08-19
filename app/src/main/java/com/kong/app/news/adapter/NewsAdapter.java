@@ -70,6 +70,13 @@ public class NewsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     }
 
     @Override
+    public void onViewRecycled(RecyclerView.ViewHolder holder) {
+        if (holder instanceof ItemViewHolder){
+            ImageLoaderUtils.setDefaultImage(mContext,((ItemViewHolder) holder).mImageView,R.drawable.ic_image_loadfail);
+        }
+    }
+
+    @Override
     public int getItemCount() {
         int begin = mShowFooter ? 1 : 0;
         if (mData == null) {
