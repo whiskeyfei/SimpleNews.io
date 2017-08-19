@@ -1,11 +1,22 @@
 # SimpleNews.io
 [![Build Status](https://travis-ci.org/whiskeyfei/SimpleNews.io.svg?branch=master)](https://travis-ci.org/whiskeyfei/SimpleNews.io)[![](https://jitpack.io/v/whiskeyfei/SimpleNews.io.svg)](https://jitpack.io/#whiskeyfei/SimpleNews.io)
 
-基于 Material Design 和 MVP 的新闻客户端,在原来的基础修改使用 RxJava+MVP,由于数据请求逻辑改动较大，所以单独拉出来进行更新，最新代码库请查看[SimpleNews.io](https://github.com/whiskeyfei/SimpleNews.io)
+基于 Material Design 和 MVP 的新闻客户端,在原来的基础修改使用 RxJava+MVP,由于改动较大，所以单独拉出来进行更新，最新代码库请查看[SimpleNews.io](https://github.com/whiskeyfei/SimpleNews.io)
 
-### 更新
+### 2017.8.8
 
-* 不间断更新
+此次调整改动较大，基本上之前的都改掉了，包括 UI 和逻辑，UI 已经不再完全是 Material Design 风格了，不过一些地方我还是遵守了 Material Design 规范。
+
+修改如下：
+
+* 添加底部 Tab，根据市面上的 App 交互方式，这种方式更易接受和使用。
+* 暂时清除了主题修改，之后可能会考虑已换肤的形式加进来。
+* 统一控件处理，将所有使用统一控件的地方统一处理。
+* UI 风格更改。
+* 增加了两种数据。
+
+### 2017.5.26
+
 [x] 使用 googlesamples MVP + Rxjava 结构实现
 [x] 清除无用代码及无用的依赖库，合并一些基础工具类
 [x] 为了之后的 Android 组件化做了结构调整 2017.5.26
@@ -43,6 +54,7 @@
 * [todo-mvp-rxjava/](https://github.com/googlesamples/android-architecture/tree/todo-mvp-rxjava/)
 * [android-architecture](https://github.com/googlesamples/android-architecture)
 * [FakeWeather](https://github.com/li-yu/FakeWeather)
+* [gank.io](http://gank.io/)
 
 # License
 Copyright 2015 liuling <lauren.liuling@gmail.com><br/>

@@ -78,9 +78,10 @@ public class BlogItemViewBinder extends ItemViewBinder<Feed.PostsBean.ItemsBean,
             if (StringUtils.isEmpty(itemModel.getKeywords())){
                 itemModel.setKeywords("Android");
             }
-            info.setText("Keywords: " + itemModel.getKeywords());
+            info.setText("Keywords: " + itemModel.getKeywords() +itemModel.getCover());
             if (!StringUtils.isEmpty(itemModel.getCover())){
                 icon.setVisibility(View.VISIBLE);
+
                 ImageLoaderUtils.display(AppRun.get().getApplicationContext(), icon, itemModel.getCover(),R.drawable.ic_image_loading, R.drawable.ic_image_loadfail);
             }
         }
@@ -93,7 +94,6 @@ public class BlogItemViewBinder extends ItemViewBinder<Feed.PostsBean.ItemsBean,
             NewModel model = new NewModel();
             model.newUrl = mItemModel.getUrl();
             model.title = mItemModel.getTitle();
-//            NewsEntry.get().startDetailActivity(v.getContext(),model);
             NewsEntry.get().startBrowser(v.getContext(),mItemModel.getUrl(),mItemModel.getTitle());
         }
 

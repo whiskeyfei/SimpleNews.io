@@ -22,25 +22,6 @@ public class ToolsUtil {
         return (int) (dpValue * scale + 0.5f);
     }
 
-    public static int px2dip(Context context, float pxValue) {
-        final float scale = context.getResources().getDisplayMetrics().density;
-        return (int) (pxValue / scale + 0.5f);
-    }
-
-    public static int px2sp(Context context, float pxValue) {
-        final float scale = context.getResources().getDisplayMetrics().density;
-        return (int) (pxValue / scale + 0.5f);
-    }
-
-    public static int sp2px(Context context, float spValue) {
-        final float scale = context.getResources().getDisplayMetrics().density;
-        return (int) (spValue * scale + 0.5f);
-    }
-
-    public static void intentToUrl(String url) {
-        intentToUrl(AppRun.get().getApplicationContext(), url);
-    }
-
     public static void intentToUrl(Context context, String url) {
         Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);

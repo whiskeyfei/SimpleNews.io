@@ -3,7 +3,6 @@ package com.kong.app.news.ui;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Bundle;
-import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.webkit.WebChromeClient;
 import android.webkit.WebView;
@@ -11,14 +10,14 @@ import android.webkit.WebViewClient;
 import android.widget.ProgressBar;
 
 import com.kong.R;
-import com.library.BaseActivity;
+import com.kong.app.news.base.ToolBarActivity;
 import com.library.utils.StringUtils;
 
 /**
  * Created by CaoPengfei on 17/6/14.
  */
 
-public class BrowserActivity extends BaseActivity {
+public class BrowserActivity extends ToolBarActivity {
 
     public static final String BWO_KEY = "bwo_key";
     public static final String BWO_TITLE = "bwo_title";
@@ -30,8 +29,6 @@ public class BrowserActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_browser);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.base_toolbar);
         Intent intent = getIntent();
         if (intent != null) {
             mUrl = intent.getStringExtra(BWO_KEY);
@@ -39,7 +36,6 @@ public class BrowserActivity extends BaseActivity {
             setTitle(mTitle);
         }
 
-        initToolBar(toolbar, mTitle);
         mWebView = (WebView) findViewById(R.id.browser_webView);
         mProgressBar = (ProgressBar) findViewById(R.id.browser_progress);
 
@@ -81,6 +77,11 @@ public class BrowserActivity extends BaseActivity {
         } else {
             showError();
         }
+    }
+
+    @Override
+    protected int getLayoutId() {
+        return R.layout.activity_browser;
     }
 
     public void showResult() {

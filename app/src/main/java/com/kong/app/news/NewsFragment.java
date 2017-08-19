@@ -1,6 +1,8 @@
 package com.kong.app.news;
 
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
@@ -22,6 +24,7 @@ public class NewsFragment extends BaseFragment {
 
     private TabLayout mTablayout;
     private ViewPager mViewPager;
+    Handler mHandler = new Handler(Looper.myLooper());
 
     public static NewsFragment newInstance() {
         Bundle args = new Bundle();
@@ -35,9 +38,21 @@ public class NewsFragment extends BaseFragment {
         View view = inflater.inflate(R.layout.fragment_news, null);
         mTablayout = (TabLayout) view.findViewById(R.id.tab_layout);
         mViewPager = (ViewPager) view.findViewById(R.id.viewpager);
+        mTablayout.setVisibility(View.GONE);
         mViewPager.setOffscreenPageLimit(3);
-        setupViewPager(mViewPager);
-        mTablayout.setupWithViewPager(mViewPager);
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                mHandler.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        setupViewPager(mViewPager);
+                        mTablayout.setupWithViewPager(mViewPager);
+                        mTablayout.setVisibility(View.VISIBLE);
+                    }
+                }, 1000);
+            }
+        }).start();
         return view;
     }
 
