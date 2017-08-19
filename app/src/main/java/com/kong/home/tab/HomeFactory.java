@@ -35,5 +35,4 @@ public class HomeFactory {
 //        mTabFragment.add(MeFragment.newInstance());
     }
 
-
 }

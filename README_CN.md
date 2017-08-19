@@ -24,8 +24,7 @@
 
 ### 效果图
 
-<img src="screenshot/simple_6.png" width=216/><img src="screenshot/simple_7.png" width=216/><img src="screenshot/simple_8.png" width=216/><img src="screenshot/simple_9.png" width=216/><img src="screenshot/simple_1.png" width=216/><img src="screenshot/simple_2.png" width=216/><img src="screenshot/simple_3.png" width=216/><img src="screenshot/simple_4.png" width=216/><img src="screenshot/simple_5.png" width=216/><img src="screenshot/simple_10.png" width=216/><img src="screenshot/simple_11.png" width=216/>
-
+<img src="screenshot/simple_1.png" width=216/><img src="screenshot/simple_2.png" width=216/><img src="screenshot/simple_3.png" width=216/><img src="screenshot/simple_4.png" width=216/>
 ### App设计
 
 本代码库借鉴了[SimpleNews](https://github.com/liuling07/SimpleNews)，在原来得基础上，修改了数据层和UI层的逻辑，使用RxJava+MVP组合

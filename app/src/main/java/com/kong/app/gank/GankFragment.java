@@ -93,6 +93,8 @@ public class GankFragment extends ToolBarFragment {
         return view;
     }
 
+    private int time = 0;
+
     private void loadData() {
         mIGankApi.getGankResult(mYear, mMonth, mDay)
                 .subscribeOn(Schedulers.io())
@@ -124,6 +126,12 @@ public class GankFragment extends ToolBarFragment {
     }
 
     private void showError() {
+        time++;
+        mDay--;
+        if (time < 2){
+            loadData();
+            return;
+        }
         mErrorStup.inflate().setVisibility(View.VISIBLE);
     }
 

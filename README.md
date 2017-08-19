@@ -20,7 +20,7 @@ Change as follows:
 
 ### UI display
 
-<img src="screenshot/simple_6.png" width=216/><img src="screenshot/simple_7.png" width=216/><img src="screenshot/simple_8.png" width=216/><img src="screenshot/simple_9.png" width=216/><img src="screenshot/simple_1.png" width=216/><img src="screenshot/simple_2.png" width=216/><img src="screenshot/simple_3.png" width=216/><img src="screenshot/simple_4.png" width=216/><img src="screenshot/simple_5.png" width=216/><img src="screenshot/simple_10.png" width=216/><img src="screenshot/simple_11.png" width=216/>
+<img src="screenshot/simple_1.png" width=216/><img src="screenshot/simple_2.png" width=216/><img src="screenshot/simple_3.png" width=216/><img src="screenshot/simple_4.png" width=216/>
 
 ### Use open source libraries
 
