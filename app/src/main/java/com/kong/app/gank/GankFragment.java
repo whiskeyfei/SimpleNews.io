@@ -152,6 +152,11 @@ public class GankFragment extends ToolBarFragment {
         if (gankResult.results.web != null){
             mGankList.addAll(gankResult.results.web);
         }
+        if (gankResult.results.拓展资源List != null){
+            mGankList.addAll(gankResult.results.拓展资源List);
+        }
+
+
         Log.i(TAG, "getGankList: " +mGankList);
         return mGankList;
     }
