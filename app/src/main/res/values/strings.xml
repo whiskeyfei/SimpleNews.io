@@ -29,7 +29,6 @@
 
     <string name="load_fail">加载数据失败!</string>
     <string name="load_end">已经没有更多的数据了！</string>
-    <string name="image_hit">一次只加载20条，查看更多内容请刷新哦。</string>
 
     <string name="demo">Demo</string>
     <string name="descover">Descover</string>

@@ -1,6 +1,5 @@
 <resources>
     <dimen name="item_view_margin_left">16dp</dimen>
-    <dimen name="card_margin">6dp</dimen>
 
     <dimen name="sn_16sp">16sp</dimen>
     <dimen name="sn_12sp">12sp</dimen>

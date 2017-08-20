@@ -90,6 +90,7 @@ public class GankFragment extends ToolBarFragment {
         mRecyclerView.setLayoutManager(layoutManager);
         mRecyclerView.setAdapter(mAdapter);
         loadData();
+        time = 0;
         return view;
     }
 
