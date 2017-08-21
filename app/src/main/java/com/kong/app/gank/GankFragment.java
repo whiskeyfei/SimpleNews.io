@@ -3,7 +3,6 @@ package com.kong.app.gank;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,6 +12,7 @@ import android.widget.TextView;
 import com.kong.R;
 import com.kong.app.me.ToolBarFragment;
 import com.library.utils.ListUtils;
+import com.library.utils.ResourceUtil;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -38,7 +38,7 @@ public class GankFragment extends ToolBarFragment {
     private ViewStub mErrorStup;
     private GankListAdapter mAdapter;
 
-    private Toolbar mToolbar;
+//    private Toolbar mToolbar;
     private TextView mTitle;
 
     final IGankApi mIGankApi = new GankApi();
@@ -80,11 +80,9 @@ public class GankFragment extends ToolBarFragment {
         mRecyclerView = (RecyclerView) view.findViewById(R.id.me_recycle_view);
         mErrorStup = (ViewStub) view.findViewById(R.id.stub_error_view);
 
-        mToolbar = (Toolbar) view.findViewById(R.id.base_toolbar);
         mTitle = (TextView) view.findViewById(R.id.base_toolbar_title);
         mRecyclerView = (RecyclerView) view.findViewById(R.id.me_recycle_view);
-        mToolbar.setTitle("");
-        mTitle.setText("推荐");
+        mTitle.setText(ResourceUtil.getString(R.string.tab_rec));
 
         LinearLayoutManager layoutManager = new LinearLayoutManager(getActivity());
         mRecyclerView.setLayoutManager(layoutManager);
@@ -155,7 +153,6 @@ public class GankFragment extends ToolBarFragment {
         if (gankResult.results.拓展资源List != null){
             mGankList.addAll(gankResult.results.拓展资源List);
         }
-
 
         Log.i(TAG, "getGankList: " +mGankList);
         return mGankList;
