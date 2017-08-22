@@ -11,9 +11,10 @@ import android.view.ViewGroup;
 
 import com.kong.R;
 import com.kong.app.blog.model.Feed;
-import com.kong.app.news.adapter.MyPagerAdapter;
+import com.kong.app.news.adapter.RVPagerAdapter;
 import com.kong.lib.fragment.BaseFragment;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class BlogFragment extends BaseFragment implements BlogContract.View {
@@ -47,14 +48,6 @@ public class BlogFragment extends BaseFragment implements BlogContract.View {
         return view;
     }
 
-    private void setupViewPager(ViewPager viewPager, List<Feed.PostsBean> posts) {
-        MyPagerAdapter adapter = new MyPagerAdapter(getChildFragmentManager());
-        for (Feed.PostsBean postBean : posts) {
-            adapter.addFragment(BlogListFragment.newInstance(postBean), postBean.getCategory());
-        }
-        viewPager.setAdapter(adapter);
-    }
-
     @Override
     public void setPresenter(BlogContract.Presenter presenter) {
         mPresenter = presenter;
@@ -68,6 +61,21 @@ public class BlogFragment extends BaseFragment implements BlogContract.View {
         mTablayout.setupWithViewPager(mViewPager);
         mTablayout.setTabMode(TabLayout.MODE_SCROLLABLE);
         mTablayout.setVisibility(View.VISIBLE);
+    }
+
+    private void setupViewPager(ViewPager viewPager, List<Feed.PostsBean> posts) {
+        final RVPagerAdapter adapter = new RVPagerAdapter();
+        final List<View> listViews = new ArrayList<>();
+        final List<String> mTitles = new ArrayList<>();
+        for (Feed.PostsBean postBean : posts) {
+            BlogContentView view = new BlogContentView(getActivity());
+            view.mTitle = postBean.getCategory();
+            view.setPostsBeans(postBean);
+            listViews.add(view);
+            mTitles.add(postBean.getCategory());
+        }
+        adapter.setViews(listViews, mTitles);
+        viewPager.setAdapter(adapter);
     }
 
     @Override

@@ -1,12 +1,16 @@
 package com.kong.app.news.list;
 
-import android.os.Bundle;
+import android.content.Context;
+import android.support.annotation.AttrRes;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
+import android.widget.FrameLayout;
 import android.widget.Toast;
 
 import com.kong.R;
@@ -15,15 +19,15 @@ import com.kong.app.news.adapter.NewsAdapter;
 import com.kong.app.news.adapter.OnItemClickListener;
 import com.kong.app.news.beans.NewModel;
 import com.kong.app.news.beans.TabCategory;
-import com.kong.lib.fragment.BaseFragment;
 import com.kong.lib.mvp.Injection;
 import com.library.utils.ListUtils;
+import com.library.utils.ResourceUtil;
 
 import java.util.ArrayList;
 import java.util.List;
 
 
-public class NewsListFragment extends BaseFragment implements NewsContract.View {
+public class NewsContentView extends FrameLayout implements NewsContract.View {
 
     private static final String TAG = "NewsListFragment";
     private static String FRAGMENT_MODEL = "model";
@@ -38,37 +42,56 @@ public class NewsListFragment extends BaseFragment implements NewsContract.View 
 
     private TabCategory mTabCategory;
 
-    public static NewsListFragment newInstance(TabCategory tabCategory) {
-        Bundle args = new Bundle();
-        NewsListFragment fragment = new NewsListFragment();
-        args.putSerializable(FRAGMENT_MODEL, tabCategory);
-        fragment.setArguments(args);
-        return fragment;
+    public NewsContentView(@NonNull Context context) {
+        super(context);
+        init(context);
     }
 
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+    public NewsContentView(@NonNull Context context, @Nullable AttributeSet attrs) {
+        super(context, attrs);
+        init(context);
+    }
+
+    public NewsContentView(@NonNull Context context, @Nullable AttributeSet attrs, @AttrRes int defStyleAttr) {
+        super(context, attrs, defStyleAttr);
+        init(context);
+    }
+
+    public void setTabCategory(TabCategory tabCategory) {
+        mTabCategory = tabCategory;
+        onRefresh();
+    }
+
+    //    public static NewsContentView newInstance(TabCategory tabCategory) {
+//        Bundle args = new Bundle();
+//        NewsContentView fragment = new NewsContentView();
+//        args.putSerializable(FRAGMENT_MODEL, tabCategory);
+//        fragment.setArguments(args);
+//        return fragment;
+//    }
+
+    public void init(Context context) {
         new NewsPresenter(this, Injection.provideSchedulerProvider());
-        mTabCategory = (TabCategory) getArguments().getSerializable(FRAGMENT_MODEL);
+//        mTabCategory = (TabCategory) getArguments().getSerializable(FRAGMENT_MODEL);
+        LayoutInflater.from(context.getApplicationContext()).inflate(R.layout.fragment_newslist, this, true);
+        initView();
     }
 
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_newslist, null);
-        mRecyclerView = (RecyclerView)view.findViewById(R.id.news_recycle_view_id);
+    public void initView() {
+        mRecyclerView = (RecyclerView)findViewById(R.id.news_recycle_view_id);
         mRecyclerView.setHasFixedSize(true);
-
-        mLayoutManager = new LinearLayoutManager(getActivity());
+        mLayoutManager = new LinearLayoutManager(getContext());
         mRecyclerView.setLayoutManager(mLayoutManager);
 
         mRecyclerView.setItemAnimator(new DefaultItemAnimator());
-        mAdapter = new NewsAdapter(getActivity().getApplicationContext());
+        mAdapter = new NewsAdapter(getContext().getApplicationContext());
         mAdapter.setOnItemClickListener(mOnItemClickListener);
         mRecyclerView.setAdapter(mAdapter);
         mRecyclerView.addOnScrollListener(mOnScrollListener);
+    }
+
+    public void start(){
         onRefresh();
-        return view;
     }
 
     private RecyclerView.OnScrollListener mOnScrollListener = new RecyclerView.OnScrollListener() {
@@ -97,7 +120,7 @@ public class NewsListFragment extends BaseFragment implements NewsContract.View 
         @Override
         public void onItemClick(View view, int position) {
             NewModel news = mAdapter.getItem(position);
-            NewsEntry.get().startBrowser(getActivity(),news.newUrl,news.title);
+            NewsEntry.get().startBrowser(getContext(),news.newUrl,news.title);
         }
     };
 
@@ -125,6 +148,7 @@ public class NewsListFragment extends BaseFragment implements NewsContract.View 
 
     @Override
     public void hideProgress() {
+
     }
 
     @Override
@@ -133,7 +157,7 @@ public class NewsListFragment extends BaseFragment implements NewsContract.View 
             mAdapter.isShowFooter(false);
             mAdapter.notifyDataSetChanged();
         }
-        Toast.makeText(getContext(),getString(R.string.load_fail),Toast.LENGTH_SHORT).show();
+        Toast.makeText(getContext(), ResourceUtil.getString(R.string.load_fail),Toast.LENGTH_SHORT).show();
     }
 
     private boolean isEnd = false;
@@ -144,7 +168,7 @@ public class NewsListFragment extends BaseFragment implements NewsContract.View 
         if (this.isEnd){
             mAdapter.isShowFooter(false);
             mAdapter.notifyDataSetChanged();
-            Toast.makeText(getContext(),getString(R.string.load_end),Toast.LENGTH_SHORT).show();
+            Toast.makeText(getContext(),ResourceUtil.getString(R.string.load_end),Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -160,4 +184,6 @@ public class NewsListFragment extends BaseFragment implements NewsContract.View 
     public void setPresenter(NewsContract.Presenter presenter) {
         mNewsPresenter = presenter;
     }
+
+
 }

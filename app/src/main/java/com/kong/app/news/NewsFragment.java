@@ -11,10 +11,10 @@ import android.view.ViewGroup;
 import android.view.ViewStub;
 
 import com.kong.R;
-import com.kong.app.news.adapter.MyPagerAdapter;
+import com.kong.app.news.adapter.RVPagerAdapter;
 import com.kong.app.news.beans.TabCategory;
 import com.kong.app.news.commons.ApiConstants;
-import com.kong.app.news.list.NewsListFragment;
+import com.kong.app.news.list.NewsContentView;
 import com.kong.lib.fragment.BaseFragment;
 import com.library.utils.ResourceUtil;
 
@@ -22,6 +22,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class NewsFragment extends BaseFragment {
+
     private static final String TAG = "NewsFragment";
 
     private TabLayout mTablayout;
@@ -73,21 +74,24 @@ public class NewsFragment extends BaseFragment {
     }
 
     private void setupViewPager(ViewPager viewPager) {
-        //Fragment中嵌套使用Fragment一定要使用getChildFragmentManager(),否则会有问题
-        MyPagerAdapter adapter = new MyPagerAdapter(getChildFragmentManager());
-        int len = TabCategorys.size();
-        for (int i = 0; i < len; i++) {
-            TabCategory category = TabCategorys.get(i);
-            adapter.addFragment(NewsListFragment.newInstance(category),category.categoryName);
+        final RVPagerAdapter adapter = new RVPagerAdapter();
+        final List<View> listViews = new ArrayList<>();
+        final List<String> mTitles = new ArrayList<>();
+        for (TabCategory category : TabCategorys) {
+            NewsContentView view = new NewsContentView(getActivity());
+            view.setTabCategory(category);
+            listViews.add(view);
+            mTitles.add(category.categoryName);
         }
+        adapter.setViews(listViews, mTitles);
         viewPager.setAdapter(adapter);
     }
 
-    private void showSuccess(){
-        if (mProgressView != null){
+    private void showSuccess() {
+        if (mProgressView != null) {
             mProgressView.setVisibility(View.GONE);
         }
-        if (mErrorView != null){
+        if (mErrorView != null) {
             mErrorView.setVisibility(View.GONE);
         }
         mTablayout.setVisibility(View.VISIBLE);
@@ -96,8 +100,8 @@ public class NewsFragment extends BaseFragment {
 
     private View mProgressView;
 
-    private View getProgressView(){
-        if (mProgressView == null){
+    private View getProgressView() {
+        if (mProgressView == null) {
             ViewStub stub = (ViewStub) mViewStub.inflate().findViewById(R.id.vs_progress_id);
             mProgressView = stub.inflate();
             mProgressView.setVisibility(View.VISIBLE);
@@ -107,39 +111,38 @@ public class NewsFragment extends BaseFragment {
 
     private View mErrorView;
 
-    private View getErrorView(){
-        if (mErrorView == null){
+    private View getErrorView() {
+        if (mErrorView == null) {
             ViewStub stub = (ViewStub) mViewStub.inflate().findViewById(R.id.vs_error_id);
             mErrorView = stub.inflate();
         }
         return mErrorView;
     }
 
-    private void showError(){
-        if (mProgressView != null){
+    private void showError() {
+        if (mProgressView != null) {
             mProgressView.setVisibility(View.GONE);
         }
-        if (mErrorView != null){
+        if (mErrorView != null) {
             mErrorView.setVisibility(View.VISIBLE);
-        }else{
+        } else {
             getErrorView().setVisibility(View.VISIBLE);
         }
     }
 
-    private void showLoading(){
+    private void showLoading() {
         mTablayout.setVisibility(View.GONE);
         mViewPager.setVisibility(View.GONE);
-        if (mErrorView != null){
+        if (mErrorView != null) {
             mErrorView.setVisibility(View.GONE);
         }
-        if (mProgressView != null){
+        if (mProgressView != null) {
             mProgressView.setVisibility(View.VISIBLE);
-        }else{
+        } else {
             getProgressView().setVisibility(View.VISIBLE);
         }
     }
 
-    //TODO
     private final static List<TabCategory> TabCategorys = new ArrayList<>();
 
     static {

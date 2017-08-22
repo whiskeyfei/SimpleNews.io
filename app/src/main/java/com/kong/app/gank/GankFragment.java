@@ -106,17 +106,20 @@ public class GankFragment extends ToolBarFragment {
 
                     @Override
                     public void onError(Throwable e) {
-                        showError();
+                        reLoad();
+//                        showError();
                     }
 
                     @Override
                     public void onNext(GankResult gankResult) {
-                        Log.i(TAG, "onNext: "+gankResult);
+                        Log.i(TAG, "onNext: " + gankResult);
                         getGankList(gankResult);
 
                         if (ListUtils.isEmpty(mGankList)){
-                            showError();
+                            reLoad();
+//                            showError();
                         }else{
+                            time = 100;
                             mAdapter.setGankList(mGankList);
                             mAdapter.notifyDataSetChanged();
                         }
@@ -124,13 +127,17 @@ public class GankFragment extends ToolBarFragment {
                 });
     }
 
-    private void showError() {
+    private void reLoad(){
         time++;
         mDay--;
         if (time < 2){
             loadData();
-            return;
+        }else{
+            showError();
         }
+    }
+
+    private void showError() {
         mErrorStup.inflate().setVisibility(View.VISIBLE);
     }
 

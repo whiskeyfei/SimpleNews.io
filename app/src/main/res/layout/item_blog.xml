@@ -22,6 +22,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:lines="1"
+                android:textColor="@color/secondary_text"
                 android:text="name"/>
 
             <TextView
@@ -39,6 +40,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"
+                android:textColor="@color/secondary_text"
                 android:text="XXXXXXXXXXXXXXXXXXXXXX"
                 android:textSize="12sp"/>
         </LinearLayout>

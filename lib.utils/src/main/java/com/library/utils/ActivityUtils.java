@@ -27,6 +27,7 @@ public class ActivityUtils {
         if (context instanceof Activity) {
             startActivity((Activity) context, intent, -1);
         } else {
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             context.startActivity(intent);
         }
     }
