@@ -16,6 +16,7 @@ import android.widget.Toast;
 
 import com.kong.R;
 import com.kong.app.news.NewsEntry;
+import com.kong.app.news.adapter.IRVPagerView;
 import com.kong.app.news.adapter.NewsAdapter;
 import com.kong.app.news.adapter.OnItemClickListener;
 import com.kong.app.news.beans.NewModel;
@@ -28,7 +29,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class NewsContentView extends FrameLayout implements NewsContract.View {
+public class NewsContentView extends FrameLayout implements NewsContract.View ,IRVPagerView{
 
     private static final String TAG = "NewsContentView";
 
@@ -57,9 +58,10 @@ public class NewsContentView extends FrameLayout implements NewsContract.View {
         init(context);
     }
 
-    public void setTabCategory(TabCategory tabCategory) {
+    public NewsContentView setTabCategory(TabCategory tabCategory) {
         mTabCategory = tabCategory;
         onRefresh();
+        return this;
     }
 
     public void init(Context context) {
@@ -187,4 +189,13 @@ public class NewsContentView extends FrameLayout implements NewsContract.View {
     }
 
 
+    @Override
+    public String getTitle() {
+        return mTabCategory.categoryName;
+    }
+
+    @Override
+    public View getVeiw() {
+        return this;
+    }
 }

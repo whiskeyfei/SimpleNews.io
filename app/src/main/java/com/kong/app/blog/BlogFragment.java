@@ -11,6 +11,7 @@ import android.view.ViewGroup;
 
 import com.kong.R;
 import com.kong.app.blog.model.Feed;
+import com.kong.app.news.adapter.IRVPagerView;
 import com.kong.app.news.adapter.RVPagerAdapter;
 import com.kong.lib.fragment.BaseFragment;
 
@@ -65,16 +66,13 @@ public class BlogFragment extends BaseFragment implements BlogContract.View {
 
     private void setupViewPager(ViewPager viewPager, List<Feed.PostsBean> posts) {
         final RVPagerAdapter adapter = new RVPagerAdapter();
-        final List<View> listViews = new ArrayList<>();
-        final List<String> mTitles = new ArrayList<>();
+        final List<IRVPagerView> mIRVPagerViews = new ArrayList<>();
+
         for (Feed.PostsBean postBean : posts) {
-            BlogContentView view = new BlogContentView(getActivity());
-            view.mTitle = postBean.getCategory();
-            view.setPostsBeans(postBean);
-            listViews.add(view);
-            mTitles.add(postBean.getCategory());
+            IRVPagerView view = new BlogContentView(getActivity()).setPostsBeans(postBean);
+            mIRVPagerViews.add(view);
         }
-        adapter.setViews(listViews, mTitles);
+        adapter.setIRVPagerViews(mIRVPagerViews);
         viewPager.setAdapter(adapter);
     }
 

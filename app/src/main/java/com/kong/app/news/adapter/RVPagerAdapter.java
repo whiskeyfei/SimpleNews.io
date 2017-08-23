@@ -4,6 +4,7 @@ import android.support.v4.view.PagerAdapter;
 import android.view.View;
 import android.view.ViewGroup;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -14,21 +15,16 @@ public class RVPagerAdapter extends PagerAdapter {
 
     private static final String TAG = "RVPagerAdapter";
 
-    private List<View> mViews;
-    private List<String> mTitles;
+    private List<IRVPagerView> mIRVPagerViews = new ArrayList<>();
 
-    public void setViews(List<View> views) {
-        mViews = views;
-    }
-
-    public void setViews(List<View> views, List<String> titles) {
-        mViews = views;
-        mTitles = titles;
+    public void setIRVPagerViews(List<IRVPagerView> IRVPagerViews) {
+        mIRVPagerViews.clear();
+        mIRVPagerViews.addAll(IRVPagerViews);
     }
 
     @Override
     public int getCount() {
-        return mViews.size();
+        return mIRVPagerViews.size();
     }
 
     @Override
@@ -38,19 +34,19 @@ public class RVPagerAdapter extends PagerAdapter {
 
     @Override
     public Object instantiateItem(ViewGroup view, int position) {
-        View contentView = mViews.get(position);
+        View contentView = mIRVPagerViews.get(position).getVeiw();
         view.addView(contentView);
         return contentView;
     }
 
     @Override
     public void destroyItem(ViewGroup container, int position, Object object) {
-        View contentView = mViews.get(position);
+        View contentView = mIRVPagerViews.get(position).getVeiw();
         container.removeView(contentView);
     }
 
     @Override
     public CharSequence getPageTitle(int position) {
-        return mTitles.get(position);
+        return mIRVPagerViews.get(position).getTitle();
     }
 }

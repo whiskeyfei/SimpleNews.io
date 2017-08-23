@@ -7,13 +7,15 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
+import android.view.View;
 import android.widget.FrameLayout;
 
 import com.kong.R;
 import com.kong.app.blog.model.Feed;
-import com.kong.app.blog.tool.OnRCVScollListener;
+import com.kong.app.blog.tool.OnRVScollListener;
 import com.kong.app.demo.about.TextItemViewBinder;
 import com.kong.app.demo.about.TextViewItem;
+import com.kong.app.news.adapter.IRVPagerView;
 import com.library.utils.ListUtils;
 import com.library.utils.ResourceUtil;
 
@@ -26,7 +28,7 @@ import me.drakeet.multitype.MultiTypeAdapter;
  * Created by CaoPengfei on 17/8/21.
  */
 
-public class BlogContentView extends FrameLayout implements OnRCVScollListener.OnLoadListener {
+public class BlogContentView extends FrameLayout implements OnRVScollListener.OnLoadListener,IRVPagerView {
 
     public static final String TAG = "BlogContentView";
 
@@ -34,7 +36,6 @@ public class BlogContentView extends FrameLayout implements OnRCVScollListener.O
     private Feed.PostsBean mPostsBeans;
     private MultiTypeAdapter mAdapter;
     private List<Object> mObjectList = new ArrayList<Object>();
-    public String mTitle;
 
     public BlogContentView(Context context) {
         this(context, null);
@@ -49,9 +50,10 @@ public class BlogContentView extends FrameLayout implements OnRCVScollListener.O
         init(context);
     }
 
-    public void setPostsBeans(Feed.PostsBean postsBeans) {
+    public BlogContentView setPostsBeans(Feed.PostsBean postsBeans) {
         mPostsBeans = postsBeans;
         setAdapter();
+        return this;
     }
 
     private void init(Context context) {
@@ -63,7 +65,7 @@ public class BlogContentView extends FrameLayout implements OnRCVScollListener.O
         mRecyclerView.setHasFixedSize(true);
         LinearLayoutManager layoutManager = new LinearLayoutManager(getContext());
         mRecyclerView.setLayoutManager(layoutManager);
-        mRecyclerView.addOnScrollListener(new OnRCVScollListener(layoutManager,this));
+        mRecyclerView.addOnScrollListener(new OnRVScollListener(layoutManager,this));
         mRecyclerView.setItemAnimator(new DefaultItemAnimator());
         mAdapter = new MultiTypeAdapter();
         mAdapter.register(Feed.PostsBean.ItemsBean.class, new BlogItemViewBinder());
@@ -107,5 +109,15 @@ public class BlogContentView extends FrameLayout implements OnRCVScollListener.O
 
     public void setEnd(boolean end) {
         isEnd = end;
+    }
+
+    @Override
+    public String getTitle() {
+        return mPostsBeans.getCategory();
+    }
+
+    @Override
+    public View getVeiw() {
+        return this;
     }
 }

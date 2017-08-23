@@ -19,7 +19,7 @@ public class NewsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     private static final int TYPE_ITEM = 0;
     private static final int TYPE_FOOTER = 1;
 
-    private List<NewModel> mData;
+    private List<NewModel> mNewModels;
     private boolean mShowFooter = true;
     private Context mContext;
 
@@ -30,7 +30,7 @@ public class NewsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     }
 
     public void setNewDate(List<NewModel> data) {
-        this.mData = data;
+        this.mNewModels = data;
         this.notifyDataSetChanged();
     }
 
@@ -59,7 +59,7 @@ public class NewsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
         if (holder instanceof ItemViewHolder) {
-            NewModel news = mData.get(position);
+            NewModel news = mNewModels.get(position);
             if (news == null) {
                 return;
             }
@@ -79,14 +79,14 @@ public class NewsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     @Override
     public int getItemCount() {
         int begin = mShowFooter ? 1 : 0;
-        if (mData == null) {
+        if (mNewModels == null) {
             return begin;
         }
-        return mData.size() + begin;
+        return mNewModels.size() + begin;
     }
 
     public NewModel getItem(int position) {
-        return mData == null ? null : mData.get(position);
+        return mNewModels == null ? null : mNewModels.get(position);
     }
 
     public void isShowFooter(boolean showFooter) {

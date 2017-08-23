@@ -11,6 +11,7 @@ import android.view.ViewGroup;
 import android.view.ViewStub;
 
 import com.kong.R;
+import com.kong.app.news.adapter.IRVPagerView;
 import com.kong.app.news.adapter.RVPagerAdapter;
 import com.kong.app.news.beans.TabCategory;
 import com.kong.app.news.commons.ApiConstants;
@@ -75,15 +76,12 @@ public class NewsFragment extends BaseFragment {
 
     private void setupViewPager(ViewPager viewPager) {
         final RVPagerAdapter adapter = new RVPagerAdapter();
-        final List<View> listViews = new ArrayList<>();
-        final List<String> mTitles = new ArrayList<>();
+        final List<IRVPagerView> mIRVPagerViews = new ArrayList<>();
         for (TabCategory category : TabCategorys) {
-            NewsContentView view = new NewsContentView(getActivity());
-            view.setTabCategory(category);
-            listViews.add(view);
-            mTitles.add(category.categoryName);
+            IRVPagerView view = new NewsContentView(getActivity()).setTabCategory(category);
+            mIRVPagerViews.add(view);
         }
-        adapter.setViews(listViews, mTitles);
+        adapter.setIRVPagerViews(mIRVPagerViews);
         viewPager.setAdapter(adapter);
     }
 
