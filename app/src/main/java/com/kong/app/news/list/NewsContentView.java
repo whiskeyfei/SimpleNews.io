@@ -8,6 +8,7 @@ import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.FrameLayout;
@@ -29,8 +30,7 @@ import java.util.List;
 
 public class NewsContentView extends FrameLayout implements NewsContract.View {
 
-    private static final String TAG = "NewsListFragment";
-    private static String FRAGMENT_MODEL = "model";
+    private static final String TAG = "NewsContentView";
 
     private RecyclerView mRecyclerView;
     private LinearLayoutManager mLayoutManager;
@@ -62,19 +62,22 @@ public class NewsContentView extends FrameLayout implements NewsContract.View {
         onRefresh();
     }
 
-    //    public static NewsContentView newInstance(TabCategory tabCategory) {
-//        Bundle args = new Bundle();
-//        NewsContentView fragment = new NewsContentView();
-//        args.putSerializable(FRAGMENT_MODEL, tabCategory);
-//        fragment.setArguments(args);
-//        return fragment;
-//    }
-
     public void init(Context context) {
         new NewsPresenter(this, Injection.provideSchedulerProvider());
-//        mTabCategory = (TabCategory) getArguments().getSerializable(FRAGMENT_MODEL);
         LayoutInflater.from(context.getApplicationContext()).inflate(R.layout.fragment_newslist, this, true);
         initView();
+    }
+
+    @Override
+    protected void onAttachedToWindow() {
+        super.onAttachedToWindow();
+        Log.i(TAG, "onAttachedToWindow: ");
+    }
+
+    @Override
+    protected void onDetachedFromWindow() {
+        super.onDetachedFromWindow();
+        Log.i(TAG, "onDetachedFromWindow: ");
     }
 
     public void initView() {
@@ -88,10 +91,6 @@ public class NewsContentView extends FrameLayout implements NewsContract.View {
         mAdapter.setOnItemClickListener(mOnItemClickListener);
         mRecyclerView.setAdapter(mAdapter);
         mRecyclerView.addOnScrollListener(mOnScrollListener);
-    }
-
-    public void start(){
-        onRefresh();
     }
 
     private RecyclerView.OnScrollListener mOnScrollListener = new RecyclerView.OnScrollListener() {
@@ -120,7 +119,9 @@ public class NewsContentView extends FrameLayout implements NewsContract.View {
         @Override
         public void onItemClick(View view, int position) {
             NewModel news = mAdapter.getItem(position);
-            NewsEntry.get().startBrowser(getContext(),news.newUrl,news.title);
+            if (news != null){
+                NewsEntry.get().startBrowser(getContext(),news.newUrl,news.title);
+            }
         }
     };
 

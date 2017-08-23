@@ -1,7 +1,6 @@
 package com.kong.app.news.adapter;
 
 import android.support.v4.view.PagerAdapter;
-import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 
@@ -46,8 +45,8 @@ public class RVPagerAdapter extends PagerAdapter {
 
     @Override
     public void destroyItem(ViewGroup container, int position, Object object) {
-        super.destroyItem(container, position, object);
-        Log.i(TAG, "destroyItem: ");
+        View contentView = mViews.get(position);
+        container.removeView(contentView);
     }
 
     @Override

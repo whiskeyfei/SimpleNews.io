@@ -38,7 +38,6 @@ public class GankFragment extends ToolBarFragment {
     private ViewStub mErrorStup;
     private GankListAdapter mAdapter;
 
-//    private Toolbar mToolbar;
     private TextView mTitle;
 
     final IGankApi mIGankApi = new GankApi();

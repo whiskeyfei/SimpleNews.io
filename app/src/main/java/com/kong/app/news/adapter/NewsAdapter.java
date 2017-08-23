@@ -65,14 +65,14 @@ public class NewsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
             }
             ((ItemViewHolder) holder).mTitle.setText(news.title);
             ((ItemViewHolder) holder).mDesc.setText(new StringBuilder(TimeUtils.getGapTime(news.time)).append(" ").append(news.digest).toString());
-            ImageLoaderUtils.display(mContext, ((ItemViewHolder) holder).mImageView, news.imageUrl,R.drawable.ic_image_loading, R.drawable.ic_image_loadfail);
+            ImageLoaderUtils.display(mContext, ((ItemViewHolder) holder).mImageView, news.imageUrl, R.drawable.ic_image_loading, R.drawable.ic_image_loadfail);
         }
     }
 
     @Override
     public void onViewRecycled(RecyclerView.ViewHolder holder) {
-        if (holder instanceof ItemViewHolder){
-            ImageLoaderUtils.setDefaultImage(mContext,((ItemViewHolder) holder).mImageView,R.drawable.ic_image_loadfail);
+        if (holder instanceof ItemViewHolder) {
+            ImageLoaderUtils.setDefaultImage(mContext, ((ItemViewHolder) holder).mImageView, R.drawable.ic_image_loadfail);
         }
     }
 
