@@ -22,6 +22,7 @@ import com.kong.app.news.adapter.OnItemClickListener;
 import com.kong.app.news.beans.NewModel;
 import com.kong.app.news.beans.TabCategory;
 import com.kong.lib.mvp.Injection;
+import com.kong.lib.utils.SToast;
 import com.library.utils.ListUtils;
 import com.library.utils.ResourceUtil;
 
@@ -160,7 +161,7 @@ public class NewsContentView extends FrameLayout implements NewsContract.View ,I
             mAdapter.isShowFooter(false);
             mAdapter.notifyDataSetChanged();
         }
-        Toast.makeText(getContext(), ResourceUtil.getString(R.string.load_fail),Toast.LENGTH_SHORT).show();
+        SToast.makeText(getContext(), ResourceUtil.getString(R.string.load_fail),Toast.LENGTH_SHORT).show();
     }
 
     private boolean isEnd = false;
@@ -171,7 +172,7 @@ public class NewsContentView extends FrameLayout implements NewsContract.View ,I
         if (this.isEnd){
             mAdapter.isShowFooter(false);
             mAdapter.notifyDataSetChanged();
-            Toast.makeText(getContext(),ResourceUtil.getString(R.string.load_end),Toast.LENGTH_SHORT).show();
+            SToast.makeText(getContext(),ResourceUtil.getString(R.string.load_end),Toast.LENGTH_SHORT).show();
         }
     }
 

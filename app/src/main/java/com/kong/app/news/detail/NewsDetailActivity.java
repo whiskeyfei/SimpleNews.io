@@ -9,6 +9,7 @@ import android.widget.Toast;
 
 import com.kong.R;
 import com.kong.app.news.base.ToolBarActivity;
+import com.kong.lib.utils.SToast;
 import com.library.AppRun;
 
 public class NewsDetailActivity extends ToolBarActivity implements DetailContract.View {
@@ -75,7 +76,7 @@ public class NewsDetailActivity extends ToolBarActivity implements DetailContrac
     @Override
     public void showLoadErrorMessage(String description) {
         mWebView.setVisibility(View.GONE);
-        Toast.makeText(NewsDetailActivity.this, getString(R.string.load_fail), Toast.LENGTH_SHORT).show();
+        SToast.makeText(NewsDetailActivity.this, getString(R.string.load_fail), Toast.LENGTH_SHORT).show();
     }
 
     @Override

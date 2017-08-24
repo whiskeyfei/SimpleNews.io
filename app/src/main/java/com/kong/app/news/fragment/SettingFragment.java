@@ -11,7 +11,6 @@ import com.afollestad.materialdialogs.color.ColorChooserDialog;
 import com.kong.R;
 import com.kong.app.news.ui.SettingActivity;
 import com.kong.app.news.utils.SettingsUtil;
-import com.library.utils.ToolsUtil;
 
 /**
  * Created by CaoPengfei on 17/6/17.
@@ -58,7 +57,6 @@ public class SettingFragment extends PreferenceFragment implements Preference.On
     @Override
     public boolean onPreferenceClick(Preference preference) {
         if (preference == mCleanCache){
-            ToolsUtil.showToast("假的清除！");
         }else if (preference == mPreferenceTheme){
             new ColorChooserDialog.Builder((SettingActivity)getActivity(), R.string.theme)
                     .customColors(R.array.colors, null)

@@ -8,7 +8,6 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.kong.R;
-import com.library.utils.ToolsUtil;
 
 import me.drakeet.multitype.ItemViewBinder;
 
@@ -42,7 +41,6 @@ public class HeadertemViewBinder extends ItemViewBinder<Header, HeadertemViewBin
 
         @Override
         public void onClick(View v) {
-            ToolsUtil.showToast("header v position:" + getAdapterPosition());
         }
 
         public void setData(Header data) {

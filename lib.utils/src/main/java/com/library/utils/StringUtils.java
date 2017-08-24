@@ -1,13 +1,11 @@
 package com.library.utils;
 
-/**
- * String method 2014.12.16
- * 
- * @author whiskeyfei
- * 
- */
-
 public class StringUtils {
+
+	public static boolean isEmpty(CharSequence str) {
+		return str == null || str.length() == 0;
+	}
+
 	public static boolean isEmpty(String... strs) {
 		if (strs == null) {
 			return true;

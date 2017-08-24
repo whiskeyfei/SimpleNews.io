@@ -9,7 +9,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.kong.R;
-import com.library.utils.ToolsUtil;
 
 import me.drakeet.multitype.ItemViewBinder;
 
@@ -50,7 +49,6 @@ public class AvatarItemViewBinder extends ItemViewBinder<AvatarItem, AvatarItemV
 
         @Override
         public void onClick(View v) {
-            ToolsUtil.showToast("AvatarItemView position:" + getAdapterPosition());
         }
 
         public void setData(AvatarItem data) {

@@ -13,7 +13,6 @@ import com.kong.R;
 import com.kong.app.badminton.Players;
 import com.library.AppRun;
 import com.library.utils.ImageLoaderUtils;
-import com.library.utils.ToolsUtil;
 
 import me.drakeet.multitype.ItemViewBinder;
 
@@ -62,7 +61,6 @@ public class GridItemViewBinder extends ItemViewBinder<Players.PlayerBean, GridI
 
         @Override
         public void onClick(View v) {
-            ToolsUtil.showToast("GridView position:" + getAdapterPosition());
         }
 
         public void setData(Players.PlayerBean data) {

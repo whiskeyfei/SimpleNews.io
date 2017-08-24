@@ -2,6 +2,7 @@ package com.kong.home;
 
 import android.os.Bundle;
 import android.view.KeyEvent;
+import android.widget.Toast;
 
 import com.kong.R;
 import com.kong.app.news.event.ThemeChangedEvent;
@@ -10,9 +11,9 @@ import com.kong.home.tab.adapter.BottomTabAdapter;
 import com.kong.home.tab.adapter.MyViewPagerAdapter;
 import com.kong.home.tab.widget.BottomTabLayout;
 import com.kong.home.tab.widget.TabViewPager;
+import com.kong.lib.utils.SToast;
 import com.library.BaseActivity;
 import com.library.event.AppExitEvent;
-import com.library.utils.ToolsUtil;
 
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
@@ -55,7 +56,7 @@ public class HomeActivity extends BaseActivity {
         if (keyCode == KeyEvent.KEYCODE_BACK || keyCode == KeyEvent.KEYCODE_ESCAPE) {
             long secondBackPressedTime = System.currentTimeMillis();
             if (secondBackPressedTime - firstBackPressedTime > 2000) {
-                ToolsUtil.showToast(R.string.back_again_exit);
+                SToast.makeText(HomeActivity.this,R.string.back_again_exit, Toast.LENGTH_SHORT).show();
                 firstBackPressedTime = secondBackPressedTime;
                 return true;
             } else {
