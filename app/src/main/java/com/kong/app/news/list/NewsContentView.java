@@ -71,15 +71,22 @@ public class NewsContentView extends FrameLayout implements NewsContract.View ,I
         initView();
     }
 
+//    @Subscribe(threadMode = ThreadMode.MAIN)
+//    public void onSelectRepeat(SelectRepeatEvent event){
+//        Log.i(TAG, "onSelectRepeat: event :" + event);
+//    }
+
     @Override
     protected void onAttachedToWindow() {
         super.onAttachedToWindow();
+//        EventBus.getDefault().register(this);
         Log.i(TAG, "onAttachedToWindow: ");
     }
 
     @Override
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
+//        EventBus.getDefault().unregister(this);
         Log.i(TAG, "onDetachedFromWindow: ");
     }
 
@@ -198,5 +205,13 @@ public class NewsContentView extends FrameLayout implements NewsContract.View ,I
     @Override
     public View getVeiw() {
         return this;
+    }
+
+    @Override
+    public void scrollTop() {
+        int firstVisibleItemPosition = mLayoutManager.findFirstVisibleItemPosition();
+        Log.i(TAG, "scrollTop firstVisibleItemPosition: " + firstVisibleItemPosition);
+        if (mRecyclerView != null && firstVisibleItemPosition >0)
+        mRecyclerView.smoothScrollToPosition(0);
     }
 }

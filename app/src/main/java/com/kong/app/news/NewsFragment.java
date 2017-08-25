@@ -3,8 +3,10 @@ package com.kong.app.news;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
+import android.support.annotation.Nullable;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,8 +18,13 @@ import com.kong.app.news.adapter.RVPagerAdapter;
 import com.kong.app.news.beans.TabCategory;
 import com.kong.app.news.commons.ApiConstants;
 import com.kong.app.news.list.NewsContentView;
+import com.kong.home.tab.event.SelectRepeatEvent;
 import com.kong.lib.fragment.BaseFragment;
 import com.library.utils.ResourceUtil;
+
+import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
+import org.greenrobot.eventbus.ThreadMode;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -31,12 +38,31 @@ public class NewsFragment extends BaseFragment {
     private ViewStub mViewStub;
     private Handler mHandler = new Handler(Looper.myLooper());
     private View mRoot;
+    private final List<IRVPagerView> mIRVPagerViews = new ArrayList<>();
 
     public static NewsFragment newInstance() {
         Bundle args = new Bundle();
         NewsFragment fragment = new NewsFragment();
         fragment.setArguments(args);
         return fragment;
+    }
+
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    public void onSelectRepeat(SelectRepeatEvent event){
+        if (!(event.type == SelectRepeatEvent.HOMEINDEX)){
+            return;
+        }
+        int selectPos = mTablayout.getSelectedTabPosition();
+        Log.i(TAG, "onSelectRepeat: event :" + event);
+        Log.i(TAG, "onSelectRepeat: selectPos :" + selectPos);
+        IRVPagerView pagerView = mIRVPagerViews.get(selectPos);
+        if (pagerView != null) pagerView.scrollTop();
+    }
+
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        EventBus.getDefault().register(this);
     }
 
     @Override
@@ -48,6 +74,7 @@ public class NewsFragment extends BaseFragment {
         mTablayout = null;
         mViewPager = null;
         mHandler.removeCallbacksAndMessages(null);
+        EventBus.getDefault().unregister(this);
     }
 
     @Override
@@ -75,8 +102,9 @@ public class NewsFragment extends BaseFragment {
     }
 
     private void setupViewPager(ViewPager viewPager) {
+        mIRVPagerViews.clear();
         final RVPagerAdapter adapter = new RVPagerAdapter();
-        final List<IRVPagerView> mIRVPagerViews = new ArrayList<>();
+
         for (TabCategory category : TabCategorys) {
             IRVPagerView view = new NewsContentView(getActivity()).setTabCategory(category);
             mIRVPagerViews.add(view);

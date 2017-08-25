@@ -6,6 +6,7 @@ import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.FrameLayout;
@@ -36,7 +37,7 @@ public class BlogContentView extends FrameLayout implements OnRVScollListener.On
     private Feed.PostsBean mPostsBeans;
     private MultiTypeAdapter mAdapter;
     private List<Object> mObjectList = new ArrayList<Object>();
-
+    private LinearLayoutManager mLayoutManager;
     public BlogContentView(Context context) {
         this(context, null);
     }
@@ -63,9 +64,9 @@ public class BlogContentView extends FrameLayout implements OnRVScollListener.On
 
     private void setAdapter() {
         mRecyclerView.setHasFixedSize(true);
-        LinearLayoutManager layoutManager = new LinearLayoutManager(getContext());
-        mRecyclerView.setLayoutManager(layoutManager);
-        mRecyclerView.addOnScrollListener(new OnRVScollListener(layoutManager,this));
+        mLayoutManager = new LinearLayoutManager(getContext());
+        mRecyclerView.setLayoutManager(mLayoutManager);
+        mRecyclerView.addOnScrollListener(new OnRVScollListener(mLayoutManager,this));
         mRecyclerView.setItemAnimator(new DefaultItemAnimator());
         mAdapter = new MultiTypeAdapter();
         mAdapter.register(Feed.PostsBean.ItemsBean.class, new BlogItemViewBinder());
@@ -119,5 +120,13 @@ public class BlogContentView extends FrameLayout implements OnRVScollListener.On
     @Override
     public View getVeiw() {
         return this;
+    }
+
+    @Override
+    public void scrollTop() {
+        int firstVisibleItemPosition = mLayoutManager.findFirstVisibleItemPosition();
+        Log.i(TAG, "scrollTop firstVisibleItemPosition: " + firstVisibleItemPosition);
+        if (mRecyclerView != null && firstVisibleItemPosition >0)
+            mRecyclerView.smoothScrollToPosition(0);
     }
 }

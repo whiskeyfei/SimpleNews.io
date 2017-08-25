@@ -13,6 +13,9 @@ import android.widget.LinearLayout;
 
 import com.kong.home.tab.OnTabItemSelectedListener;
 import com.kong.home.tab.adapter.BottomTabAdapter;
+import com.kong.home.tab.event.SelectRepeatEvent;
+
+import org.greenrobot.eventbus.EventBus;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -180,6 +183,7 @@ public class BottomTabLayout extends LinearLayout {
         @Override
         public void onSelectRepeat(int index) {
             Log.i(TAG, "onSelectRepeat: index" + index);
+            EventBus.getDefault().post(new SelectRepeatEvent(index));
         }
     };
 

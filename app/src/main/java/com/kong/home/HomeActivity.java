@@ -5,7 +5,6 @@ import android.view.KeyEvent;
 import android.widget.Toast;
 
 import com.kong.R;
-import com.kong.app.news.event.ThemeChangedEvent;
 import com.kong.home.tab.HomeFactory;
 import com.kong.home.tab.adapter.BottomTabAdapter;
 import com.kong.home.tab.adapter.MyViewPagerAdapter;
@@ -16,8 +15,6 @@ import com.library.BaseActivity;
 import com.library.event.AppExitEvent;
 
 import org.greenrobot.eventbus.EventBus;
-import org.greenrobot.eventbus.Subscribe;
-import org.greenrobot.eventbus.ThreadMode;
 
 
 public class HomeActivity extends BaseActivity {
@@ -40,10 +37,10 @@ public class HomeActivity extends BaseActivity {
         mBottomTabLayout.setViewPager(mViewPager);
     }
 
-    @Subscribe(threadMode = ThreadMode.MAIN)
-    public void onThemeChanged(ThemeChangedEvent event) {
-        this.recreate();
-    }
+//    @Subscribe(threadMode = ThreadMode.MAIN)
+//    public void onThemeChanged(ThemeChangedEvent event) {
+//        this.recreate();
+//    }
 
     private long firstBackPressedTime = 0;
 

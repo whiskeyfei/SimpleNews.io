@@ -11,4 +11,6 @@ public interface IRVPagerView {
     String getTitle();
 
     View getVeiw();
+
+    void scrollTop();
 }

@@ -13,7 +13,12 @@ import com.kong.R;
 import com.kong.app.blog.model.Feed;
 import com.kong.app.news.adapter.IRVPagerView;
 import com.kong.app.news.adapter.RVPagerAdapter;
+import com.kong.home.tab.event.SelectRepeatEvent;
 import com.kong.lib.fragment.BaseFragment;
+
+import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
+import org.greenrobot.eventbus.ThreadMode;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -25,6 +30,7 @@ public class BlogFragment extends BaseFragment implements BlogContract.View {
     private TabLayout mTablayout;
     private ViewPager mViewPager;
     private BlogContract.Presenter mPresenter;
+    final List<IRVPagerView> mIRVPagerViews = new ArrayList<>();
 
     public static BlogFragment newInstance() {
         Bundle args = new Bundle();
@@ -36,7 +42,14 @@ public class BlogFragment extends BaseFragment implements BlogContract.View {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        EventBus.getDefault().register(this);
         new BlogPresenter(this);
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        EventBus.getDefault().unregister(this);
     }
 
     @Override
@@ -54,6 +67,18 @@ public class BlogFragment extends BaseFragment implements BlogContract.View {
         mPresenter = presenter;
     }
 
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    public void onSelectRepeat(SelectRepeatEvent event){
+        if (!(event.type == SelectRepeatEvent.BLOGINDEX)){
+            return;
+        }
+        int selectPos = mTablayout.getSelectedTabPosition();
+        Log.i(TAG, "onSelectRepeat: event :" + event);
+        Log.i(TAG, "onSelectRepeat: selectPos :" + selectPos);
+        IRVPagerView pagerView = mIRVPagerViews.get(selectPos);
+        if (pagerView != null) pagerView.scrollTop();
+    }
+
     @Override
     public void onSuccess(Feed feed) {
         Log.i(TAG, "onSuccess:" + feed);
@@ -66,7 +91,6 @@ public class BlogFragment extends BaseFragment implements BlogContract.View {
 
     private void setupViewPager(ViewPager viewPager, List<Feed.PostsBean> posts) {
         final RVPagerAdapter adapter = new RVPagerAdapter();
-        final List<IRVPagerView> mIRVPagerViews = new ArrayList<>();
 
         for (Feed.PostsBean postBean : posts) {
             IRVPagerView view = new BlogContentView(getActivity()).setPostsBeans(postBean);
