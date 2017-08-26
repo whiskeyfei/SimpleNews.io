@@ -11,7 +11,7 @@ import android.widget.ProgressBar;
 
 import com.kong.R;
 import com.kong.app.news.base.ToolBarActivity;
-import com.library.utils.StringUtils;
+import com.kong.lib.utils.StringUtils;
 
 /**
  * Created by CaoPengfei on 17/6/14.

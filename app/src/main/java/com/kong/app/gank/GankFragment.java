@@ -11,8 +11,8 @@ import android.widget.TextView;
 
 import com.kong.R;
 import com.kong.app.me.ToolBarFragment;
-import com.library.utils.ListUtils;
-import com.library.utils.ResourceUtil;
+import com.kong.lib.utils.ListUtils;
+import com.kong.lib.utils.ResourceUtil;
 
 import java.util.ArrayList;
 import java.util.List;

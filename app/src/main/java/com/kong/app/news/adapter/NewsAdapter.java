@@ -11,7 +11,7 @@ import android.widget.TextView;
 import com.kong.R;
 import com.kong.app.news.beans.NewModel;
 import com.kong.app.news.utils.TimeUtils;
-import com.library.utils.ImageLoaderUtils;
+import com.kong.lib.utils.ImageLoaderUtils;
 
 import java.util.List;
 

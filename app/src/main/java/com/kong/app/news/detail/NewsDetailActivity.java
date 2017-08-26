@@ -10,7 +10,7 @@ import android.widget.Toast;
 import com.kong.R;
 import com.kong.app.news.base.ToolBarActivity;
 import com.kong.lib.utils.SToast;
-import com.library.AppRun;
+import com.kong.lib.AppRun;
 
 public class NewsDetailActivity extends ToolBarActivity implements DetailContract.View {
 

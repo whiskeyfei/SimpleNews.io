@@ -10,7 +10,7 @@ import android.widget.TextView;
 
 import com.kong.R;
 import com.kong.app.news.beans.ItemModel;
-import com.library.utils.ActivityUtils;
+import com.kong.lib.utils.ActivityUtils;
 
 import me.drakeet.multitype.ItemViewBinder;
 

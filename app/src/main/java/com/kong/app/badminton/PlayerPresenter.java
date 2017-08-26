@@ -5,10 +5,10 @@ import android.util.Log;
 import com.kong.app.news.commons.ApiConstants;
 import com.kong.lib.mvp.ISchedulerProvider;
 import com.kong.lib.mvp.Injection;
-import com.library.utils.GsonUtils;
-import com.library.utils.ListUtils;
-import com.library.utils.OkHttpUtils;
-import com.library.utils.StringUtils;
+import com.kong.lib.utils.GsonUtils;
+import com.kong.lib.utils.ListUtils;
+import com.kong.lib.utils.OkHttpUtils;
+import com.kong.lib.utils.StringUtils;
 
 import rx.Observable;
 import rx.Subscriber;

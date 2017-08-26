@@ -3,7 +3,7 @@ package com.kong.app.news.utils;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 
-import com.library.AppRun;
+import com.kong.lib.AppRun;
 
 /**
  * Created by CaoPengfei on 17/6/17.

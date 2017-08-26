@@ -16,7 +16,7 @@
 #   public *;
 #}
 
--keep class com.library.event.AppExitEvent
+-keep class AppExitEvent
 -keepattributes *Annotation*
 -keepclassmembers class ** {
     @org.greenrobot.eventbus.Subscribe <methods>;

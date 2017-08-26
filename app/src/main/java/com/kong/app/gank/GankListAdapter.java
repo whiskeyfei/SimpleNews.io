@@ -8,7 +8,7 @@ import android.widget.TextView;
 
 import com.kong.R;
 import com.kong.app.news.NewsEntry;
-import com.library.utils.ListUtils;
+import com.kong.lib.utils.ListUtils;
 
 import java.util.List;
 

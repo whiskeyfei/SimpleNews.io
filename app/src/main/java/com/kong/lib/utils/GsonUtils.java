@@ -1,4 +1,4 @@
-package com.library.utils;
+package com.kong.lib.utils;
 
 import com.google.gson.Gson;
 import com.google.gson.JsonSyntaxException;

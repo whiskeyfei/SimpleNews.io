@@ -8,17 +8,16 @@ import android.util.Log;
 import android.view.View;
 
 import com.kong.app.blog.model.Feed;
-import com.kong.app.news.NewsBaseFragment;
+import com.kong.app.news.ListBaseFragment;
 import com.kong.app.news.adapter.IRVPagerView;
 import com.kong.app.news.adapter.RVPagerAdapter;
 import com.kong.home.tab.event.SelectRepeatEvent;
 
 import java.util.List;
 
-public class BlogFragment extends NewsBaseFragment implements BlogContract.View {
+public class BlogFragment extends ListBaseFragment implements BlogContract.View {
 
     private static final String TAG = "BlogFragment";
-
     private BlogContract.Presenter mPresenter;
 
     public static BlogFragment newInstance() {

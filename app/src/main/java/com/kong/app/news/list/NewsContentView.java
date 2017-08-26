@@ -23,8 +23,8 @@ import com.kong.app.news.beans.NewModel;
 import com.kong.app.news.beans.TabCategory;
 import com.kong.lib.mvp.Injection;
 import com.kong.lib.utils.SToast;
-import com.library.utils.ListUtils;
-import com.library.utils.ResourceUtil;
+import com.kong.lib.utils.ListUtils;
+import com.kong.lib.utils.ResourceUtil;
 
 import java.util.ArrayList;
 import java.util.List;

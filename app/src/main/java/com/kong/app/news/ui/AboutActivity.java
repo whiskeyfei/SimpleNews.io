@@ -6,7 +6,7 @@ import android.view.View;
 import com.kong.R;
 import com.kong.app.news.NewsEntry;
 import com.kong.app.news.base.ToolBarActivity;
-import com.library.utils.ResourceUtil;
+import com.kong.lib.utils.ResourceUtil;
 
 /**
  * Created by CaoPengfei on 17/5/26.

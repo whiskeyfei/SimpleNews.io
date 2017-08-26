@@ -3,9 +3,9 @@ package com.kong.app.gank;
 import android.util.Log;
 
 import com.google.gson.reflect.TypeToken;
-import com.library.utils.GsonUtils;
-import com.library.utils.OkHttpUtils;
-import com.library.utils.StringUtils;
+import com.kong.lib.utils.GsonUtils;
+import com.kong.lib.utils.OkHttpUtils;
+import com.kong.lib.utils.StringUtils;
 
 import rx.Observable;
 import rx.Subscriber;

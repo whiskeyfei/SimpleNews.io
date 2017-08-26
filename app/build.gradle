@@ -73,12 +73,17 @@ repositories {
 dependencies {
     //将libs文件夹中所有的jar文件视为依赖包。
     compile fileTree(include: ['*.jar'], dir: 'libs')
-    compile project(':lib.utils')
     compile rootProject.ext.dependencies.design
     compile rootProject.ext.dependencies.cardview
     compile rootProject.ext.dependencies.circleimageview
     compile rootProject.ext.dependencies.sufficientlysecure
     compile rootProject.ext.dependencies.multitype
+    compile rootProject.ext.dependencies.appcompat
+    compile rootProject.ext.dependencies.gson
+    compile rootProject.ext.dependencies.glide
+    compile rootProject.ext.dependencies.okhttp
+    compile rootProject.ext.dependencies.rxandroid
+    compile rootProject.ext.dependencies.eventbus
     compile 'com.afollestad.material-dialogs:core:0.9.1.0'
     compile 'com.afollestad.material-dialogs:commons:0.9.1.0'
 }

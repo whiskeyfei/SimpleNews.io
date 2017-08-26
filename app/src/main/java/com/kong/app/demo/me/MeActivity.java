@@ -9,7 +9,7 @@ import com.kong.R;
 import com.kong.app.demo.about.TextItemViewBinder;
 import com.kong.app.demo.about.TextViewItem;
 import com.kong.app.news.base.ToolBarActivity;
-import com.library.utils.ResourceUtil;
+import com.kong.lib.utils.ResourceUtil;
 
 import java.util.ArrayList;
 import java.util.List;

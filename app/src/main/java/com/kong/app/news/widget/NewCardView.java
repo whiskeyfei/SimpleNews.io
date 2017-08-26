@@ -7,9 +7,9 @@
 //import android.widget.TextView;
 //
 //import com.kong.R;
-//import com.library.AppRun;
-//import com.library.utils.ImageLoaderUtils;
-//import com.library.utils.ResourceUtil;
+//import com.kong.lib.AppRun;
+//import com.kong.lib.utils.ImageLoaderUtils;
+//import com.kong.lib.utils.ResourceUtil;
 //
 ///**
 // * Created by whiskeyfei on 16-2-27.

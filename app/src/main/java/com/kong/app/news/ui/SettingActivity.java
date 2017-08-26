@@ -13,7 +13,7 @@ import com.kong.app.news.base.ToolBarActivity;
 import com.kong.app.news.event.ThemeChangedEvent;
 import com.kong.app.news.fragment.SettingFragment;
 import com.kong.app.news.utils.SettingsUtil;
-import com.library.utils.ResourceUtil;
+import com.kong.lib.utils.ResourceUtil;
 
 import org.greenrobot.eventbus.EventBus;
 

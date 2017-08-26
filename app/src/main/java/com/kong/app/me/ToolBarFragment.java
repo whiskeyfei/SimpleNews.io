@@ -9,7 +9,7 @@ import android.widget.TextView;
 
 import com.kong.R;
 import com.kong.lib.fragment.BaseFragment;
-import com.library.utils.ResourceUtil;
+import com.kong.lib.utils.ResourceUtil;
 
 /**
  * Created by CaoPengfei on 17/7/28.

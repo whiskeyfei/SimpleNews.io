@@ -11,8 +11,8 @@ import android.widget.TextView;
 
 import com.kong.R;
 import com.kong.app.badminton.Players;
-import com.library.AppRun;
-import com.library.utils.ImageLoaderUtils;
+import com.kong.lib.AppRun;
+import com.kong.lib.utils.ImageLoaderUtils;
 
 import me.drakeet.multitype.ItemViewBinder;
 

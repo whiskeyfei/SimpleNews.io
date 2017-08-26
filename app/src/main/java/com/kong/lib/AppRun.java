@@ -1,4 +1,4 @@
-package com.library;
+package com.kong.lib;
 
 import android.content.Context;
 

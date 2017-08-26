@@ -6,7 +6,7 @@ import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
-import com.library.utils.ActivityUtils;
+import com.kong.lib.utils.ActivityUtils;
 
 public class NewsDetailPresenter implements DetailContract.Presenter{
 

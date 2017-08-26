@@ -7,7 +7,7 @@ import android.widget.TextView;
 
 import com.kong.R;
 import com.kong.app.news.base.ToolBarActivity;
-import com.library.utils.ResourceUtil;
+import com.kong.lib.utils.ResourceUtil;
 
 import java.io.IOException;
 

@@ -12,9 +12,9 @@ import com.kong.R;
 import com.kong.app.blog.model.Feed;
 import com.kong.app.news.NewsEntry;
 import com.kong.app.news.beans.NewModel;
-import com.library.AppRun;
-import com.library.utils.ImageLoaderUtils;
-import com.library.utils.StringUtils;
+import com.kong.lib.AppRun;
+import com.kong.lib.utils.ImageLoaderUtils;
+import com.kong.lib.utils.StringUtils;
 
 import me.drakeet.multitype.ItemViewBinder;
 

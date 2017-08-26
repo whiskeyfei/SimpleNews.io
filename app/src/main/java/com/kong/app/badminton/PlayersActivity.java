@@ -11,7 +11,7 @@ import com.kong.app.demo.descover.GridItemViewBinder;
 import com.kong.app.demo.descover.Header;
 import com.kong.app.demo.descover.HeadertemViewBinder;
 import com.kong.app.news.base.ToolBarActivity;
-import com.library.utils.ListUtils;
+import com.kong.lib.utils.ListUtils;
 
 import java.util.ArrayList;
 import java.util.List;

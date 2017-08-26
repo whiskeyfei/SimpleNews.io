@@ -4,7 +4,7 @@ import android.os.Bundle;
 
 import com.kong.R;
 import com.kong.app.news.utils.SettingsUtil;
-import com.library.BaseActivity;
+import com.kong.lib.BaseActivity;
 
 /**
  * Created by CaoPengfei on 17/6/17.

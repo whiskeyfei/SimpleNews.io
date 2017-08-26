@@ -24,15 +24,17 @@ import org.greenrobot.eventbus.ThreadMode;
 import java.util.ArrayList;
 import java.util.List;
 
-public abstract class NewsBaseFragment extends BaseFragment {
+public abstract class ListBaseFragment extends BaseFragment {
 
-    private static final String TAG = "NewsBaseFragment";
+    private static final String TAG = "ListBaseFragment";
 
     protected TabLayout mTablayout;
     protected ViewPager mViewPager;
     protected ViewStub mViewStub;
-    protected Handler mHandler = new Handler(Looper.myLooper());
+    private View mProgressView;
+    private View mErrorView;
     protected View mRoot;
+    protected Handler mHandler = new Handler(Looper.myLooper());
     protected final List<IRVPagerView> mIRVPagerViews = new ArrayList<>();
 
     public abstract void onCreateView();
@@ -90,8 +92,6 @@ public abstract class NewsBaseFragment extends BaseFragment {
         mViewPager.setVisibility(View.VISIBLE);
     }
 
-    private View mProgressView;
-
     private View getProgressView() {
         if (mProgressView == null) {
             ViewStub stub = (ViewStub) mViewStub.inflate().findViewById(R.id.vs_progress_id);
@@ -100,8 +100,6 @@ public abstract class NewsBaseFragment extends BaseFragment {
         }
         return mProgressView;
     }
-
-    private View mErrorView;
 
     private View getErrorView() {
         if (mErrorView == null) {

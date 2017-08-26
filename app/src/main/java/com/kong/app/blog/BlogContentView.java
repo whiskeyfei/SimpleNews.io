@@ -17,8 +17,8 @@ import com.kong.app.blog.tool.OnRVScollListener;
 import com.kong.app.demo.about.TextItemViewBinder;
 import com.kong.app.demo.about.TextViewItem;
 import com.kong.app.news.adapter.IRVPagerView;
-import com.library.utils.ListUtils;
-import com.library.utils.ResourceUtil;
+import com.kong.lib.utils.ListUtils;
+import com.kong.lib.utils.ResourceUtil;
 
 import java.util.ArrayList;
 import java.util.List;

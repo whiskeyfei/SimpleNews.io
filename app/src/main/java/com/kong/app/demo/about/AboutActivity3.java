@@ -6,7 +6,7 @@ import android.support.v7.widget.RecyclerView;
 
 import com.kong.R;
 import com.kong.app.news.base.ToolBarActivity;
-import com.library.utils.ResourceUtil;
+import com.kong.lib.utils.ResourceUtil;
 
 import java.util.ArrayList;
 import java.util.List;

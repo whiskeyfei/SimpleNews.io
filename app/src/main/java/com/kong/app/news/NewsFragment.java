@@ -10,12 +10,12 @@ import com.kong.app.news.beans.TabCategory;
 import com.kong.app.news.commons.ApiConstants;
 import com.kong.app.news.list.NewsContentView;
 import com.kong.home.tab.event.SelectRepeatEvent;
-import com.library.utils.ResourceUtil;
+import com.kong.lib.utils.ResourceUtil;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class NewsFragment extends NewsBaseFragment {
+public class NewsFragment extends ListBaseFragment {
 
     private static final String TAG = "NewsFragment";
 

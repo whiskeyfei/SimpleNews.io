@@ -1,10 +1,10 @@
-package com.library.utils;
+package com.kong.lib.utils;
 
 import android.content.Context;
 import android.content.res.Resources;
 import android.graphics.drawable.Drawable;
 
-import com.library.AppRun;
+import com.kong.lib.AppRun;
 
 import java.io.BufferedReader;
 import java.io.IOException;

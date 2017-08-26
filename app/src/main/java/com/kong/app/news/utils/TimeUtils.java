@@ -1,8 +1,8 @@
 package com.kong.app.news.utils;
 
 import com.kong.R;
-import com.library.utils.ResourceUtil;
-import com.library.utils.StringUtils;
+import com.kong.lib.utils.ResourceUtil;
+import com.kong.lib.utils.StringUtils;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;

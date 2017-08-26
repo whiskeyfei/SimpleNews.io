@@ -3,7 +3,7 @@ package com.kong;
 
 import android.app.Application;
 
-import com.library.AppRun;
+import com.kong.lib.AppRun;
 
 
 public class AppApplication extends Application {

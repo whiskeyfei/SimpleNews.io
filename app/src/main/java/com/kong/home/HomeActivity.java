@@ -12,8 +12,8 @@ import com.kong.home.tab.widget.BottomTabLayout;
 import com.kong.home.tab.widget.TabViewPager;
 import com.kong.lib.utils.DoubleTool;
 import com.kong.lib.utils.SToast;
-import com.library.BaseActivity;
-import com.library.event.AppExitEvent;
+import com.kong.lib.BaseActivity;
+import com.kong.lib.event.AppExitEvent;
 
 import org.greenrobot.eventbus.EventBus;
 
