@@ -1,24 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white">
 
-    <LinearLayout
+    <include layout="@layout/center_toolbar_layout"/>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/me_recycle_view"
+        android:layout_below="@+id/base_toolbar"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
-
-        <include layout="@layout/center_toolbar_layout"/>
-
-        <android.support.v7.widget.RecyclerView
-            android:id="@+id/me_recycle_view"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:overScrollMode="never"
-            android:scrollbars="none"/>
-    </LinearLayout>
+        android:overScrollMode="never"
+        android:scrollbars="none"/>
 
     <ViewStub
         android:id="@+id/stub_error_view"
@@ -26,4 +21,4 @@
         android:layout_height="match_parent"
         android:layout="@layout/error_layout"/>
 
-</FrameLayout>
+</RelativeLayout>

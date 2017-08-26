@@ -5,32 +5,21 @@ import android.support.annotation.Nullable;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 
-import com.kong.R;
 import com.kong.app.blog.model.Feed;
+import com.kong.app.news.NewsBaseFragment;
 import com.kong.app.news.adapter.IRVPagerView;
 import com.kong.app.news.adapter.RVPagerAdapter;
 import com.kong.home.tab.event.SelectRepeatEvent;
-import com.kong.lib.fragment.BaseFragment;
 
-import org.greenrobot.eventbus.EventBus;
-import org.greenrobot.eventbus.Subscribe;
-import org.greenrobot.eventbus.ThreadMode;
-
-import java.util.ArrayList;
 import java.util.List;
 
-public class BlogFragment extends BaseFragment implements BlogContract.View {
+public class BlogFragment extends NewsBaseFragment implements BlogContract.View {
 
     private static final String TAG = "BlogFragment";
 
-    private TabLayout mTablayout;
-    private ViewPager mViewPager;
     private BlogContract.Presenter mPresenter;
-    final List<IRVPagerView> mIRVPagerViews = new ArrayList<>();
 
     public static BlogFragment newInstance() {
         Bundle args = new Bundle();
@@ -42,24 +31,7 @@ public class BlogFragment extends BaseFragment implements BlogContract.View {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        EventBus.getDefault().register(this);
         new BlogPresenter(this);
-    }
-
-    @Override
-    public void onDestroy() {
-        super.onDestroy();
-        EventBus.getDefault().unregister(this);
-    }
-
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_news, null);
-        mTablayout = (TabLayout) view.findViewById(R.id.tab_layout);
-        mTablayout.setVisibility(View.GONE);
-        mViewPager = (ViewPager) view.findViewById(R.id.viewpager);
-        mPresenter.start();
-        return view;
     }
 
     @Override
@@ -67,16 +39,14 @@ public class BlogFragment extends BaseFragment implements BlogContract.View {
         mPresenter = presenter;
     }
 
-    @Subscribe(threadMode = ThreadMode.MAIN)
-    public void onSelectRepeat(SelectRepeatEvent event){
-        if (!(event.type == SelectRepeatEvent.BLOGINDEX)){
-            return;
-        }
-        int selectPos = mTablayout.getSelectedTabPosition();
-        Log.i(TAG, "onSelectRepeat: event :" + event);
-        Log.i(TAG, "onSelectRepeat: selectPos :" + selectPos);
-        IRVPagerView pagerView = mIRVPagerViews.get(selectPos);
-        if (pagerView != null) pagerView.scrollTop();
+    @Override
+    public void onCreateView() {
+        mPresenter.start();
+    }
+
+    @Override
+    public int getCurrentType() {
+        return SelectRepeatEvent.BLOGINDEX;
     }
 
     @Override

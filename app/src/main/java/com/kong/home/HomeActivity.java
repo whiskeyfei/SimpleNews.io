@@ -10,6 +10,7 @@ import com.kong.home.tab.adapter.BottomTabAdapter;
 import com.kong.home.tab.adapter.MyViewPagerAdapter;
 import com.kong.home.tab.widget.BottomTabLayout;
 import com.kong.home.tab.widget.TabViewPager;
+import com.kong.lib.utils.DoubleTool;
 import com.kong.lib.utils.SToast;
 import com.library.BaseActivity;
 import com.library.event.AppExitEvent;
@@ -22,6 +23,7 @@ public class HomeActivity extends BaseActivity {
     private TabViewPager mViewPager;
     private BottomTabLayout mBottomTabLayout;
     private BottomTabAdapter mBottomTabAdapter;
+    private DoubleTool mDoubleTool;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,14 +37,8 @@ public class HomeActivity extends BaseActivity {
         mViewPager.setOffscreenPageLimit(HomeFactory.mTabFragment.size());
         mBottomTabLayout.setAdapter(mBottomTabAdapter);
         mBottomTabLayout.setViewPager(mViewPager);
+        mDoubleTool = new DoubleTool();
     }
-
-//    @Subscribe(threadMode = ThreadMode.MAIN)
-//    public void onThemeChanged(ThemeChangedEvent event) {
-//        this.recreate();
-//    }
-
-    private long firstBackPressedTime = 0;
 
     @Override
     public boolean dispatchKeyEvent(KeyEvent event) {
@@ -51,16 +47,14 @@ public class HomeActivity extends BaseActivity {
         }
         int keyCode = event.getKeyCode();
         if (keyCode == KeyEvent.KEYCODE_BACK || keyCode == KeyEvent.KEYCODE_ESCAPE) {
-            long secondBackPressedTime = System.currentTimeMillis();
-            if (secondBackPressedTime - firstBackPressedTime > 2000) {
-                SToast.makeText(HomeActivity.this,R.string.back_again_exit, Toast.LENGTH_SHORT).show();
-                firstBackPressedTime = secondBackPressedTime;
+            if (mDoubleTool.doubleClickKeyEvent()) {
+                SToast.makeText(HomeActivity.this, R.string.back_again_exit, Toast.LENGTH_SHORT).show();
                 return true;
             } else {
                 EventBus.getDefault().post(new AppExitEvent());
-                return super.dispatchKeyEvent(event);
             }
         }
         return super.dispatchKeyEvent(event);
     }
+
 }
