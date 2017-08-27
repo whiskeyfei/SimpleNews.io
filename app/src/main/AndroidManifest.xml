@@ -46,10 +46,6 @@
             android:name=".app.demo.about.AboutActivity2"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
             android:screenOrientation="portrait"/>
-        <activity
-            android:name=".app.demo.about.AboutActivity3"
-            android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
-            android:screenOrientation="portrait"/>
 
         <activity
             android:name=".app.demo.DemoActivity"

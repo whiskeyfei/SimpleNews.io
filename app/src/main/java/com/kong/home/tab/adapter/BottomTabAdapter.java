@@ -22,7 +22,7 @@ public class BottomTabAdapter extends BaseTabAdapter<TabItemModel> {
     @Override
     public View getView(final int position) {
         final TabItemView itemView = new TabItemView(getContext());
-        final TabItemModel info = mLists.get(position);
+        final TabItemModel info = getItem(position);
         itemView.initialize(info.drawable, info.checkedDrawable, info.text);
         return itemView;
     }

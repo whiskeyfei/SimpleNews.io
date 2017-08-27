@@ -147,15 +147,14 @@ public class NewsContentView extends FrameLayout implements NewsContract.View ,I
         }
         mData.addAll(newsList);
         if(pageIndex == 1) {
-            mAdapter.setNewDate(mData);
+            mAdapter.setLists(mData);
+            mAdapter.notifyDataSetChanged();
         } else {
             if(ListUtils.isEmpty(mData)) {
                 mAdapter.isShowFooter(false);
             }
-            mAdapter.notifyDataSetChanged();
         }
     }
-
 
     @Override
     public void hideProgress() {

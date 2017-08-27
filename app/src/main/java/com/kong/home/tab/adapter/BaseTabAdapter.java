@@ -9,7 +9,7 @@ import java.util.List;
 /**
  * Created by CaoPengfei on 16/4/13.
  */
-public abstract class BaseTabAdapter<T> extends TabAdpater<T> {
+public abstract class BaseTabAdapter<T> implements TabAdpater {
 
     private Context mContext;
     protected List<T> mLists;
@@ -27,11 +27,11 @@ public abstract class BaseTabAdapter<T> extends TabAdpater<T> {
         mLists = list;
     }
 
-    @Override
     public T getItem(int position) {
         return (mLists != null) ? mLists.get(position) : null;
     }
 
+    @Override
     public int getCount() {
         return ListUtils.getCount(mLists);
     }

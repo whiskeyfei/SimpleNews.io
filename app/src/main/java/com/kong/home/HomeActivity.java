@@ -7,7 +7,7 @@ import android.widget.Toast;
 import com.kong.R;
 import com.kong.home.tab.HomeFactory;
 import com.kong.home.tab.adapter.BottomTabAdapter;
-import com.kong.home.tab.adapter.MyViewPagerAdapter;
+import com.kong.home.tab.adapter.TabViewPagerAdapter;
 import com.kong.home.tab.widget.BottomTabLayout;
 import com.kong.home.tab.widget.TabViewPager;
 import com.kong.lib.utils.DoubleTool;
@@ -33,7 +33,7 @@ public class HomeActivity extends BaseActivity {
         mViewPager.setScrollEnabled(false);
         mBottomTabLayout = (BottomTabLayout) findViewById(R.id.home_tablayout);
         mBottomTabAdapter = new BottomTabAdapter(getApplicationContext(), HomeFactory.mTabItems);
-        mViewPager.setAdapter(new MyViewPagerAdapter(getSupportFragmentManager(), HomeFactory.mTabFragment));
+        mViewPager.setAdapter(new TabViewPagerAdapter(getSupportFragmentManager(), HomeFactory.mTabFragment));
         mViewPager.setOffscreenPageLimit(HomeFactory.mTabFragment.size());
         mBottomTabLayout.setAdapter(mBottomTabAdapter);
         mBottomTabLayout.setViewPager(mViewPager);

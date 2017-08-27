@@ -36,7 +36,7 @@ public class GankFragment extends ToolBarFragment {
     private List<Gank> mGankList;
     private RecyclerView mRecyclerView;
     private ViewStub mErrorStup;
-    private GankListAdapter mAdapter;
+    private GankAdapter mGankAdapter;
 
     private TextView mTitle;
 
@@ -61,7 +61,7 @@ public class GankFragment extends ToolBarFragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         mGankList = new ArrayList<>();
-        mAdapter = new GankListAdapter(mGankList);
+        mGankAdapter = new GankAdapter(mGankList);
         parseArguments();
         setRetainInstance(true);
         setHasOptionsMenu(true);
@@ -85,7 +85,7 @@ public class GankFragment extends ToolBarFragment {
 
         LinearLayoutManager layoutManager = new LinearLayoutManager(getActivity());
         mRecyclerView.setLayoutManager(layoutManager);
-        mRecyclerView.setAdapter(mAdapter);
+        mRecyclerView.setAdapter(mGankAdapter);
         loadData();
         time = 0;
         return view;
@@ -119,8 +119,8 @@ public class GankFragment extends ToolBarFragment {
 //                            showError();
                         }else{
                             time = 100;
-                            mAdapter.setGankList(mGankList);
-                            mAdapter.notifyDataSetChanged();
+                            mGankAdapter.setLists(mGankList);
+                            mGankAdapter.notifyDataSetChanged();
                         }
                     }
                 });

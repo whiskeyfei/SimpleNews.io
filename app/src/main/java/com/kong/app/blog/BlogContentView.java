@@ -38,6 +38,7 @@ public class BlogContentView extends FrameLayout implements OnRVScollListener.On
     private MultiTypeAdapter mAdapter;
     private List<Object> mObjectList = new ArrayList<Object>();
     private LinearLayoutManager mLayoutManager;
+
     public BlogContentView(Context context) {
         this(context, null);
     }

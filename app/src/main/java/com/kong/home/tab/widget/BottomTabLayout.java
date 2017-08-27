@@ -175,9 +175,7 @@ public class BottomTabLayout extends LinearLayout {
 
         @Override
         public void onSelected(int index, int old) {
-            if (mViewPager != null) {
-                mViewPager.setCurrentItem(index, false);
-            }
+            if (mViewPager != null) mViewPager.setCurrentItem(index, false);
         }
 
         @Override

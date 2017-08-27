@@ -6,7 +6,6 @@ import android.support.v7.widget.RecyclerView;
 import com.kong.R;
 import com.kong.app.badminton.PlayersActivity;
 import com.kong.app.demo.about.AboutActivity2;
-import com.kong.app.demo.about.AboutActivity3;
 import com.kong.app.demo.me.MeActivity;
 import com.kong.app.demo.note.NoteActivity;
 import com.kong.app.demo.person.PersonActivity;
@@ -60,12 +59,6 @@ public class DemoActivity extends ToolBarActivity {
         model.id = R.raw.demo;
         model1.type = ItemModel.TYPE_NOTE;
         mNoteModels.add(model1);
-
-        ItemModel model2 = new ItemModel();
-        model2.cls = AboutActivity3.class;
-        model2.name = "About3Demo";
-        model2.type = ItemModel.TYPE_OTHERCLASS;
-        mNoteModels.add(model2);
 
         ItemModel model3 = new ItemModel();
         model3.cls = PlayersActivity.class;

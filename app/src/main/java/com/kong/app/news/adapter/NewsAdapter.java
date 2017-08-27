@@ -11,27 +11,19 @@ import android.widget.TextView;
 import com.kong.R;
 import com.kong.app.news.beans.NewModel;
 import com.kong.app.news.utils.TimeUtils;
+import com.kong.lib.adapter.BaseAdapter;
 import com.kong.lib.utils.ImageLoaderUtils;
 
-import java.util.List;
-
-public class NewsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
+public class NewsAdapter extends BaseAdapter<NewModel> {
     private static final int TYPE_ITEM = 0;
     private static final int TYPE_FOOTER = 1;
 
-    private List<NewModel> mNewModels;
     private boolean mShowFooter = true;
-    private Context mContext;
 
     private OnItemClickListener mOnItemClickListener;
 
     public NewsAdapter(Context context) {
-        this.mContext = context;
-    }
-
-    public void setNewDate(List<NewModel> data) {
-        this.mNewModels = data;
-        this.notifyDataSetChanged();
+        super(context);
     }
 
     @Override
@@ -59,7 +51,7 @@ public class NewsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
         if (holder instanceof ItemViewHolder) {
-            NewModel news = mNewModels.get(position);
+            NewModel news = getItem(position);
             if (news == null) {
                 return;
             }
@@ -79,14 +71,10 @@ public class NewsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     @Override
     public int getItemCount() {
         int begin = mShowFooter ? 1 : 0;
-        if (mNewModels == null) {
+        if (getLists() == null) {
             return begin;
         }
-        return mNewModels.size() + begin;
-    }
-
-    public NewModel getItem(int position) {
-        return mNewModels == null ? null : mNewModels.get(position);
+        return super.getItemCount() + begin;
     }
 
     public void isShowFooter(boolean showFooter) {

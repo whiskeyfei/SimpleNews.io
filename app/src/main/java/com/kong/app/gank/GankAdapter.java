@@ -8,7 +8,7 @@ import android.widget.TextView;
 
 import com.kong.R;
 import com.kong.app.news.NewsEntry;
-import com.kong.lib.utils.ListUtils;
+import com.kong.lib.adapter.BaseAdapter;
 
 import java.util.List;
 
@@ -16,16 +16,10 @@ import java.util.List;
  * Created by CaoPengfei on 17/8/2.
  */
 
-public class GankListAdapter extends RecyclerView.Adapter<GankListAdapter.GankViewHolder> {
+public class GankAdapter extends BaseAdapter<Gank> {
 
-    private List<Gank> mGankList;
-
-    public GankListAdapter(List<Gank> gankList) {
-        mGankList = gankList;
-    }
-
-    public void setGankList(List<Gank> gankList) {
-        mGankList = gankList;
+    public GankAdapter(List<Gank> lists) {
+        super(lists);
     }
 
     @Override
@@ -35,13 +29,17 @@ public class GankListAdapter extends RecyclerView.Adapter<GankListAdapter.GankVi
     }
 
     @Override
+    public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
+        onBindViewHolder((GankViewHolder)holder,position);
+    }
+
     public void onBindViewHolder(GankViewHolder holder, int position) {
-        Gank gank = mGankList.get(position);
+        Gank gank = getItem(position);
         if (position == 0) {
             showCategory(holder);
         } else {
             int before = position - 1;
-            Gank gankNext = mGankList.get(before);
+            Gank gankNext = getItem(before);
             if (gankNext.type.equals(gank.type)) {
                 hideCategory(holder);
             } else {
@@ -66,11 +64,6 @@ public class GankListAdapter extends RecyclerView.Adapter<GankListAdapter.GankVi
         return view.getVisibility() == View.VISIBLE;
     }
 
-    @Override
-    public int getItemCount() {
-        return ListUtils.getCount(mGankList);
-    }
-
     public class GankViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         public TextView mCategory;
         public TextView mTitle;
@@ -84,7 +77,7 @@ public class GankListAdapter extends RecyclerView.Adapter<GankListAdapter.GankVi
 
         @Override
         public void onClick(View v) {
-            Gank gank = mGankList.get(getLayoutPosition());
+            Gank gank = getItem(getLayoutPosition());
             if (gank != null) {
                 NewsEntry.get().startBrowser(v.getContext(), gank.url, gank.desc);
             }

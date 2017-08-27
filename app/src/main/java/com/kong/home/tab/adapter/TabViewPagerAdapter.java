@@ -9,11 +9,11 @@ import com.kong.lib.fragment.BaseFragment;
 
 import java.util.List;
 
-public class MyViewPagerAdapter extends FragmentPagerAdapter {
+public class TabViewPagerAdapter extends FragmentPagerAdapter {
 
     private List<BaseFragment> mTabFragment;
 
-    public MyViewPagerAdapter(FragmentManager fm, List<BaseFragment> fragments) {
+    public TabViewPagerAdapter(FragmentManager fm, List<BaseFragment> fragments) {
         super(fm);
         mTabFragment = fragments;
     }
