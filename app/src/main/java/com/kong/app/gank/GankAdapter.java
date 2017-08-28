@@ -10,20 +10,14 @@ import com.kong.R;
 import com.kong.app.news.NewsEntry;
 import com.kong.lib.adapter.BaseAdapter;
 
-import java.util.List;
-
 /**
  * Created by CaoPengfei on 17/8/2.
  */
 
-public class GankAdapter extends BaseAdapter<Gank> {
-
-    public GankAdapter(List<Gank> lists) {
-        super(lists);
-    }
+class GankAdapter extends BaseAdapter<Gank> {
 
     @Override
-    public GankViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_gank, parent, false);
         return new GankViewHolder(v);
     }

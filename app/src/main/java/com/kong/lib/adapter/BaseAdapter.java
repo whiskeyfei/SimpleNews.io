@@ -25,10 +25,6 @@ public abstract class BaseAdapter<T> extends RecyclerView.Adapter<RecyclerView.V
         mContext = context;
     }
 
-    public BaseAdapter(List<T> lists) {
-        mLists = lists;
-    }
-
     public BaseAdapter(Context context, List<T> lists) {
         this(context);
         mLists = lists;

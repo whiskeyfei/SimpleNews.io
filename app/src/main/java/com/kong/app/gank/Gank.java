@@ -6,7 +6,7 @@ import java.util.List;
  * Created by CaoPengfei on 17/8/2.
  */
 
-public class Gank {
+class Gank {
 
     public String _id;
     public String createdAt;

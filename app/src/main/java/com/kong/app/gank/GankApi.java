@@ -14,7 +14,7 @@ import rx.Subscriber;
  * Created by CaoPengfei on 17/8/2.
  */
 
-public class GankApi implements IGankApi {
+class GankApi implements IGankApi {
 
     private static final String TAG = "GankApi";
 
