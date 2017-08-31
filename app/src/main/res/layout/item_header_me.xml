@@ -9,7 +9,7 @@
         android:layout_height="80dp"
         android:layout_centerVertical="true"
         android:scaleType="centerCrop"
-        android:src="@drawable/face"/>
+        android:src="@drawable/icon"/>
 
     <TextView
         android:id="@+id/avatar_name"
@@ -44,6 +44,6 @@
         android:layout_alignParentRight="true"
         android:layout_centerVertical="true"
         android:scaleType="centerCrop"
-        android:src="@drawable/face"/>
+        android:src="@drawable/icon"/>
 
 </RelativeLayout>

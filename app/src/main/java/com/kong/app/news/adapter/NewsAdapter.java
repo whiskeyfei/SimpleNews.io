@@ -1,8 +1,8 @@
 package com.kong.app.news.adapter;
 
 import android.content.Context;
+import android.support.annotation.LayoutRes;
 import android.support.v7.widget.RecyclerView;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
@@ -12,6 +12,7 @@ import com.kong.R;
 import com.kong.app.news.beans.NewModel;
 import com.kong.app.news.utils.TimeUtils;
 import com.kong.lib.adapter.BaseAdapter;
+import com.kong.lib.adapter.BaseViewHolder;
 import com.kong.lib.utils.ImageLoaderUtils;
 
 public class NewsAdapter extends BaseAdapter<NewModel> {
@@ -36,15 +37,10 @@ public class NewsAdapter extends BaseAdapter<NewModel> {
 
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view;
         if (viewType == TYPE_ITEM) {
-            view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_news, null);
-            return new ItemViewHolder(view);
+            return new ItemViewHolder(parent, R.layout.item_news);
         } else {
-            view = LayoutInflater.from(parent.getContext()).inflate(R.layout.footer_loading_view, null);
-            view.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,
-                    ViewGroup.LayoutParams.WRAP_CONTENT));
-            return new FooterViewHolder(view);
+            return new FooterViewHolder(parent, R.layout.footer_loading_view);
         }
     }
 
@@ -55,9 +51,7 @@ public class NewsAdapter extends BaseAdapter<NewModel> {
             if (news == null) {
                 return;
             }
-            ((ItemViewHolder) holder).mTitle.setText(news.title);
-            ((ItemViewHolder) holder).mDesc.setText(new StringBuilder(TimeUtils.getGapTime(news.time)).append(" ").append(news.digest).toString());
-            ImageLoaderUtils.display(mContext, ((ItemViewHolder) holder).mImageView, news.imageUrl, R.drawable.ic_image_loading, R.drawable.ic_image_loadfail);
+            ((ItemViewHolder) holder).setData(news);
         }
     }
 
@@ -89,24 +83,33 @@ public class NewsAdapter extends BaseAdapter<NewModel> {
         this.mOnItemClickListener = onItemClickListener;
     }
 
-    public class FooterViewHolder extends RecyclerView.ViewHolder {
+    public class FooterViewHolder extends BaseViewHolder {
 
-        public FooterViewHolder(View view) {
-            super(view);
+        public FooterViewHolder(ViewGroup parent, @LayoutRes int res) {
+            super(parent, res);
+            itemView.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,
+                    ViewGroup.LayoutParams.WRAP_CONTENT));
         }
-
     }
 
-    public class ItemViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+    public class ItemViewHolder extends BaseViewHolder<NewModel> implements View.OnClickListener {
+        
         public ImageView mImageView;
         public TextView mTitle, mDesc;
 
-        public ItemViewHolder(View v) {
-            super(v);
-            mImageView = (ImageView) v.findViewById(R.id.ivNews);
-            mTitle = (TextView) v.findViewById(R.id.tvTitle);
-            mDesc = (TextView) v.findViewById(R.id.tvDesc);
-            v.setOnClickListener(this);
+        public ItemViewHolder(ViewGroup parent, @LayoutRes int res) {
+            super(parent, res);
+            mImageView = findViewById(R.id.ivNews);
+            mTitle = findViewById(R.id.tvTitle);
+            mDesc = findViewById(R.id.tvDesc);
+            itemView.setOnClickListener(this);
+        }
+
+        @Override
+        public void setData(NewModel newModel) {
+            mTitle.setText(newModel.title);
+            mDesc.setText(new StringBuilder(TimeUtils.getGapTime(newModel.time)).append(" ").append(newModel.digest).toString());
+            ImageLoaderUtils.display(mContext, mImageView, newModel.imageUrl, R.drawable.ic_image_loading, R.drawable.ic_image_loadfail);
         }
 
         @Override

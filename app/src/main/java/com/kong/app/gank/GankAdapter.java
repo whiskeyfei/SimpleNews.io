@@ -77,4 +77,5 @@ class GankAdapter extends BaseAdapter<Gank> {
             }
         }
     }
+
 }

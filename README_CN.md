@@ -17,10 +17,10 @@
 
 ### 2017.5.26
 
-[x] 使用 googlesamples MVP + Rxjava 结构实现
-[x] 清除无用代码及无用的依赖库，合并一些基础工具类
-[x] 为了之后的 Android 组件化做了结构调整 2017.5.26
-[x] 添加 eventbus 使用
+- [x] 使用 googlesamples MVP + Rxjava 结构实现
+- [x] 清除无用代码及无用的依赖库，合并一些基础工具类
+- [x] 为了之后的 Android 组件化做了结构调整 2017.5.26
+- [x] 添加 eventbus 使用
 
 ### 效果图
 

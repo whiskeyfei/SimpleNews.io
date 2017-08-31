@@ -13,7 +13,7 @@ import com.kong.app.news.NewsEntry;
 
 public class StartActivity extends Activity {
 
-    private final Handler mHandler = new Handler(Looper.myLooper()){
+    private final Handler mHandler = new Handler(Looper.myLooper()) {
 
         @Override
         public void handleMessage(Message msg) {
@@ -29,10 +29,13 @@ public class StartActivity extends Activity {
         setContentView(R.layout.activity_start);
     }
 
+    /**
+     * 注意此处是在onResume中做跳转，而不是在onCreate
+     */
     @Override
     protected void onResume() {
         super.onResume();
-        mHandler.sendEmptyMessageDelayed(0,1000);
+        mHandler.sendEmptyMessageDelayed(0, 1000);
     }
 
     @Override

@@ -1,7 +1,7 @@
 package com.kong.app.blog;
 
+import android.support.annotation.LayoutRes;
 import android.support.annotation.NonNull;
-import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,6 +13,7 @@ import com.kong.app.blog.model.Feed;
 import com.kong.app.news.NewsEntry;
 import com.kong.app.news.beans.NewModel;
 import com.kong.lib.AppRun;
+import com.kong.lib.adapter.BaseViewHolder;
 import com.kong.lib.utils.ImageLoaderUtils;
 import com.kong.lib.utils.StringUtils;
 
@@ -28,7 +29,7 @@ public class BlogItemViewBinder extends ItemViewBinder<Feed.PostsBean.ItemsBean,
 
     @Override
     protected ViewHolder onCreateViewHolder(@NonNull LayoutInflater inflater, @NonNull ViewGroup parent) {
-        return new ViewHolder(inflater.inflate(R.layout.item_blog, parent, false));
+        return new ViewHolder(parent,R.layout.item_blog);
     }
 
     @Override
@@ -47,22 +48,32 @@ public class BlogItemViewBinder extends ItemViewBinder<Feed.PostsBean.ItemsBean,
         return true;
     }
 
-    static class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+    static class ViewHolder extends BaseViewHolder<Feed.PostsBean.ItemsBean> implements View.OnClickListener {
         private TextView name;
         private TextView title;
         private TextView info;
         private ImageView icon;
         private Feed.PostsBean.ItemsBean mItemModel;
 
-        public ViewHolder(View v) {
-            super(v);
-            icon = (ImageView) v.findViewById(R.id.item_blog_icon);
-            title = (TextView) v.findViewById(R.id.item_blog_title_id);
-            name = (TextView) v.findViewById(R.id.item_blog_name_id);
-            info = (TextView) v.findViewById(R.id.item_blog_info_id);
-            v.setOnClickListener(this);
+//        public ViewHolder(View v) {
+//            super(v);
+//            icon = (ImageView) v.findViewById(R.id.item_blog_icon);
+//            title = (TextView) v.findViewById(R.id.item_blog_title_id);
+//            name = (TextView) v.findViewById(R.id.item_blog_name_id);
+//            info = (TextView) v.findViewById(R.id.item_blog_info_id);
+//            v.setOnClickListener(this);
+//        }
+
+        public ViewHolder(ViewGroup parent, @LayoutRes int res) {
+            super(parent, res);
+            icon = findViewById(R.id.item_blog_icon);
+            title = findViewById(R.id.item_blog_title_id);
+            name = findViewById(R.id.item_blog_name_id);
+            info = findViewById(R.id.item_blog_info_id);
+            setOnClickListener(this);
         }
 
+        @Override
         public void setData(Feed.PostsBean.ItemsBean itemModel) {
             mItemModel = itemModel;
             if (itemModel == null){

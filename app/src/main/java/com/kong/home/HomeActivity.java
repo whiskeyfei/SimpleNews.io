@@ -47,7 +47,7 @@ public class HomeActivity extends BaseActivity {
         }
         int keyCode = event.getKeyCode();
         if (keyCode == KeyEvent.KEYCODE_BACK || keyCode == KeyEvent.KEYCODE_ESCAPE) {
-            if (mDoubleTool.doubleClickKeyEvent()) {
+            if (getDoubleTool().doubleClickKeyEvent()) {
                 SToast.makeText(HomeActivity.this, R.string.back_again_exit, Toast.LENGTH_SHORT).show();
                 return true;
             } else {
@@ -57,4 +57,17 @@ public class HomeActivity extends BaseActivity {
         return super.dispatchKeyEvent(event);
     }
 
+    private DoubleTool getDoubleTool() {
+        if (mDoubleTool == null) {
+            mDoubleTool = new DoubleTool();
+        }
+        return mDoubleTool;
+    }
+
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        mDoubleTool = null;
+    }
 }
