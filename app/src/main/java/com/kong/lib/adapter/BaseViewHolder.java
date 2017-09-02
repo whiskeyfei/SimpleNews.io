@@ -50,10 +50,8 @@ public abstract class BaseViewHolder<M> extends RecyclerView.ViewHolder {
 
     /**
      * 回收
-     *
-     * @param m
      */
-    public void onViewRecycled(M m) {
+    public void onViewRecycled() {
 
     }
 }

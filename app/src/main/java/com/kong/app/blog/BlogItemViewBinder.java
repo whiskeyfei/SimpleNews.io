@@ -2,6 +2,7 @@ package com.kong.app.blog;
 
 import android.support.annotation.LayoutRes;
 import android.support.annotation.NonNull;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -39,13 +40,7 @@ public class BlogItemViewBinder extends ItemViewBinder<Feed.PostsBean.ItemsBean,
 
     @Override
     protected void onViewRecycled(@NonNull ViewHolder holder) {
-//        Log.i(TAG,"onViewRecycled"+holder.itemView);
-    }
-
-    @Override
-    protected boolean onFailedToRecycleView(@NonNull ViewHolder holder) {
-//        Log.i(TAG,"onFailedToRecycleView"+holder.itemView);
-        return true;
+        holder.onViewRecycled();
     }
 
     static class ViewHolder extends BaseViewHolder<Feed.PostsBean.ItemsBean> implements View.OnClickListener {
@@ -54,15 +49,6 @@ public class BlogItemViewBinder extends ItemViewBinder<Feed.PostsBean.ItemsBean,
         private TextView info;
         private ImageView icon;
         private Feed.PostsBean.ItemsBean mItemModel;
-
-//        public ViewHolder(View v) {
-//            super(v);
-//            icon = (ImageView) v.findViewById(R.id.item_blog_icon);
-//            title = (TextView) v.findViewById(R.id.item_blog_title_id);
-//            name = (TextView) v.findViewById(R.id.item_blog_name_id);
-//            info = (TextView) v.findViewById(R.id.item_blog_info_id);
-//            v.setOnClickListener(this);
-//        }
 
         public ViewHolder(ViewGroup parent, @LayoutRes int res) {
             super(parent, res);
@@ -105,5 +91,9 @@ public class BlogItemViewBinder extends ItemViewBinder<Feed.PostsBean.ItemsBean,
             NewsEntry.get().startBrowser(v.getContext(),mItemModel.getUrl(),mItemModel.getTitle());
         }
 
+        @Override
+        public void onViewRecycled() {
+            Log.i(TAG,"onViewRecycled");
+        }
     }
 }

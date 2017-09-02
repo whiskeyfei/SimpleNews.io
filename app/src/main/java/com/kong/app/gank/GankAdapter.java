@@ -1,7 +1,7 @@
 package com.kong.app.gank;
 
+import android.support.annotation.LayoutRes;
 import android.support.v7.widget.RecyclerView;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
@@ -9,6 +9,7 @@ import android.widget.TextView;
 import com.kong.R;
 import com.kong.app.news.NewsEntry;
 import com.kong.lib.adapter.BaseAdapter;
+import com.kong.lib.adapter.BaseViewHolder;
 
 /**
  * Created by CaoPengfei on 17/8/2.
@@ -18,8 +19,7 @@ class GankAdapter extends BaseAdapter<Gank> {
 
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_gank, parent, false);
-        return new GankViewHolder(v);
+        return new GankViewHolder(parent,R.layout.item_gank);
     }
 
     @Override
@@ -40,8 +40,8 @@ class GankAdapter extends BaseAdapter<Gank> {
                 showCategory(holder);
             }
         }
-        holder.mCategory.setText(gank.type);
-        holder.mTitle.setText(gank.desc);
+        holder.setData(gank);
+
     }
 
     private void showCategory(GankViewHolder holder) {
@@ -58,15 +58,35 @@ class GankAdapter extends BaseAdapter<Gank> {
         return view.getVisibility() == View.VISIBLE;
     }
 
-    public class GankViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+    @Override
+    public void onViewRecycled(RecyclerView.ViewHolder holder) {
+        if (holder instanceof  GankViewHolder){
+            ((GankViewHolder) holder).onViewRecycled();
+        }
+    }
+
+    public class GankViewHolder extends BaseViewHolder<Gank> implements View.OnClickListener {
+
         public TextView mCategory;
         public TextView mTitle;
 
-        public GankViewHolder(View itemView) {
-            super(itemView);
-            mCategory = (TextView) itemView.findViewById(R.id.gank_category);
-            mTitle = (TextView) itemView.findViewById(R.id.gank_title);
-            itemView.setOnClickListener(this);
+
+        public GankViewHolder(ViewGroup parent, @LayoutRes int res) {
+            super(parent, res);
+            mCategory = findViewById(R.id.gank_category);
+            mTitle = findViewById(R.id.gank_title);
+            setOnClickListener(this);
+        }
+
+        @Override
+        public void setData(Gank gank) {
+            mCategory.setText(gank.type);
+            mTitle.setText(gank.desc);
+        }
+
+        @Override
+        public void onViewRecycled() {
+
         }
 
         @Override
@@ -76,6 +96,7 @@ class GankAdapter extends BaseAdapter<Gank> {
                 NewsEntry.get().startBrowser(v.getContext(), gank.url, gank.desc);
             }
         }
+
     }
 
 }

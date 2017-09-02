@@ -16,6 +16,7 @@ import com.kong.lib.adapter.BaseViewHolder;
 import com.kong.lib.utils.ImageLoaderUtils;
 
 public class NewsAdapter extends BaseAdapter<NewModel> {
+
     private static final int TYPE_ITEM = 0;
     private static final int TYPE_FOOTER = 1;
 
@@ -48,9 +49,6 @@ public class NewsAdapter extends BaseAdapter<NewModel> {
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
         if (holder instanceof ItemViewHolder) {
             NewModel news = getItem(position);
-            if (news == null) {
-                return;
-            }
             ((ItemViewHolder) holder).setData(news);
         }
     }
@@ -58,7 +56,7 @@ public class NewsAdapter extends BaseAdapter<NewModel> {
     @Override
     public void onViewRecycled(RecyclerView.ViewHolder holder) {
         if (holder instanceof ItemViewHolder) {
-            ImageLoaderUtils.setDefaultImage(mContext, ((ItemViewHolder) holder).mImageView, R.drawable.ic_image_loadfail);
+            ((ItemViewHolder) holder).onViewRecycled();
         }
     }
 
@@ -107,6 +105,9 @@ public class NewsAdapter extends BaseAdapter<NewModel> {
 
         @Override
         public void setData(NewModel newModel) {
+            if (newModel == null) {
+                return;
+            }
             mTitle.setText(newModel.title);
             mDesc.setText(new StringBuilder(TimeUtils.getGapTime(newModel.time)).append(" ").append(newModel.digest).toString());
             ImageLoaderUtils.display(mContext, mImageView, newModel.imageUrl, R.drawable.ic_image_loading, R.drawable.ic_image_loadfail);
@@ -117,6 +118,11 @@ public class NewsAdapter extends BaseAdapter<NewModel> {
             if (mOnItemClickListener != null) {
                 mOnItemClickListener.onItemClick(view, this.getAdapterPosition());
             }
+        }
+
+        @Override
+        public void onViewRecycled() {
+            ImageLoaderUtils.setDefaultImage(getContext(), mImageView, R.drawable.ic_image_loadfail);
         }
     }
 
