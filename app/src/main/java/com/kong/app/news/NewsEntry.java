@@ -3,8 +3,6 @@ package com.kong.app.news;
 import android.content.Context;
 import android.content.Intent;
 
-import com.kong.app.demo.DemoActivity;
-import com.kong.app.demo.note.NoteActivity;
 import com.kong.app.news.beans.NewModel;
 import com.kong.app.news.detail.NewsDetailActivity;
 import com.kong.app.news.ui.AboutActivity;
@@ -42,11 +40,11 @@ public class NewsEntry implements INewsEntry {
         ActivityUtils.startActivity(context,intent);
     }
 
-    @Override
-    public void startDemo(Context context) {
-        Intent intent = new Intent(context, DemoActivity.class);
-        ActivityUtils.startActivity(context,intent);
-    }
+//    @Override
+//    public void startDemo(Context context) {
+//        Intent intent = new Intent(context, DemoActivity.class);
+//        ActivityUtils.startActivity(context,intent);
+//    }
 
     @Override
     public void startSetting(Context context) {
@@ -54,17 +52,16 @@ public class NewsEntry implements INewsEntry {
         ActivityUtils.startActivity(context,intent);
     }
 
-    @Override
-    public void startNote(Context context) {
-        Intent intent = new Intent(context, NoteActivity.class);
-        ActivityUtils.startActivity(context,intent);
-    }
+//    @Override
+//    public void startNote(Context context) {
+//        Intent intent = new Intent(context, NoteActivity.class);
+//        ActivityUtils.startActivity(context,intent);
+//    }
 
-    @Override
-    public void startNote(Context context, Intent intent) {
-        ActivityUtils.startActivity(context,intent);
-    }
-
+//    @Override
+//    public void startNote(Context context, Intent intent) {
+//        ActivityUtils.startActivity(context,intent);
+//    }
 
     @Override
     public void startMain(Context context) {

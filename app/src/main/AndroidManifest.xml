@@ -43,29 +43,12 @@
             android:screenOrientation="portrait"/>
 
         <activity
-            android:name=".app.demo.about.AboutActivity2"
-            android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
-            android:screenOrientation="portrait"/>
-
-        <activity
-            android:name=".app.demo.DemoActivity"
-            android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
-            android:screenOrientation="portrait"/>
-        <activity
             android:name=".app.demo.person.PersonActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
             android:screenOrientation="portrait"/>
-        <activity
-            android:name=".app.demo.me.MeActivity"
-            android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
-            android:screenOrientation="portrait"/>
 
         <activity
-            android:name=".app.demo.note.NoteActivity"
-            android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
-            android:screenOrientation="portrait"/>
-        <activity
-            android:name=".app.badminton.PlayersActivity"
+            android:name=".app.demo.me.MeActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
             android:screenOrientation="portrait"/>
 

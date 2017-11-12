@@ -84,8 +84,6 @@ dependencies {
     compile rootProject.ext.dependencies.okhttp
     compile rootProject.ext.dependencies.rxandroid
     compile rootProject.ext.dependencies.eventbus
-    compile 'com.afollestad.material-dialogs:core:0.9.1.0'
-    compile 'com.afollestad.material-dialogs:commons:0.9.1.0'
 }
 
 static def releaseTime() {

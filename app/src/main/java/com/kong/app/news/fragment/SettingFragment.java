@@ -7,9 +7,7 @@ import android.preference.PreferenceFragment;
 import android.preference.PreferenceManager;
 import android.support.annotation.Nullable;
 
-import com.afollestad.materialdialogs.color.ColorChooserDialog;
 import com.kong.R;
-import com.kong.app.news.ui.SettingActivity;
 import com.kong.app.news.utils.SettingsUtil;
 
 /**
@@ -58,13 +56,13 @@ public class SettingFragment extends PreferenceFragment implements Preference.On
     public boolean onPreferenceClick(Preference preference) {
         if (preference == mCleanCache){
         }else if (preference == mPreferenceTheme){
-            new ColorChooserDialog.Builder((SettingActivity)getActivity(), R.string.theme)
-                    .customColors(R.array.colors, null)
-                    .doneButton(R.string.done)
-                    .cancelButton(R.string.cancel)
-                    .allowUserColorInput(false)
-                    .allowUserColorInputAlpha(false)
-                    .show();
+//            new ColorChooserDialog.Builder((SettingActivity)getActivity(), R.string.theme)
+//                    .customColors(R.array.colors, null)
+//                    .doneButton(R.string.done)
+//                    .cancelButton(R.string.cancel)
+//                    .allowUserColorInput(false)
+//                    .allowUserColorInputAlpha(false)
+//                    .show();
         }
         return true;
     }
