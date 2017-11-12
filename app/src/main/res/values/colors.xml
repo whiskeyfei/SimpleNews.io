@@ -20,18 +20,6 @@
     <color name="pink_yarrow">#C72B6C</color>
     <color name="niagara">#4C829E</color>
 
-    <array name="colors">
-        <item>@color/lapis_blue</item>
-        <item>@color/pale_dogwood</item>
-        <item>@color/greenery</item>
-        <item>@color/primrose_yellow</item>
-        <item>@color/flame</item>
-        <item>@color/island_paradise</item>
-        <item>@color/kale</item>
-        <item>@color/pink_yarrow</item>
-        <item>@color/niagara</item>
-        <item>@color/white</item>
-    </array>
 
     <color name="tab_normal">#707070</color>
     <color name="tab_focus">#2c2c2c</color>

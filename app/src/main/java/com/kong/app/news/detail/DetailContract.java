@@ -1,6 +1,6 @@
 package com.kong.app.news.detail;
 
-import com.kong.lib.SafeWebView;
+import com.kong.lib.widget.SafeWebView;
 import com.kong.lib.mvp.BasePresenter;
 import com.kong.lib.mvp.BaseView;
 

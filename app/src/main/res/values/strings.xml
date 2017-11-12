@@ -30,14 +30,9 @@
     <string name="load_fail">加载数据失败!</string>
     <string name="load_end">已经没有更多的数据了！</string>
 
-    <string name="demo">Demo</string>
     <string name="descover">Descover</string>
-    <string name="note">README</string>
     <string name="settings">设置</string>>
 
-    <string name="theme">主题</string>
-    <string name="done">确定</string>
-    <string name="cancel">取消</string>
     <string name="back_again_exit">再按一次退出</string>
     <string name="today">今天</string>
     <string name="before_day">天前</string>

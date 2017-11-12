@@ -1,4 +1,4 @@
-package com.kong.lib;
+package com.kong.lib.widget;
 
 import android.content.Context;
 import android.os.Build;

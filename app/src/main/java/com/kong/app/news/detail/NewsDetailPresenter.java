@@ -13,7 +13,7 @@ import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
 import com.kong.lib.AppRun;
-import com.kong.lib.SafeWebView;
+import com.kong.lib.widget.SafeWebView;
 import com.kong.lib.utils.ActivityUtils;
 
 public class NewsDetailPresenter implements DetailContract.Presenter {
