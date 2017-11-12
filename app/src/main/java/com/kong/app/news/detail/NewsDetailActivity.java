@@ -9,8 +9,9 @@ import android.widget.Toast;
 
 import com.kong.R;
 import com.kong.app.news.base.ToolBarActivity;
-import com.kong.lib.utils.SToast;
 import com.kong.lib.AppRun;
+import com.kong.lib.SafeWebView;
+import com.kong.lib.utils.SToast;
 
 public class NewsDetailActivity extends ToolBarActivity implements DetailContract.View {
 
@@ -21,7 +22,7 @@ public class NewsDetailActivity extends ToolBarActivity implements DetailContrac
     private String mUrl;
 
     private LinearLayout mLinearLayout;
-    private WebView mWebView;
+    private SafeWebView mWebView;
     private DetailContract.Presenter mNewsDetailPresenter;
 
     @Override
@@ -39,7 +40,7 @@ public class NewsDetailActivity extends ToolBarActivity implements DetailContrac
     private void initView() {
         setTitle(mTitle);
         mLinearLayout = (LinearLayout) findViewById(R.id.detail_webview_root);
-        mWebView = new WebView(AppRun.get().getApplicationContext());
+        mWebView = new SafeWebView(AppRun.get().getApplicationContext());
         mWebView.setScrollBarStyle(WebView.SCROLLBARS_INSIDE_OVERLAY);
         LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT);
         mLinearLayout.addView(mWebView, lp);
@@ -58,16 +59,25 @@ public class NewsDetailActivity extends ToolBarActivity implements DetailContrac
 
     @Override
     protected void onPause() {
-        if (mWebView != null) mWebView.onPause();
+        if (mWebView != null) {
+            mWebView.onPause();
+        }
         super.onPause();
+    }
+
+    @Override
+    protected void onResume() {
+        if (mWebView != null) {
+            mWebView.onResume();
+        }
+        super.onResume();
     }
 
     @Override
     protected void onDestroy() {
         mLinearLayout.removeView(mWebView);
         if (mWebView != null) {
-            mWebView.removeAllViews();
-            mWebView.destroy();
+            mWebView.onDestroy();
         }
         mWebView = null;
         super.onDestroy();

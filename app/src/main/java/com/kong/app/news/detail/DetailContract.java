@@ -1,7 +1,6 @@
 package com.kong.app.news.detail;
 
-import android.webkit.WebView;
-
+import com.kong.lib.SafeWebView;
 import com.kong.lib.mvp.BasePresenter;
 import com.kong.lib.mvp.BaseView;
 
@@ -17,7 +16,7 @@ public interface DetailContract {
     }
 
     interface Presenter extends BasePresenter {
-        void init(WebView webView);
+        void init(SafeWebView webView);
 
         void loadUrl(String newUrl);
     }
