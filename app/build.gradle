@@ -1,6 +1,7 @@
 apply plugin: 'com.android.application'
 
 android {
+    flavorDimensions "default"
     compileSdkVersion rootProject.ext.android.compileSdkVersion //编译的 SDK API 版本
     buildToolsVersion rootProject.ext.android.buildToolsVersion //构建工具版本
 
@@ -36,13 +37,13 @@ android {
             shrinkResources true //是否移除无用资源文件，shrinkResources依赖于minifyEnabled
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
 //            signingConfig signingConfigs.releaseConfig
-
+//            https://stackoverflow.com/questions/44239235/android-gradle-3-0-0-alpha2-plugin-cannot-set-the-value-of-read-only-property
             android.applicationVariants.all { variant ->
-                    variant.outputs.each { output ->
+                    variant.outputs.all { output ->
                         def outputFile = output.outputFile
                         if (outputFile != null && outputFile.name.endsWith('.apk')) {
                             def fileName = "SimpleNews_v${defaultConfig.versionName}_${releaseTime()}_${variant.productFlavors[0].name}.apk"
-                            output.outputFile = new File(outputFile.parent, fileName)
+                            outputFileName = new File(outputFile.parent, fileName)
                         }
                     }
             }
@@ -63,6 +64,7 @@ android {
 //        }
     }
 
+    buildToolsVersion '26.0.2'
 }
 
 repositories {
