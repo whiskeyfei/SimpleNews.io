@@ -5,8 +5,6 @@ package com.kong.app.news.commons;
  */
 public class ApiConstants {
 
-    // 图片
-    public static final String IMAGES_URL = "http://api.laifudao.com/open/tupian.json";
     public static final String BLOGS_URL = "http://doraemonyu.me/feed0.json";
 
     public static final int MAX_PAGE = 10;

@@ -63,8 +63,6 @@ android {
 //            manifestPlaceholders.put("PRODUCT_CHANNEL_VALUE", 'product2')
 //        }
     }
-
-    buildToolsVersion '26.0.2'
 }
 
 repositories {
