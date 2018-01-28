@@ -11,18 +11,20 @@ public class ApiConstants {
 
     public static final int MAX_PAGE = 10;
 
+    private static final String HOST = "http://api.tianapi.com/";
+
     //微信精选
-    public static final String HOST_WEIXIN = "http://api.huceo.com/wxnew/other/?key=d3fdafe27d8188e1a867d3f62f08c24d&num=20";
+    public static final String HOST_WEIXIN = HOST + "wxnew/?key=d3fdafe27d8188e1a867d3f62f08c24d&num=20";
 
     //科技新闻数据
-    public static final String HOST_KEJI = "http://api.huceo.com/keji/other/?key=d3fdafe27d8188e1a867d3f62f08c24d&num=20";
+    public static final String HOST_KEJI = HOST + "startup/?key=d3fdafe27d8188e1a867d3f62f08c24d&num=20";
 
     //娱乐花边数据
-    public static final String HOST_YULE = "http://api.huceo.com/huabian/other/?key=d3fdafe27d8188e1a867d3f62f08c24d&num=20";
+    public static final String HOST_YULE = HOST + "huabian/?key=d3fdafe27d8188e1a867d3f62f08c24d&num=20";
 
     //健康资讯数据
-    public static final String HOST_JIANKANG = "http://api.huceo.com/health/other/?key=d3fdafe27d8188e1a867d3f62f08c24d&num=20";
+    public static final String HOST_JIANKANG = HOST + "health/?key=d3fdafe27d8188e1a867d3f62f08c24d&num=20";
 
     //体育新闻
-    public static final String HOST_SPORTS = "http://api.tianapi.com/tiyu/?key=d3fdafe27d8188e1a867d3f62f08c24d&num=20";
+    public static final String HOST_SPORTS = HOST + "tiyu/?key=d3fdafe27d8188e1a867d3f62f08c24d&num=20";
 }

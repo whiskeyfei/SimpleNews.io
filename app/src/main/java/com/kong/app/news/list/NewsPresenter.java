@@ -37,7 +37,7 @@ public class NewsPresenter implements NewsContract.Presenter {
     }
 
     private void startTask(String url) {
-        Log.i(TAG, "startTask url" + url);
+        Log.i(TAG, "startTask url:" + url);
         mSubscriptions.clear();
         Subscription subscription = getObservable(url).subscribe(getSubscriber());
         mSubscriptions.add(subscription);
