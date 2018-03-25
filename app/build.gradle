@@ -74,7 +74,6 @@ dependencies {
     //将libs文件夹中所有的jar文件视为依赖包。
     compile fileTree(include: ['*.jar'], dir: 'libs')
     compile rootProject.ext.dependencies.design
-    compile rootProject.ext.dependencies.cardview
     compile rootProject.ext.dependencies.circleimageview
     compile rootProject.ext.dependencies.sufficientlysecure
     compile rootProject.ext.dependencies.multitype
