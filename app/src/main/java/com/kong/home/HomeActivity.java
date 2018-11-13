@@ -10,15 +10,16 @@ import com.kong.home.tab.adapter.BottomTabAdapter;
 import com.kong.home.tab.adapter.TabViewPagerAdapter;
 import com.kong.home.tab.widget.BottomTabLayout;
 import com.kong.home.tab.widget.TabViewPager;
-import com.kong.lib.utils.DoubleTool;
-import com.kong.lib.utils.SToast;
 import com.kong.lib.BaseActivity;
 import com.kong.lib.event.AppExitEvent;
+import com.kong.lib.utils.DoubleTool;
+import com.kong.lib.utils.SToast;
 
 import org.greenrobot.eventbus.EventBus;
 
 
 public class HomeActivity extends BaseActivity {
+    private static final String TAG = "HomeActivity";
 
     private TabViewPager mViewPager;
     private BottomTabLayout mBottomTabLayout;
@@ -39,6 +40,7 @@ public class HomeActivity extends BaseActivity {
         mBottomTabLayout.setViewPager(mViewPager);
         mDoubleTool = new DoubleTool();
     }
+
 
     @Override
     public boolean dispatchKeyEvent(KeyEvent event) {

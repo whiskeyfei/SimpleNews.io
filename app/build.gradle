@@ -1,4 +1,4 @@
-apply plugin: 'com.android.application'
+apply plugin: 'com.dd.comgradle'
 
 android {
     flavorDimensions "default"
@@ -13,6 +13,13 @@ android {
         versionName rootProject.ext.android.versionName//版本名称
 
 //        manifestPlaceholders = [PRODUCT_CHANNEL_VALUE: "github"]// 默认
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments = [host: "app"]
+            }
+        }
     }
 
     signingConfigs {
@@ -73,6 +80,7 @@ repositories {
 dependencies {
     //将libs文件夹中所有的jar文件视为依赖包。
     compile fileTree(include: ['*.jar'], dir: 'libs')
+    compile project(':componentservice')
     compile rootProject.ext.dependencies.design
     compile rootProject.ext.dependencies.circleimageview
     compile rootProject.ext.dependencies.sufficientlysecure
@@ -83,6 +91,11 @@ dependencies {
     compile rootProject.ext.dependencies.okhttp
     compile rootProject.ext.dependencies.rxandroid
     compile rootProject.ext.dependencies.eventbus
+}
+
+combuild {
+    applicationName = 'com.kong.AppApplication'
+    isRegisterCompoAuto = true
 }
 
 static def releaseTime() {
