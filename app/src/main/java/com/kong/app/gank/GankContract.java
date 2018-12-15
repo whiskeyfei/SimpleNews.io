@@ -1,7 +1,7 @@
 package com.kong.app.gank;
 
 
-import com.kong.lib.mvp.IModel;
+import com.baselib.mvp.IModel;
 
 import java.util.List;
 

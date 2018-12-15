@@ -14,6 +14,9 @@ import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.Toast;
 
+import com.baselib.mvp.Injection;
+import com.baselib.utlis.ResourceUtil;
+import com.baselib.utlis.SToast;
 import com.kong.R;
 import com.kong.app.news.NewsEntry;
 import com.kong.app.news.adapter.IRVPagerView;
@@ -21,10 +24,7 @@ import com.kong.app.news.adapter.NewsAdapter;
 import com.kong.app.news.adapter.OnItemClickListener;
 import com.kong.app.news.beans.NewModel;
 import com.kong.app.news.beans.TabCategory;
-import com.kong.lib.mvp.Injection;
-import com.kong.lib.utils.SToast;
 import com.kong.lib.utils.ListUtils;
-import com.kong.lib.utils.ResourceUtil;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -2,9 +2,9 @@ package com.kong.app.news.list;
 
 import android.util.Log;
 
+import com.baselib.mvp.ISchedulerProvider;
 import com.kong.app.news.beans.NewModel;
 import com.kong.app.news.beans.NewResultModel;
-import com.kong.lib.mvp.ISchedulerProvider;
 import com.kong.lib.utils.ActivityUtils;
 import com.kong.lib.utils.GsonUtils;
 import com.kong.lib.utils.ListUtils;

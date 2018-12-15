@@ -6,13 +6,13 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 
+import com.baselib.utlis.ResourceUtil;
 import com.kong.R;
 import com.kong.app.demo.about.TextItemViewBinder;
 import com.kong.app.demo.about.TextViewItem;
 import com.kong.app.demo.me.SettingImgTvItem;
 import com.kong.app.demo.me.SettingImgTvItemViewBinder;
 import com.kong.app.news.base.ToolBarActivity;
-import com.kong.lib.utils.ResourceUtil;
 
 import java.util.ArrayList;
 import java.util.List;

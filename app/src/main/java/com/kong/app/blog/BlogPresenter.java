@@ -1,10 +1,10 @@
 package com.kong.app.blog;
 
+import com.baselib.mvp.ISchedulerProvider;
+import com.baselib.mvp.Injection;
 import com.google.gson.reflect.TypeToken;
 import com.kong.app.blog.model.Feed;
 import com.kong.app.news.commons.ApiConstants;
-import com.kong.lib.mvp.ISchedulerProvider;
-import com.kong.lib.mvp.Injection;
 import com.kong.lib.utils.GsonUtils;
 import com.kong.lib.utils.OkHttpUtils;
 import com.kong.lib.utils.StringUtils;

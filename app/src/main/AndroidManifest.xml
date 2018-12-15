@@ -26,8 +26,6 @@
         </activity>
         <activity
             android:name=".home.HomeActivity"/>
-        <activity
-            android:name="com.kong.app.news.detail.NewsDetailActivity"/>
 
         <activity
             android:name=".app.news.ui.AboutActivity"
@@ -35,10 +33,6 @@
             android:screenOrientation="portrait"/>
         <activity
             android:name=".app.news.ui.SettingActivity"
-            android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
-            android:screenOrientation="portrait"/>
-        <activity
-            android:name=".app.news.ui.BrowserActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
             android:screenOrientation="portrait"/>
 

@@ -1,12 +1,12 @@
 package com.kong.home.tab;
 
+import com.baselib.utlis.ResourceUtil;
 import com.kong.R;
 import com.kong.app.blog.BlogFragment;
 import com.kong.app.gank.GankDate;
 import com.kong.app.gank.GankFragment;
 import com.kong.app.news.NewsFragment;
 import com.kong.lib.fragment.BaseFragment;
-import com.kong.lib.utils.ResourceUtil;
 
 import java.util.ArrayList;
 import java.util.List;

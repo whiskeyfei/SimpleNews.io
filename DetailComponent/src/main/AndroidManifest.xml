@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+          package="com.kong.web">
+
+    <application
+        android:allowBackup="true"
+        android:supportsRtl="true">
+
+        <activity
+            android:name="com.kong.web.service.DetailMainActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden|keyboard"
+            android:keepScreenOn="true"
+            android:screenOrientation="portrait">
+        </activity>
+
+        <activity android:name="com.kong.web.app.detail.NewsDetailActivity">
+
+        </activity>
+        <activity android:name="com.kong.web.app.browser.BrowserActivity"/>
+
+    </application>
+
+</manifest>

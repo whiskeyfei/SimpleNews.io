@@ -1,0 +1,4 @@
+<resources>
+    <string name="detail_app_name">Detail</string>
+    <string name="detail_load_fail">加载数据失败!</string>
+</resources>

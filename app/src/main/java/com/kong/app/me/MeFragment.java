@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.baselib.utlis.ResourceUtil;
 import com.kong.R;
 import com.kong.app.demo.about.TextItemViewBinder;
 import com.kong.app.demo.about.TextViewItem;
@@ -17,7 +18,6 @@ import com.kong.app.demo.me.AvatarItemViewBinder;
 import com.kong.app.demo.me.SettingImgTvItem;
 import com.kong.app.demo.me.SettingImgTvItemViewBinder;
 import com.kong.lib.fragment.BaseFragment;
-import com.kong.lib.utils.ResourceUtil;
 
 import java.util.ArrayList;
 import java.util.List;

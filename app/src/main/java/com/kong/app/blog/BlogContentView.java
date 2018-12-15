@@ -11,6 +11,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.FrameLayout;
 
+import com.baselib.utlis.ResourceUtil;
 import com.kong.R;
 import com.kong.app.blog.model.Feed;
 import com.kong.app.blog.tool.OnRVScollListener;
@@ -18,7 +19,6 @@ import com.kong.app.demo.about.TextItemViewBinder;
 import com.kong.app.demo.about.TextViewItem;
 import com.kong.app.news.adapter.IRVPagerView;
 import com.kong.lib.utils.ListUtils;
-import com.kong.lib.utils.ResourceUtil;
 
 import java.util.ArrayList;
 import java.util.List;

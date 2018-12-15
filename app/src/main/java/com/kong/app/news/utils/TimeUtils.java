@@ -1,7 +1,7 @@
 package com.kong.app.news.utils;
 
+import com.baselib.utlis.ResourceUtil;
 import com.kong.R;
-import com.kong.lib.utils.ResourceUtil;
 import com.kong.lib.utils.StringUtils;
 
 import java.text.ParseException;

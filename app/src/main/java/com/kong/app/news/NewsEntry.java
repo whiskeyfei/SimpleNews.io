@@ -4,16 +4,16 @@ import android.content.Context;
 import android.content.Intent;
 
 import com.kong.app.news.beans.NewModel;
-import com.kong.app.news.detail.NewsDetailActivity;
 import com.kong.app.news.ui.AboutActivity;
-import com.kong.app.news.ui.BrowserActivity;
 import com.kong.app.news.ui.SettingActivity;
 import com.kong.home.HomeActivity;
 import com.kong.lib.utils.ActivityUtils;
+import com.luojilab.component.componentlib.router.Router;
+import com.luojilab.componentservice.toast.detail.IDetailService;
 
 /**
  * Created by CaoPengfei on 17/5/26.
- *
+ * <p>
  * News 所有跳转入口
  * 为了方便以后拆分，暂时写成接口形式
  */
@@ -31,13 +31,13 @@ public class NewsEntry implements INewsEntry {
     @Override
     public void startCommon(Context context, Class<?> cls) {
         Intent intent = new Intent(context, cls);
-        ActivityUtils.startActivity(context,intent);
+        ActivityUtils.startActivity(context, intent);
     }
 
     @Override
     public void startAbout(Context context) {
         Intent intent = new Intent(context, AboutActivity.class);
-        ActivityUtils.startActivity(context,intent);
+        ActivityUtils.startActivity(context, intent);
     }
 
 //    @Override
@@ -49,7 +49,7 @@ public class NewsEntry implements INewsEntry {
     @Override
     public void startSetting(Context context) {
         Intent intent = new Intent(context, SettingActivity.class);
-        ActivityUtils.startActivity(context,intent);
+        ActivityUtils.startActivity(context, intent);
     }
 
 //    @Override
@@ -66,29 +66,31 @@ public class NewsEntry implements INewsEntry {
     @Override
     public void startMain(Context context) {
         Intent intent = new Intent(context, HomeActivity.class);
-        ActivityUtils.startActivity(context,intent);
+        ActivityUtils.startActivity(context, intent);
     }
 
     @Override
     public void startBrowser(Context context, String url) {
-        Intent intent = new Intent(context, BrowserActivity.class);
-        intent.putExtra(BrowserActivity.BWO_KEY,url);
-        ActivityUtils.startActivity(context,intent);
+        IDetailService service = (IDetailService) Router.getInstance().getService(IDetailService.class.getSimpleName());
+        if (service != null) {
+            service.startBrowser(context, url);
+        }
     }
 
     @Override
     public void startBrowser(Context context, String url, String title) {
-        Intent intent = new Intent(context, BrowserActivity.class);
-        intent.putExtra(BrowserActivity.BWO_KEY,url);
-        intent.putExtra(BrowserActivity.BWO_TITLE,title);
-        ActivityUtils.startActivity(context,intent);
+        IDetailService service = (IDetailService) Router.getInstance().getService(IDetailService.class.getSimpleName());
+        if (service != null) {
+            service.startBrowser(context, title, url);//TODO
+//            service.startDetailActivity(context, title, url);
+        }
     }
 
     @Override
     public void startDetailActivity(Context context, NewModel news) {
-        Intent intent = new Intent(context, NewsDetailActivity.class);
-        intent.putExtra(NewsDetailActivity.TITLE,news.title);
-        intent.putExtra(NewsDetailActivity.URL,news.newUrl);
-        ActivityUtils.startActivity(context, intent);
+        IDetailService service = (IDetailService) Router.getInstance().getService(IDetailService.class.getSimpleName());
+        if (service != null) {
+            service.startDetailActivity(context, news.title, news.newUrl);
+        }
     }
 }

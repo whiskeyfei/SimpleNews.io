@@ -7,9 +7,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.baselib.utlis.ResourceUtil;
 import com.kong.R;
 import com.kong.lib.fragment.BaseFragment;
-import com.kong.lib.utils.ResourceUtil;
 
 /**
  * Created by CaoPengfei on 17/7/28.

@@ -8,9 +8,9 @@ import android.view.ViewGroup;
 import android.view.ViewStub;
 import android.widget.TextView;
 
+import com.baselib.utlis.ResourceUtil;
 import com.kong.R;
 import com.kong.app.me.ToolBarFragment;
-import com.kong.lib.utils.ResourceUtil;
 
 import java.util.List;
 

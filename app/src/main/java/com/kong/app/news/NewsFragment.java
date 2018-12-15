@@ -3,6 +3,7 @@ package com.kong.app.news;
 import android.os.Bundle;
 import android.support.v4.view.ViewPager;
 
+import com.baselib.utlis.ResourceUtil;
 import com.kong.R;
 import com.kong.app.news.adapter.IRVPagerView;
 import com.kong.app.news.adapter.RVPagerAdapter;
@@ -10,7 +11,7 @@ import com.kong.app.news.beans.TabCategory;
 import com.kong.app.news.commons.ApiConstants;
 import com.kong.app.news.list.NewsContentView;
 import com.kong.home.tab.event.SelectRepeatEvent;
-import com.kong.lib.utils.ResourceUtil;
+
 
 import java.util.ArrayList;
 import java.util.List;

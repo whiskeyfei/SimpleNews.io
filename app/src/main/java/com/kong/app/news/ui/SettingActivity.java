@@ -2,10 +2,10 @@ package com.kong.app.news.ui;
 
 import android.os.Bundle;
 
+import com.baselib.utlis.ResourceUtil;
 import com.kong.R;
 import com.kong.app.news.base.ToolBarActivity;
 import com.kong.app.news.fragment.SettingFragment;
-import com.kong.lib.utils.ResourceUtil;
 
 /**
  * Created by CaoPengfei on 17/6/17.

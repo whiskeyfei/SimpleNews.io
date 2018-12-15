@@ -9,11 +9,11 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.baselib.app.AppRunTime;
 import com.kong.R;
 import com.kong.app.blog.model.Feed;
 import com.kong.app.news.NewsEntry;
 import com.kong.app.news.beans.NewModel;
-import com.kong.lib.AppRun;
 import com.kong.lib.adapter.BaseViewHolder;
 import com.kong.lib.utils.ImageLoaderUtils;
 import com.kong.lib.utils.StringUtils;
@@ -76,7 +76,7 @@ public class BlogItemViewBinder extends ItemViewBinder<Feed.PostsBean.ItemsBean,
             info.setText("Keywords: " + itemModel.getKeywords());
             if (!StringUtils.isEmpty(itemModel.getCover())){
                 icon.setVisibility(View.VISIBLE);
-                ImageLoaderUtils.display(AppRun.get().getApplicationContext(), icon, itemModel.getCover(),R.drawable.ic_image_loading, R.drawable.ic_image_loadfail);
+                ImageLoaderUtils.display(AppRunTime.get().getApplicationContext(), icon, itemModel.getCover(),R.drawable.ic_image_loading, R.drawable.ic_image_loadfail);
             }
         }
 

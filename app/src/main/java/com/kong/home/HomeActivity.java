@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.view.KeyEvent;
 import android.widget.Toast;
 
+import com.baselib.utlis.SToast;
 import com.kong.R;
 import com.kong.home.tab.HomeFactory;
 import com.kong.home.tab.adapter.BottomTabAdapter;
@@ -13,7 +14,6 @@ import com.kong.home.tab.widget.TabViewPager;
 import com.kong.lib.BaseActivity;
 import com.kong.lib.event.AppExitEvent;
 import com.kong.lib.utils.DoubleTool;
-import com.kong.lib.utils.SToast;
 
 import org.greenrobot.eventbus.EventBus;
 

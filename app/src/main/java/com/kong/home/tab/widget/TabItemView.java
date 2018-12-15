@@ -10,8 +10,8 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.baselib.utlis.ResourceUtil;
 import com.kong.R;
-import com.kong.lib.utils.ResourceUtil;
 
 public class TabItemView extends FrameLayout implements IMsgView {
 

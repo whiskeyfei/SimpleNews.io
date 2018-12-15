@@ -4,9 +4,9 @@ import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 
+import com.baselib.utlis.ResourceUtil;
 import com.kong.R;
 import com.kong.lib.BaseActivity;
-import com.kong.lib.utils.ResourceUtil;
 
 /**
  * Created by CaoPengfei on 17/7/17.
