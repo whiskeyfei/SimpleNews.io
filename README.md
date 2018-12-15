@@ -46,7 +46,6 @@ Name | About
 * [gank.io](http://gank.io/)
 
 # License
-Copyright 2015 liuling <lauren.liuling@gmail.com><br/>
 Copyright 2015 whiskeyfei <whiskeyfei@gmail.com><br/>
 
 Licensed under the Apache License, Version 2.0 (the "License");
