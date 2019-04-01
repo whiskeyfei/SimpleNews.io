@@ -12,7 +12,7 @@ import com.luojilab.component.componentlib.router.Router;
 import com.luojilab.componentservice.toast.detail.IDetailService;
 
 /**
- * Created by CaoPengfei on 17/5/26.
+ * Created by wuming on 17/5/26.
  * <p>
  * News 所有跳转入口
  * 为了方便以后拆分，暂时写成接口形式

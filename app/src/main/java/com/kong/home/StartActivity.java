@@ -35,7 +35,7 @@ public class StartActivity extends Activity {
     @Override
     protected void onResume() {
         super.onResume();
-        mHandler.sendEmptyMessageDelayed(0, 1000);
+        mHandler.sendEmptyMessageDelayed(0, 1300);
     }
 
     @Override

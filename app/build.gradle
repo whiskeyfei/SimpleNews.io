@@ -3,7 +3,7 @@ apply plugin: 'com.dd.comgradle'
 android {
     flavorDimensions "default"
     compileSdkVersion rootProject.ext.android.compileSdkVersion //编译的 SDK API 版本
-    buildToolsVersion rootProject.ext.android.buildToolsVersion //构建工具版本
+    //构建工具版本
 
     defaultConfig {
         applicationId rootProject.ext.android.applicationId//配置包名的
@@ -81,16 +81,6 @@ dependencies {
     //将libs文件夹中所有的jar文件视为依赖包。
     compile fileTree(include: ['*.jar'], dir: 'libs')
     compile project(':componentservice')
-    compile rootProject.ext.dependencies.design
-    compile rootProject.ext.dependencies.circleimageview
-    compile rootProject.ext.dependencies.sufficientlysecure
-    compile rootProject.ext.dependencies.multitype
-    compile rootProject.ext.dependencies.appcompat
-    compile rootProject.ext.dependencies.gson
-    compile rootProject.ext.dependencies.glide
-    compile rootProject.ext.dependencies.okhttp
-    compile rootProject.ext.dependencies.rxandroid
-    compile rootProject.ext.dependencies.eventbus
 }
 
 combuild {

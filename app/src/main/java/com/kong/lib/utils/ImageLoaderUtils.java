@@ -12,13 +12,13 @@ public class ImageLoaderUtils {
             throw new IllegalArgumentException("argument error");
         }
         Glide.with(context).load(url).placeholder(placeholder)
-                .error(error).crossFade().into(imageView);
+                .error(error).into(imageView);
     }
 
     public static void setDefaultImage(Context context, ImageView imageView,int def) {
         if(imageView == null) {
             throw new IllegalArgumentException("argument error");
         }
-        Glide.with(context).load(def).crossFade().into(imageView);
+        Glide.with(context).load(def).into(imageView);
     }
 }

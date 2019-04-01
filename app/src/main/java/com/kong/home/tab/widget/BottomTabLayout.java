@@ -22,7 +22,7 @@ import java.util.List;
 
 
 /**
- * Created by CaoPengfei on 16/4/11.
+ * Created by wuming on 16/4/11.
  */
 public class BottomTabLayout extends LinearLayout {
 

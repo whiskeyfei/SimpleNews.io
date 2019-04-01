@@ -10,9 +10,6 @@ android {
         targetSdkVersion 26
         versionCode 1
         versionName "1.0"
-
-        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
-
     }
 
     buildTypes {
@@ -25,12 +22,25 @@ android {
 }
 
 dependencies {
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
-    compile project(":componentlib")
-    implementation 'com.android.support:appcompat-v7:26.1.0'
-    testImplementation 'junit:junit:4.12'
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    compile project(':componentlib')
+    //三方依赖
+    compile rootProject.ext.dependencies.circleimageview
+    compile rootProject.ext.dependencies.sufficientlysecure
+    compile rootProject.ext.dependencies.multitype
+    compile rootProject.ext.dependencies.gson
+    compile rootProject.ext.dependencies.glide
+    compile rootProject.ext.dependencies.okhttp
     compile rootProject.ext.dependencies.rxandroid
     compile rootProject.ext.dependencies.eventbus
-    androidTestImplementation 'com.android.support.test:runner:1.0.2'
-    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+    //Google 依赖
+    compile rootProject.ext.dependencies.design
+    compile rootProject.ext.dependencies.appcompat
+    //Rxjava2 依赖
+    compile rootProject.ext.dependencies.rxjava2
+    compile rootProject.ext.dependencies.rxandroid2
+    //网络依赖
+    compile rootProject.ext.dependencies.retrofit2
+    compile 'com.squareup.retrofit2:adapter-rxjava2:2.5.0'
+    compile 'com.squareup.retrofit2:converter-gson:2.5.0'
 }

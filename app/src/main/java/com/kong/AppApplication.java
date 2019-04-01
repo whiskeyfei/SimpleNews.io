@@ -12,9 +12,8 @@ public class AppApplication extends Application {
 	@Override
 	public void onCreate() {
 		super.onCreate();
-//		AppRun.get().init(getApplicationContext());
 		AppRunTime.get().init(getApplicationContext());
-//		LifecycleImpl.init(this);
+		LifecycleImpl.init(this);
 		Router.registerComponent("com.kong.web.service.DetailApplicationLike");
 	}
 }

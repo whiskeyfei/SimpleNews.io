@@ -6,7 +6,7 @@ import android.os.Bundle;
 import android.util.Log;
 
 /**
- * Created by CaoPengfei on 17/7/21.
+ * Created by wuming on 17/7/21.
  */
 
 public class LifecycleImpl implements Application.ActivityLifecycleCallbacks {
