@@ -12,7 +12,7 @@ import org.greenrobot.eventbus.Subscribe;
 import org.greenrobot.eventbus.ThreadMode;
 
 /**
- * Created by CaoPengfei on 17/5/24.
+ * Created by wuming on 17/5/24.
  */
 
 public class BaseActivity extends AppCompatActivity {
