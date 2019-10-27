@@ -24,7 +24,7 @@ android {
 }
 
 dependencies {
-    compile project(':componentservice')
+    api project(':componentservice')
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
 }

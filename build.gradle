@@ -10,7 +10,7 @@ buildscript {
         google()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:3.0.1'
+        classpath 'com.android.tools.build:gradle:3.3.2'
         //组件化依赖
         classpath 'com.luojilab.ddcomponent:build-gradle:1.1.0'
         // NOTE: Do not place your application dependencies here; they belong
@@ -24,5 +24,6 @@ allprojects {
     repositories {
         jcenter()
         google()
+        maven { url 'https://jitpack.io' }
     }
 }

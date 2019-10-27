@@ -56,6 +56,11 @@
     </declare-styleable>
 
     <string name="tab_home">首页</string>
+    <string name="tab_discover">发现</string>
+    <string name="tab_subject">专题</string>
+    <string name="tab_knowledge">知普</string>
+    <string name="tab_me">我的</string>
+
     <string name="tab_rec">推荐</string>
     <string name="tab_blog">博客</string>
 

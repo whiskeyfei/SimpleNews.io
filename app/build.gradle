@@ -45,15 +45,15 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
 //            signingConfig signingConfigs.releaseConfig
 //            https://stackoverflow.com/questions/44239235/android-gradle-3-0-0-alpha2-plugin-cannot-set-the-value-of-read-only-property
-            android.applicationVariants.all { variant ->
-                    variant.outputs.all { output ->
-                        def outputFile = output.outputFile
-                        if (outputFile != null && outputFile.name.endsWith('.apk')) {
-                            def fileName = "SimpleNews_v${defaultConfig.versionName}_${releaseTime()}_${variant.productFlavors[0].name}.apk"
-                            outputFileName = new File(outputFile.parent, fileName)
-                        }
-                    }
-            }
+//            android.applicationVariants.all { variant ->
+//                    variant.outputs.all { output ->
+//                        def outputFile = output.outputFile
+//                        if (outputFile != null && outputFile.name.endsWith('.apk')) {
+//                            def fileName = "SimpleNews_v${defaultConfig.versionName}_${releaseTime()}_${variant.productFlavors[0].name}.apk"
+//                            outputFileName = new File(outputFile.parent, fileName)
+//                        }
+//                    }
+//            }
 
             //多渠道
             productFlavors.all { flavor ->

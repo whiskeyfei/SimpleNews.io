@@ -12,7 +12,7 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 
 /**
- * Created by whiskeyfei on 16-2-28.
+ * Created by wuming on 16-2-28.
  */
 public class ResourceUtil {
 

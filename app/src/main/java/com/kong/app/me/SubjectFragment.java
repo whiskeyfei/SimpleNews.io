@@ -16,6 +16,7 @@ import com.kong.app.demo.me.AvatarItem;
 import com.kong.app.demo.me.AvatarItemViewBinder;
 import com.kong.app.demo.me.SettingImgTvItem;
 import com.kong.app.demo.me.SettingImgTvItemViewBinder;
+import com.kong.app.search.SearchEntry;
 import com.kong.lib.fragment.BaseFragment;
 
 import java.util.ArrayList;
@@ -27,25 +28,30 @@ import me.drakeet.multitype.MultiTypeAdapter;
  * Created by wuming on 17/7/27.
  */
 
-public class MeFragment extends BaseFragment {
+public class SubjectFragment extends BaseFragment {
 
     private TitleBarLayout mTitleBarLayout;
     private RecyclerView mRecyclerView;
     private MultiTypeAdapter mAdapter;
     private List<Object> list = new ArrayList<>();
 
-    public static MeFragment newInstance() {
+    public static SubjectFragment newInstance() {
         Bundle args = new Bundle();
-        MeFragment fragment = new MeFragment();
+        SubjectFragment fragment = new SubjectFragment();
         fragment.setArguments(args);
         return fragment;
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.activity_me, null);
+        View view = inflater.inflate(R.layout.home_fragment, null);
         mTitleBarLayout = view.findViewById(R.id.me_titlebar_layout);
-        mTitleBarLayout.showTitle("我的");
+        mTitleBarLayout.showSearchView(ResourceUtil.getString(R.string.tab_subject), new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                SearchEntry.startSearchActivity(getActivity());
+            }
+        });
         mRecyclerView = view.findViewById(R.id.me_recycle_view);
         init();
         return view;
